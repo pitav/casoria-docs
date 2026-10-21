@@ -1,0 +1,355 @@
+{
+ "voix": "voice_dur676prxpls",
+ "modele": "gemini-3.8-flash-tts",
+ "duree_totale": 196.16,
+ "segments": [
+  {
+   "id": "p1-1",
+   "plan": 1,
+   "texte": "Par exemple, le soir du trente et un décembre, les comptes d'une entreprise sont arrêtés. Le Compte de Résultat annonce vingt mille euros de bénéfice.",
+   "fichier": "p1-1.mp3",
+   "duree": 10.42,
+   "fidelite": 0.816,
+   "essais": 3,
+   "transcription": "Par exemple, le soir du 31 décembre, les comptes d'une entreprise sont arrêtés. Le compte de résultat annonce 20 000 € de bénéfice.",
+   "debut": 6.0,
+   "fin": 16.42,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.0
+    },
+    {
+     "i": 90,
+     "t": 6.32
+    }
+   ]
+  },
+  {
+   "id": "p1-2",
+   "plan": 1,
+   "texte": "Le Bilan, lui, ne tombe pas juste : cinquante mille euros à l'Actif, trente mille au Passif. L'écart vaut vingt mille euros, exactement le bénéfice. Pourquoi ?",
+   "fichier": "p1-2.mp3",
+   "duree": 13.25,
+   "fidelite": 0.731,
+   "essais": 3,
+   "transcription": "Le bilan lui ne tombe pas juste. 50 000 € à l'actif, 30 000 au passif. L'écart vaut 20 000 €, exactement le bénéfice. Pourquoi ?",
+   "debut": 17.22,
+   "fin": 30.47,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.275
+    },
+    {
+     "i": 36,
+     "t": 3.451
+    },
+    {
+     "i": 93,
+     "t": 8.061
+    },
+    {
+     "i": 149,
+     "t": 12.429
+    }
+   ]
+  },
+  {
+   "id": "p2-1",
+   "plan": 2,
+   "texte": "Une société paie un impôt sur ce qu'elle a gagné dans l'année, l'impôt sur les sociétés. Il se calcule sur le résultat avant impôt, ici vingt mille euros.",
+   "fichier": "p2-1.mp3",
+   "duree": 10.1,
+   "fidelite": 0.935,
+   "essais": 3,
+   "transcription": "Une société paie un impôt sur ce qu'elle a gagné dans l'année, l'impôt sur les sociétés. Il se calcule sur le résultat avant impôt, ici 20 000 euros.",
+   "debut": 31.87,
+   "fin": 41.97,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.305
+    },
+    {
+     "i": 89,
+     "t": 5.266
+    }
+   ]
+  },
+  {
+   "id": "p2-2",
+   "plan": 2,
+   "texte": "Jusqu'à quarante-deux mille cinq cents euros de bénéfice, le taux est de quinze pour cent. Vingt mille euros à quinze pour cent font trois mille euros.",
+   "fichier": "p2-2.mp3",
+   "duree": 8.74,
+   "fidelite": 0.435,
+   "essais": 3,
+   "transcription": "Jusqu'à 42 500 € de bénéfice, le taux est de 15 %. 20 000 € à 15 % font 3 000 €.",
+   "debut": 42.77,
+   "fin": 51.51,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.295
+    },
+    {
+     "i": 91,
+     "t": 5.193
+    }
+   ]
+  },
+  {
+   "id": "p3-1",
+   "plan": 3,
+   "texte": "L'impôt est une charge de l'année, il fait baisser le résultat. Ce qui reste une fois l'État servi est le résultat net, dix-sept mille euros. Sur une perte, il n'y a pas d'impôt.",
+   "fichier": "p3-1.mp3",
+   "duree": 12.74,
+   "fidelite": 0.921,
+   "essais": 3,
+   "transcription": "L'impôt est une charge de l'année. Il fait baisser le résultat. Ce qui reste, une fois l'État servi, est le résultat net : 17 000 €. Sur une perte, il n'y a pas d'impôt.",
+   "debut": 52.91,
+   "fin": 65.65,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.232
+    },
+    {
+     "i": 64,
+     "t": 4.492
+    },
+    {
+     "i": 142,
+     "t": 10.289
+    }
+   ]
+  },
+  {
+   "id": "p4-1",
+   "plan": 4,
+   "texte": "Au Compte de Résultat, une ligne Impôt sur les sociétés apparaît. Au Bilan, une dette apparaît au Passif, État, IS à payer. Le compte en banque ne bouge pas : l'impôt sera versé l'année suivante.",
+   "fichier": "p4-1.mp3",
+   "duree": 16.25,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Au compte de résultat, une ligne impôt sur les sociétés apparaît. Au bilan, une dette apparaît au passif : État, IS à payer. Le compte en banque ne bouge pas. L'impôt sera versé l'année suivante.",
+   "debut": 67.05,
+   "fin": 83.3,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.306
+    },
+    {
+     "i": 66,
+     "t": 5.849
+    },
+    {
+     "i": 124,
+     "t": 10.254
+    },
+    {
+     "i": 159,
+     "t": 13.44
+    }
+   ]
+  },
+  {
+   "id": "p5-1",
+   "plan": 5,
+   "texte": "Ces dix-sept mille euros ne sont pas une somme que l'entreprise garde pour elle. Ils reviennent aux associés, qui ont apporté l'argent du départ. L'entreprise les détient, elle ne les possède pas.",
+   "fichier": "p5-1.mp3",
+   "duree": 11.9,
+   "fidelite": 0.928,
+   "essais": 1,
+   "transcription": "Ces 17000 € ne sont pas une somme que l'entreprise garde pour elle. Ils reviennent aux associés qui ont apporté l'argent du départ. L'entreprise les détient. Elle ne les possède pas.",
+   "debut": 84.7,
+   "fin": 96.6,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.228
+    },
+    {
+     "i": 81,
+     "t": 4.725
+    },
+    {
+     "i": 146,
+     "t": 8.638
+    }
+   ]
+  },
+  {
+   "id": "p6-1",
+   "plan": 6,
+   "texte": "Le Passif dit d'où vient ce que l'entreprise détient. Il range côte à côte ce qu'elle devra rembourser, et ce qu'elle n'a pas à rembourser, les capitaux propres.",
+   "fichier": "p6-1.mp3",
+   "duree": 11.78,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Le passif dit d'où vient ce que l'entreprise détient. Il range côte à côte ce qu'elle devra rembourser et ce qu'elle n'a pas à rembourser, les capitaux propres.",
+   "debut": 98.0,
+   "fin": 109.78,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.0
+    },
+    {
+     "i": 54,
+     "t": 4.374
+    }
+   ]
+  },
+  {
+   "id": "p6-2",
+   "plan": 6,
+   "texte": "Ce que l'année a rapporté est déjà à l'Actif. Cette valeur n'a été ni apportée, ni prêtée, ni facturée. Elle a été gagnée.",
+   "fichier": "p6-2.mp3",
+   "duree": 10.37,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Ce que l'année a rapporté est déjà à l'actif. Cette valeur n'a été ni apportée, ni prêtée, ni facturée. Elle a été gagnée.",
+   "debut": 110.58,
+   "fin": 120.95,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.241
+    },
+    {
+     "i": 46,
+     "t": 4.025
+    },
+    {
+     "i": 104,
+     "t": 9.117
+    }
+   ]
+  },
+  {
+   "id": "p7-1",
+   "plan": 7,
+   "texte": "Le résultat net se reporte donc au Passif, parmi les capitaux propres, à côté du capital social. Ce que le film de l'année a produit vient grossir la photo du trente et un décembre.",
+   "fichier": "p7-1.mp3",
+   "duree": 12.82,
+   "fidelite": 0.941,
+   "essais": 1,
+   "transcription": "Le résultat net se reporte donc au passif, parmi les capitaux propres, à côté du capital social. Ce que le film de l'année a produit vient grossir la photo du 31 décembre.",
+   "debut": 122.35,
+   "fin": 135.17,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.288
+    },
+    {
+     "i": 97,
+     "t": 6.88
+    }
+   ]
+  },
+  {
+   "id": "p7-2",
+   "plan": 7,
+   "texte": "Les deux totaux du Bilan tombent alors sur le même nombre, cinquante mille euros.",
+   "fichier": "p7-2.mp3",
+   "duree": 5.33,
+   "fidelite": 0.857,
+   "essais": 1,
+   "transcription": "Les deux totaux du bilan tombent alors sur le même nombre : 50 000 euros.",
+   "debut": 135.97,
+   "fin": 141.3,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.364
+    }
+   ]
+  },
+  {
+   "id": "p8-1",
+   "plan": 8,
+   "texte": "Quelques mois plus tard, les associés décident de ce que devient ce résultat. C'est l'affectation du résultat. Une part reste dans l'entreprise, la réserve légale, exigée par la loi. Une part peut leur être versée, le dividende. Le reste attend l'année suivante, le report à nouveau.",
+   "fichier": "p8-1.mp3",
+   "duree": 21.22,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Quelques mois plus tard, les associés décident de ce que devient ce résultat. C'est l'affectation du résultat. Une part reste dans l'entreprise, la réserve légale, exigée par la loi. Une part peut leur être versée, le dividende. Le reste attend l'année suivante, le report à nouveau.",
+   "debut": 142.7,
+   "fin": 163.92,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.275
+    },
+    {
+     "i": 78,
+     "t": 5.226
+    },
+    {
+     "i": 111,
+     "t": 8.268
+    },
+    {
+     "i": 183,
+     "t": 13.856
+    },
+    {
+     "i": 229,
+     "t": 17.541
+    }
+   ]
+  },
+  {
+   "id": "p9-1",
+   "plan": 9,
+   "texte": "Le résultat figure au Passif parce qu'il appartient à quelqu'un d'autre que l'entreprise qui l'a gagné.",
+   "fichier": "p9-1.mp3",
+   "duree": 6.14,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Le résultat figure au passif parce qu'il appartient à quelqu'un d'autre que l'entreprise qui l'a gagné.",
+   "debut": 165.32,
+   "fin": 171.46,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.229
+    }
+   ]
+  },
+  {
+   "id": "p10-1",
+   "plan": 10,
+   "texte": "À retenir. L'État prend sa part avant les associés. Le résultat net s'inscrit au Passif, parmi les capitaux propres, parce qu'il revient aux associés. Enfin, une fois le résultat reporté, les deux totaux du Bilan tombent sur le même nombre.",
+   "fichier": "p10-1.mp3",
+   "duree": 17.3,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "À retenir. L'État prend sa part avant les associés. Le résultat net s'inscrit au passif parmi les capitaux propres parce qu'il revient aux associés. Enfin, une fois le résultat reporté, les deux totaux du bilan tombent sur le même nombre.",
+   "debut": 172.86,
+   "fin": 190.16,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.261
+    },
+    {
+     "i": 11,
+     "t": 1.588
+    },
+    {
+     "i": 52,
+     "t": 3.136
+    },
+    {
+     "i": 151,
+     "t": 11.236
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><style>
+:root{
+  --g50:#f8fafc; --g100:#f1f5f9; --g200:#e2e8f0; --g300:#cbd5e1; --g400:#94a3b8;
+  --g500:#64748b; --g600:#475569; --g700:#334155; --g800:#1e293b; --g900:#0f172a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,"Segoe UI",sans-serif;background:#fff;color:var(--g900)}
+.img{width:100%;max-width:720px;padding:22px 24px 22px;background:#fff}
+.quand{text-align:center;font-size:.63rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--g500)}
+.mt{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* Une seule facture au milieu, un document de chaque côté.
+   Les deux flèches portent le même montant : la vente n'est pas partagée,
+   elle est lue deux fois. */
+.scene{margin-top:14px;display:grid;grid-template-columns:1fr 28px 138px 28px 1fr;align-items:center}
+.fleche{position:relative;height:2px;background:var(--g400)}
+.fleche::after{content:"";position:absolute;top:-5px;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.fleche.gauche::after{left:-2px;border-right:8px solid var(--g400)}
+.fleche.droite::after{right:-2px;border-left:8px solid var(--g400)}
+
+/* la facture */
+.facture{background:#fff;border:1.5px solid var(--g300);padding:10px 10px 11px;color:var(--g700);
+  box-shadow:0 6px 14px -10px rgba(15,23,42,.35)}
+.facture .haut{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.facture .emet{font-size:.6rem;font-weight:800;color:var(--g800)}
+.facture .type{font-size:.46rem;font-weight:800;letter-spacing:.1em;color:var(--g400)}
+.facture .dest{margin-top:7px;font-size:.54rem;line-height:1.35;color:var(--g500)}
+.facture .dest b{display:block;font-weight:600;color:var(--g800)}
+.facture .fant{display:block;height:4px;border-radius:2px;background:var(--g200);margin-top:6px}
+.facture .tot{margin-top:9px;padding-top:6px;border-top:1px solid var(--g200);text-align:right;
+  font-size:.74rem;font-weight:800;color:var(--g900)}
+.facture .ech{margin-top:2px;text-align:right;font-size:.52rem;color:var(--g500)}
+
+/* les deux documents */
+.doc{border:1.5px solid var(--g300);border-radius:10px;padding:10px 10px 11px}
+.doc-t{font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--g500)}
+.cols{margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.col{border-radius:6px;background:var(--g50);padding:6px 6px 8px;min-height:112px}
+.col-t{font-size:.52rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--g400)}
+.col i{display:block;height:4px;border-radius:2px;background:var(--g200);margin-top:8px}
+.col i:nth-of-type(2){width:70%}
+.ligne{margin-top:6px;border-radius:5px;padding:5px 6px;background:#fff;border:1.5px solid var(--g700)}
+.ligne .lib{font-size:.62rem;line-height:1.25;color:var(--g700)}
+.ligne .val{margin-top:2px;font-size:.86rem;font-weight:800;color:var(--g900)}
+/* ce qui n'est pas encore de l'argent : la trésorerie attend, en pointillé */
+.attente{margin:3px 0 0;text-align:center;font-size:.54rem;font-weight:600;color:var(--g500);line-height:1.2}
+.attente::before{content:"";display:block;width:2px;height:9px;margin:0 auto 2px;
+  background:repeating-linear-gradient(var(--g400) 0 2px,transparent 2px 4px)}
+/* Même encre que la ligne du dessus : « + 0 € » est une information, pas
+   une case éteinte. Seul le trait change, pointillé contre plein. */
+.ligne.vide{margin-top:3px;border:1.5px dashed var(--g700);background:#fff}
+
+.rail{display:none}
+.doc{align-self:stretch;display:flex;flex-direction:column}
+.cols{flex:1}
+
+/* ── En étroit : la facture en tête, les deux documents dessous ─────
+   Un trait part de la facture et dessert les deux, chacun à sa hauteur. */
+@media (max-width:640px){
+  .img{padding:18px 14px 16px}
+  .quand{text-align:left}
+  .scene{grid-template-columns:1fr;margin-top:12px}
+  .fleche{display:none}
+  .facture{width:200px;justify-self:start}
+  .docs-etroit{display:contents}
+  .doc{position:relative;margin-left:22px;margin-top:14px}
+  .doc::before{content:"";position:absolute;left:-16px;top:18px;width:14px;height:2px;background:var(--g400)}
+  .doc::after{content:"";position:absolute;left:-9px;top:14px;border-top:5px solid transparent;
+    border-bottom:5px solid transparent;border-left:7px solid var(--g400)}
+  .scene{position:relative}
+  .rail{display:block;position:absolute;left:6px;width:2px;background:var(--g400)}
+  .col{min-height:0}
+  .doc-g{order:3} .doc-d{order:4}
+}
+</style></head><body>
+<div class="img" id="img">
+  <p class="quand">Le 28&nbsp;janvier au soir</p>
+
+  <div class="scene" id="scene">
+    <span class="rail" id="rail"></span>
+
+    <div class="doc doc-g">
+      <p class="doc-t">Compte de Résultat</p>
+      <div class="cols">
+        <div class="col"><p class="col-t">Charges</p><i></i><i></i></div>
+        <div class="col"><p class="col-t">Produits</p>
+          <div class="ligne"><p class="lib">Ventes aux professionnels</p><p class="val mt">1&nbsp;450&nbsp;€</p></div>
+        </div>
+      </div>
+    </div>
+
+    <span class="fleche gauche"></span>
+
+    <div class="facture">
+      <div class="haut"><span class="emet">Latitude Café</span><span class="type">FACTURE</span></div>
+      <p class="dest"><b>Le Comptoir des Halles</b>28&nbsp;janvier</p>
+      <span class="fant" style="width:90%"></span>
+      <span class="fant" style="width:65%"></span>
+      <p class="tot mt">1&nbsp;450,00&nbsp;€</p>
+      <p class="ech">à payer sous 30&nbsp;jours</p>
+    </div>
+
+    <span class="fleche droite"></span>
+
+    <div class="doc doc-d">
+      <p class="doc-t">Bilan</p>
+      <div class="cols">
+        <div class="col"><p class="col-t">Actif</p>
+          <div class="ligne"><p class="lib">Créances clients</p><p class="val mt">1&nbsp;450&nbsp;€</p></div>
+          <p class="attente">dans 30&nbsp;jours</p>
+          <div class="ligne vide"><p class="lib">Trésorerie</p><p class="val mt">+&nbsp;0&nbsp;€</p></div>
+        </div>
+        <div class="col"><p class="col-t">Passif</p><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+/* En étroit, le rail va du bas de la facture au milieu du dernier trait. */
+function rail(){
+  const r=document.getElementById('rail'); if(getComputedStyle(r).display==='none')return;
+  const s=document.getElementById('scene').getBoundingClientRect();
+  const f=document.querySelector('.facture').getBoundingClientRect();
+  const d=document.querySelector('.doc-d').getBoundingClientRect();
+  r.style.top=(f.bottom-s.top)+'px'; r.style.height=(d.top+18-f.bottom+1)+'px';
+}
+addEventListener('load',rail); addEventListener('resize',rail);
+</script>
+</body></html>

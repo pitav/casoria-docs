@@ -1,0 +1,112 @@
+[
+ {
+  "id": "p1-1",
+  "plan": 1,
+  "texte": "Une entreprise vient de naître. Sur son compte en banque, il n'y a encore rien. Deux associés vont y verser de l'argent. Mais une fois versé, à qui est cet argent ? Et la société devra-t-elle le rendre ?",
+  "fichier": "p1-1.mp3",
+  "duree": 13.06,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Une entreprise vient de naître. Sur son compte en banque, il n'y a encore rien. Deux associés vont y verser de l'argent. Mais une fois versé, à qui est cet argent ? Et la société devra-t-elle le rendre ?"
+ },
+ {
+  "id": "p2-1",
+  "plan": 2,
+  "texte": "Une société est une personne à part entière, qu'on appelle une personne morale. Elle est distincte de ses associés. Elle a son propre compte en banque, ses propres dettes, et elle signe en son nom. L'argent qui arrive sur son compte est à elle. Mais chaque euro est venu de quelqu'un, et c'est le Passif de son Bilan qui dit de qui.",
+  "fichier": "p2-1.mp3",
+  "duree": 21.17,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Une société est une personne à part entière, qu'on appelle une personne morale. Elle est distincte de ses associés. Elle a son propre compte en banque, ses propres dettes, et elle signe en son nom. L'argent qui arrive sur son compte est à elle. Mais chaque euro est venu de quelqu'un. Et c'est le passif de son bilan qui dit de qui."
+ },
+ {
+  "id": "p3-1",
+  "plan": 3,
+  "texte": "Par exemple, chacun des deux associés verse dix mille euros. Ces versements s'appellent des apports. Réunis, ils forment le capital social. Cet argent-là ne ressort pas : il reste dans l'entreprise tant qu'elle vit.",
+  "fichier": "p3-1.mp3",
+  "duree": 14.86,
+  "fidelite": 0.932,
+  "essais": 1,
+  "transcription": "Par exemple, chacun des deux associés verse 10 000 €. Ces versements s'appellent des apports. Réunis, ils forment le capital social. Cet argent-là ne ressort pas. Il reste dans l'entreprise tant qu'elle vit."
+ },
+ {
+  "id": "p3-2",
+  "plan": 3,
+  "texte": "Au Bilan, les vingt mille euros se lisent des deux côtés. À l'Actif, sur la ligne Banque. Au Passif, sur la ligne Capital social.",
+  "fichier": "p3-2.mp3",
+  "duree": 9.65,
+  "fidelite": 0.92,
+  "essais": 3,
+  "transcription": "Au bilan, les 20 000 euros se lisent des deux côtés. À l'actif, sur la ligne banque, au passif, sur la ligne capital social."
+ },
+ {
+  "id": "p4-1",
+  "plan": 4,
+  "texte": "L'un des associés avance encore dix mille euros. Mais cette fois, il les prête. La somme s'inscrit sur un compte courant d'associé, et la société la lui doit : elle le remboursera dès qu'elle le pourra.",
+  "fichier": "p4-1.mp3",
+  "duree": 13.66,
+  "fidelite": 0.949,
+  "essais": 1,
+  "transcription": "L'un des associés avance encore 10 000 euros. Mais cette fois, il les prête. La somme s'inscrit sur un compte courant d'associé et la société la lui doit. Elle le remboursera dès qu'elle le pourra."
+ },
+ {
+  "id": "p4-2",
+  "plan": 4,
+  "texte": "Sur le compte en banque, les deux virements se ressemblent. La différence se voit au Passif. Le capital reste, le compte courant se rembourse.",
+  "fichier": "p4-2.mp3",
+  "duree": 10.22,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Sur le compte en banque, les deux virements se ressemblent. La différence se voit au passif. Le capital reste, le compte courant se rembourse."
+ },
+ {
+  "id": "p5-1",
+  "plan": 5,
+  "texte": "Avant d'arriver au Bilan, chaque opération est notée le jour où elle a lieu, dans un cahier : le grand journal. Chaque opération y forme une écriture, qui répond à deux questions. Où va la valeur ? C'est l'emploi. D'où vient-elle ? C'est la ressource.",
+  "fichier": "p5-1.mp3",
+  "duree": 19.1,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Avant d'arriver au bilan, chaque opération est notée le jour où elle a lieu dans un cahier, le grand journal. Chaque opération y forme une écriture qui répond à deux questions : où va la valeur ? C'est l'emploi. D'où vient-elle ? C'est la ressource."
+ },
+ {
+  "id": "p5-2",
+  "plan": 5,
+  "texte": "Le journal a deux colonnes. À gauche, le débit, pour l'emploi. À droite, le crédit, pour la ressource. L'apport en capital va en banque, au débit. Il vient des associés, au crédit du capital social. Le prêt de l'associé va lui aussi en banque, au débit. Mais il vient du compte courant d'associé, au crédit.",
+  "fichier": "p5-2.mp3",
+  "duree": 24.05,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Le journal a deux colonnes. À gauche, le débit, pour l'emploi, à droite, le crédit, pour la ressource. L'apport en capital va en banque, au débit. Il vient des associés, au crédit du capital social. Le prêt de l'associé va lui aussi en banque, au débit, mais il vient du compte courant d'associé, au crédit."
+ },
+ {
+  "id": "p6-1",
+  "plan": 6,
+  "texte": "Débit et crédit sont de simples noms de colonnes. Ce sont celles du journal, pas celles du Bilan, qui n'a qu'un Actif et un Passif. Un débit n'est pas une perte.",
+  "fichier": "p6-1.mp3",
+  "duree": 10.97,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Débit et crédit sont de simples noms de colonnes. Ce sont celles du journal, pas celles du bilan, qui n'a qu'un actif et un passif. Un débit n'est pas une perte,"
+ },
+ {
+  "id": "p7-1",
+  "plan": 7,
+  "texte": "Une société ne possède rien qu'elle ne doive à quelqu'un.",
+  "fichier": "p7-1.mp3",
+  "duree": 3.86,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Une société ne possède rien qu'elle ne doive à quelqu'un."
+ },
+ {
+  "id": "p8-1",
+  "plan": 8,
+  "texte": "À retenir. Une société est une personne morale, distincte de ses associés : l'argent sur son compte est à elle, et le Passif dit d'où vient chaque euro. Le capital social ne ressort pas, le compte courant d'associé se rembourse, et les deux sont sur le même compte en banque. Enfin, toute opération est notée au grand journal : où va la valeur, au débit, et d'où elle vient, au crédit.",
+  "fichier": "p8-1.mp3",
+  "duree": 29.02,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "À retenir : une société est une personne morale distincte de ses associés. L'argent sur son compte est à elle et le passif dit d'où vient chaque euro. Le capital social ne ressort pas, le compte courant d'associé se rembourse et les deux sont sur le même compte en banque. Enfin, toute opération est notée au grand journal : où va la valeur, au débit, et d'où elle vient, au crédit."
+ }
+]

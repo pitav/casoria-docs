@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Banc — la saisie à la ligne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --s50:#f8fafc;--s100:#f1f5f9;--s200:#e2e8f0;--s300:#cbd5e1;--s400:#94a3b8;--s500:#64748b;--s600:#475569;--s700:#334155;--s800:#1e293b;--s900:#0f172a;
+  --a50:#fffbeb;--a100:#fef3c7;--a200:#fde68a;--a300:#fcd34d;--a500:#f59e0b;--a600:#d97706;--a700:#b45309;--a800:#92400e;
+  --l50:#f7fee7;--l100:#ecfccb;--l200:#d9f99d;--l300:#bef264;--l600:#65a30d;--l700:#4d7c0f;--l800:#3f6212;
+  --r50:#fef2f2;--r600:#dc2626;--g50:#f0fdf4;--g600:#16a34a;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Poppins,system-ui,sans-serif;color:var(--s800);background:var(--s100);font-size:14px;line-height:1.45}
+.page{max-width:1480px;margin:0 auto;padding:16px}
+h1{font-size:18px;font-weight:600;margin:0 0 4px}
+.intro{color:var(--s600);margin:0 0 12px;max-width:80ch}
+
+/* Réglages */
+.reglages{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;background:#fff;border:1px solid var(--s200);border-radius:8px;padding:10px 14px;margin-bottom:16px}
+.reglages fieldset{border:0;margin:0;padding:0;display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.reglages legend{float:left;font-size:12px;font-weight:500;color:var(--s500);margin-right:6px;text-transform:uppercase;letter-spacing:.04em}
+.seg{display:inline-flex;border:1px solid var(--s300);border-radius:6px;overflow:hidden}
+.seg label{padding:4px 10px;cursor:pointer;font-size:13px;color:var(--s600);border-left:1px solid var(--s300)}
+.seg label:first-of-type{border-left:0}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg input:checked+span{font-weight:600;color:var(--s900)}
+.seg label:has(input:checked){background:var(--s100)}
+.seg label:has(input:focus-visible){outline:2px solid var(--a500);outline-offset:-2px}
+.check{display:inline-flex;gap:6px;align-items:center;font-size:13px;color:var(--s600);cursor:pointer}
+
+/* Écran scindé */
+.ecran{display:grid;gap:16px;grid-template-columns:1fr}
+@media (min-width:1024px){.ecran{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}}
+.col-texte,.col-grille{min-width:0}
+.carte{background:#fff;border:1px solid var(--s200);border-radius:8px;padding:14px 16px}
+
+/* Colonne texte : le bloc */
+.etape-titre{font-size:12px;color:var(--s500);text-transform:uppercase;letter-spacing:.04em;margin:0 0 2px}
+.bloc-titre{font-weight:600;font-size:15px;margin:0 0 10px}
+.bloc{border:1px dashed var(--a300);background:var(--a50);border-radius:8px;padding:10px 12px}
+.bloc.auto{border-style:solid;border-color:var(--s300);background:var(--s50)}
+.bloc-lignes{list-style:none;margin:0;padding:0}
+.bloc-lignes li{display:grid;grid-template-columns:18px 1fr;gap:6px;padding:6px 0;border-top:1px solid var(--s200)}
+.bloc-lignes li:first-child{border-top:0}
+.bloc-lignes .etat{color:var(--s400);font-weight:600}
+.bloc-lignes li.faite .etat{color:var(--l700)}
+.bloc-lignes li.suivante{background:var(--a100);margin:0 -6px;padding-left:6px;padding-right:6px;border-radius:4px}
+.bloc-lignes li.suivante .etat{color:var(--a700)}
+.ligne-doc{font-weight:500}
+.ligne-lib{color:var(--s500);font-size:12.5px}
+.journal-seul{color:var(--s500);font-size:12px;font-style:italic}
+.compteur-panneau{font-size:12.5px;color:var(--s500);margin:0 0 6px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.btn{font:inherit;font-size:13.5px;font-weight:500;border-radius:6px;padding:7px 14px;cursor:pointer;border:1px solid transparent}
+.btn-primaire{background:var(--a600);color:#fff}
+.btn-primaire:hover{background:var(--a700)}
+.btn-second{background:#fff;color:var(--s700);border-color:var(--s300)}
+.btn-second:hover{background:var(--s50)}
+.btn:focus-visible{outline:2px solid var(--a500);outline-offset:2px}
+.pied{margin-top:12px;border-top:1px solid var(--s200);padding-top:8px;font-size:12.5px;color:var(--s600)}
+.pied h3{font-size:11.5px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;color:var(--s500);margin:0 0 4px}
+.pied table{border-collapse:collapse;width:100%}
+.pied td{padding:1px 0}
+.pied td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pied .avant{color:var(--s400);text-decoration:line-through;text-decoration-color:var(--s300)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px;font-size:13px;color:var(--s600)}
+.nav select{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--s300);border-radius:6px;background:#fff;max-width:100%}
+.observer{margin-top:16px;font-size:13px;color:var(--s600)}
+.observer h2{font-size:13px;font-weight:600;color:var(--s700);margin:0 0 4px}
+.observer ol{margin:0;padding-left:18px}
+.observer li{margin:3px 0}
+
+/* Grille */
+.doc{margin-bottom:16px}
+.doc-titre{font-weight:600;font-size:14px;margin:0 0 8px;color:var(--s800)}
+.doc-cols{display:grid;grid-template-columns:minmax(0,1fr) 2.2rem minmax(0,1fr)}
+.cote{display:flex;flex-direction:column}
+.cote-titre{font-size:11.5px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;color:var(--s500);border-bottom:1px solid var(--s300);padding-bottom:4px;margin-bottom:2px}
+.lignes{flex:1}
+.ligne{position:relative;display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:4px 4px;border-radius:4px}
+.ligne .lib{min-width:0}
+.ligne .nom{display:block;font-size:14px;line-height:20px;transition:font-size .3s,color .3s}
+.ligne .prec{display:block;font-size:11.5px;line-height:16px;color:var(--s500);transition:font-size .3s,color .3s}
+.ligne .val{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:500}
+/* Ligne vierge : même teinte qu'avant, plus petite. La hauteur de ligne ne change pas, rien ne se décale à l'allumage. */
+.ligne.eteint .nom{color:var(--s500);font-size:12px}
+.ligne.eteint .prec{color:var(--s400);font-size:10px}
+/* Ligne à saisir : un cadre slate, aucune couleur, et un badge décalé en haut à droite (UBadge xs, neutral, solid) */
+.ligne.cible{box-shadow:inset 0 0 0 1.5px var(--s500)}
+.ligne.cible::after{content:'À saisir';position:absolute;top:-9px;right:-6px;z-index:1;font-size:10.5px;font-weight:500;line-height:16px;padding:0 6px;border-radius:4px;background:var(--s800);color:#fff}
+.sans-cible .ligne.cible{box-shadow:none}
+.sans-cible .ligne.cible::after{content:none}
+/* Saisie à la ligne */
+.saisie-ouverte .ligne.saisissable,.ligne:not(.eteint){cursor:pointer}
+.saisie-ouverte .ligne.saisissable:hover{background:var(--s50)}
+.ligne:focus-visible{outline:2px solid var(--s700);outline-offset:1px}
+.ligne.ouverte{background:var(--s100)!important}
+.consigne-saisie{font-size:13px;color:var(--s600);margin:0}
+.pop{position:absolute;z-index:50;width:290px;background:#fff;border:1px solid var(--s200);border-radius:8px;box-shadow:0 10px 15px -3px rgb(0 0 0 / .1),0 4px 6px -4px rgb(0 0 0 / .1);padding:12px}
+.pop[hidden],.pop [hidden]{display:none!important}
+.pop-compte{font-weight:600;margin:0}
+.pop-solde{font-size:12px;color:var(--s500);margin:0 0 10px}
+.pop-champ{display:block;font-size:12px;font-weight:500;color:var(--s600);margin-bottom:8px}
+.pop-champ input{display:block;width:100%;margin-top:3px;font:inherit;font-size:15px;font-variant-numeric:tabular-nums;text-align:right;padding:6px 10px;border:1px solid var(--s300);border-radius:6px;color:var(--s900)}
+.pop-champ input:focus{outline:2px solid var(--s700);outline-offset:-1px;border-color:transparent}
+.pop-sens{font-size:12px;font-weight:500;color:var(--s600);margin:0 0 4px}
+.pop .seg{display:flex}
+.pop .seg label{flex:1;text-align:center;padding:6px 10px}
+.pop-histo{margin:6px 0 10px}
+.pop-histo:empty{display:none}
+.pop-histo p{font-size:11.5px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;color:var(--s500);margin:0 0 2px}
+.pop-histo ul{list-style:none;margin:0;padding:0;max-height:132px;overflow:auto}
+.pop-histo li{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:var(--s700);padding:3px 0;border-top:1px solid var(--s100)}
+.pop-histo li:first-child{border-top:0}
+.pop-histo .m{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:500}
+.pop-erreur{min-height:0;font-size:12.5px;color:var(--r600);margin:8px 0 0}
+.pop-erreur:empty{display:none}
+.pop-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+.btn-fantome{background:transparent;color:var(--s600)}
+.btn-fantome:hover{background:var(--s100)}
+@media (max-width:639px){
+  .pop{position:fixed;left:0!important;right:0;bottom:0;top:auto!important;width:auto;border-radius:12px 12px 0 0;padding:16px 16px 20px;box-shadow:0 -8px 24px rgb(0 0 0 / .15)}
+  .pop::before{content:'';display:block;width:40px;height:4px;border-radius:2px;background:var(--s300);margin:-6px auto 12px}
+}
+.doc-journal .lignes{display:grid;grid-template-columns:minmax(0,1fr) 2.2rem minmax(0,1fr)}
+.doc-journal .ligne:nth-child(2){grid-column:3}
+.note-grille{font-size:11.5px;color:var(--s400);padding:4px;font-style:italic}
+.totaux{display:grid;grid-template-columns:minmax(0,1fr) 2.2rem minmax(0,1fr);align-items:stretch;margin-top:4px;padding-bottom:22px}
+.total{position:relative;display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-top:2px solid var(--s700);padding:6px 4px;font-weight:600;transition:color .4s,background-color .4s,border-color .4s}
+.total .tl{font-size:12px;letter-spacing:.03em}
+.total .val{white-space:nowrap;font-variant-numeric:tabular-nums}
+.signe{display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:600;color:var(--s500);transition:color .4s}
+
+/* États d'équilibre — deux variantes */
+[data-couleur="lime"] .bilan-totaux.egal .total{color:var(--l800);background:var(--l100);border-top-color:var(--l600)}
+[data-couleur="lime"] .bilan-totaux.egal .signe{color:var(--l700)}
+[data-couleur="lime"] .bilan-totaux.ecart .total{color:var(--s800)}
+[data-couleur="rouge"] .bilan-totaux.egal .total{color:var(--g600);background:var(--g50);border-top-color:var(--g600)}
+[data-couleur="rouge"] .bilan-totaux.egal .signe{color:var(--g600)}
+[data-couleur="rouge"] .bilan-totaux.ecart .total{color:var(--r600);background:var(--r50);border-top-color:var(--r600)}
+[data-couleur="rouge"] .bilan-totaux.ecart .signe{color:var(--r600)}
+
+/* Le chiffre qui chasse l'autre */
+.num{position:relative;display:inline-block;vertical-align:bottom;clip-path:inset(0 -100vw 0 -100vw)}
+.num .r-out{position:absolute;right:0;top:0}
+.num.up .r-out{animation:outUp .3s ease-in forwards}
+.num.up .r-in{animation:inUp .3s ease-out both}
+.num.down .r-out{animation:outDown .3s ease-in forwards}
+.num.down .r-in{animation:inDown .3s ease-out both}
+@keyframes outUp{to{transform:translateY(-100%);opacity:0}}
+@keyframes inUp{from{transform:translateY(100%);opacity:0}}
+@keyframes outDown{to{transform:translateY(100%);opacity:0}}
+@keyframes inDown{from{transform:translateY(-100%);opacity:0}}
+
+/* L'écart affiché un instant */
+.delta{position:absolute;right:4px;top:100%;margin-top:2px;font-size:12px;font-weight:600;white-space:nowrap;opacity:0;pointer-events:none;font-variant-numeric:tabular-nums}
+.delta.up{color:var(--s700)}
+.delta.down{color:var(--a700)}
+.delta.show{animation:badge 2.2s ease forwards}
+@keyframes badge{0%{opacity:0;transform:translateY(-3px)}10%{opacity:1;transform:none}78%{opacity:1}100%{opacity:0}}
+
+/* La case qui s'allume, la case qui varie */
+.ligne.flash-neuf{animation:flashNeuf 1.8s ease-out}
+.ligne.flash-var{animation:flashVar 1.8s ease-out}
+@keyframes flashNeuf{0%,20%{background:var(--s200)}100%{background:transparent}}
+@keyframes flashVar{0%,20%{background:var(--s200)}100%{background:transparent}}
+
+/* Mouvement réduit : pas de glissement, l'écart et le fond seulement */
+.reduit .num .r-out,.reduit .num .r-in{animation:none!important}
+.reduit .num .r-out{display:none}
+.reduit .delta.show{animation:badgeFixe 2.2s linear forwards}
+@keyframes badgeFixe{0%,78%{opacity:1}100%{opacity:0}}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:480px){.doc-cols,.totaux{grid-template-columns:minmax(0,1fr) 1.6rem minmax(0,1fr)} .ligne .prec{display:none}}
+</style>
+</head>
+<body>
+<div class="page" id="racine" data-couleur="lime">
+  <h1>Banc — la saisie à la ligne</h1>
+  <p class="intro">Chapitres 2 à 6, montants du déroulé. Chaque ligne d'une écriture se saisit dans la grille : un clic sur la ligne du compte ouvre un popover, on y écrit le montant, rien d'autre : une saisie fausse est refusée. Un clic sur une ligne déjà remplie montre ce qui y a été inscrit. Les deux lignes de TVA sans case se saisissent au grand journal, sous le Compte de Résultat. Le panneau automatique du Chapitre&nbsp;5 est entre ses deux blocs, comme décidé le 20&nbsp;août. Les réglages se changent à tout moment, sans rien perdre.</p>
+
+  <div class="reglages">
+    <fieldset>
+      <legend>Couleur du Bilan</legend>
+      <div class="seg">
+        <label><input type="radio" name="couleur" value="lime" checked><span>Slate puis lime</span></label>
+        <label><input type="radio" name="couleur" value="rouge"><span>Rouge puis vert</span></label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Animation</legend>
+      <div class="seg">
+        <label><input type="radio" name="anim" value="chasse" checked><span>Chiffre qui chasse l'autre</span></label>
+        <label><input type="radio" name="anim" value="compteur"><span>Compteur</span></label>
+        <label><input type="radio" name="anim" value="aucune"><span>Aucune</span></label>
+      </div>
+    </fieldset>
+    <label class="check"><input type="checkbox" id="reduit"> Mouvement réduit</label>
+    <label class="check"><input type="checkbox" id="ecart" checked> Écart affiché</label>
+    <label class="check"><input type="checkbox" id="cible" checked> Ligne à saisir mise en avant</label>
+  </div>
+
+  <div class="ecran">
+    <div class="col-texte">
+      <div class="carte">
+        <p class="etape-titre" id="etape-titre"></p>
+        <p class="bloc-titre" id="bloc-titre"></p>
+        <div class="bloc" id="bloc">
+          <p class="compteur-panneau" id="compteur-panneau" hidden></p>
+          <ul class="bloc-lignes" id="bloc-lignes"></ul>
+        </div>
+        <div class="actions" id="actions"></div>
+        <div class="pied" id="pied" hidden>
+          <h3>Ce que ce bloc a déplacé</h3>
+          <table><tbody id="pied-corps"></tbody></table>
+        </div>
+        <div class="nav">
+          <label for="aller">Aller à</label>
+          <select id="aller"></select>
+          <button class="btn btn-second" id="recommencer" type="button">Recommencer</button>
+        </div>
+      </div>
+      <div class="observer">
+        <h2>Ce qu'il y a à regarder</h2>
+        <ol>
+          <li>La fin du Chapitre&nbsp;2 : le Bilan passe à l'égalité, puis la perd à la première vente du Chapitre&nbsp;3.</li>
+          <li>La première ligne du panneau du Chapitre&nbsp;5 : le seul recul d'une ligne de produits du module (701, 31&nbsp;450&nbsp;€ → 30&nbsp;000&nbsp;€).</li>
+          <li>Les lignes «&nbsp;journal seul&nbsp;» (TVA) : rien ne bouge dans la grille, et c'est juste.</li>
+          <li>Le Compteur, pour voir défiler les nombres faux qu'il fait passer sous les yeux.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="col-grille">
+      <div class="carte">
+        <section class="doc" aria-label="Bilan">
+          <p class="doc-titre">Bilan</p>
+          <div class="doc-cols">
+            <div class="cote"><div class="cote-titre">Actif</div><div class="lignes" id="l-actif"></div></div>
+            <div></div>
+            <div class="cote"><div class="cote-titre">Passif</div><div class="lignes" id="l-passif"></div></div>
+          </div>
+          <div class="totaux bilan-totaux vide" id="bilan-totaux">
+            <div class="total"><span class="tl">TOTAL ACTIF</span><span class="val num" id="t-actif"></span><span class="delta" id="d-actif"></span></div>
+            <div class="signe" id="signe" aria-hidden="true"></div>
+            <div class="total"><span class="tl">TOTAL PASSIF</span><span class="val num" id="t-passif"></span><span class="delta" id="d-passif"></span></div>
+          </div>
+        </section>
+        <section class="doc" aria-label="Compte de Résultat">
+          <p class="doc-titre">Compte de Résultat</p>
+          <div class="doc-cols">
+            <div class="cote"><div class="cote-titre">Charges</div><div class="lignes" id="l-charges"></div></div>
+            <div></div>
+            <div class="cote"><div class="cote-titre">Produits</div><div class="lignes" id="l-produits"></div></div>
+          </div>
+          <div class="totaux">
+            <div class="total"><span class="tl">TOTAL CHARGES</span><span class="val num" id="t-charges"></span><span class="delta" id="d-charges"></span></div>
+            <div class="signe"></div>
+            <div class="total"><span class="tl">TOTAL PRODUITS</span><span class="val num" id="t-produits"></span><span class="delta" id="d-produits"></span></div>
+          </div>
+        </section>
+        <section class="doc doc-journal" aria-label="Grand journal">
+          <p class="doc-titre">Grand journal <span style="font-weight:400;color:var(--s500);font-size:12px">— les deux comptes sans case dans la grille</span></p>
+          <div class="lignes" id="l-journal"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="sr" aria-live="polite" id="annonce"></div>
+  <div class="pop" id="pop" role="dialog" aria-labelledby="pop-compte" hidden>
+    <p class="pop-compte" id="pop-compte"></p>
+    <div class="pop-histo" id="pop-histo"></div>
+    <div id="pop-saisie">
+      <label class="pop-champ">Montant
+        <input id="pop-montant" inputmode="decimal" autocomplete="off" placeholder="0 €">
+      </label>
+      <div id="pop-colonne">
+        <p class="pop-sens" id="pop-sens-lib">Colonne du journal</p>
+        <div class="seg" role="radiogroup" aria-labelledby="pop-sens-lib">
+          <label><input type="radio" name="sens" value="D"><span>Débit</span></label>
+          <label><input type="radio" name="sens" value="C"><span>Crédit</span></label>
+        </div>
+      </div>
+      <p class="pop-erreur" id="pop-erreur" role="alert"></p>
+      <div class="pop-actions">
+        <button type="button" class="btn btn-fantome" id="pop-annuler">Annuler</button>
+        <button type="button" class="btn btn-primaire" id="pop-inscrire">Inscrire</button>
+      </div>
+    </div>
+    <div class="pop-actions" id="pop-lecture"><button type="button" class="btn btn-fantome" id="pop-fermer">Fermer</button></div>
+  </div>
+</div>
+
+<script>
+// ——— Plan de comptes de la grille (déroulé, section 2)
+const A = {
+  '215':{doc:'bilan',cote:'actif',nom:'215 Immobilisations corporelles',prec:'Torréfacteur'},
+  '2815':{doc:'bilan',cote:'actif',nom:'2815 Amortissements des immobilisations',prec:'Torréfacteur'},
+  '355':{doc:'bilan',cote:'actif',nom:'355 Stocks',prec:'Café torréfié'},
+  '411':{doc:'bilan',cote:'actif',nom:'411 Créances clients'},
+  '486':{doc:'bilan',cote:'actif',nom:"486 Charges constatées d'avance"},
+  '512':{doc:'bilan',cote:'actif',nom:'512 Banque',prec:'Trésorerie'},
+  '101':{doc:'bilan',cote:'passif',nom:'101 Capital social'},
+  '120':{doc:'bilan',cote:'passif',nom:"120 Résultat de l'exercice"},
+  '455':{doc:'bilan',cote:'passif',nom:"455 Compte courant d'associé"},
+  '164':{doc:'bilan',cote:'passif',nom:'164 Emprunt bancaire'},
+  '151':{doc:'bilan',cote:'passif',nom:'151 Provisions pour risques',prec:'Risque client'},
+  '401':{doc:'bilan',cote:'passif',nom:'401 Dettes fournisseurs'},
+  '431':{doc:'bilan',cote:'passif',nom:'431 Dettes sociales'},
+  '4455':{doc:'bilan',cote:'passif',nom:'4455 État — TVA à décaisser'},
+  '444':{doc:'bilan',cote:'passif',nom:'444 État — IS à payer'},
+  '487':{doc:'bilan',cote:'passif',nom:"487 Produits constatés d'avance"},
+  '601':{doc:'cr',cote:'charges',nom:'601 Achats de matières premières',prec:'Café vert'},
+  '615':{doc:'cr',cote:'charges',nom:'615 Autres charges externes'},
+  '641':{doc:'cr',cote:'charges',nom:'641 Salaires bruts'},
+  '645':{doc:'cr',cote:'charges',nom:'645 Charges sociales patronales'},
+  '6811':{doc:'cr',cote:'charges',nom:'6811 Dotation aux amortissements'},
+  '6815':{doc:'cr',cote:'charges',nom:'6815 Dotation aux provisions'},
+  '661':{doc:'cr',cote:'charges',nom:"661 Charges d'intérêts"},
+  '701':{doc:'cr',cote:'produits',nom:'701 Ventes de produits finis',prec:'Ventes aux professionnels'},
+  '707':{doc:'cr',cote:'produits',nom:'707 Ventes de marchandises',prec:'Ventes au comptoir'},
+  '7135':{doc:'cr',cote:'produits',nom:'7135 Variation des stocks',prec:'Café torréfié'},
+  '4456':{doc:'journal',nom:'4456 TVA déductible'},
+  '4457':{doc:'journal',nom:'4457 TVA collectée'},
+};
+const COTES = ['actif','passif','charges','produits'];
+// Ordre de la grille du déroulé (un objet JS trie seul les clés numériques, d'où cette liste)
+const ORDRE = {
+  actif:['215','2815','355','411','486','512'],
+  passif:['101','120','455','164','151','401','431','4455','444','487'],
+  charges:['601','615','641','645','6811','6815','661'],
+  produits:['701','707','7135'],
+};
+
+// ——— Écritures des Chapitres 2 à 6 (déroulé v27)
+const E = [
+ {ch:'Chapitre 2',t:'Bloc 1 — Apport en capital, 5 janvier',L:[['512','D',30000,'Apport en capital'],['101','C',30000,'Apport en capital']]},
+ {ch:'Chapitre 2',t:"Bloc 2 — Apport en compte courant d'associé, 5 janvier",L:[['512','D',20000,'Apport en compte courant — T. Vasseur'],['455','C',20000,'Apport en compte courant — T. Vasseur']]},
+ {ch:'Chapitre 3',t:'Bloc 1 — Vente au comptoir du samedi',L:[['512','D',320,'Ventes au comptoir du 17 janvier'],['707','C',320,'Ventes au comptoir du 17 janvier']]},
+ {ch:'Chapitre 3',t:'Bloc 2 — Achat de café vert payé comptant',L:[['601','D',1800,'Achat café vert — comptant'],['512','C',1800,'Achat café vert — comptant']]},
+ {ch:'Chapitre 3',t:"Bloc 3 — Facture d'électricité payée",L:[['615','D',240,'Électricité — janvier'],['512','C',240,'Électricité — janvier']]},
+ {ch:'Chapitre 4',t:'Bloc 1 — Vente à échéance, facture au Comptoir des Halles',L:[['411','D',1450,'Facture Le Comptoir des Halles'],['701','C',1450,'Facture Le Comptoir des Halles']]},
+ {ch:'Chapitre 4',t:'Bloc 2 — Achat à échéance, facture Verdecafé',L:[['601','D',4200,'Facture Verdecafé'],['401','C',4200,'Facture Verdecafé']]},
+ {ch:'Chapitre 4',t:'Bloc 3 — Encaissement, 30 jours plus tard',L:[['512','D',1450,'Règlement Le Comptoir des Halles'],['411','C',1450,'Règlement Le Comptoir des Halles']]},
+ {ch:'Chapitre 5',t:'Bloc 1 — Ventes professionnelles du premier trimestre',L:[['411','D',36000,'Ventes professionnelles T1'],['701','C',30000,'Ventes professionnelles T1'],['4457','C',6000,'TVA sur ventes professionnelles T1']]},
+ {ch:'Chapitre 5',t:'Enregistré automatiquement — 13 lignes',auto:'Enregistrer le premier trimestre',L:[
+   ['701','D',1450,'Reprise facture Le Comptoir des Halles'],['707','D',320,'Reprise ventes au comptoir du 17 janvier'],
+   ['512','D',270,'Reprise des opérations au comptant'],['401','D',4200,'Reprise facture Verdecafé'],
+   ['601','C',6000,'Reprise achats de janvier et février'],['615','C',240,'Reprise électricité de janvier'],
+   ['512','D',10800,'Ventes au comptoir T1'],['707','C',9000,'Ventes au comptoir T1'],['4457','C',1800,'TVA sur ventes au comptoir T1'],
+   ['601','D',25000,'Achats café vert T1'],['615','D',8000,'Charges externes T1'],['4456','D',6600,'TVA déductible T1'],['401','C',39600,'Fournisseurs T1']]},
+ {ch:'Chapitre 5',t:'Bloc 2 — Écriture de solde, la TVA du trimestre',L:[['4457','D',7800,'Solde de TVA T1'],['4456','C',6600,'Solde de TVA T1'],['4455','C',1200,'Solde de TVA T1']]},
+ {ch:'Chapitre 6',t:'Bloc unique — Constatation du stock de café torréfié',L:[['355','D',15000,'Stock de café torréfié'],['7135','C',15000,'Variation de stock de café torréfié']]},
+];
+
+// ——— Format
+const NNBSP=' ', NBSP=' ';
+function fmt(n){
+  const s=new Intl.NumberFormat('fr-FR',{minimumFractionDigits:Number.isInteger(n)?0:2,maximumFractionDigits:2}).format(Math.abs(n));
+  return (n<0?'−':'')+s.replace(/\s/g,NNBSP)+NBSP+'€';
+}
+
+// ——— État
+let log=[], bal={}, lit=new Set(), cur={s:0,i:0,run:false}, timer=null, debutBloc=null;
+const opts={couleur:'lime',anim:'chasse',reduit:matchMedia('(prefers-reduced-motion: reduce)').matches,ecart:true};
+document.getElementById('reduit').checked=opts.reduit;
+
+function disp(c){const a=A[c], b=bal[c]||0; return (a.cote==='actif'||a.cote==='charges')?b:-b}
+function totaux(){const t={actif:0,passif:0,charges:0,produits:0}; for(const c of lit){const a=A[c]; if(a.doc!=='journal') t[a.cote]+=disp(c)} for(const k in t) t[k]=Math.round(t[k]*100)/100; return t}
+
+// ——— Grille
+function construireGrille(){
+  for(const k of COTES){
+    const box=document.getElementById('l-'+k); box.innerHTML='';
+    for(const c of ORDRE[k]){ const a=A[c];
+      const d=document.createElement('div'); d.className='ligne eteint'; d.id='r-'+c;
+      d.innerHTML=`<span class="lib"><span class="nom">${a.nom}</span>${a.prec?`<span class="prec">${a.prec}</span>`:''}</span><span class="val num" id="v-${c}"></span>`;
+      box.appendChild(d);
+    }
+  }
+  const bj=document.getElementById('l-journal'); bj.innerHTML='';
+  for(const c of ['4457','4456']){ const d=document.createElement('div'); d.className='ligne eteint'; d.id='r-'+c;
+    d.innerHTML=`<span class="lib"><span class="nom">${A[c].nom}</span></span><span class="val" id="v-${c}"></span>`; bj.appendChild(d) }
+  document.querySelectorAll('.ligne').forEach(r=>{ const c=r.id.slice(2);
+    r.addEventListener('click',()=>ouvrir(c));
+    r.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); ouvrir(c) } }) });
+  const n=document.createElement('div'); n.className='note-grille'; n.textContent='Résultat avant impôt et Résultat net : calculés, affichés à partir du Chapitre 11.';
+  document.getElementById('l-charges').appendChild(n);
+}
+
+function poser(el,to){ clearTimeout(el._t); cancelAnimationFrame(el._r); el.classList.remove('up','down'); el.textContent=to==null?'':fmt(to) }
+
+function animer(el,from,to){
+  clearTimeout(el._t); cancelAnimationFrame(el._r); el.classList.remove('up','down');
+  const mode=opts.reduit?'aucune':opts.anim;
+  if(mode==='aucune'){ el.textContent=fmt(to); return }
+  if(mode==='compteur'){
+    const f=from??0, t0=performance.now(), D=700;
+    const pas=now=>{ const p=Math.min(1,(now-t0)/D), e=1-Math.pow(1-p,3); el.textContent=fmt(p<1?Math.round(f+(to-f)*e):to); if(p<1) el._r=requestAnimationFrame(pas) };
+    el._r=requestAnimationFrame(pas); return;
+  }
+  el.innerHTML=`<span class="r-out">${from==null?'':fmt(from)}</span><span class="r-in">${fmt(to)}</span>`;
+  void el.offsetWidth; el.classList.add(to>=(from??0)?'up':'down');
+  el._t=setTimeout(()=>{el.classList.remove('up','down'); el.textContent=fmt(to)},330);
+}
+
+function flash(row,cls){ row.classList.remove('flash-neuf','flash-var'); void row.offsetWidth; row.classList.add(cls) }
+
+function ecart(k,from,to){
+  if(!opts.ecart) return;
+  const d=document.getElementById('d-'+k), up=to>from;
+  d.textContent=(up?'▲ +':'▼ −')+fmt(Math.abs(to-from));
+  d.className='delta '+(up?'up':'down'); void d.offsetWidth; d.classList.add('show');
+}
+
+function etatBilan(){
+  const t=totaux(), box=document.getElementById('bilan-totaux'), s=document.getElementById('signe');
+  const e=(t.actif===0&&t.passif===0)?'vide':(Math.abs(t.actif-t.passif)<0.005?'egal':'ecart');
+  const avant=box.dataset.etat;
+  box.classList.remove('vide','egal','ecart'); box.classList.add(e); box.dataset.etat=e;
+  s.textContent=e==='vide'?'':(e==='egal'?'=':'≠');
+  if(avant&&avant!==e&&e!=='vide') document.getElementById('annonce').textContent=e==='egal'?'Le Bilan est équilibré.':"Le Bilan n'est plus équilibré.";
+}
+
+function fmtJ(c){ const b=bal[c]||0; return b===0?fmt(0):fmt(Math.abs(b))+(b>0?' au débit':' au crédit') }
+function peindreTout(){
+  for(const c of ['4456','4457']){ const r=document.getElementById('r-'+c); r.classList.toggle('eteint',!lit.has(c)); document.getElementById('v-'+c).textContent=lit.has(c)?fmtJ(c):'' }
+  for(const c in A){ if(A[c].doc==='journal') continue; const r=document.getElementById('r-'+c);
+    r.classList.toggle('eteint',!lit.has(c)); r.classList.remove('flash-neuf','flash-var');
+    poser(document.getElementById('v-'+c), lit.has(c)?disp(c):null) }
+  const t=totaux(); for(const k of COTES){ poser(document.getElementById('t-'+k),t[k]); document.getElementById('d-'+k).className='delta' }
+  etatBilan();
+}
+
+// Un seul chemin pour une ligne et pour « Tout afficher » : on mesure avant, on applique, on anime une fois.
+function appliquer(lignes,anim){
+  const tAv=totaux(), vAv={}, touches=new Set();
+  for(const [c] of lignes){ if(A[c].doc!=='journal'&&!touches.has(c)){ touches.add(c); vAv[c]=lit.has(c)?disp(c):null } }
+  for(const [c,s,m,lib] of lignes){ log.push({c,s,m,lib}); bal[c]=Math.round(((bal[c]||0)+(s==='D'?m:-m))*100)/100; lit.add(c) }
+  if(!anim) return;
+  for(const [c] of lignes) if(A[c].doc==='journal'){ const r=document.getElementById('r-'+c); r.classList.remove('eteint'); document.getElementById('v-'+c).textContent=fmtJ(c); flash(r,'flash-var') }
+  for(const c of touches){ const r=document.getElementById('r-'+c), neuf=vAv[c]==null;
+    r.classList.remove('eteint'); animer(document.getElementById('v-'+c),vAv[c],disp(c)); flash(r,neuf?'flash-neuf':'flash-var') }
+  const tAp=totaux();
+  for(const k of COTES) if(tAp[k]!==tAv[k]){ animer(document.getElementById('t-'+k),tAv[k],tAp[k]); ecart(k,tAv[k],tAp[k]) }
+  etatBilan();
+}
+
+// ——— Colonne texte
+const $=id=>document.getElementById(id);
+function libLigne(l){ const [c,s,m,lib]=l, a=A[c];
+  const doc=a.doc==='bilan'?'Bilan':a.doc==='cr'?'CR':'Journal seul';
+  return `<span><span class="ligne-doc">${doc} — ${a.nom} — ${fmt(m)} au ${s==='D'?'débit':'crédit'}</span><br><span class="ligne-lib">«${NBSP}${lib}${NBSP}»</span>${a.doc==='journal'?'<br><span class="journal-seul">Pas de case dans la grille : aucun total ne bouge.</span>':''}</span>`;
+}
+
+function peindreTexte(){
+  const st=E[cur.s];
+  $('etape-titre').textContent=st.ch; $('bloc-titre').textContent=st.t;
+  $('bloc').classList.toggle('auto',!!st.auto);
+  const ul=$('bloc-lignes'); ul.innerHTML='';
+  st.L.forEach((l,i)=>{
+    if(st.auto&&i>=cur.i) return;
+    const li=document.createElement('li');
+    const faite=st.auto?i<cur.i:cur.f.has(i);
+    li.className=faite?'faite':(i===prochaine()?'suivante':'');
+    li.innerHTML=`<span class="etat">${faite?'✓':'·'}</span>${libLigne(l)}`; ul.appendChild(li);
+  });
+  const cp=$('compteur-panneau');
+  if(st.auto){ cp.hidden=false; cp.textContent=cur.i===0?"Rien ne s'inscrit avant que vous actionniez le panneau.":`${cur.i} / ${st.L.length} lignes` } else cp.hidden=true;
+
+  const act=$('actions'); act.innerHTML=''; const fini=cur.i>=st.L.length;
+  const btn=(txt,cls,fn)=>{const b=document.createElement('button'); b.type='button'; b.className='btn '+cls; b.textContent=txt; b.onclick=fn; act.appendChild(b); return b};
+  if(!fini){
+    if(!st.auto){ const p=document.createElement('p'); p.className='consigne-saisie'; p.textContent='Cliquez sur la ligne du compte, dans la grille, pour saisir.'; act.appendChild(p) }
+    else if(!cur.run) btn(st.auto,'btn-primaire',lancer);
+    else btn('Tout afficher','btn-second',toutAfficher);
+  } else if(cur.s<E.length-1) btn('Bloc suivant →','btn-primaire',()=>allerA(cur.s+1,true));
+  peindrePied(); marquerCible();
+  const ouverte=!st.auto&&!fini;
+  $('racine').classList.toggle('saisie-ouverte',ouverte);
+  document.querySelectorAll('.ligne').forEach(r=>{ r.classList.toggle('saisissable',ouverte); const actif=ouverte||lit.has(r.id.slice(2)); if(actif){r.tabIndex=0; r.setAttribute('role','button')} else {r.removeAttribute('tabindex'); r.removeAttribute('role')} });
+}
+function prochaine(){ const st=E[cur.s]; if(st.auto) return cur.i; for(let i=0;i<st.L.length;i++) if(!cur.f.has(i)) return i; return -1 }
+
+function marquerCible(){
+  document.querySelectorAll('.ligne.cible').forEach(r=>r.classList.remove('cible'));
+  const st=E[cur.s]; if(st.auto||cur.i>=st.L.length) return;
+  document.getElementById('r-'+st.L[prochaine()][0]).classList.add('cible');
+}
+
+function peindrePied(){
+  const t=totaux(), noms={actif:'Total Actif',passif:'Total Passif',charges:'Total Charges',produits:'Total Produits'};
+  const rows=COTES.filter(k=>t[k]!==debutBloc[k]);
+  $('pied').hidden=rows.length===0;
+  $('pied-corps').innerHTML=rows.map(k=>`<tr><td>${noms[k]}</td><td class="n"><span class="avant">${fmt(debutBloc[k])}</span> → ${fmt(t[k])}</td></tr>`).join('');
+}
+
+
+// ——— Le popover de saisie
+let popCompte=null;
+function effet(l){ // ce que la ligne a fait à la case, sans débit ni crédit
+  const a=A[l.c]; if(a.doc==='journal') return fmt(l.m)+(l.s==='D'?' au débit':' au crédit');
+  const plus=(a.cote==='actif'||a.cote==='charges')?l.s==='D':l.s==='C';
+  return (plus?'+'+NNBSP:'−'+NNBSP)+fmt(l.m);
+}
+function ouvrir(c){
+  const st=E[cur.s], saisie=!st.auto&&cur.i<st.L.length;
+  if(!saisie&&!lit.has(c)) return;
+  if(popCompte) document.getElementById('r-'+popCompte).classList.remove('ouverte');
+  popCompte=c; const r=document.getElementById('r-'+c); r.classList.add('ouverte');
+  $('pop-compte').textContent=A[c].nom;
+  const h=log.filter(l=>l.c===c);
+  $('pop-histo').innerHTML=h.length?`<p>Déjà inscrit sur cette ligne</p><ul>${h.map(l=>`<li><span>${l.lib}</span><span class="m">${effet(l)}</span></li>`).join('')}</ul>`:'';
+  $('pop-saisie').hidden=!saisie; $('pop-lecture').hidden=saisie;
+  $('pop-colonne').hidden=A[c].doc!=='journal';
+  $('pop-montant').value=''; document.querySelectorAll('input[name=sens]').forEach(x=>x.checked=false); $('pop-erreur').textContent='';
+  $('pop').hidden=false; placer(); (saisie?$('pop-montant'):$('pop-fermer')).focus();
+}
+function placer(){
+  const p=$('pop'), r=document.getElementById('r-'+popCompte);
+  if(innerWidth>=640){
+    const b=r.getBoundingClientRect(), h=p.offsetHeight;
+    let top=b.bottom+scrollY+8; if(b.bottom+h+16>innerHeight&&b.top>h+16) top=b.top+scrollY-h-8;
+    p.style.top=top+'px'; p.style.left=Math.max(8,Math.min(b.right+scrollX-p.offsetWidth,innerWidth-p.offsetWidth-8))+'px';
+  } else r.scrollIntoView({block:'center'});
+}
+function fermer(rendreFocus=true){
+  $('pop').hidden=true; if(!popCompte) return;
+  const r=document.getElementById('r-'+popCompte); r.classList.remove('ouverte'); if(rendreFocus) r.focus(); popCompte=null;
+}
+function lireMontant(v){ v=v.replace(/[\s\u00A0\u202F€]/g,'').replace(',','.'); return /^\d+(\.\d{1,2})?$/.test(v)?+v:NaN }
+function valider(){
+  const st=E[cur.s], c=popCompte, jr=A[c].doc==='journal', m=lireMontant($('pop-montant').value), err=$('pop-erreur');
+  const sx=document.querySelector('input[name=sens]:checked');
+  if(!(m>0)){ err.textContent='Indiquez un montant.'; $('pop-montant').focus(); return }
+  if(jr&&!sx){ err.textContent='Choisissez la colonne du journal.'; return }
+  const cand=st.L.map((l,i)=>i).filter(i=>!cur.f.has(i)&&st.L[i][0]===c);
+  if(!cand.length){ err.textContent="Ce compte n'est pas dans l'écriture en cours."; return }
+  const ok=cand.find(i=>st.L[i][2]===m&&(!jr||st.L[i][1]===sx.value));
+  if(ok===undefined){
+    err.textContent=(jr&&cand.some(i=>st.L[i][2]===m))?"Le montant est juste, pas la colonne.":"Ce montant n'est pas celui de la consigne."; $('pop-montant').select(); return }
+  fermer(false); cur.f.add(ok); cur.i++;
+  const r=document.getElementById('r-'+c);
+  setTimeout(()=>{ appliquer([st.L[ok]],true); peindreTexte(); const n=document.querySelector('.ligne.cible'); (n||r).focus({preventScroll:true}) },60);
+}
+$('pop-inscrire').onclick=valider;
+$('pop-annuler').onclick=()=>fermer();
+$('pop-fermer').onclick=()=>fermer();
+$('pop').addEventListener('keydown',e=>{ if(e.key==='Escape') fermer(); if(e.key==='Enter'&&e.target.tagName==='INPUT') valider() });
+document.addEventListener('mousedown',e=>{ if(popCompte&&!$('pop').contains(e.target)&&!e.target.closest('.ligne')) fermer(false) });
+addEventListener('resize',()=>{ if(popCompte) placer() });
+function lancer(){ cur.run=true; peindreTexte(); pasPanneau(); }
+function pasPanneau(){ const st=E[cur.s];
+  if(cur.i>=st.L.length){ cur.run=false; peindreTexte(); return }
+  appliquer([st.L[cur.i]],true); cur.i++; peindreTexte();
+  timer=setTimeout(pasPanneau,cur.i>=st.L.length?0:750);
+}
+function toutAfficher(){ clearTimeout(timer); const st=E[cur.s]; appliquer(st.L.slice(cur.i),true); cur.i=st.L.length; cur.run=false; peindreTexte(); }
+
+function allerA(s,garder){
+  clearTimeout(timer);
+  if(!garder){ log=[]; bal={}; lit=new Set(); for(let k=0;k<s;k++) appliquer(E[k].L,false); peindreTout() }
+  fermer(false); cur={s,i:0,run:false,f:new Set()}; debutBloc=totaux(); $('aller').value=s; peindreTexte();
+}
+
+// ——— Réglages et navigation
+E.forEach((st,i)=>{const o=document.createElement('option'); o.value=i; o.textContent=`${st.ch} — ${st.t}`; $('aller').appendChild(o)});
+$('aller').onchange=e=>allerA(+e.target.value,false);
+$('recommencer').onclick=()=>allerA(0,false);
+document.querySelectorAll('input[name=couleur]').forEach(r=>r.onchange=()=>{opts.couleur=r.value; $('racine').dataset.couleur=r.value});
+document.querySelectorAll('input[name=anim]').forEach(r=>r.onchange=()=>{opts.anim=r.value});
+$('reduit').onchange=e=>{opts.reduit=e.target.checked; $('racine').classList.toggle('reduit',opts.reduit)};
+$('ecart').onchange=e=>{opts.ecart=e.target.checked};
+$('cible').onchange=e=>$('racine').classList.toggle('sans-cible',!e.target.checked);
+$('racine').classList.toggle('reduit',opts.reduit);
+
+construireGrille(); allerA(0,false);
+</script>
+</body>
+</html>

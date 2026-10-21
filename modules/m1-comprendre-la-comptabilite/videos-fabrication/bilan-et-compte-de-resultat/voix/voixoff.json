@@ -1,0 +1,122 @@
+[
+ {
+  "id": "p1-1",
+  "plan": 1,
+  "texte": "Prenez une entreprise, n'importe laquelle. Au bout d'une année, tout ce qu'elle a acheté, vendu et gagné, et tout ce qu'elle doit encore, tient dans deux documents. Ces deux documents ne racontent pas la même chose. Le premier est une photo. Le second est un film.",
+  "fichier": "p1-1.mp3",
+  "duree": 17.57,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Prenez une entreprise, n'importe laquelle. Au bout d'une année, tout ce qu'elle a acheté, vendu et gagné, et tout ce qu'elle doit encore, tient dans deux documents. Ces deux documents ne racontent pas la même chose. Le premier est une photo. Le second est un film."
+ },
+ {
+  "id": "p2-1",
+  "plan": 2,
+  "texte": "Le premier s'appelle le Bilan. Il se lit comme une photo : il montre l'entreprise telle qu'elle est un jour précis, et rien d'autre. Ce qui s'est passé la veille n'y figure pas.",
+  "fichier": "p2-1.mp3",
+  "duree": 11.5,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Le premier s'appelle le bilan. Il se lit comme une photo. Il montre l'entreprise telle qu'elle est un jour précis et rien d'autre. Ce qui s'est passé la veille n'y figure pas."
+ },
+ {
+  "id": "p2-2",
+  "plan": 2,
+  "texte": "La photo a deux colonnes. À gauche, l'Actif : ce que l'entreprise détient. Des machines, ce qu'elle n'a pas encore vendu, ce que ses clients lui doivent, l'argent en banque.",
+  "fichier": "p2-2.mp3",
+  "duree": 12.7,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "La photo a deux colonnes. À gauche, l'actif. Ce que l'entreprise détient : des machines, ce qu'elle n'a pas encore vendu, ce que ses clients lui doivent, l'argent en banque,"
+ },
+ {
+  "id": "p2-3",
+  "plan": 2,
+  "texte": "À droite, le Passif : d'où cela vient. L'argent apporté par ses fondateurs, ce qu'une banque lui a prêté, ce qu'elle doit encore à ses fournisseurs.",
+  "fichier": "p2-3.mp3",
+  "duree": 9.34,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "À droite, le passif. D'où cela vient ? L'argent apporté par ses fondateurs, ce qu'une banque lui a prêté, ce qu'elle doit encore à ses fournisseurs."
+ },
+ {
+  "id": "p3-1",
+  "plan": 3,
+  "texte": "Une question tient les deux colonnes ensemble. Où est l'argent, et d'où vient-il ? La gauche répond à la première moitié, la droite à la seconde.",
+  "fichier": "p3-1.mp3",
+  "duree": 10.66,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Une question tient les deux colonnes ensemble : où est l'argent et d'où vient-il ? La gauche répond à la première moitié, la droite à la seconde."
+ },
+ {
+  "id": "p3-2",
+  "plan": 3,
+  "texte": "Et les deux colonnes affichent le même total. Ce n'est pas un hasard : elles comptent les mêmes euros deux fois. Une fois pour dire où ils sont, une fois pour dire d'où ils viennent.",
+  "fichier": "p3-2.mp3",
+  "duree": 11.74,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Et les deux colonnes affichent le même total. Ce n'est pas un hasard. Elles comptent les mêmes euros deux fois. Une fois pour dire où ils sont, une fois pour dire d'où ils viennent."
+ },
+ {
+  "id": "p4-1",
+  "plan": 4,
+  "texte": "Le second document s'appelle le Compte de Résultat. Il couvre une durée, comme un film : il raconte ce qui s'est passé entre deux dates. Cette période porte un nom : l'exercice. Le plus souvent, une année.",
+  "fichier": "p4-1.mp3",
+  "duree": 14.57,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Le second document s'appelle le compte de résultat. Il couvre une durée, comme un film. Il raconte ce qui s'est passé entre deux dates. Cette période porte un nom : l'exercice. Le plus souvent, une année."
+ },
+ {
+  "id": "p4-2",
+  "plan": 4,
+  "texte": "Le film a lui aussi deux colonnes. D'un côté, les charges : ce que l'activité a consommé sur la période. Des achats, des services extérieurs, le travail des salariés. De l'autre, les produits : ce que l'activité a gagné. Ses ventes.",
+  "fichier": "p4-2.mp3",
+  "duree": 17.33,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Le film a lui aussi deux colonnes. D'un côté, les charges, ce que l'activité a consommé sur la période : des achats, des services extérieurs, le travail des salariés. De l'autre, les produits, ce que l'activité a gagné : ses ventes,"
+ },
+ {
+  "id": "p5-1",
+  "plan": 5,
+  "texte": "Tout en bas du film vient une ligne unique, le résultat. C'est la différence entre les produits et les charges. Cent mille euros de produits, quatre-vingt-dix mille euros de charges : le résultat est de dix mille euros.",
+  "fichier": "p5-1.mp3",
+  "duree": 17.02,
+  "fidelite": 0.72,
+  "essais": 3,
+  "transcription": "Tout en bas du film vient une ligne unique : le résultat. C'est la différence entre les produits et les charges. 100 000 € de produit, 90 000 € de charge, le résultat est de 10 000 €."
+ },
+ {
+  "id": "p6-1",
+  "plan": 6,
+  "texte": "Pourquoi deux documents ? La photo montre trente mille euros en banque, mais pas ce que l'entreprise a vendu dans l'année. Le film montre cent mille euros de ventes, mais pas ce qu'elle détient au soir du dernier jour.",
+  "fichier": "p6-1.mp3",
+  "duree": 13.1,
+  "fidelite": 0.875,
+  "essais": 3,
+  "transcription": "Pourquoi deux documents ? La photo montre 30 000 € en banque, mais pas ce que l'entreprise a vendu dans l'année. Le film montre 100 000 € de ventes, mais pas ce qu'elle détient au soir du dernier jour."
+ },
+ {
+  "id": "p7-1",
+  "plan": 7,
+  "texte": "Une photo ne dit pas ce qui s'est passé, un film ne dit pas ce qui reste. Le Bilan dit où en est l'entreprise, le Compte de Résultat dit ce qu'elle a fait.",
+  "fichier": "p7-1.mp3",
+  "duree": 11.26,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Une photo ne dit pas ce qui s'est passé. Un film ne dit pas ce qui reste. Le bilan dit où en est l'entreprise. Le compte de résultat dit ce qu'elle a fait."
+ },
+ {
+  "id": "p8-1",
+  "plan": 8,
+  "texte": "À retenir. Le Bilan est une photo, prise un jour donné : l'Actif dit ce que l'entreprise détient, le Passif d'où cela vient, et les deux ont le même total. Le Compte de Résultat est un film de l'exercice : les charges, les produits, et le résultat, la différence entre les deux. Il en faut deux, parce qu'aucun ne remplace l'autre.",
+  "fichier": "p8-1.mp3",
+  "duree": 24.34,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "À retenir : le bilan est une photo prise un jour donné. L'actif dit ce que l'entreprise détient, le passif d'où cela vient. Et les deux ont le même total. Le compte de résultat est un film de l'exercice. Les charges, les produits et le résultat, la différence entre les deux. Il en faut deux parce qu'aucun ne remplace l'autre."
+ }
+]

@@ -1,0 +1,128 @@
+[
+ {
+  "id": "p1-1",
+  "plan": 1,
+  "texte": "Une entreprise envoie une facture de douze mille euros à son client. Pourtant, elle n'en gardera pas tout. Une partie ne correspond à aucune vente : c'est une taxe. Combien partira à l'État, et où cette somme se range-t-elle d'ici là ?",
+  "fichier": "p1-1.mp3",
+  "duree": 15.86,
+  "fidelite": 0.945,
+  "transcription": "Une entreprise envoie une facture de 12 000 € à son client. Pourtant, elle n'en gardera pas tout. Une partie ne correspond à aucune vente. C'est une taxe. Combien partira à l'État et où cette somme se range-t-elle d'ici là ?"
+ },
+ {
+  "id": "p2-1",
+  "plan": 2,
+  "texte": "Un prix contient deux montants. Le prix hors taxes, dix mille euros, est le prix de ce qui a été vendu. La taxe sur la valeur ajoutée s'y ajoute, à un taux fixé par la loi : ici vingt pour cent, soit deux mille euros. Le client paie le total, toutes taxes comprises : douze mille euros.",
+  "fichier": "p2-1.mp3",
+  "duree": 22.06,
+  "fidelite": 0.804,
+  "transcription": "Un prix contient deux montants. Le prix hors taxe, 10 000 €, est le prix de ce qui a été vendu. La taxe sur la valeur ajoutée s'y ajoute, à un taux fixé par la loi, ici 20 %, soit 2 000 €. Le client paie le total, toutes taxes comprises, 12 000 €."
+ },
+ {
+  "id": "p2-2",
+  "plan": 2,
+  "texte": "Seul le prix hors taxes revient à l'entreprise. La taxe appartient à l'État.",
+  "fichier": "p2-2.mp3",
+  "duree": 5.62,
+  "fidelite": 0.933,
+  "transcription": "Seul le prix hors taxe revient à l'entreprise. La taxe appartient à l'État."
+ },
+ {
+  "id": "p3-1",
+  "plan": 3,
+  "texte": "Quand elle vend, l'entreprise facture la taxe à son client : c'est la TVA collectée, deux mille euros.",
+  "fichier": "p3-1.mp3",
+  "duree": 7.13,
+  "fidelite": 0.889,
+  "transcription": "Quand elle vend, l'entreprise facture la taxe à son client. C'est la TVA collectée : 2000 €."
+ },
+ {
+  "id": "p3-2",
+  "plan": 3,
+  "texte": "Quand elle achète, elle paie la taxe à son fournisseur : sur sept mille deux cents euros, mille deux cents de taxe. C'est la TVA déductible. Elle la retranchera de ce qu'elle doit à l'État.",
+  "fichier": "p3-2.mp3",
+  "duree": 12.38,
+  "fidelite": 0.829,
+  "transcription": "Quand elle achète, elle paie la taxe à son fournisseur. Sur 7 200 €, 1 200 de taxe. C'est la TVA déductible. Elle la retranchera de ce qu'elle doit à l'État."
+ },
+ {
+  "id": "p4-1",
+  "plan": 4,
+  "texte": "Au grand journal, la vente s'écrit maintenant sur trois lignes. Douze mille euros vont en banque, au débit. Ils viennent des ventes, pour dix mille, et de la TVA collectée, pour deux mille, au crédit.",
+  "fichier": "p4-1.mp3",
+  "duree": 14.69,
+  "fidelite": 0.853,
+  "transcription": "Au grand journal, la vente s'écrit maintenant sur trois lignes. 12000 € vont en banque, au débit. Ils viennent des ventes pour 10000, et de la TVA collectée pour 2000, au crédit."
+ },
+ {
+  "id": "p4-2",
+  "plan": 4,
+  "texte": "L'achat suit le même chemin, en miroir. Six mille euros aux achats et mille deux cents à la TVA déductible, au débit. Sept mille deux cents euros de la banque, au crédit.",
+  "fichier": "p4-2.mp3",
+  "duree": 12.62,
+  "fidelite": 0.759,
+  "transcription": "L'achat suit le même chemin, en miroir. 6000 € aux achats et 1200 à la TVA déductible au débit, 7200 € de la banque au crédit."
+ },
+ {
+  "id": "p4-3",
+  "plan": 4,
+  "texte": "Les deux comptes de taxe n'existent que dans le grand journal. Ils n'ont de ligne ni au Bilan, ni au Compte de Résultat.",
+  "fichier": "p4-3.mp3",
+  "duree": 8.14,
+  "fidelite": 1.0,
+  "transcription": "Les deux comptes de taxe n'existent que dans le grand journal. Ils n'ont de ligne ni au bilan ni au compte de résultat."
+ },
+ {
+  "id": "p5-1",
+  "plan": 5,
+  "texte": "À la fin du trimestre, une écriture rapproche les deux comptes. L'entreprise a collecté deux mille euros de taxe, et en a payé mille deux cents. Elle ne verse que la différence : huit cents euros. C'est la TVA à décaisser.",
+  "fichier": "p5-1.mp3",
+  "duree": 14.57,
+  "fidelite": 0.8,
+  "transcription": "À la fin du trimestre, une écriture rapproche les deux comptes. L'entreprise a collecté 2 000 € de taxes et en a payé 1 200. Elle ne verse que la différence, 800 €. C'est la TVA à décaisser."
+ },
+ {
+  "id": "p5-2",
+  "plan": 5,
+  "texte": "Cette somme a sa ligne au Passif du Bilan, comme toute somme que l'entreprise devra remettre à quelqu'un. Les deux comptes de taxe, eux, tombent à zéro.",
+  "fichier": "p5-2.mp3",
+  "duree": 9.58,
+  "fidelite": 0.966,
+  "transcription": "Cette somme a sa ligne au passif du bilan, comme toute somme que l'entreprise devra remettre à quelqu'un. Les deux comptes de taxes, eux, tombent à zéro."
+ },
+ {
+  "id": "p6-1",
+  "plan": 6,
+  "texte": "Le compte en banque porte quatre mille huit cents euros. Mais huit cents ne sont pas à l'entreprise : ils sont à l'État.",
+  "fichier": "p6-1.mp3",
+  "duree": 7.46,
+  "fidelite": 0.8,
+  "transcription": "Le compte en banque porte 4 800 euros, mais 800 ne sont pas à l'entreprise, ils sont à l'État."
+ },
+ {
+  "id": "p6-2",
+  "plan": 6,
+  "texte": "Le Compte de Résultat ne porte que les prix hors taxes : dix mille euros de ventes, six mille euros d'achats, et pas un centime de taxe. La taxe traverse la trésorerie sans jamais toucher au résultat.",
+  "fichier": "p6-2.mp3",
+  "duree": 13.94,
+  "fidelite": 0.778,
+  "transcription": "Le compte de résultat ne porte que les prix hors taxe. 10 000 € de vente, 6 000 € d'achat, et pas un centime de taxe. La taxe traverse la trésorerie sans jamais toucher au résultat."
+ },
+ {
+  "id": "p7-1",
+  "plan": 7,
+  "texte": "L'entreprise ne fait que tenir la caisse de l'État.",
+  "fichier": "p7-1.mp3",
+  "duree": 3.65,
+  "fidelite": 1.0,
+  "transcription": "L'entreprise ne fait que tenir la caisse de l'État"
+ },
+ {
+  "id": "p8-1",
+  "plan": 8,
+  "texte": "À retenir. La TVA s'ajoute au prix sans appartenir au vendeur : seul le montant hors taxes est le prix de ce qui a été vendu. La TVA collectée sur les ventes et la TVA déductible sur les achats s'accumulent dans le grand journal. Une écriture n'en garde que la différence, au Passif du Bilan : c'est ce que l'entreprise doit à l'État.",
+  "fichier": "p8-1.mp3",
+  "duree": 22.13,
+  "fidelite": 0.985,
+  "transcription": "À retenir. La TVA s'ajoute au prix sans appartenir au vendeur. Seul le montant hors taxe est le prix de ce qui a été vendu. La TVA collectée sur les ventes et la TVA déductible sur les achats s'accumulent dans le grand journal. Une écriture n'en garde que la différence au passif du bilan, c'est ce que l'entreprise doit à l'État."
+ }
+]

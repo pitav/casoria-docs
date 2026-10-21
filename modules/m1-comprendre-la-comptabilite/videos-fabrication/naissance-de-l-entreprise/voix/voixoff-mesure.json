@@ -1,0 +1,357 @@
+{
+ "voix": "voice_dur676prxpls",
+ "modele": "gemini-3.8-flash-tts",
+ "duree_totale": 193.82,
+ "segments": [
+  {
+   "id": "p1-1",
+   "plan": 1,
+   "texte": "Une entreprise vient de naître. Sur son compte en banque, il n'y a encore rien. Deux associés vont y verser de l'argent. Mais une fois versé, à qui est cet argent ? Et la société devra-t-elle le rendre ?",
+   "fichier": "p1-1.mp3",
+   "duree": 13.06,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Une entreprise vient de naître. Sur son compte en banque, il n'y a encore rien. Deux associés vont y verser de l'argent. Mais une fois versé, à qui est cet argent ? Et la société devra-t-elle le rendre ?",
+   "debut": 6.0,
+   "fin": 19.06,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.293
+    },
+    {
+     "i": 32,
+     "t": 2.329
+    },
+    {
+     "i": 80,
+     "t": 5.045
+    },
+    {
+     "i": 121,
+     "t": 7.989
+    },
+    {
+     "i": 165,
+     "t": 11.133
+    }
+   ]
+  },
+  {
+   "id": "p2-1",
+   "plan": 2,
+   "texte": "Une société est une personne à part entière, qu'on appelle une personne morale. Elle est distincte de ses associés. Elle a son propre compte en banque, ses propres dettes, et elle signe en son nom. L'argent qui arrive sur son compte est à elle. Mais chaque euro est venu de quelqu'un, et c'est le Passif de son Bilan qui dit de qui.",
+   "fichier": "p2-1.mp3",
+   "duree": 21.17,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Une société est une personne à part entière, qu'on appelle une personne morale. Elle est distincte de ses associés. Elle a son propre compte en banque, ses propres dettes, et elle signe en son nom. L'argent qui arrive sur son compte est à elle. Mais chaque euro est venu de quelqu'un. Et c'est le passif de son bilan qui dit de qui.",
+   "debut": 20.46,
+   "fin": 41.63,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.31
+    },
+    {
+     "i": 80,
+     "t": 5.338
+    },
+    {
+     "i": 116,
+     "t": 7.812
+    },
+    {
+     "i": 198,
+     "t": 12.767
+    },
+    {
+     "i": 245,
+     "t": 16.022
+    }
+   ]
+  },
+  {
+   "id": "p3-1",
+   "plan": 3,
+   "texte": "Par exemple, chacun des deux associés verse dix mille euros. Ces versements s'appellent des apports. Réunis, ils forment le capital social. Cet argent-là ne ressort pas : il reste dans l'entreprise tant qu'elle vit.",
+   "fichier": "p3-1.mp3",
+   "duree": 14.86,
+   "fidelite": 0.932,
+   "essais": 1,
+   "transcription": "Par exemple, chacun des deux associés verse 10 000 €. Ces versements s'appellent des apports. Réunis, ils forment le capital social. Cet argent-là ne ressort pas. Il reste dans l'entreprise tant qu'elle vit.",
+   "debut": 43.03,
+   "fin": 57.89,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.293
+    },
+    {
+     "i": 61,
+     "t": 4.827
+    },
+    {
+     "i": 101,
+     "t": 7.495
+    },
+    {
+     "i": 140,
+     "t": 10.337
+    },
+    {
+     "i": 171,
+     "t": 12.38
+    }
+   ]
+  },
+  {
+   "id": "p3-2",
+   "plan": 3,
+   "texte": "Au Bilan, les vingt mille euros se lisent des deux côtés. À l'Actif, sur la ligne Banque. Au Passif, sur la ligne Capital social.",
+   "fichier": "p3-2.mp3",
+   "duree": 9.65,
+   "fidelite": 0.92,
+   "essais": 3,
+   "transcription": "Au bilan, les 20 000 euros se lisent des deux côtés. À l'actif, sur la ligne banque, au passif, sur la ligne capital social.",
+   "debut": 58.69,
+   "fin": 68.34,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.205
+    },
+    {
+     "i": 58,
+     "t": 4.054
+    },
+    {
+     "i": 90,
+     "t": 6.783
+    }
+   ]
+  },
+  {
+   "id": "p4-1",
+   "plan": 4,
+   "texte": "L'un des associés avance encore dix mille euros. Mais cette fois, il les prête. La somme s'inscrit sur un compte courant d'associé, et la société la lui doit : elle le remboursera dès qu'elle le pourra.",
+   "fichier": "p4-1.mp3",
+   "duree": 13.66,
+   "fidelite": 0.949,
+   "essais": 1,
+   "transcription": "L'un des associés avance encore 10 000 euros. Mais cette fois, il les prête. La somme s'inscrit sur un compte courant d'associé et la société la lui doit. Elle le remboursera dès qu'elle le pourra.",
+   "debut": 69.74,
+   "fin": 83.4,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.347
+    },
+    {
+     "i": 49,
+     "t": 3.919
+    },
+    {
+     "i": 80,
+     "t": 5.114
+    },
+    {
+     "i": 160,
+     "t": 11.599
+    }
+   ]
+  },
+  {
+   "id": "p4-2",
+   "plan": 4,
+   "texte": "Sur le compte en banque, les deux virements se ressemblent. La différence se voit au Passif. Le capital reste, le compte courant se rembourse.",
+   "fichier": "p4-2.mp3",
+   "duree": 10.22,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Sur le compte en banque, les deux virements se ressemblent. La différence se voit au passif. Le capital reste, le compte courant se rembourse.",
+   "debut": 84.2,
+   "fin": 94.42,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.275
+    },
+    {
+     "i": 60,
+     "t": 3.861
+    },
+    {
+     "i": 93,
+     "t": 6.339
+    }
+   ]
+  },
+  {
+   "id": "p5-1",
+   "plan": 5,
+   "texte": "Avant d'arriver au Bilan, chaque opération est notée le jour où elle a lieu, dans un cahier : le grand journal. Chaque opération y forme une écriture, qui répond à deux questions. Où va la valeur ? C'est l'emploi. D'où vient-elle ? C'est la ressource.",
+   "fichier": "p5-1.mp3",
+   "duree": 19.1,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Avant d'arriver au bilan, chaque opération est notée le jour où elle a lieu dans un cahier, le grand journal. Chaque opération y forme une écriture qui répond à deux questions : où va la valeur ? C'est l'emploi. D'où vient-elle ? C'est la ressource.",
+   "debut": 95.82,
+   "fin": 114.92,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.212
+    },
+    {
+     "i": 94,
+     "t": 6.766
+    },
+    {
+     "i": 112,
+     "t": 8.373
+    },
+    {
+     "i": 180,
+     "t": 13.654
+    },
+    {
+     "i": 198,
+     "t": 15.2
+    },
+    {
+     "i": 214,
+     "t": 16.459
+    },
+    {
+     "i": 232,
+     "t": 17.773
+    }
+   ]
+  },
+  {
+   "id": "p5-2",
+   "plan": 5,
+   "texte": "Le journal a deux colonnes. À gauche, le débit, pour l'emploi. À droite, le crédit, pour la ressource. L'apport en capital va en banque, au débit. Il vient des associés, au crédit du capital social. Le prêt de l'associé va lui aussi en banque, au débit. Mais il vient du compte courant d'associé, au crédit.",
+   "fichier": "p5-2.mp3",
+   "duree": 24.05,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Le journal a deux colonnes. À gauche, le débit, pour l'emploi, à droite, le crédit, pour la ressource. L'apport en capital va en banque, au débit. Il vient des associés, au crédit du capital social. Le prêt de l'associé va lui aussi en banque, au débit, mais il vient du compte courant d'associé, au crédit.",
+   "debut": 115.72,
+   "fin": 139.77,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.216
+    },
+    {
+     "i": 28,
+     "t": 2.882
+    },
+    {
+     "i": 63,
+     "t": 4.715
+    },
+    {
+     "i": 103,
+     "t": 7.712
+    },
+    {
+     "i": 147,
+     "t": 11.825
+    },
+    {
+     "i": 199,
+     "t": 14.514
+    },
+    {
+     "i": 254,
+     "t": 20.932
+    }
+   ]
+  },
+  {
+   "id": "p6-1",
+   "plan": 6,
+   "texte": "Débit et crédit sont de simples noms de colonnes. Ce sont celles du journal, pas celles du Bilan, qui n'a qu'un Actif et un Passif. Un débit n'est pas une perte.",
+   "fichier": "p6-1.mp3",
+   "duree": 10.97,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Débit et crédit sont de simples noms de colonnes. Ce sont celles du journal, pas celles du bilan, qui n'a qu'un actif et un passif. Un débit n'est pas une perte,",
+   "debut": 141.17,
+   "fin": 152.14,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.0
+    },
+    {
+     "i": 50,
+     "t": 4.007
+    },
+    {
+     "i": 132,
+     "t": 9.305
+    }
+   ]
+  },
+  {
+   "id": "p7-1",
+   "plan": 7,
+   "texte": "Une société ne possède rien qu'elle ne doive à quelqu'un.",
+   "fichier": "p7-1.mp3",
+   "duree": 3.86,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Une société ne possède rien qu'elle ne doive à quelqu'un.",
+   "debut": 153.54,
+   "fin": 157.4,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.323
+    }
+   ]
+  },
+  {
+   "id": "p8-1",
+   "plan": 8,
+   "texte": "À retenir. Une société est une personne morale, distincte de ses associés : l'argent sur son compte est à elle, et le Passif dit d'où vient chaque euro. Le capital social ne ressort pas, le compte courant d'associé se rembourse, et les deux sont sur le même compte en banque. Enfin, toute opération est notée au grand journal : où va la valeur, au débit, et d'où elle vient, au crédit.",
+   "fichier": "p8-1.mp3",
+   "duree": 29.02,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "À retenir : une société est une personne morale distincte de ses associés. L'argent sur son compte est à elle et le passif dit d'où vient chaque euro. Le capital social ne ressort pas, le compte courant d'associé se rembourse et les deux sont sur le même compte en banque. Enfin, toute opération est notée au grand journal : où va la valeur, au débit, et d'où elle vient, au crédit.",
+   "debut": 158.8,
+   "fin": 187.82,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.301
+    },
+    {
+     "i": 11,
+     "t": 1.504
+    },
+    {
+     "i": 76,
+     "t": 4.765
+    },
+    {
+     "i": 153,
+     "t": 10.486
+    },
+    {
+     "i": 276,
+     "t": 21.283
+    },
+    {
+     "i": 328,
+     "t": 24.822
+    }
+   ]
+  }
+ ]
+}

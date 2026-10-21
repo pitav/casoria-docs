@@ -1,0 +1,350 @@
+<p class="kicker">Comprendre la comptabilité sans être comptable — composant du Chapitre 7</p>
+<h1>&lt;MensualiteDecomposee /&gt;</h1>
+<p class="chapo">Fiche v2, 15 septembre 2026. <strong>La v1 déplaçait le curseur sur le temps. Elle démontrait
+la mécanique d'un échéancier bancaire, quand le chapitre parle de nature.</strong> Le curseur déplace
+désormais <em>la limite entre les deux parts</em>&nbsp;: l'apprenant dit lui-même quelle portion des
+628,90&nbsp;€ est une charge, puis la vérité apparaît. Sources&nbsp;: déroulé de module v27, sections 2, 3,
+5 et 7, fiche du Chapitre 7 et son bloc d'arbitrages, le Chapitre 7 livré, et les cinq composants déjà
+écrits. <strong>La consigne, la question et les cinq libellés sont du texte affiché à l'apprenant</strong>.
+Un point est à remonter avant l'intégration&nbsp;: la table de la section 5 du déroulé, section 11.</p>
+<p class="pied">Casoria — &lt;MensualiteDecomposee /&gt;, fiche v2</p>
+
+<h2 class="nu">1 — Ce que le composant doit obtenir</h2>
+<p>Le déroulé écrit l'objectif du chapitre en toutes lettres&nbsp;: «&nbsp;lever un des malentendus les plus
+répandus chez les non-comptables&nbsp;: non, la mensualité d'emprunt n'est pas une charge&nbsp;». Et la
+fiche du chapitre ajoute ce que le bloc doit emporter&nbsp;: <em>une seule sortie de 628,90&nbsp;€, deux
+destinations. C'est ce partage, et lui seul, que l'apprenant doit emporter.</em></p>
+<p class="declaration">Le composant fait tomber le malentendu en demandant un nombre.</p>
+<ul>
+<li><strong>L'apprenant s'engage sur une quantité.</strong> Le texte vient de dire <em>quelle</em> part
+coûte&nbsp;; il n'a pas dit <em>combien</em>. C'est la seule chose qui reste ouverte, et elle est la
+mesure du malentendu.</li>
+<li><strong>La part qui pèse est beaucoup plus petite qu'on ne croit.</strong> 87,50&nbsp;€ sur
+628,90&nbsp;€, moins d'un septième. Presque personne ne place la limite si bas du premier coup.</li>
+<li><strong>Les deux nombres du chapitre naissent de son geste.</strong> Le paragraphe suivant les écrit,
+le bloc les passe.</li>
+</ul>
+<div class="note"><span class="t">Ce que la v1 démontrait, et pourquoi ce n'était pas le sujet</span>
+<p>La v1 faisait glisser un curseur sur les soixante échéances et montrait le partage se déplacer avec le
+temps. <strong>On pouvait la manipuler deux minutes sans jamais se demander pourquoi une part est une
+charge et l'autre non.</strong> Elle enseignait la mécanique d'un échéancier bancaire&nbsp;; le chapitre
+enseigne où va chaque euro qui sort du compte.</p>
+<p><strong>Le symptôme était dans la fiche elle-même</strong>&nbsp;: une section entière y prévenait que la
+barre ne se renverse pas, qu'à 3&nbsp;% sur cinq ans les intérêts ne font que 13,9&nbsp;% dès la première
+échéance, et qu'il ne fallait surtout pas promettre la bascule. <strong>Quand un composant demande une
+section pour prévenir de ce qu'il ne montre pas, c'est que le mouvement qu'il montre n'est pas le
+sujet.</strong></p></div>
+
+<h2>2 — Sa place dans le chapitre</h2>
+<p>Dans le deuxième sous-titre, «&nbsp;Une mensualité contient deux choses de nature différente&nbsp;»,
+juste après la déclaration «&nbsp;Rembourser une dette n'appauvrit pas une entreprise&nbsp;» et avant le
+paragraphe «&nbsp;Le 30 juin, la première échéance part du compte&nbsp;». <strong>Inchangée depuis la
+v1</strong>, et l'axe nouveau la justifie mieux encore&nbsp;: les deux paragraphes au-dessus donnent les
+deux natures, le paragraphe au-dessous donne les deux nombres, et le composant occupe exactement
+l'intervalle entre les deux.</p>
+<p class="declaration">Le composant produit le partage. Le paragraphe suivant le chiffre, et le bloc
+l'inscrit.</p>
+<p>C'est le partage du <code>&lt;CalculetteTva /&gt;</code> à sa troisième application, et la plus stricte
+des trois&nbsp;: <strong>les 87,50&nbsp;€ et les 541,40&nbsp;€ ne figurent nulle part au-dessus du
+composant.</strong> L'apprenant les aura vus naître de son propre geste avant de les lire.</p>
+
+<h2>3 — L'écran dont le composant dispose</h2>
+<p>La largeur utile est de l'ordre de 700&nbsp;px, et la maquette est faite à 720&nbsp;px. Ce composant n'a
+ni zone de dépôt, ni colonne, ni document à reproduire&nbsp;: un curseur et une barre tiennent à toutes les
+largeurs.</p>
+<p class="declaration">Une mensualité est un seul nombre. On la comprend en plaçant un trait dedans.</p>
+<ul>
+<li><strong>Une barre, et non deux.</strong> Deux barres compareraient deux montants&nbsp;; une barre
+partagée montre qu'il n'y a qu'une sortie. C'est la thèse du chapitre, et elle est dans la forme avant
+d'être dans les mots.</li>
+<li><strong>Le curseur est au-dessus, la barre au-dessous.</strong> C'est la géométrie du
+<code>&lt;AvantApresStock /&gt;</code> — les commandes dans le panneau d'activité, l'objet lu en dessous —
+et le trait suit le curseur à soixante pixels de là, dans le même champ de vision.</li>
+<li><strong>Aucune classe nouvelle dans <code>activite.css</code>.</strong> Le curseur est un
+<code>input[type=range]</code> natif en <code>accent-amber-600</code>, la barre deux <code>div</code> en
+utilitaires, le repère un filet en pointillé positionné en pourcentage. <strong>Second composant du module
+à n'ajouter aucune classe</strong>, et le seul à n'en avoir jamais ajouté.</li>
+</ul>
+
+<h2>4 — Anatomie de l'écran</h2>
+<p>De haut en bas, quatre bandes. La consigne, le panneau d'activité en amber, le panneau de verdict, et la
+mensualité en slate.</p>
+<table>
+<thead><tr><th style="width:26%">Élément d'écran</th><th>Contenu et rôle</th></tr></thead>
+<tbody>
+<tr><td class="cle">Consigne</td><td>Une phrase, et elle dit le geste. Proposition&nbsp;: «&nbsp;Placez la
+limite entre ce qui coûte vraiment et ce qui ne fait que rendre.&nbsp;»</td></tr>
+<tr><td class="cle">Ligne de régime</td><td>«&nbsp;Rien n'est noté. Vous placez, vous validez, et la
+réponse s'affiche.&nbsp;»</td></tr>
+<tr><td class="cle">Le panneau d'activité</td><td>Le fond amber, titré «&nbsp;La question&nbsp;» puis
+«&nbsp;Votre réponse&nbsp;», avec <strong>les conditions du prêt à droite du titre</strong> —
+«&nbsp;35&nbsp;000&nbsp;€ sur 60 mois, à 3&nbsp;%&nbsp;». Elles ne sont pas décoratives, section 5.</td></tr>
+<tr><td class="cle">La question</td><td>«&nbsp;Sur les 628,90&nbsp;€ de la première échéance, quelle part
+est une charge&nbsp;?&nbsp;»</td></tr>
+<tr><td class="cle">Le curseur</td><td>De 0 à 628,90&nbsp;€, par pas de 5&nbsp;€. Sa valeur s'écrit à
+droite, sous le libellé «&nbsp;Votre limite&nbsp;». Il se fige après la validation.</td></tr>
+<tr><td class="cle">Valider ma réponse</td><td>Un bouton d'activité, <strong>inactif tant que le curseur
+n'a pas été touché</strong> — section 6.</td></tr>
+<tr><td class="cle">Le panneau de verdict</td><td>Le panneau final du module, juste sous le panneau
+d'activité. Le mot, la remarque adressée à la limite posée, puis ce qui s'est passé. Quatre cas,
+section 7.</td></tr>
+<tr><td class="cle">La mensualité</td><td>Une zone de résultat en slate, titrée «&nbsp;La mensualité&nbsp;»
+avec son montant à droite, et «&nbsp;ce qui part du compte le 30 juin, en une seule sortie&nbsp;»
+dessous.</td></tr>
+<tr><td class="cle">La barre</td><td>Pleine largeur. À gauche les intérêts, en slate 800 plein&nbsp;; à
+droite le capital, en slate 100 derrière un filet slate 500. <strong>Avant la validation elle porte le
+partage proposé, après le vrai.</strong></td></tr>
+<tr><td class="cle">Le repère</td><td>Un filet en pointillé amber, qui reste là où la limite avait été
+posée, avec sa légende. <strong>C'est lui qui rend l'écart visible</strong>, et il n'apparaît qu'après la
+validation.</td></tr>
+<tr><td class="cle">Les deux parts</td><td>Sous la barre, chacune avec sa pastille, son nom, son montant et
+sa nature. Avant la validation elles disent «&nbsp;selon vous&nbsp;»&nbsp;; après, «&nbsp;le prix du
+prêt&nbsp;» et «&nbsp;une restitution&nbsp;».</td></tr>
+<tr><td class="cle">Tout reprendre</td><td>Le bouton neutre des quatre composants précédents, au pied, sous
+le même libellé.</td></tr>
+</tbody>
+</table>
+<p><img src="mensualite-a.png" alt="Maquette du composant, la question posée" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">À 720&nbsp;px, la question. Le curseur part au milieu, position la moins informative, et
+la barre montre en direct le partage proposé — «&nbsp;selon vous&nbsp;» sous chaque montant. Les conditions
+du prêt sont dans l'en-tête&nbsp;: tout ce qu'il faut pour trancher est à l'écran.</p>
+<p><img src="mensualite-b.png" alt="Maquette du composant après une réponse fausse" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">La limite posée à 400&nbsp;€, validée. Le verdict est immédiatement sous le panneau
+d'activité, le curseur est figé là où il était, et la barre a pris le vrai partage —
+<strong>le trait en pointillé marque l'écart entre ce qu'on croyait et ce qui est</strong>. C'est ce trait
+qui fait le composant.</p>
+<p><img src="mensualite-c.png" alt="Les trois autres verdicts" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">Les trois autres verdicts, à comparer. La seconde moitié du texte est la même pour les
+quatre&nbsp;; seule la remarque qui la précède change.</p>
+
+<h2>5 — La matière, et la règle qui la choisit</h2>
+<p class="declaration">Une activité n'emploie que des notions du chapitre présent et du chapitre précédent.
+Et de son chapitre, seulement ce qu'il a déjà dit au point où elle se place.</p>
+<p>Le Chapitre 6 ne lui donne rien. Toute la matière vient du Chapitre 7, au-dessus du composant, et elle
+suffit&nbsp;: l'emprunt, l'échéancier, la mensualité, les deux natures — «&nbsp;le prix du prêt&nbsp;» qui
+passe au Compte de Résultat, «&nbsp;une restitution&nbsp;» qui reste au Bilan — et la déclaration.</p>
+<h3>Les quatre nombres, et tout ce qui en découle</h3>
+<table>
+<thead><tr><th style="width:38%">Écrit dans le composant</th><th>Valeur</th></tr></thead>
+<tbody>
+<tr><td class="cle">Le capital prêté</td><td>35&nbsp;000&nbsp;€</td></tr>
+<tr><td class="cle">Le taux annuel</td><td>3,00&nbsp;%</td></tr>
+<tr><td class="cle">Le nombre d'échéances</td><td>60</td></tr>
+<tr><td class="cle">La mensualité</td><td>628,90&nbsp;€</td></tr>
+<tr class="total"><td>S'en déduisent</td><td>87,50&nbsp;€ d'intérêts et 541,40&nbsp;€ de capital</td></tr>
+</tbody>
+</table>
+<p>Les quatre sont verrouillés par la section 3 du déroulé. <strong>Les deux nombres du chapitre tombent du
+calcul</strong>, ce qui donne un test d'intégration d'une ligne&nbsp;: si la première échéance calculée ne
+fait pas 87,50&nbsp;€ et 541,40&nbsp;€, c'est un montant du scénario qui a bougé.</p>
+<div class="note"><span class="t">La réponse est trouvable, et c'est ce qui sauve l'activité</span>
+<p>Un apprenant qui raisonne tombe juste sans rien deviner&nbsp;: <strong>3&nbsp;% de 35&nbsp;000&nbsp;€
+font 1&nbsp;050&nbsp;€ par an, donc 87,50&nbsp;€ pour un mois</strong>. Les trois nombres sont à l'écran,
+dans l'en-tête du panneau. <strong>L'activité n'est donc pas un jeu de devinette</strong>, et c'est la
+première raison d'être de cette ligne de conditions.</p>
+<p><strong>La seconde raison est une protection.</strong> Ce qui est montré est un cas — un taux, une
+durée, un capital — et non une règle sur les emprunts. À 3&nbsp;% sur cinq ans la part d'intérêts est
+mince&nbsp;; sur un prêt immobilier de vingt ans elle ne l'est pas. Les paramètres sous les yeux empêchent
+de prendre l'un pour l'autre.</p>
+<p><strong>Et l'activité n'oblige pas à calculer</strong>, ce qui la sépare de ce que la
+<code>&lt;CalculetteTva /&gt;</code> s'interdisait. La bande juste est large de 40&nbsp;€ de chaque
+côté&nbsp;: une intuition d'ordre de grandeur suffit, le calcul est une route en plus, jamais un
+péage.</p></div>
+<h3>Ce que la règle écarte, et pourquoi</h3>
+<table>
+<thead><tr><th style="width:34%">Écarté</th><th>Motif</th></tr></thead>
+<tbody>
+<tr><td class="cle"><strong>L'axe du temps, les soixante échéances</strong></td><td>C'était la v1, et c'est
+la décision de cette fiche. <strong>Trois choses disparaissent avec lui</strong>&nbsp;: la soixantième
+échéance, qui fait 629,18&nbsp;€ et contredisait le corps&nbsp;; tout cumul, donc toute collision avec
+l'arrondi de la section 3&nbsp;; et un troisième objet à l'écran. Le chapitre n'y perd rien — il ne parle
+jamais de la façon dont le partage évolue.</td></tr>
+<tr><td class="cle">Tout cumul, et le capital restant dû</td><td>Le bloc, dont la légende fait descendre la
+dette de 35&nbsp;000&nbsp;€ à 34&nbsp;458,60&nbsp;€. Une activité ne prend pas au chapitre ce qu'il se
+réserve. <strong>Et la section 3 arrondit à l'euro les cumuls de l'exercice</strong> — 584&nbsp;€
+d'intérêts, 3&nbsp;818&nbsp;€ de capital —, dont sortent le solde de 31&nbsp;182&nbsp;€ et le Bilan à
+130&nbsp;410&nbsp;€&nbsp;; l'échéancier réel donne 583,97&nbsp;€ et 3&nbsp;818,33&nbsp;€.</td></tr>
+<tr><td class="cle">Les comptes 661, 164 et 512, le débit et le crédit</td><td>C'est le bloc, juste après.
+Le composant ne montre aucune écriture, aucun sens, aucune colonne — même frontière qu'aux cinq composants
+précédents.</td></tr>
+<tr><td class="cle">Le Bilan et le Compte de Résultat</td><td>Les deux paragraphes au-dessus viennent de
+dire où va chaque part. Les redire dans un libellé les affaiblirait&nbsp;; les montrer prendrait au bloc son
+«&nbsp;regardez les deux documents avant, puis après&nbsp;».</td></tr>
+<tr><td class="cle">«&nbsp;Le compte en banque et le résultat ne bougent pas ensemble&nbsp;»</td><td>Le
+troisième sous-titre en entier, avec le miroir du Chapitre 4 et le remboursement du compte courant.</td></tr>
+<tr><td class="cle">Le coût total du crédit</td><td>2&nbsp;734,28&nbsp;€ sur les soixante échéances. Un
+cumul, absent du module, et la vidéo d'ouverture répond elle-même que la réponse tient dans un partage, pas
+dans un total.</td></tr>
+<tr><td class="cle">Le mot «&nbsp;tableau d'amortissement&nbsp;»</td><td>Proscrit par le déroulé,
+section 14&nbsp;: il appartient au Chapitre 8 avec un autre sens.</td></tr>
+<tr><td class="cle">L'assurance emprunteur, les frais de dossier, le taux variable</td><td>Le UAlert de fin
+de chapitre pour les deux premiers, la précision ancrée sur «&nbsp;le plus souvent&nbsp;» pour le
+troisième. Le composant ne fait varier aucun paramètre.</td></tr>
+</tbody>
+</table>
+
+<h2>6 — Ce qui se passe, geste par geste</h2>
+<table>
+<thead><tr><th style="width:26%">Situation</th><th>Réponse du composant</th></tr></thead>
+<tbody>
+<tr><td class="cle">Le geste</td><td><strong>Deux temps&nbsp;: on place, puis on valide.</strong> Le curseur
+se prend à la souris, au doigt ou aux flèches du clavier. Le temps entre les deux gestes est celui où
+l'apprenant regarde la barre et se demande si elle a l'air juste.</td></tr>
+<tr><td class="cle">Pendant qu'on place</td><td>La barre se redessine, et les deux montants sous elle
+suivent, marqués «&nbsp;selon vous&nbsp;». Rien d'autre ne bouge.</td></tr>
+<tr><td class="cle">Tant qu'on n'a rien touché</td><td><strong>Valider est inactif.</strong> Le curseur part
+au milieu, qui est la position la moins informative&nbsp;; valider sans y avoir touché serait tomber dans
+le malentendu par inaction, et le composant ne le permet pas.</td></tr>
+<tr><td class="cle">La validation</td><td>Le curseur se fige, le verdict s'affiche sous le panneau
+d'activité, la barre glisse vers le vrai partage en une demi-seconde, et <strong>le repère en pointillé
+reste là où la limite avait été posée</strong>.</td></tr>
+<tr><td class="cle">Après</td><td>Les deux montants passent aux vrais et leurs mentions deviennent
+«&nbsp;le prix du prêt&nbsp;» et «&nbsp;une restitution&nbsp;».</td></tr>
+<tr><td class="cle">Tout reprendre</td><td>Remet le curseur au milieu, efface le verdict et le repère.
+Comme aux quatre autres composants, au même endroit et sous le même nom.</td></tr>
+<tr><td class="cle">Quitter et revenir</td><td>L'état est conservé. La limite validée suffit&nbsp;: tout
+s'en déduit.</td></tr>
+</tbody>
+</table>
+
+<h2>7 — Le verdict, et ses quatre cas</h2>
+<p>La question appelle un nombre, donc elle se corrige. <strong>Mais une estimation qui manque sa cible
+n'est pas une erreur de même nature qu'une idée fausse</strong>, et le rouge est réservé aux secondes.</p>
+<table>
+<thead><tr><th style="width:26%">La limite posée</th><th style="width:20%">Le verdict</th><th>La remarque qui l'accompagne</th></tr></thead>
+<tbody>
+<tr><td class="cle">Entre 47,50 et 127,50&nbsp;€<br><em>la vérité ± 40&nbsp;€</em></td><td><strong>Bonne
+réponse</strong><br>lime</td><td>«&nbsp;Vous avez placé la limite au bon endroit. Le taux donnait la
+réponse&nbsp;: 3&nbsp;% de 35&nbsp;000&nbsp;€, c'est 1&nbsp;050&nbsp;€ par an, donc 87,50&nbsp;€ pour un
+mois.&nbsp;»</td></tr>
+<tr><td class="cle">Entre 20 et 209,63&nbsp;€, hors bande</td><td><strong>Presque</strong><br>amber</td><td>«&nbsp;Le
+bon ordre de grandeur n'est pas loin, mais vous avez mis un peu trop du côté qui coûte.&nbsp;» — ou
+«&nbsp;…&nbsp;mais les intérêts pèsent un peu plus que cela.&nbsp;»</td></tr>
+<tr><td class="cle">Au-dessus de 209,63&nbsp;€<br><em>le tiers de la mensualité</em></td><td><strong>Mauvaise
+réponse</strong><br>error</td><td>«&nbsp;Vous avez compté comme une charge une bonne part de ce qui n'est
+qu'une restitution. C'est le malentendu le plus répandu sur les emprunts, et c'est celui que ce chapitre
+défait&nbsp;: rembourser une dette n'appauvrit pas.&nbsp;»</td></tr>
+<tr><td class="cle">En dessous de 20&nbsp;€</td><td><strong>Mauvaise réponse</strong><br>error</td><td>«&nbsp;Vous
+avez laissé la mensualité entière du côté qui ne coûte rien. Les intérêts, eux, sont bien un prix&nbsp;:
+disposer pendant un mois d'une somme qui n'est pas la sienne se paie.&nbsp;»</td></tr>
+</tbody>
+</table>
+<p class="legende">Les quatre sont suivis de la même phrase&nbsp;: «&nbsp;Sur les 628,90&nbsp;€ qui partent
+du compte, 87,50&nbsp;€ sont des intérêts et 541,40&nbsp;€ un remboursement de capital&nbsp;: moins d'un
+septième de cette sortie pèse sur le résultat.&nbsp;» C'est elle la réponse à la question.</p>
+<div class="note"><span class="t">Deux rouges, et ils sont symétriques</span>
+<p>Le premier est <strong>le malentendu du chapitre</strong>&nbsp;: près de trois fois la vérité, c'est
+qu'on prend une restitution pour une dépense. Le second est son inverse&nbsp;: <strong>nier que le prêt ait
+un prix</strong>. Les deux contredisent une phrase écrite juste au-dessus du composant, et c'est ce qui les
+distingue d'une estimation malheureuse. Entre les deux, sur près des deux tiers de la course du curseur,
+le verdict est «&nbsp;Presque&nbsp;» — la règle du 15 septembre appliquée&nbsp;: avant de peindre une
+réponse en rouge, vérifier qu'elle est fausse et pas seulement imprécise.</p></div>
+
+<h2>8 — Ce que le composant ne fait pas</h2>
+<ul>
+<li><strong>Aucun score, aucune série, aucun chronomètre.</strong> Il nomme la réponse, il ne la compte
+pas, et tout se reprend.</li>
+<li><strong>Aucun axe du temps, aucune deuxième échéance.</strong> Une seule mensualité, celle du 30 juin
+que le bloc va passer.</li>
+<li><strong>Aucun cumul, aucun capital restant dû, aucun coût total du crédit.</strong></li>
+<li><strong>Aucune écriture, aucun compte, aucun débit ni crédit.</strong> C'est la frontière avec le
+bloc.</li>
+<li><strong>Aucun Bilan, aucun Compte de Résultat.</strong></li>
+<li><strong>Aucun curseur sur un paramètre.</strong> Ni le capital, ni le taux, ni la durée&nbsp;: le
+curseur déplace une limite à l'intérieur d'un nombre. <strong>Ce n'est pas un simulateur</strong>, le
+module en a un au Chapitre 12.</li>
+<li><strong>Aucune classe nouvelle dans <code>activite.css</code>.</strong></li>
+</ul>
+
+<h2>9 — Palette, empilement, téléphone, clavier</h2>
+<p class="declaration">L'amber porte la question et le curseur, le slate porte la mensualité, et le repère
+est le seul amber qui entre dans la barre — parce qu'il est de l'apprenant.</p>
+<table>
+<thead><tr><th style="width:40%">Rôle</th><th>Classe, et ce qu'elle porte</th></tr></thead>
+<tbody>
+<tr><td class="cle">Consigne et ligne de régime</td><td>les deux créneaux de
+<code>M1ActiviteSection</code></td></tr>
+<tr><td class="cle">Le panneau d'activité</td><td><code>.bg-activite</code>, titre en
+<code>.titre-panneau .color-activite</code>, conditions du prêt en <code>.places</code></td></tr>
+<tr><td class="cle">La question et la limite</td><td>amber 900</td></tr>
+<tr><td class="cle">Le curseur</td><td><code>input[type=range]</code> natif,
+<code>accent-amber-600</code>. <strong>Pas de classe</strong>&nbsp;: un range natif se pilote au clavier et
+au doigt mieux qu'un curseur redessiné</td></tr>
+<tr><td class="cle">Valider</td><td><code>.btn-activite .btn-activite-color</code>, slate 200 quand il est
+inactif</td></tr>
+<tr><td class="cle">Le verdict</td><td><code>.panneau-final</code>, <code>-presque</code>,
+<code>-faux</code>, avec son mot en <code>.titre-panneau</code></td></tr>
+<tr><td class="cle">La mensualité</td><td><code>.zone-resultat .zone-resultat-nue</code>. <strong>Elle ne
+passe jamais en <code>-remplie</code></strong>&nbsp;: rien n'y est déposé</td></tr>
+<tr><td class="cle">La part des intérêts</td><td>slate 800 plein, pastille pleine de la même teinte</td></tr>
+<tr><td class="cle">La part du capital</td><td>slate 100 derrière un filet slate 500, pastille cerclée de la
+même façon</td></tr>
+<tr><td class="cle">Le repère</td><td>filet en pointillé amber 600, avec sa légende en slate 500</td></tr>
+</tbody>
+</table>
+<p class="legende">La distinction entre les deux parts tient <strong>au remplissage</strong> — plein contre
+réserve — et au filet qui les sépare, pas à deux teintes voisines&nbsp;; une pastille reprend ce
+remplissage devant chaque nom. <strong>Le repère est en amber et en pointillé</strong>, les deux à la
+fois&nbsp;: il ne se confond ni avec le filet de partage, ni avec les deux parts, et sa teinte dit d'où il
+vient — c'est la seule chose à l'écran que l'apprenant ait mise là.</p>
+<p><strong>L'empilement ne coûte rien à ce composant.</strong> Sous 480&nbsp;px, les deux parts passent
+l'une sous l'autre et la barre garde toute la largeur. Le curseur est fait pour le doigt, et c'est le geste
+le plus simple des six composants.</p>
+<p>Au clavier, le curseur se prend à la tabulation et se déplace aux flèches, cinq euros à la fois.
+<strong>La valeur annoncée est la phrase entière</strong> — les deux montants de part et d'autre de la
+limite —, parce que c'est le partage qui est en jeu et non le nombre du curseur.</p>
+
+<h2>10 — Ce que l'intégration attend</h2>
+<table>
+<thead><tr><th style="width:22%">Point</th><th>Décision</th></tr></thead>
+<tbody>
+<tr><td class="cle">Contenu</td><td>La question, les quatre verdicts et les cinq libellés vivent dans le
+composant. Le <code>.corps.html</code> livré ne porte que <code>&lt;MensualiteDecomposee /&gt;</code>, sans
+attribut.</td></tr>
+<tr><td class="cle">Les montants</td><td><strong>Quatre nombres écrits une seule fois</strong> —
+35&nbsp;000, 3,00&nbsp;%, 60 et 628,90. Les deux parts se calculent, et les textes de verdict les
+interpolent.</td></tr>
+<tr><td class="cle">Le contrôle</td><td>La première échéance calculée doit donner 87,50&nbsp;€ et
+541,40&nbsp;€.</td></tr>
+<tr><td class="cle">État</td><td><strong>La limite validée suffit</strong>&nbsp;: tout s'en déduit, verdict
+compris.</td></tr>
+<tr><td class="cle">Événements</td><td>Un événement à la validation, avec la limite posée, et
+<strong>seulement la première</strong>. <strong>La moyenne des premières limites est le chiffre le plus
+intéressant du chapitre</strong>&nbsp;: c'est la mesure directe du malentendu que le Chapitre 7 existe pour
+défaire, et elle se relit après chaque révision du texte.</td></tr>
+<tr><td class="cle">Parenté</td><td>Premier composant à curseur, et le patron du
+<code>&lt;SimulateurBfr /&gt;</code> du Chapitre 12 — avec une différence à tenir&nbsp;: là-bas les
+curseurs déplacent des <em>paramètres</em>, ici un seul curseur déplace une <em>limite</em> à l'intérieur
+d'un montant fixe.</td></tr>
+</tbody>
+</table>
+
+<h2>11 — Ce qui reste à trancher</h2>
+<ol>
+<li><strong>La table de la section 5 du déroulé.</strong> Elle écrit «&nbsp;curseur sur l'échéancier,
+ventilation intérêts / capital&nbsp;», qui décrit la v1. <strong>À remonter avant l'intégration</strong>,
+comme la section 5 l'exige elle-même. Proposition&nbsp;: «&nbsp;curseur&nbsp;: où passe la limite entre ce
+qui coûte et ce qui ne fait que rendre&nbsp;».</li>
+<li><strong>La consigne, la question et les cinq libellés.</strong> C'est du texte affiché&nbsp;: il se
+relit comme du corps, avec la relecture profane.</li>
+<li><strong>Les quatre textes de verdict</strong>, et en particulier celui du rouge haut, qui reprend la
+déclaration du chapitre — «&nbsp;rembourser une dette n'appauvrit pas&nbsp;». La citer au verdict la
+renforce ou l'use, et c'est toi qui sais.</li>
+<li><strong>La largeur de la bande juste</strong>, 40&nbsp;€ de chaque côté, et les deux seuils de rouge,
+20&nbsp;€ et le tiers de la mensualité. Trois nombres qui décident de ce que l'apprenant lira, et qui ne se
+règlent vraiment qu'aux tests.</li>
+<li><strong>Le pas du curseur</strong>, cinq euros — 126 positions. Dix euros serait plus doux au doigt et
+moins précis&nbsp;; la bande étant large de 80&nbsp;€, les deux conviennent.</li>
+<li><strong>Le nom du composant.</strong> <code>&lt;MensualiteDecomposee /&gt;</code> reste exact, et
+l'est même davantage qu'à la v1&nbsp;: c'est l'apprenant qui décompose. <strong>Rien à
+proposer.</strong></li>
+</ol>
+
+<p class="fin">Fiche v2, 15 septembre 2026. <strong>La v1 est périmée en entier</strong>, et avec elle le
+seul point que le module avait à arbitrer dans le corps d'un chapitre livré — la soixantième échéance à
+629,18&nbsp;€ disparaît avec l'axe du temps. Sixième composant, troisième application du partage de la
+<code>&lt;CalculetteTva /&gt;</code>, et le premier dont <strong>la mesure est la leçon</strong>&nbsp;: la
+moyenne des limites posées au premier coup dit exactement ce que le Chapitre 7 avait à défaire. Il ajoute
+une règle de conception&nbsp;: <strong>quand une fiche a besoin d'une section pour prévenir de ce que son
+composant ne montre pas, c'est l'axe du composant qu'il faut changer, pas la section qu'il faut
+écrire.</strong></p>

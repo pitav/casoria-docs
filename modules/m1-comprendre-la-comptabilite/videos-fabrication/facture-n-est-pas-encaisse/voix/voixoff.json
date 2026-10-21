@@ -1,0 +1,127 @@
+{
+ "voix": "voice_dur676prxpls",
+ "modele": "gemini-3.8-flash-tts",
+ "duree_totale": 190.28,
+ "segments": [
+  {
+   "id": "p1-1",
+   "plan": 1,
+   "texte": "Une entreprise livre une commande à un client. Elle envoie sa facture : dix mille euros, payables à trente jours. La commande est partie. Sur le compte en banque de l'entreprise, rien n'a bougé. Alors, ce jour-là, a-t-elle gagné quelque chose ?",
+   "fichier": "p1-1.mp3",
+   "duree": 17.5,
+   "fidelite": 0.921,
+   "essais": 3,
+   "transcription": "Une entreprise livre une commande à un client. Elle envoie sa facture, 10 000 € payables à 30 jours. La commande est partie. Sur le compte en banque de l'entreprise, rien n'a bougé. Alors, ce jour-là, a-t-elle gagné quelque chose ?",
+   "debut": 6.0,
+   "fin": 23.5
+  },
+  {
+   "id": "p2-1",
+   "plan": 2,
+   "texte": "Oui. Une vente compte le jour où elle est faite, pas le jour où elle est payée. Le Compte de Résultat dit ce que l'activité a gagné, et non ce qu'elle a reçu. La commande est livrée, le prix est fixé, le client le doit. La vente s'inscrit dès la facture.",
+   "fichier": "p2-1.mp3",
+   "duree": 17.93,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Oui. Une vente compte le jour où elle est faite, pas le jour où elle est payée. Le compte de résultat dit ce que l'activité a gagné, et non ce qu'elle a reçu. La commande est livrée, le prix est fixé, le client le doit. La vente s'inscrit dès la facture.",
+   "debut": 24.5,
+   "fin": 42.43
+  },
+  {
+   "id": "p2-2",
+   "plan": 2,
+   "texte": "Pourquoi ne pas attendre l'argent ? Imaginez deux entreprises qui vendent exactement la même chose. L'une est payée tout de suite, l'autre dans trente jours. Si l'on attendait le virement, elles n'auraient pas le même résultat. Le résultat dépendrait de la ponctualité des clients.",
+   "fichier": "p2-2.mp3",
+   "duree": 18.94,
+   "fidelite": 0.979,
+   "essais": 1,
+   "transcription": "Pourquoi ne pas attendre l'argent ? Imaginez deux entreprises qui vendent exactement la même chose. L'une est payée tout de suite, l'autre dans 30 jours. Si l'on attendait le virement, elles n'auraient pas le même résultat. Le résultat dépendrait de la ponctualité des clients.",
+   "debut": 43.03,
+   "fin": 61.97
+  },
+  {
+   "id": "p3-1",
+   "plan": 3,
+   "texte": "Ce que le client doit ne disparaît pas pour autant. C'est une créance client, une somme facturée et pas encore reçue. Elle se range à l'Actif du Bilan, avec ce que l'entreprise détient : le droit d'être payée est bien quelque chose qu'elle détient.",
+   "fichier": "p3-1.mp3",
+   "duree": 16.06,
+   "fidelite": 0.979,
+   "essais": 1,
+   "transcription": "Ce que le client doit ne disparaît pas pour autant. C'est une créance client, une somme facturée et pas encore reçue. Elle se range à l'actif du bilan avec ce que l'entreprise détient. Le droit d'être payé est bien quelque chose qu'elle détient.",
+   "debut": 62.97,
+   "fin": 79.03
+  },
+  {
+   "id": "p4-1",
+   "plan": 4,
+   "texte": "Le même délai existe à l'achat. L'entreprise achète à son fournisseur pour quatre mille euros, payables eux aussi à trente jours. La livraison est faite, l'activité la consomme : la charge s'inscrit dès la facture. Ce que l'entreprise doit encore est une dette fournisseur. Elle se range au Passif du Bilan, qui dit d'où vient l'argent. Pendant trente jours, c'est le fournisseur qui finance cet achat.",
+   "fichier": "p4-1.mp3",
+   "duree": 28.49,
+   "fidelite": 0.938,
+   "essais": 1,
+   "transcription": "Le même délai existe à l'achat. L'entreprise achète à son fournisseur pour 4 000 €, payables eux aussi à 30 jours. La livraison est faite, l'activité la consomme. La charge s'inscrit dès la facture. Ce que l'entreprise doit encore est une dette fournisseur. Elle se range au passif du bilan, qui dit d'où vient l'argent. Pendant 30 jours, c'est le fournisseur qui finance cet achat.",
+   "debut": 80.03,
+   "fin": 108.52
+  },
+  {
+   "id": "p4-2",
+   "plan": 4,
+   "texte": "Le délai accordé au client joue contre l'entreprise. Celui qu'elle obtient de son fournisseur joue en sa faveur.",
+   "fichier": "p4-2.mp3",
+   "duree": 8.98,
+   "fidelite": 1.0,
+   "essais": 2,
+   "transcription": "Le délai accordé au client joue contre l'entreprise. Celui qu'elle obtient de son fournisseur joue en sa faveur.",
+   "debut": 109.12,
+   "fin": 118.1
+  },
+  {
+   "id": "p5-1",
+   "plan": 5,
+   "texte": "Trente jours plus tard, le client paie. Ce jour-là, seul le Bilan bouge. Ce que le client devait tombe à zéro, et l'argent en banque monte de dix mille euros. L'entreprise ne détient ni plus ni moins qu'avant : une promesse de paiement est devenue de l'argent.",
+   "fichier": "p5-1.mp3",
+   "duree": 17.18,
+   "fidelite": 0.931,
+   "essais": 1,
+   "transcription": "30 jours plus tard, le client paie. Ce jour-là, seul le bilan bouge. Ce que le client devait tombe à zéro, et l'argent en banque monte de 10 000 €. L'entreprise ne détient ni plus ni moins qu'avant, une promesse de paiement est devenue de l'argent.",
+   "debut": 119.1,
+   "fin": 136.28
+  },
+  {
+   "id": "p5-2",
+   "plan": 5,
+   "texte": "Le Compte de Résultat, lui, ne reçoit rien. La vente a déjà été comptée. La compter à l'arrivée de l'argent, ce serait compter deux fois la même vente : le jour où le client paie, l'entreprise ne gagne rien de plus.",
+   "fichier": "p5-2.mp3",
+   "duree": 14.62,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Le compte de résultat, lui, ne reçoit rien. La vente a déjà été comptée. La compter à l'arrivée de l'argent, ce serait compter deux fois la même vente. Le jour où le client paie, l'entreprise ne gagne rien de plus.",
+   "debut": 136.88,
+   "fin": 151.5
+  },
+  {
+   "id": "p6-1",
+   "plan": 6,
+   "texte": "Revenez au premier soir. L'entreprise avait gagné dix mille euros, et n'en avait pas reçu un seul. Les deux sont vrais en même temps. Le résultat n'est pas la trésorerie.",
+   "fichier": "p6-1.mp3",
+   "duree": 12.41,
+   "fidelite": 0.939,
+   "essais": 1,
+   "transcription": "Revenez au premier soir. L'entreprise avait gagné 10 000 euros. Et n'en avait pas reçu un seul. Les deux sont vrais en même temps. Le résultat n'est pas la trésorerie.",
+   "debut": 152.5,
+   "fin": 164.91
+  },
+  {
+   "id": "p7-1",
+   "plan": 7,
+   "texte": "À retenir. Une vente compte dès la facture, parce que le résultat dit ce que l'activité a gagné. L'attente porte un nom de chaque côté : une créance client à l'Actif, une dette fournisseur au Passif. Et le jour du règlement, seul le Bilan bouge.",
+   "fichier": "p7-1.mp3",
+   "duree": 19.37,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "À retenir. Une vente compte dès la facture, parce que le résultat dit ce que l'activité a gagné. L'attente porte un nom de chaque côté : une créance client à l'actif, une dette fournisseur au passif. Et le jour du règlement, seul le bilan bouge.",
+   "debut": 165.91,
+   "fin": 185.28
+  }
+ ]
+}

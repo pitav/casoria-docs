@@ -1,0 +1,67 @@
+[
+{
+"id": "p1-1",
+"plan": 1,
+"texte": "Par exemple, une entreprise doit s'équiper pour trente mille euros. L'argent de son compte est déjà promis à ses fournisseurs. Où trouver cette somme, et que coûtera vraiment ce choix ?"
+},
+{
+"id": "p2-1",
+"plan": 2,
+"texte": "Une entreprise ne peut puiser qu'à trois endroits : la trésorerie qu'elle a produite, l'argent que ses associés acceptent de mettre, et l'argent qu'un tiers accepte de prêter."
+},
+{
+"id": "p2-2",
+"plan": 2,
+"texte": "Un associé peut prêter à sa propre société : c'est le compte courant d'associé. Il est souple, mais limité à ce que l'associé possède. Un emprunt bancaire coûte plus cher, et ses échéances de remboursement sont fixes. En échange, il apporte une somme que les associés n'ont pas."
+},
+{
+"id": "p3-1",
+"plan": 3,
+"texte": "La banque prête trente mille euros et les vire sur le compte. Au grand journal, au débit, où va la valeur : la Banque. Au crédit, d'où elle vient : l'Emprunt bancaire."
+},
+{
+"id": "p3-2",
+"plan": 3,
+"texte": "Au Bilan, le compte en banque passe de dix mille à quarante mille euros. Au Passif, une ligne apparaît, Emprunt bancaire, pour la même somme."
+},
+{
+"id": "p3-3",
+"plan": 3,
+"texte": "L'entreprise ne s'est pas enrichie. Elle a reçu de l'argent, et elle le doit."
+},
+{
+"id": "p4-1",
+"plan": 4,
+"texte": "Chaque mois, la banque prélève une mensualité, par exemple six cents euros. Elle contient deux choses de nature différente."
+},
+{
+"id": "p4-2",
+"plan": 4,
+"texte": "Cinq cents euros remboursent le capital. C'est une restitution : l'entreprise rend une somme qu'elle avait reçue, et rien n'a été consommé."
+},
+{
+"id": "p4-3",
+"plan": 4,
+"texte": "Cent euros sont des intérêts, le prix du prêt. L'entreprise a consommé un service : disposer d'une somme qui n'est pas la sienne. C'est une charge."
+},
+{
+"id": "p5-1",
+"plan": 5,
+"texte": "Au Bilan, le compte en banque baisse de six cents euros, et la dette de cinq cents. Au Compte de Résultat, seuls les cent euros d'intérêts apparaissent, du côté des charges."
+},
+{
+"id": "p5-2",
+"plan": 5,
+"texte": "Le compte en banque et le résultat ne bougent pas ensemble. Sur six cents euros sortis, cent seulement pèsent sur le résultat. Le reste a changé de place sans rien coûter."
+},
+{
+"id": "p6-1",
+"plan": 6,
+"texte": "Rembourser une dette n'appauvrit pas une entreprise."
+},
+{
+"id": "p7-1",
+"plan": 7,
+"texte": "À retenir. Recevoir un emprunt n'enrichit personne : la trésorerie et la dette augmentent du même montant. Une mensualité se partage : le capital réduit la dette et reste au Bilan, les intérêts passent au Compte de Résultat. Enfin, emprunter à une banque ou à un associé n'engage pas de la même manière."
+}
+]

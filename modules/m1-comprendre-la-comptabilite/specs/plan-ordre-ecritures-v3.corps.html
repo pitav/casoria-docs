@@ -1,0 +1,550 @@
+<p class="kicker">Casoria · Comprendre la comptabilité sans être comptable · application</p>
+<h1>L'ordre des écritures</h1>
+<p class="chapo">Plan d'un système qui garantit que les écritures manuelles et automatiques du module
+sont passées dans l'ordre, ligne à ligne, et une seule fois. Le principe tient en une phrase : on
+n'enregistre que la liste des écritures faites, et tout le reste — le curseur, l'état de chaque
+bloc, le Bilan, le Compte de Résultat, le grand journal — s'en déduit. La navigation reste libre :
+c'est l'ordre d'enregistrement qui est strict, jamais celui de la lecture. Proposition à valider,
+rien n'est encore écrit dans l'application.</p>
+
+<div class="alert">
+  <span class="t">Changements depuis la v1</span>
+  <p><b>L'ordre est strict à l'intérieur des blocs aussi</b>, et non plus seulement entre eux :
+  dans la plupart des blocs, l'ordre des lignes est pédagogique. Cela revient sur la liberté de
+  saisie dans le bloc, décidée le 18&nbsp;septembre. Conséquences répercutées ici : le curseur
+  devient une ligne et non plus un bloc (sections&nbsp;2 et&nbsp;3), une seule écriture s'inscrit à
+  la fois et le badge « À saisir » cesse d'être un guide pour devenir la cible (sections&nbsp;7
+  et&nbsp;8), la validation ne cherche plus parmi les lignes du bloc mais compare à la ligne
+  attendue (section&nbsp;5), et l'ordre des lignes dans <code>ecrsCompta</code> devient une donnée
+  normative, à relire et à contrôler (section&nbsp;14).</p>
+  <p><b>Le geste est tranché, lui aussi</b> : toutes les lignes restent cliquables, partout. Ce
+  qui varie, c'est le repère et le droit d'écrire. Le cadre et le badge « À saisir » n'apparaissent
+  que dans le chapitre où l'écriture a lieu, et l'écriture ne s'y fait que là : ailleurs, le
+  popover s'ouvre quand même et porte le message et le lien vers le bon chapitre. Sections&nbsp;1
+  et&nbsp;10.</p>
+  <p>Bonne nouvelle : les données actuelles s'y prêtent déjà. Les <b>vingt-neuf blocs, cent sept
+  lignes</b> ont été passés au crible pour ce plan — identifiants tous uniques, un seul type par
+  bloc, vingt-huit blocs équilibrés au centime (le vingt-neuvième est la ligne 120 du
+  Chapitre&nbsp;11, sans grand journal), et <b>tous les blocs manuels suivent déjà l'ordre débits
+  puis crédits</b>. Les six blocs où un crédit précède un débit sont tous automatiques, et y
+  regroupent plusieurs opérations. Rien à réécrire.</p>
+</div>
+
+<h2 class="nu">1. Ce que le système doit garantir</h2>
+<p>Trois garanties, et elles suffisent à tenir les chiffres du module :</p>
+<ol>
+  <li><b>Aucune écriture ne peut être passée avant celle qui la précède.</b> Une tentative hors
+  ordre est refusée, et le refus dit où reprendre.</li>
+  <li><b>Aucune écriture ne peut être passée deux fois.</b> Un double clic, un retour en arrière,
+  un rechargement de page ne rejouent rien.</li>
+  <li><b>Les documents ne peuvent pas dériver.</b> Le Bilan, le Compte de Résultat et le grand
+  journal sont recalculés depuis la liste des écritures faites ; il n'existe aucun total stocké
+  qui pourrait ne plus correspondre.</li>
+</ol>
+<p>Et ce que le système ne fait pas, volontairement : il n'enferme pas la lecture. L'apprenant
+ouvre le Chapitre&nbsp;9 quand il veut, même s'il en est resté au Chapitre&nbsp;5. Il y verra les
+panneaux du Chapitre&nbsp;9 en lecture, inertes, avec un rappel de l'endroit où reprendre.</p>
+
+<div class="note">
+  <span class="t">La règle exacte</span>
+  <p><b>Ordre strict de bout en bout : une seule écriture est attendue à la fois, dans tout le
+  module.</b> Le bloc reste l'unité d'affichage, de légende et d'engagement automatique, mais il
+  ne desserre plus rien : la deuxième ligne d'un bloc n'est saisissable qu'une fois la première
+  passée.</p>
+  <p>C'est un retour sur la décision du 18&nbsp;septembre — l'ordre libre dans le bloc, la grille
+  comme des mots croisés. Le motif est bon : dans la plupart des blocs, l'ordre des lignes porte
+  un raisonnement, et le laisser prendre à l'envers revient à laisser lire une démonstration par
+  la fin.</p>
+  <p><b>Ce que l'ordre strict coûte est payé par la main, pas par la porte.</b> Rien ne se ferme :
+  l'apprenant clique sur la ligne qu'il veut, dans le chapitre qu'il veut, et le popover s'ouvre
+  toujours — c'est déjà le lieu où il lit ce qui a été inscrit sur un compte. Deux choses seulement
+  dépendent de l'endroit où il se trouve :</p>
+  <ul>
+    <li>le <b>repère</b> — le cadre slate et le badge « À saisir » sur la ligne attendue — ne
+    s'affiche que dans le chapitre où cette écriture a lieu ;</li>
+    <li>l'<b>écriture</b> ne se fait que là. Ailleurs, le popover explique en une phrase où elle
+    se passe, et le lien y mène.</li>
+  </ul>
+  <p>C'est la bonne façon de tenir une contrainte : ce qui est imposé se voit au moment où il
+  s'applique, et le refus n'est jamais une porte close mais un chemin indiqué.</p>
+</div>
+
+<h2>2. Le principe : un curseur déduit, jamais stocké</h2>
+<p>La tentation serait d'enregistrer un numéro d'avancement — « l'apprenant en est au bloc 23 ».
+C'est le genre de compteur qui se désynchronise dès qu'on insère un bloc dans un chapitre, et qui
+oblige à une migration à chaque retouche du module. On fait l'inverse :</p>
+<ul>
+  <li>on enregistre <b>la liste des identifiants d'écritures faites</b>, avec l'heure de chacune ;</li>
+  <li>le <b>curseur</b> est la première ligne de la séquence absente de cette liste : une seule
+  écriture est attendue à un instant donné, et le système sait toujours laquelle ;</li>
+  <li>l'<b>état de chaque bloc</b> (fait, courant, à venir) se lit de la même façon, en regardant
+  où tombe le curseur.</li>
+</ul>
+<p>Deux conséquences heureuses. D'abord, rien de structurel n'est persisté : ni le numéro de
+chapitre, ni celui du bloc. Insérer un chapitre, déplacer un panneau, renuméroter n'invalide aucun
+avancement, parce que les identifiants (<code>tva-solde1-4455c</code>) ne bougent pas. Ensuite, le
+système est idempotent par construction : marquer une écriture déjà faite ne fait rien.</p>
+
+<h2>3. La séquence canonique</h2>
+<p><code>ecrsCompta</code> est déjà la séquence du module : chapitres, puis blocs, puis lignes. On
+l'aplatit une fois, au démarrage, en <b>une liste de lignes</b> — c'est elle qui commande
+désormais — et en une liste de blocs qui pointe dedans, pour l'affichage.</p>
+
+<pre class="code">// app/utils/sequenceEcrs.ts
+
+export interface LigneEcrs extends EcritureCompta {
+  rang: number          // position de la ligne dans le module — 0 à 106
+  ch: number            // index de chapitre dans ecrsCompta
+  bloc: number          // index de bloc dans le chapitre
+  cleBloc: string       // le bloc auquel elle appartient
+  surface: 'grille' | 'journal'   // où elle se saisit (gdJalTodo)
+}
+
+export interface BlocEcrs {
+  cle: string           // l'id de sa première ligne — stable, jamais un index
+  ch: number
+  bloc: number
+  type: 'todo' | 'auto'
+  debut: number         // rang de sa première ligne
+  lignes: LigneEcrs[]
+}
+
+export function sequenceLignes(ecrs: EcritureCompta[][][]): LigneEcrs[]
+export function blocsDe(lignes: LigneEcrs[]): BlocEcrs[]
+export function empreinte(lignes: LigneEcrs[]): string   // ids concaténés, hashés</pre>
+
+<p>Le <code>rang</code> est un numéro de travail, calculé à chaque démarrage : il n'est jamais
+écrit dans Firebase, jamais comparé d'une session à l'autre. La <b>clé d'un bloc est
+l'identifiant de sa première ligne</b>, pas <code>« 5.3 »</code> — un index se décale, un
+identifiant non. L'<b>empreinte</b> est une petite somme de contrôle de toute la séquence ; elle
+sert au chargement, pour savoir en une comparaison si le module a changé depuis la dernière
+session.</p>
+<p><code>surface</code> mérite un mot : trois lignes manuelles du Chapitre&nbsp;5 et une du
+Chapitre&nbsp;8 portent <code>gdJalTodo</code> et n'ont pas de case dans la grille — elles se
+saisissent au grand journal. Avec un ordre strict, le système sait donc à tout instant non
+seulement quelle ligne est attendue, mais <b>où</b> elle s'écrit, et peut le dire plutôt que de
+laisser chercher.</p>
+
+<h2>4. Ce qui est enregistré dans Firebase</h2>
+<p>Un document par apprenant et par module, lu une fois, écrit à chaque bloc. Pas de sous-collection
+d'écritures : une centaine de documents à lire pour un module, ce serait une centaine de lectures
+facturées pour cinq kilo-octets d'information.</p>
+
+<pre class="code">apprenants/{uid}/avancement/{moduleId}
+
+{
+  empreinte: 'a3f19c',                    // celle de la séquence au moment de l'écriture
+  faites: [                               // dans l'ordre d'inscription
+    { id: 'nais-cap-512d', ts: 1789884044716 },
+    { id: 'nais-cap-101c', ts: 1789884044720 },
+    …
+  ],
+  majLe: serverTimestamp()
+}</pre>
+
+<p>Le module complet fait 107 écritures ; le document plafonne à quelques kilo-octets, très loin du
+mégaoctet permis par Firestore. Les règles de sécurité tiennent en une ligne :
+<code>allow read, write: if request.auth.uid == uid</code>.</p>
+<p>L'horodatage de chaque ligne n'est pas décoratif : c'est lui qui donne l'ordre du grand livre
+dans le popover de la grille, et le <code>timestamp</code> attendu par
+<code>BilanCompteDeResultat.vue</code>. Les dates comptables, elles, restent dans
+<code>gdJal.libelle</code> — ce sont deux choses différentes, et il faut qu'elles le restent.</p>
+
+<div class="note">
+  <span class="t">Validation au chargement, plutôt qu'une migration</span>
+  <p>L'ordre strict rend la validation triviale : après lecture, on confronte <code>faites</code> à
+  la séquence, ligne par ligne, et <b>on tronque au premier désaccord</b>. L'invariant — les
+  écritures faites forment un début de séquence — est donc rétabli à chaque ouverture, sans code de
+  migration à écrire. Si la liste a été tronquée, on réécrit le document nettoyé. Au pire,
+  l'apprenant refait les quelques lignes du bloc en cours.</p>
+</div>
+
+<h2>5. Le composable</h2>
+<p>Le moteur d'ordre ne connaît ni Firebase, ni Vue, ni le module&nbsp;1 : il reçoit la séquence des
+écritures et un service de persistance. C'est ce qui le rend testable et réutilisable pour les modules
+suivants.</p>
+
+<pre class="code">// app/composables/useAvancementEcrs.ts
+
+export interface ServiceAvancement {
+  lire(moduleId: string): Promise&lt;Avancement | null&gt;
+  ecrire(moduleId: string, a: Avancement): Promise&lt;void&gt;
+  effacer(moduleId: string): Promise&lt;void&gt;
+}
+
+export type Refus =
+  | { motif: 'pas-prete' }                        // avancement pas encore lu
+  | { motif: 'inconnue' }                         // id absent de la séquence
+  | { motif: 'hors-ordre', attendue: LigneEcrs }  // une écriture précède celle-ci
+
+export type Resultat =
+  | { ok: true, deja?: true }                     // idempotent
+  | ({ ok: false } &amp; Refus)
+
+export function creerAvancement(opts: {
+  moduleId: string
+  lignes: LigneEcrs[]
+  service: ServiceAvancement
+}) {
+  return {
+    // état
+    pret, enChargement, erreur,
+    faites,              // Map&lt;id, ts&gt; en lecture seule
+    courante,            // LigneEcrs | null (null = module terminé)
+    blocCourant,         // le bloc de `courante`
+    termine,
+
+    // lecture
+    estFaite,            // (id) =&gt; boolean
+    estAttendue,         // (id) =&gt; boolean  — la seule ligne saisissable
+    etatBloc,            // (cle) =&gt; 'fait' | 'courant' | 'a-venir'
+    avancementBloc,      // (cle) =&gt; { total, faites }  — pour le compteur
+
+    // actions
+    charger,             // idempotent, appelé au premier accès
+    marquer,             // (id) =&gt; Resultat   — refuse tout sauf `courante`
+    marquerBloc,         // (cle) =&gt; Resultat  — un bloc automatique entier
+    reinitialiser,
+  }
+}</pre>
+
+<p><b>Un seul exemplaire.</b> Un composable appelé dans quinze composants crée quinze états s'il
+n'est pas protégé. Plutôt qu'une variable globale dans le module TypeScript, on laisse Pinia faire
+son travail : <code>creerAvancement</code> est appelé une fois, dans <code>store/compta.ts</code>,
+et les composants n'utilisent que le store. Le composable reste une fabrique sans état global,
+donc testable en boucle.</p>
+<p><b><code>marquer</code> n'accepte qu'un identifiant : celui de <code>courante</code>.</b> Plus
+de recherche parmi les lignes non faites du bloc, plus de candidats : l'écriture attendue est
+connue, la comparaison est une égalité. C'est le bénéfice discret de votre arbitrage — la
+validation d'une saisie se réduit à deux questions, est-ce la bonne ligne, est-ce le bon montant,
+et le second contrôle reste celui du 18&nbsp;septembre : un montant faux ne s'inscrit pas.</p>
+<p><b>Les refus sont des données, pas des chaînes.</b> Le texte est fabriqué à part, par un
+<code>messageRefus(refus)</code>, pour pouvoir le relire comme on relit une phrase du module. Le
+refus <code>hors-ordre</code> porte la ligne attendue, donc le message peut la nommer — « Cette
+écriture vient plus tard. Commencez par 512 Banque. » plutôt qu'un refus qui laisse chercher.</p>
+
+<h2>6. Les documents se déduisent</h2>
+<p><code>bilan</code>, <code>cr</code>, <code>gdjal</code>, <code>resultatAvantImpot</code> et
+<code>resultatNet</code> deviennent des <code>computed</code> du store, construits en parcourant
+<code>faites</code>. Leur forme ne change pas — <code>{ cpt, somme, timestamp }</code> — donc
+<code>BilanCompteDeResultat.vue</code> n'a rien à apprendre.</p>
+<p>La conversion reste celle du 20&nbsp;septembre : <code>somme</code> est l'effet signé sur la
+case, jamais un débit ou un crédit. Actif et charges montent au débit, passif et produits au
+crédit ; les lignes 4456 et 4457 n'ont pas de case et ne vont qu'au journal.</p>
+<div class="alert">
+  <span class="t">Un plan de comptes, un seul</span>
+  <p>Cette conversion demande de savoir, pour chaque numéro de compte, son document et son côté.
+  Aujourd'hui l'information est dans la chaîne <code>doc</code> de chaque écriture
+  (« Bilan — 512 Banque »), c'est-à-dire répétée 107 fois et destinée à l'affichage. Il faut une
+  table unique, <code>app/utils/planComptes.ts</code>, équivalente au <code>A</code> du banc :
+  numéro, document, côté, nom, précision, ordre d'affichage. Le <code>doc</code> des écritures peut
+  rester pour le texte des panneaux, à condition qu'un contrôle vérifie qu'il concorde avec le plan
+  — sinon on aura tôt ou tard un compte au bon endroit dans la grille et au mauvais dans le
+  panneau.</p>
+</div>
+
+<h2>7. Les trois états d'un bloc</h2>
+<p>Tout l'affichage se déduit de <code>etatBloc(cle)</code>. Aucun panneau ne décide seul de son
+état, et aucun ne connaît les autres.</p>
+
+<table>
+  <thead>
+    <tr><th>État</th><th>Panneau manuel</th><th>Panneau automatique</th><th>Grille</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="cle">Fait</td>
+      <td>Lignes cochées, ton discret, pas de compteur</td>
+      <td>Lignes visibles et cochées, pas de bouton</td>
+      <td>Les lignes de ce bloc sont dans les totaux</td>
+    </tr>
+    <tr>
+      <td class="cle">Courant</td>
+      <td>Ligne attendue mise en avant, checks au fur et à mesure, compteur « 1&nbsp;/&nbsp;3 »</td>
+      <td>Bouton d'enregistrement, puis défilé ligne à ligne</td>
+      <td>Repère sur la ligne attendue, et elle seule s'écrit</td>
+    </tr>
+    <tr>
+      <td class="cle">À venir</td>
+      <td>Lignes en lecture, inertes, rappel de reprise</td>
+      <td>Bouton désactivé, rappel de reprise</td>
+      <td>Aucun repère ; le popover s'ouvre, et renvoie au bon chapitre</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Deux précisions. La colonne « grille » suppose que la page ouverte est celle du bloc : le
+repère et l'écriture suivent le chapitre, pas seulement le curseur — une page de chapitre
+antérieur, dont tous les blocs sont faits, n'affiche donc aucun repère non plus. Et le rappel de
+reprise n'apparaît qu'une fois par page, pas une fois par panneau : une page qui porte six blocs à
+venir n'a pas six bandeaux à afficher.</p>
+
+<h2>8. Le panneau manuel</h2>
+<p><code>PanneauEcrsTodo.vue</code> garde sa structure et son aspect. Ce qui s'ajoute :</p>
+<ul>
+  <li>Un <b>check par ligne</b> devant le libellé. Coché :
+  <code>&lt;UIcon name="mdi:check-circle-outline" /&gt;</code> ; en attente, un point médian de
+  même gabarit, pour que la hauteur de ligne ne bouge pas quand le check apparaît. La couleur du
+  coché suit le panneau (sky), pas un vert nouveau.</li>
+  <li>Un <b>compteur</b> sous l'en-tête, « 1&nbsp;/&nbsp;3 lignes passées », en
+  <code>aria-live="polite"</code> : c'est ce qu'entend un lecteur d'écran quand une ligne est
+  acceptée dans la grille.</li>
+  <li>La <b>ligne attendue</b> se distingue des autres lignes du bloc — c'est la contrepartie de
+  l'ordre strict : ce qui est imposé doit être montré. Le même repère que dans la grille, pour
+  qu'on relie les deux d'un coup d'œil, sans reprendre le cadre slate qui appartient à la case. À
+  trancher avec la mise en avant du bloc courant, ci-dessous : une seule chose doit attirer l'œil
+  sur la page, et le badge de la grille est déjà là.</li>
+  <li>Le <b>bloc courant</b> reçoit un liseré ou un fond très léger — l'apprenant qui revient sur
+  une page à quatre blocs doit voir en un coup d'œil lequel l'attend. À trancher : rien de plus
+  qu'un liseré, pour ne pas ajouter une couleur au vocabulaire.</li>
+  <li>Le panneau <b>à venir</b> passe en opacité réduite et perd le pointeur ; ses lignes restent
+  lisibles, puisque le texte du chapitre en parle.</li>
+</ul>
+<p>Pas de bouton dans ce panneau : la saisie se fait dans la grille, comme décidé le 18. Le panneau
+est le lieu de la consigne et du décompte, la grille celui du geste.</p>
+
+<h2>9. Le panneau automatique</h2>
+<p><code>PanneauEcrsAuto.vue</code> reçoit un bouton — un <code>UButton</code> neutral, comme celui
+de <code>BilanCompteDeResultat.vue</code> — et le défilé du banc : les lignes s'inscrivent une à
+une, environ 750&nbsp;ms, avec « Tout afficher » pour couper court, et un compteur qui remplace le
+« Rien ne s'inscrit avant que vous actionniez le panneau ».</p>
+<div class="note">
+  <span class="t">Le clic engage tout le bloc</span>
+  <p><code>marquerBloc</code> enregistre <b>l'ensemble des lignes d'un coup</b>. Le défilé n'est
+  qu'une présentation, pilotée par un compteur local au composant. Autrement dit, si l'apprenant
+  change de page au milieu de l'animation, ou recharge, le bloc est passé et la grille est juste ;
+  il n'existe jamais de bloc automatique à moitié enregistré. C'est la seule façon simple de tenir
+  la garantie nº&nbsp;3, et ça évite une écriture Firebase par ligne.</p>
+</div>
+<p>Quand un panneau automatique porte plusieurs blocs (<code>:index-bloc-ecrs="[1]"</code> accepte
+déjà un tableau), le bouton les enchaîne dans l'ordre. Le contrôle nº&nbsp;5 vérifie que ces blocs
+sont bien consécutifs dans la séquence : un panneau qui regrouperait les blocs 1 et 3 en laissant
+le 2 ailleurs sur la page ferait mentir le curseur.</p>
+
+<h2>10. La grille et le geste de saisie</h2>
+<p>Le branchement est court, et l'ordre strict le raccourcit encore. La grille demande au store
+<code>courante</code> : une ligne, au format <code>gdJal</code>, exactement la
+<code>consigne</code> qu'elle attend déjà. C'est la seule case où un montant s'inscrit — les
+autres s'ouvrent, mais pour lire. Quand la saisie est acceptée, elle appelle <code>marquer(id)</code> au lieu de pousser elle-même dans
+<code>bilanCr</code>. Le store recalcule, les totaux s'animent, le check apparaît dans le panneau,
+et le composant n'a plus d'état à posséder — ni <code>emit('termine')</code> à envoyer, puisque la
+fin d'un bloc se lit dans le curseur.</p>
+<p>Il faut donc que la consigne porte l'<code>id</code> de la ligne, ce que votre interface
+<code>gdJal</code> prévoit déjà en optionnel. On le rend obligatoire ici.</p>
+<p><b>Les quatre lignes sans case.</b> Trois au Chapitre&nbsp;5, une au Chapitre&nbsp;8 : quand
+<code>courante.surface</code> vaut <code>'journal'</code>, la grille n'a aucune case à ouvrir et
+c'est le grand journal qui prend la main, avec le choix de la colonne — débit ou crédit — que le
+banc prévoyait déjà. La grille le dit alors en une ligne, sous les documents, plutôt que de
+laisser l'apprenant chercher une case qui n'existe pas. C'est un cas que l'ordre libre rendait
+confus et que l'ordre strict rend lisible : l'application sait précisément quand ce moment
+arrive.</p>
+<h3>La saisie suit la page, la lecture suit l'apprenant</h3>
+<p>La grille est dans le volet de simulation, présent sur toutes les pages. L'écriture, elle, se
+passe dans son chapitre : la consigne est dans le texte, et saisir 1&nbsp;200&nbsp;€ de TVA en
+lisant les salaires n'apprendrait rien. La grille compare donc deux choses — le chapitre de la
+page ouverte et celui de <code>courante</code> — et n'en tire que trois cas.</p>
+
+<pre class="code">// dans le store : une question, une réponse
+
+etatSaisie(chPage)
+  → 'ouverte'          // chPage === courante.ch — le repère s'affiche
+  → 'autre-chapitre'   // l'écriture attendue se passe ailleurs
+  → 'terminee'         // plus rien à passer dans le module</pre>
+
+<p><b>Le popover répond dans tous les cas</b>, parce qu'il est déjà le lieu où l'on vient lire ce
+qu'une ligne porte. Il prend l'un de trois visages, et l'historique du compte reste affiché
+dessous dans les trois :</p>
+<table class="serree">
+  <thead><tr><th>La ligne cliquée</th><th>Ce que porte le popover</th></tr></thead>
+  <tbody>
+    <tr><td class="cle">C'est la ligne attendue, et nous sommes dans son chapitre</td>
+      <td>Le champ du montant, et rien d'autre — le geste du 18&nbsp;septembre, inchangé</td></tr>
+    <tr><td class="cle">L'écriture attendue se passe dans un autre chapitre</td>
+      <td>Une phrase qui dit lequel, et un lien qui y mène</td></tr>
+    <tr><td class="cle">Nous sommes au bon endroit, mais ce n'est pas la ligne attendue</td>
+      <td>Une phrase qui nomme la ligne par laquelle commencer</td></tr>
+  </tbody>
+</table>
+<p>Ce sont trois phrases à écrire, pas trois mécanismes : le store donne à chaque fois de quoi les
+construire — le chapitre visé et son lien, ou la ligne attendue. Elles vont dans
+<code>messageRefus.ts</code> avec les autres, et se relisent ensemble.</p>
+<p>Une conséquence agréable : la grille n'a plus besoin de bandeau. Le rappel de reprise reste
+utile sur la page, au-dessus des panneaux d'un chapitre qu'on ne peut pas encore remplir, mais
+dans le volet de simulation, le message arrive au moment où l'apprenant le demande — quand il
+clique — plutôt que d'occuper la place en permanence.</p>
+
+<h2>11. Savoir où mène le lien</h2>
+<p>Deux endroits pointent vers le chapitre à reprendre : le popover de la grille, en une phrase,
+et le bandeau <code>RappelReprise.vue</code> au-dessus des panneaux d'un chapitre encore
+inaccessible. Dans les deux, le lien est un vrai <code>NuxtLink</code>, et la phrase nomme le
+chapitre par son titre plutôt que par son numéro.</p>
+<p>Pour l'écrire, il faut relier un bloc à sa page. Inutile d'ajouter une table : les pages portent
+déjà <code>module_id</code>, <code>ordre</code> et <code>titre</code> dans
+<code>definePageMeta</code>. On construit la liste des chapitres depuis
+<code>router.getRoutes()</code>, filtrée sur le module et triée sur <code>ordre</code>.</p>
+<div class="note">
+  <span class="t">Un décalage à vérifier</span>
+  <p><code>la-tva.vue</code> déclare <code>ordre: 6</code> et ses panneaux
+  <code>:index-chapitre="5"</code> : l'avant-propos occupe une place dans l'ordre des pages et une
+  place dans <code>ecrsCompta</code>, mais pas la même. L'invariant à poser et à contrôler est donc
+  <code>indexChapitre === ordre - 1</code>. Mieux encore, à trancher : <b>que le panneau n'ait plus
+  à déclarer son chapitre</b>. <code>ModuleChapter</code> le fournit par
+  <code>provide</code> depuis la route, et chaque panneau ne déclare que son bloc. Cela retire d'un
+  coup treize occasions de se tromper, au prix d'une passe sur les treize pages.</p>
+</div>
+
+<h2>12. Le reset</h2>
+<p>Portée : un module, c'est-à-dire le document Firebase et rien d'autre. <code>reinitialiser()</code>
+efface le document, vide <code>faites</code>, et le curseur retombe sur le premier bloc du
+Chapitre&nbsp;2. La position de lecture n'est pas touchée : on efface un avancement, on ne renvoie
+personne à la page 1.</p>
+<ul>
+  <li><b>Où</b> : dans le volet de simulation, sous un menu discret, et non dans le fil du texte.
+  À trancher : une page de réglages du module serait plus juste si d'autres remises à zéro
+  arrivent.</li>
+  <li><b>Confirmation</b> : jamais de modale. Un <code>UPopover</code> à deux temps — « Effacer
+  tout l'avancement de ce module&nbsp;? » puis un bouton d'accord —, puis un toast qui confirme.</li>
+  <li><b>En développement</b> : les mêmes fonctions exposées autrement, pour ne pas fabriquer un
+  chemin de code parallèle. Un <code>allerAuBloc(cle)</code> qui rejoue tous les blocs précédents
+  en une fois — l'équivalent du sélecteur « Aller à » du banc — est indispensable pour tester le
+  Chapitre&nbsp;11 sans repasser cent écritures. À garder derrière
+  <code>import.meta.dev</code>.</li>
+</ul>
+
+<h2>13. Lecture, écriture, pannes</h2>
+<h3>Lecture</h3>
+<p>Une fois, au premier appel du store après connexion, comme vous le prévoyez. Tant que
+<code>pret</code> est faux, <b>les panneaux et la grille sont inertes</b> — un
+<code>USkeleton</code> sur le compteur suffit. C'est le piège principal de ce genre de système :
+un clic sur un panneau automatique avant la fin de la lecture écraserait l'avancement par un
+avancement vide. <code>marquer</code> et <code>marquerBloc</code> refusent avec
+<code>pas-prete</code> ; ils ne doivent pas se contenter de compter sur l'interface.</p>
+<h3>Écriture</h3>
+<p>Optimiste, puis persistée : l'interface avance immédiatement, l'écriture part derrière. Un
+<code>setDoc</code> du document entier, pas un <code>arrayUnion</code> — l'invariant de préfixe
+rend le dernier écrivain légitime, et des objets <code>{ id, ts }</code> se prêtent mal aux
+opérations atomiques de tableau. Trois précautions :</p>
+<ul>
+  <li><b>Groupement</b> : un débounce d'environ 400&nbsp;ms, pour qu'un bloc de trois lignes
+  saisies rapidement ne fasse qu'une écriture.</li>
+  <li><b>File sérialisée</b> : une écriture à la fois, la suivante attend la précédente. Deux
+  <code>setDoc</code> concurrents sur le même document, c'est l'unique manière de perdre une ligne.</li>
+  <li><b>Échec</b> : trois tentatives espacées, puis un message sobre — « L'avancement n'a pas pu
+  être enregistré ; il le sera à la prochaine occasion » — et la file reste en mémoire. Rien ne se
+  bloque : l'apprenant continue, ses documents sont justes à l'écran.</li>
+</ul>
+<h3>Deux onglets</h3>
+<p>Sans temps réel, deux onglets ouverts peuvent se marcher dessus. La conséquence est bénigne par
+construction : comme les blocs faits forment toujours un début de séquence, la validation au
+chargement remet tout d'aplomb, et la perte maximale est un bloc à refaire. Le dire ici plutôt que
+d'ajouter un verrou.</p>
+<p>À trancher : un miroir dans <code>localStorage</code>, fusionné au chargement par union des
+identifiants, sauverait une session passée hors ligne. C'est vingt lignes et une source de vérité
+de plus. Mon avis : pas au module&nbsp;1.</p>
+
+<h2>14. Les sept contrôles qui garantissent réellement l'ordre</h2>
+<p>Un curseur déduit ne vaut que ce que vaut la séquence dont il est déduit — et depuis que
+l'ordre des lignes commande, <code>ecrsCompta</code> n'est plus seulement une source d'affichage :
+c'est le scénario du module. Ces contrôles sont la vraie garantie ; ils tiennent dans un fichier
+de tests et doivent tourner à chaque modification du fichier.</p>
+<p>Trois d'entre eux — les nº&nbsp;1, nº&nbsp;2 et nº&nbsp;3 — ont été passés à la main sur
+<code>compta.ts</code> pour préparer ce plan, ainsi que le nº&nbsp;7 : <b>tous quatre passent</b>.
+Les nº&nbsp;4, nº&nbsp;5 et nº&nbsp;6 demandent respectivement le rejeu, la lecture des treize
+pages et le plan de comptes ; ils restent à faire.</p>
+<table class="serree">
+  <thead><tr><th class="ch">Nº</th><th>Contrôle</th><th>Ce qu'il attrape</th></tr></thead>
+  <tbody>
+    <tr><td class="ch">1</td><td>Tous les <code>id</code> du module sont uniques</td>
+      <td>Un copier-coller de bloc : deux lignes au même id, l'une coche l'autre</td></tr>
+    <tr><td class="ch">2</td><td>Chaque bloc n'a qu'un seul <code>type</code></td>
+      <td>Un bloc mi-manuel mi-automatique, que rien n'afficherait correctement</td></tr>
+    <tr><td class="ch">3</td><td>Chaque bloc est équilibré au journal, débits = crédits</td>
+      <td>Une faute de frappe dans un montant. Seule exception admise : la ligne 120 du
+      Chapitre&nbsp;11, sans <code>gdJal</code></td></tr>
+    <tr><td class="ch">4</td><td>Le rejeu de toute la séquence donne les chiffres du déroulé</td>
+      <td>Toute dérive : le Bilan doit boucler sur 130&nbsp;410&nbsp;€ et le total de contrôle
+      tomber sur 1&nbsp;294&nbsp;694,00&nbsp;€</td></tr>
+    <tr><td class="ch">5</td><td>Chaque bloc est référencé par exactement un panneau, sur la page de
+      son chapitre, dans l'ordre</td>
+      <td>Un bloc oublié — qui bloquerait le curseur à jamais — ou deux panneaux sur le même bloc</td></tr>
+    <tr><td class="ch">6</td><td>Tous les <code>cpt</code> existent dans le plan de comptes, et
+      <code>doc</code> concorde avec lui</td>
+      <td>Un compte au bon endroit dans la grille et au mauvais dans le panneau</td></tr>
+    <tr><td class="ch">7</td><td>Dans un bloc manuel, les débits précèdent les crédits</td>
+      <td>Une ligne déplacée par inadvertance : depuis que l'ordre commande, un bloc réordonné
+      change ce que l'apprenant doit faire, silencieusement</td></tr>
+  </tbody>
+</table>
+<p>Le nº&nbsp;5 se fait par lecture des fichiers <code>.vue</code> du module : on y cherche les
+<code>indexChapitre</code> et <code>indexBlocEcrs</code>. C'est du même ordre que
+<code>verif_v28.py</code> côté documents — un contrôle qui lit les sources et refuse de mentir.
+Le nº&nbsp;4 est le plus utile des sept : c'est le pont entre l'application et le déroulé.</p>
+<p>Le nº&nbsp;7 est neuf, et c'est le prix de l'ordre strict. Il ne vaut que pour les blocs
+manuels : les six blocs automatiques où un crédit précède un débit groupent plusieurs opérations —
+une vente, puis sa taxe, puis un achat — et leur ordre est celui du récit, pas celui de
+l'écriture. Ce contrôle ne dit d'ailleurs pas que l'ordre est <i>pédagogique</i>, seulement qu'il
+n'a pas bougé sans qu'on le veuille. La question pédagogique, elle, se règle une fois, en
+relisant les vingt-deux blocs manuels — quarante-neuf lignes — comme on relit une consigne.</p>
+
+<h2>15. Les fichiers</h2>
+<pre class="code">app/
+  utils/
+    sequenceEcrs.ts        aplatissement, clés de bloc, empreinte
+    planComptes.ts         cpt → document, côté, nom, précision, ordre
+    messageRefus.ts        les refus en français, relus comme du texte
+  composables/
+    useAvancementEcrs.ts   le moteur d'ordre, sans Vue ni Firebase
+  services/
+    avancementFirestore.ts lire / écrire / effacer, file et débounce
+  stores/
+    compta.ts              ecrsCompta + creerAvancement() + bilan, cr, gdjal
+  components/m1/
+    PanneauEcrsTodo.vue    + checks, compteur, états
+    PanneauEcrsAuto.vue    + bouton, défilé, états
+    BilanCompteDeResultat.vue   consigne et marquer() viennent du store
+    RappelReprise.vue      « Reprenez au Chapitre 5 », partagé
+test/
+  sequence.spec.ts         les six contrôles
+  avancement.spec.ts       ordre, refus, idempotence, reset, service factice</pre>
+
+<h2>16. Les huit étapes</h2>
+<p>Dans cet ordre : chacune est vérifiable seule, et les quatre premières ne touchent pas à
+l'interface.</p>
+<ol>
+  <li><b>La séquence et les contrôles.</b> <code>sequenceEcrs.ts</code>,
+  <code>planComptes.ts</code>, les six contrôles en tests. Livrable : la séquence est sûre, et on
+  sait qu'elle boucle sur les chiffres du déroulé.</li>
+  <li><b>Le composable</b>, avec un service factice en mémoire. Tests d'ordre, de refus,
+  d'idempotence, de troncature au chargement.</li>
+  <li><b>Les dérivés du store</b> — bilan, cr, gdjal, résultats — et le rejeu vérifié.</li>
+  <li><b>Le service Firestore</b> : lecture unique, file, débounce, réessais, règles de
+  sécurité.</li>
+  <li><b>Le panneau manuel</b> : checks, compteur, trois états.</li>
+  <li><b>Le panneau automatique</b> : bouton, engagement atomique, défilé, « Tout afficher ».</li>
+  <li><b>La grille</b> : consigne prise du store, repère sur la ligne attendue,
+  <code>marquer()</code> à la saisie juste, et les trois visages du popover.</li>
+  <li><b>Reset, rappel de reprise, accessibilité</b> : <code>aria-live</code>, focus après une
+  ligne acceptée, téléphone, mouvement réduit.</li>
+</ol>
+
+<h2>17. Ce qui reste à trancher</h2>
+<ol class="checklist">
+  <li>Relecture des vingt-deux blocs manuels : leur ordre de lignes est désormais une
+  consigne — section&nbsp;14.</li>
+  <li>Le clic d'un panneau automatique engage tout le bloc, l'animation n'est que
+  présentation — section&nbsp;9.</li>
+  <li>Une seule table de comptes ; <code>doc</code> gardé pour l'affichage, contrôlé contre
+  elle — section&nbsp;6.</li>
+  <li>Le chapitre fourni par la page plutôt que déclaré par chaque panneau — section&nbsp;11.</li>
+  <li>Emplacement et libellé du reset ; page de réglages ou menu du volet — section&nbsp;12.</li>
+  <li><b>Les trois phrases du popover</b>, celle du rappel de reprise et celle du compteur, à
+  écrire comme du texte de module — sections&nbsp;10 et&nbsp;11.</li>
+  <li>Miroir <code>localStorage</code> : oui ou non au module&nbsp;1 — section&nbsp;13.</li>
+  <li>Ce qui montre le bloc courant dans le texte : le repère de la grille suffit-il, ou faut-il
+  distinguer le panneau aussi — section&nbsp;8.</li>
+</ol>
+
+<p class="fin">Aucune de ces huit questions n'empêche de commencer : les quatre premières étapes
+ne dépendent que de la section&nbsp;3 et de la section&nbsp;4, toutes deux indépendantes des
+arbitrages d'interface. La première, en revanche, est une relecture éditoriale, et elle ne demande
+pas d'attendre le code.</p>

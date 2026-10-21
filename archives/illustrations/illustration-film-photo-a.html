@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><style>
+:root{
+  --g50:#f8fafc; --g100:#f1f5f9; --g200:#e2e8f0; --g300:#cbd5e1; --g400:#94a3b8;
+  --g500:#64748b; --g600:#475569; --g700:#334155; --g800:#1e293b; --g900:#0f172a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,"Segoe UI",sans-serif;background:#fff;color:var(--g900)}
+.img{width:100%;max-width:720px;padding:24px 24px 22px;background:#fff}
+.sur{font-size:.63rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--g500)}
+.nom{margin-top:1px;font-size:1.02rem;font-weight:800;color:var(--g900)}
+.quand{font-size:.74rem;color:var(--g500)}
+/* squelette d'un document : deux colonnes, aucun contenu */
+.squel{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.col{border-radius:6px;background:var(--g50);padding:7px 8px 9px}
+.col-t{font-size:.56rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--g400)}
+.col i{display:block;height:5px;border-radius:3px;background:var(--g200);margin-top:7px}
+.col i:nth-of-type(2){width:78%} .col i:nth-of-type(3){width:62%} .col i:nth-of-type(4){width:84%}
+
+/* ── Version A : la pellicule et l'instantané ─────────────────────── */
+.scene{display:grid;grid-template-columns:1fr 206px;column-gap:30px;align-items:start}
+.entete{margin-bottom:10px}
+
+/* la pellicule : douze images, une par mois */
+.film{position:relative;background:var(--g800);border-radius:4px;padding:15px 5px}
+.film::before,.film::after{content:"";position:absolute;left:6px;right:6px;height:5px;
+  background:repeating-linear-gradient(90deg,var(--g600) 0 6px,transparent 6px 12px)}
+.film::before{top:5px} .film::after{bottom:5px}
+.images{display:grid;grid-template-columns:repeat(12,1fr);gap:3px}
+.im{height:40px;border-radius:2px;background:var(--g600);display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:700;color:var(--g300)}
+.im.juin{background:#fff;color:var(--g900);font-weight:800}
+/* le soir du dernier jour : un trait qui dépasse la pellicule */
+.film .soir{position:absolute;right:-2px;top:-7px;bottom:-7px;width:3px;border-radius:2px;background:var(--g900)}
+
+.bornes{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;padding:0 5px;margin-top:5px;
+  font-size:.66rem;color:var(--g500)}
+.bornes .d{grid-column:1/4}
+.bornes .j{grid-column:6;text-align:center;font-weight:800;color:var(--g900);position:relative}
+.bornes .f{grid-column:10/13;text-align:right;font-weight:600;color:var(--g700)}
+
+.acc{margin-top:8px}
+.acc .trait{height:9px;border:2px solid var(--g300);border-top:0;border-radius:0 0 3px 3px}
+.acc .txt{margin-top:5px;text-align:center;font-size:.76rem;line-height:1.35;color:var(--g600)}
+.acc .txt b{color:var(--g900);font-weight:700}
+.acc .txt .br::before{content:", "}
+
+.doc{margin-top:10px;border:1.5px solid var(--g300);border-radius:10px;padding:10px 11px 11px}
+
+/* l'instantané, tiré du dernier soir */
+.photo-col{position:relative}
+.lien{position:absolute;left:-30px;width:30px;top:calc(var(--h) + 34px);height:0;border-top:2px dashed var(--g400)}
+.lien::after{content:"";position:absolute;right:-1px;top:-6px;border-top:5px solid transparent;border-bottom:5px solid transparent;
+  border-left:7px solid var(--g400)}
+.photo{background:#fff;border:1.5px solid var(--g300);border-radius:4px;padding:9px 9px 0;
+  box-shadow:0 1px 0 var(--g200),0 6px 14px -8px rgba(15,23,42,.25)}
+.photo .tirage{background:var(--g100);border-radius:2px;padding:10px 8px 11px}
+.photo .tirage .nom{margin:0 0 8px;font-size:.9rem}
+.photo .tirage .col{background:#fff}
+.photo .dos{padding:9px 2px 11px;text-align:center;font-size:.76rem;font-weight:600;color:var(--g700)}
+
+@media (max-width:640px){
+  .img{padding:20px 16px 18px}
+  .scene{grid-template-columns:1fr;row-gap:0}
+  .im{height:34px;font-size:.62rem}
+  .images,.bornes{gap:2px}
+  .photo-col{margin-top:34px;padding:0 30px}
+  /* en colonne, le Compte de Résultat s'intercale : la flèche traverserait
+     le document. Le lien passe par la date, écrite des deux côtés. */
+  .lien{display:none}
+  .acc .txt .br{display:block}
+  .acc .txt .br::before{content:""}
+  .photo-col .entete{text-align:center}
+}
+</style></head><body>
+<div class="img" id="img"><div class="scene">
+
+  <div>
+    <div class="entete"><p class="sur">Le film</p><p class="nom">Le Compte de Résultat</p></div>
+    <div class="film">
+      <div class="images">
+        <span class="im">J</span><span class="im">F</span><span class="im">M</span><span class="im">A</span>
+        <span class="im">M</span><span class="im juin">J</span><span class="im">J</span><span class="im">A</span>
+        <span class="im">S</span><span class="im">O</span><span class="im">N</span><span class="im">D</span>
+      </div>
+      <span class="soir"></span>
+    </div>
+    <div class="bornes"><span class="d">5&nbsp;janvier</span><span class="j">juin</span><span class="f">31&nbsp;décembre</span></div>
+    <div class="acc"><div class="trait"></div>
+      <p class="txt"><b>Douze mois d’activité</b><span class="br"></span> tout ce qui a été consommé et gagné</p></div>
+    <div class="doc">
+      <div class="squel">
+        <div class="col"><p class="col-t">Charges</p><i></i><i></i><i></i><i></i></div>
+        <div class="col"><p class="col-t">Produits</p><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-col" style="--h:52px">
+    <div class="entete"><p class="sur">La photo</p><p class="nom">Le Bilan</p></div>
+    <span class="lien"></span>
+    <div class="photo">
+      <div class="tirage">
+        <div class="squel">
+          <div class="col"><p class="col-t">Actif</p><i></i><i></i><i></i><i></i></div>
+          <div class="col"><p class="col-t">Passif</p><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <p class="dos">31&nbsp;décembre, le soir</p>
+    </div>
+  </div>
+
+</div></div>
+</body></html>

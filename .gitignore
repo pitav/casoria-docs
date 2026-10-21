@@ -1,0 +1,17 @@
+# Système
+.DS_Store
+._*
+
+# Ancien dossier de travail, doublon de modules/ et archives/
+Claude outputs/
+
+# Secrets : ne jamais versionner une clé
+cle-*.txt
+*.key
+.env
+.env.*
+
+# Fichiers temporaires
+__pycache__/
+*.pyc
+~$*

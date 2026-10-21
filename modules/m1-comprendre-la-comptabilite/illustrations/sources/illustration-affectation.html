@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<!-- Icônes : Material Design Icons (mdi:lock-outline, mdi:account-tie, mdi:account-tie-woman),
+     licence Apache 2.0, via icones.js.org / @iconify-json/mdi. -->
+<style>
+:root{
+  --g50:#f8fafc; --g100:#f1f5f9; --g200:#e2e8f0; --g300:#cbd5e1; --g400:#94a3b8;
+  --g500:#64748b; --g600:#475569; --g700:#334155; --g800:#1e293b; --g900:#0f172a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,"Segoe UI",sans-serif;background:#fff;color:var(--g900)}
+.img{width:100%;max-width:720px;padding:22px 24px 22px;background:#fff}
+.mt{font-variant-numeric:tabular-nums;white-space:nowrap}
+svg{display:block}
+
+/* Une seule colonne : la décision, et le résultat qu'elle partage. */
+.scene{display:block}
+
+/* la décision */
+.decide{display:flex;flex-direction:column;align-items:center;text-align:center}
+.qui{display:flex;align-items:center;gap:8px}
+.qui .ic{display:flex;gap:2px}
+.qui svg{width:34px;height:34px;color:var(--g700)}
+.qui p{font-size:.76rem;font-weight:700;color:var(--g800);text-align:left;line-height:1.3}
+.qui p span{display:block;font-weight:400;color:var(--g500);font-size:.66rem}
+/* le résultat, tel que le Bilan arrêté le porte */
+.micro{margin-top:12px;border:1.5px solid var(--g700);border-radius:8px;padding:7px 16px 8px;text-align:center;background:#fff}
+.micro .t{font-size:.56rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--g600)}
+.micro .lib{margin-top:3px;display:flex;align-items:center;justify-content:center;gap:5px;font-size:.76rem;color:var(--g700)}
+.micro .lib svg{width:15px;height:15px;color:var(--g700)}
+.micro .val{margin-top:1px;font-size:1.45rem;font-weight:800;line-height:1.15}
+
+/* la fourche : ici le montant se partage, c'est le sujet */
+.fourche{position:relative;height:30px;width:calc(100% - 100% / 3);margin:0 auto}
+.fourche .tr{position:absolute;left:50%;top:0;width:2px;height:12px;background:var(--g400);transform:translateX(-50%)}
+.fourche .ba{position:absolute;left:0;right:0;top:12px;height:2px;background:var(--g400)}
+.fourche .br{position:absolute;top:12px;width:2px;height:18px;background:var(--g400)}
+.fourche .b1{left:0} .fourche .b2{left:50%;transform:translateX(-50%)} .fourche .b3{right:0}
+.parts{width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.part{border:1.5px solid var(--g700);border-radius:6px;padding:8px 6px 9px;text-align:center;background:#fff}
+.part b{display:block;font-size:.76rem;font-weight:800;color:var(--g900);line-height:1.25}
+.part span{display:block;margin-top:3px;font-size:.66rem;line-height:1.3;color:var(--g600)}
+
+@media (max-width:640px){
+  .img{padding:18px 14px 16px}
+  .qui svg{width:30px;height:30px}
+  .parts{gap:5px}
+  .part{padding:7px 4px 8px}
+  .part b{font-size:.68rem}
+  .part span{font-size:.6rem}
+  .micro .val{font-size:1.3rem}
+}
+</style></head><body>
+<div class="img" id="img"><div class="scene">
+
+  <div class="decide">
+    <div class="qui">
+      <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3c2.21 0 4 1.79 4 4s-1.79 4-4 4s-4-1.79-4-4s1.79-4 4-4m4 10.54c0 1.06-.28 3.53-2.19 6.29L13 15l.94-1.88c-.62-.07-1.27-.12-1.94-.12s-1.32.05-1.94.12L11 15l-.81 4.83C8.28 17.07 8 14.6 8 13.54c-2.39.7-4 1.96-4 3.46v4h16v-4c0-1.5-1.6-2.76-4-3.46"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11.94 3A3.993 3.993 0 0 0 8 7c-.06 1.64-.19 3.47-.97 4.59C9.71 13.22 12 13 12 13s2.29.22 4.97-1.41C16.12 10.22 15.94 8.54 16 7c0-2.21-1.79-4-4-4zM8.86 13.32C6 13.93 4 15.35 4 17v4h8l-3-4H6.5m5.5 4l1.78-7.19S13 14 12 14s-1.78-.19-1.78-.19M12 21h8v-4c0-1.65-2-3.07-4.86-3.68L17.5 17H15Z"/></svg></span>
+      <p>Les associés décident<span>ce que devient le résultat net</span></p>
+    </div>
+    <div class="micro">
+      <p class="t">Bilan au 31&nbsp;décembre</p>
+      <p class="lib"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 17a2 2 0 0 1-2-2c0-1.11.89-2 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2m6 3V10H6v10zm0-12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10c0-1.11.89-2 2-2h1V6a5 5 0 0 1 5-5a5 5 0 0 1 5 5v2zm-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3"/></svg>Résultat de l’exercice</p>
+      <p class="val mt">27&nbsp;200&nbsp;€</p>
+    </div>
+    <div class="fourche"><span class="tr"></span><span class="ba"></span><span class="br b1"></span><span class="br b2"></span><span class="br b3"></span></div>
+    <div class="parts">
+      <div class="part"><b>Réserve légale</b><span>reste, la loi l’exige</span></div>
+      <div class="part"><b>Dividende</b><span>versé aux associés</span></div>
+      <div class="part"><b>Report à nouveau</b><span>attend l’année suivante</span></div>
+    </div>
+  </div>
+
+</div></div>
+</body></html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<title>Du document à l'écriture — vidéo d'ouverture</title>
+<style>
+/*__FONTS__*/
+:root{
+  --s50:#f8fafc;--s100:#f1f5f9;--s200:#e2e8f0;--s300:#cbd5e1;--s400:#94a3b8;
+  --s500:#64748b;--s600:#475569;--s700:#334155;--s800:#1e293b;--s900:#0f172a;
+  --p50:#f1f7fe;--p100:#e2edfc;--p200:#bfdbf8;--p600:#1063b9;--p700:#0e4f97;--p900:#133a67;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#459ceb}
+body{font-family:Poppins,sans-serif;color:var(--s900);-webkit-font-smoothing:antialiased}
+#stage{position:relative;width:1920px;height:1080px;background:linear-gradient(to right,#459ceb,#c084fc);overflow:hidden}
+#scene{left:0;top:90px;width:1920px;height:990px}
+#entete{left:0;top:0;width:1920px;height:90px;background:transparent;border-bottom:1px solid #ffffff95;display:flex;align-items:center;gap:30px;padding:0 60px}
+#entete .lg{width:190px;flex:none}#entete .lg svg{width:100%;height:auto;display:block}
+#entete .sep{width:2px;height:44px;background:var(--s200)}
+#entete .mod{font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+#entete .chap{font-size:28px;font-weight:600;color:var(--s800);line-height:1.15}
+.abs{position:absolute}
+.mt{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+#logo{left:50%;top:430px;width:620px;transform:translateX(-50%)}
+#logo svg{width:100%;height:auto;display:block}
+#titre{left:0;right:0;top:640px;text-align:center;font-size:58px;font-weight:600;color:var(--s800)}
+#titre small{display:block;margin-bottom:14px;font-size:22px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+#flash{left:0;top:0;width:1920px;height:1080px;background:#fff;opacity:0;pointer-events:none;z-index:5}
+
+/* repère */
+#quand{left:0;right:0;top:34px;text-align:center;font-size:26px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--p900)}
+
+/* frise d'un exercice */
+#frise{left:300px;top:968px;width:1320px;height:60px}
+#frise .rail{position:absolute;left:0;right:0;top:14px;height:3px;background:var(--p700);border-radius:2px}
+#frise .bout{position:absolute;white-space:nowrap;top:30px;font-size:20px;font-weight:600;color:var(--p900);transform:translateX(-50%)}
+#repere{position:absolute;left:0;top:3px;width:25px;height:25px;margin-left:-12.5px;border-radius:50%;background:var(--p600);box-shadow:0 0 0 5px #fff}
+
+/* plan 1 */
+.acteur{width:300px;text-align:center}
+.acteur .tuile{width:260px;height:190px;margin:0 auto;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.acteur .tuile svg{width:76px;height:76px;color:var(--p600)}
+.acteur p{margin-top:12px;font-size:26px;font-weight:600;color:var(--s700)}
+.carte-doc{width:380px;height:280px;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.carte-doc i{display:block;width:220px;height:10px;border-radius:5px;background:var(--s200)}
+.carte-doc i+i{width:160px}
+.carte-doc .ic{width:110px;height:110px;color:var(--p600)}
+.carte-doc .ic svg{width:100%;height:100%}
+.carte-doc p{font-size:26px;font-weight:600;color:var(--s700);text-align:center;line-height:1.3;padding:0 20px}
+
+/* documents */
+.doc{width:840px;height:660px;border-radius:24px;background:#fff;padding:26px 26px 26px;display:flex;flex-direction:column}
+.doc-t{font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--s500)}
+.cols{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1}
+.col{position:relative;border-radius:14px;background:var(--s50);padding:14px 14px;display:flex;flex-direction:column}
+.col-t{font-size:20px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s400)}
+.col .q{position:absolute;right:14px;top:10px;font-family:Poppins,sans-serif;font-size:22px;font-weight:500;color:var(--p600)}
+.ligne{position:relative;margin-top:10px;border-radius:12px;padding:8px 14px;background:#fff}
+.ligne .lib{font-size:20px;line-height:1.25;color:var(--s700)}
+.ligne .val{margin-top:2px;font-size:32px;font-weight:800;color:var(--s900)}
+.tot-col{margin-top:auto;padding-top:12px;border-top:2px solid var(--s200);display:flex;justify-content:space-between;align-items:baseline}
+.tot-col span{font-size:20px;font-weight:600;color:var(--s500)}
+.tot-col b{font-size:30px;font-weight:800;color:var(--s900)}
+.res{margin-top:14px;border-radius:14px;background:var(--s50);padding:12px 18px;display:flex;justify-content:space-between;align-items:baseline}
+.res span{font-size:24px;font-weight:700;color:var(--s700)}
+.res b{font-size:34px;font-weight:800;color:var(--s900)}
+#egal{width:60px;height:60px;border-radius:50%;background:var(--p600);color:#fff;font-size:38px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px #fff}
+.coin{position:absolute;width:56px;height:56px;border:0 solid #fff}
+.coin.a{left:-26px;top:-26px;border-left-width:7px;border-top-width:7px;border-top-left-radius:12px}
+.coin.b{right:-26px;top:-26px;border-right-width:7px;border-top-width:7px;border-top-right-radius:12px}
+.coin.c{left:-26px;bottom:-26px;border-left-width:7px;border-bottom-width:7px;border-bottom-left-radius:12px}
+.coin.d{right:-26px;bottom:-26px;border-right-width:7px;border-bottom-width:7px;border-bottom-right-radius:12px}
+.point-q{width:84px;height:84px;border-radius:50%;background:#fff;color:var(--p600);display:flex;align-items:center;justify-content:center}
+.point-q svg{width:60px;height:60px}
+
+/* textes sur le fond */
+.phrase{left:120px;right:120px;text-align:center;font-family:Poppins,sans-serif;color:#fff;font-weight:500}
+.titre-passage{top:22px;font-size:44px}
+#refrain{top:360px;font-size:66px;line-height:1.3;text-wrap:balance}
+#refrain span{display:block}
+#refrain span+span{margin-top:24px}
+
+/* à retenir */
+#retenir-t{left:0;right:0;top:110px;text-align:center;font-size:26px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--p900)}
+.carte{left:260px;width:1400px;background:#fff;border-radius:22px;padding:28px 40px 28px 120px;font-size:34px;line-height:1.35;color:var(--s700)}
+.carte b{font-weight:700;color:var(--s900)}
+.carte .n{position:absolute;left:36px;top:30px;width:56px;height:56px;border-radius:50%;background:var(--p600);color:#fff;font-size:28px;font-weight:700;display:flex;align-items:center;justify-content:center}
+/* ── Du document à l'écriture ── */
+.pill{position:absolute;white-space:nowrap;background:#fff;color:var(--s800);font-size:24px;font-weight:600;padding:8px 20px;border-radius:999px}
+.pill.p{background:var(--p600);color:#fff}
+:root{--y100:#fef9c3;--y400:#facc15;--y500:#eab308;--y50:#fefce8;--pu600:#9333ea}
+.facture{width:330px;background:var(--y100);padding:30px 24px 30px;color:var(--s700);clip-path:polygon(0 8px,10% 0,20% 8px,30% 0,40% 8px,50% 0,60% 8px,70% 0,80% 8px,90% 0,100% 8px,100% calc(100% - 8px),90% 100%,80% calc(100% - 8px),70% 100%,60% calc(100% - 8px),50% 100%,40% calc(100% - 8px),30% 100%,20% calc(100% - 8px),10% 100%,0 calc(100% - 8px))}
+.facture .haut{display:flex;justify-content:space-between;align-items:baseline}
+.facture .emet{font-size:24px;font-weight:700;color:var(--s800)}
+.facture .type{font-size:16px;font-weight:800;letter-spacing:.12em;color:var(--s500)}
+.facture .dest,.facture .obj,.facture .date{margin-top:8px;font-size:20px;color:var(--s600)}
+.facture .fant{display:block;height:8px;border-radius:4px;background:var(--y400);margin-top:12px}
+.facture .tot{margin-top:18px;padding-top:12px;border-top:2px solid var(--y400);text-align:right;font-size:34px;font-weight:800;color:var(--s900)}
+.facture .ech{margin-top:4px;text-align:right;font-size:20px;color:var(--s600)}
+.facture .ht{display:block;text-align:right;font-size:18px;font-weight:700;color:var(--p600);margin-top:2px}
+.facture.ticket{width:250px}
+.lst{width:420px}
+.lst .pill{position:relative;display:block;width:max-content;margin-bottom:18px}
+#question{top:720px;font-size:46px;line-height:1.35}
+.qbox{width:560px;text-align:center}
+.qbox .pill{position:relative;display:inline-block}
+.qbox .pill b{color:var(--pu600);font-weight:700}
+.qbox .rep{margin-top:22px;font-family:Poppins,sans-serif;font-size:40px;font-weight:500;color:#fff}
+/* cahier */
+#cahier{left:330px;top:160px;width:820px;border-radius:24px;background:#fff;padding:26px 30px 30px}
+.cr3{display:grid;grid-template-columns:1fr 180px 180px;align-items:baseline;padding:12px 16px;border-top:2px solid var(--s100)}
+.cr3.tete{border-top:0;padding-bottom:16px}
+.cr3.tete span{font-size:20px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s400);text-align:right}
+.cr3.tete span:first-child{text-align:left}
+.cr3 .c{font-size:26px;color:var(--s700)}
+.cr3 .m{text-align:right;font-size:30px;font-weight:800;color:var(--s900)}
+#ps{left:740px;top:110px;transform:translateX(-50%)}
+#banque{width:330px;border-radius:18px;background:#fff;padding:18px 22px;display:flex;align-items:center;gap:18px}
+#banque svg{width:52px;height:52px;color:var(--p600);flex:none}
+#banque .lib{font-size:20px;color:var(--s500)}
+#banque .val{font-size:36px;font-weight:800;color:var(--s900)}
+/* grand journal */
+#journal{left:330px;top:80px;width:1260px;border-radius:24px;background:#fff;padding:22px 30px 24px}
+.jr{display:grid;grid-template-columns:1fr 240px 240px;align-items:baseline;padding:8px 16px;border-top:2px solid var(--s100);border-radius:10px}
+.jr.tete{border-top:0;padding-top:12px;padding-bottom:40px}
+.jr.tete span{font-size:20px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s400);text-align:right}
+.jr.tete span:first-child{text-align:left}
+.jr .c{font-size:26px;color:var(--s700)}
+.jr .m{text-align:right;font-size:30px;font-weight:800;color:var(--s900)}
+.jr.ecr{border-top:2px solid var(--s200);padding:12px 16px 2px}
+.jr.ecr span{font-size:20px;font-style:italic;color:var(--s500)}
+.jr.tt{border-top:3px solid var(--s300);margin-top:6px;padding-top:12px}
+.jr.tt .c{font-weight:700;color:var(--s600)}
+.col-h{position:relative}
+.col-h em{position:absolute;right:0;top:30px;font-style:normal;font-family:Poppins,sans-serif;font-size:22px;font-weight:600;color:var(--pu600);letter-spacing:0;text-transform:none}
+#pd{left:630px;top:-62px;transform:translateX(-50%)}
+/* documents compacts */
+.doc.cpt{width:500px;height:500px;padding:22px 20px}
+.doc.cpt .cols{gap:12px}
+.doc.cpt .ligne .val{font-size:30px}
+.halo{position:absolute;inset:0;border-radius:12px;border:3px solid var(--y500);background:var(--y50);z-index:-1;opacity:0}
+.ligne{z-index:0}
+#manque{left:850px;right:40px;top:660px;font-size:40px;line-height:1.35;text-align:center}
+</style></head>
+<body><div id="stage">
+  <div id="logo" class="abs">/*__LOGO__*/</div>
+  <p id="titre" class="abs"><small>Comprendre la comptabilité</small>Du document à l'écriture</p>
+  <div id="entete" class="abs"><div class="lg">/*__LOGO__*/</div><span class="sep"></span>
+    <div><p class="mod">Comprendre la comptabilité</p><p class="chap">Du document à l'écriture</p></div></div>
+  <div id="frise" class="abs"></div>
+
+  <div id="scene" class="abs">
+  <!-- plan 1-3 : les documents -->
+  <div id="tk" class="abs facture ticket" style="left:470px;top:150px">
+    <div class="haut"><span class="emet">Entreprise</span><span class="type">TICKET</span></div>
+    <p class="obj">ventes du jour</p>
+    <span class="fant" style="width:90%"></span><span class="fant" style="width:62%"></span>
+    <p class="tot mt">300&nbsp;€</p><span id="tk-ht" class="ht">hors taxes</span>
+    <p class="ech">encaissé</p>
+  </div>
+  <div id="fa" class="abs facture" style="left:795px;top:150px">
+    <div class="haut"><span class="emet" id="fa-emet">Fournisseur</span><span class="type">FACTURE</span></div>
+    <p class="dest" id="fa-dest">pour : Entreprise</p>
+    <p class="obj" id="fa-obj">objet : marchandises</p>
+    <p class="date" id="fa-date">le 15 janvier</p>
+    <span class="fant" style="width:90%"></span><span class="fant" style="width:62%"></span>
+    <p class="tot mt" id="fa-tot">2&nbsp;000&nbsp;€</p><span id="fa-ht" class="ht">hors taxes</span>
+    <p class="ech">payée à la livraison</p>
+  </div>
+  <div id="fe" class="abs facture" style="left:1200px;top:150px">
+    <div class="haut"><span class="emet">Fournisseur</span><span class="type">FACTURE</span></div>
+    <p class="dest">pour : Entreprise</p>
+    <p class="obj">objet : électricité</p>
+    <span class="fant" style="width:90%"></span><span class="fant" style="width:62%"></span>
+    <p class="tot mt">200&nbsp;€</p><span id="fe-ht" class="ht">hors taxes</span>
+    <p class="ech">payée</p>
+  </div>
+  <p id="question" class="abs phrase">Comment passer du document à l'écriture&nbsp;?</p>
+  <div id="lst" class="abs lst" style="left:1300px;top:200px">
+    <span id="m1" class="pill">les deux parties</span>
+    <span id="m2" class="pill">ce qui a été livré</span>
+    <span id="m3" class="pill">le montant</span>
+    <span id="m4" class="pill">la date</span>
+  </div>
+  <div id="qv" class="abs qbox" style="left:340px;top:520px"><span class="pill">Où va la valeur&nbsp;? <b id="qv-r">→ emploi</b></span><p id="qv-a" class="rep">un service consommé</p></div>
+  <div id="qd" class="abs qbox" style="left:1020px;top:520px"><span class="pill">D'où vient-elle&nbsp;? <b id="qd-r">→ ressource</b></span><p id="qd-a" class="rep">l'argent du compte</p></div>
+
+  <!-- plan 4 : partie simple -->
+  <span id="ps" class="abs pill p">partie simple</span>
+  <div id="cahier" class="abs">
+    <p class="doc-t">Cahier</p>
+    <div class="cr3 tete"><span>Mouvement</span><span>Entrées</span><span>Sorties</span></div>
+    <div id="k1" class="cr3"><span class="c">Ticket de caisse</span><span class="m mt">300</span><span></span></div>
+    <div id="k2" class="cr3"><span class="c">Facture d'achat</span><span></span><span class="m mt">2&nbsp;000</span></div>
+    <div id="k3" class="cr3"><span class="c">Électricité</span><span></span><span class="m mt">200</span></div>
+  </div>
+  <div id="banque" class="abs" style="left:1260px;top:330px">/*__I:bank-outline__*/<div><p class="lib">Compte en banque</p><p id="v-banque" class="val mt">30&nbsp;000&nbsp;€</p></div></div>
+
+  <!-- plan 4-6 : grand journal -->
+  <div id="journal" class="abs">
+    <span id="pd" class="pill p">partie double</span>
+    <p class="doc-t">Grand journal</p>
+    <div class="jr tete"><span>Compte</span><span id="h-deb" class="col-h">Débit<em id="h-emp">(emploi)</em></span><span id="h-cre" class="col-h">Crédit<em id="h-res">(ressource)</em></span></div>
+    <div id="e1" class="jr ecr"><span>Ticket de caisse</span></div>
+    <div id="r1" class="jr"><span class="c">Banque</span><span class="m mt">300</span><span></span></div>
+    <div id="r2" class="jr"><span class="c">Ventes</span><span></span><span class="m mt">300</span></div>
+    <div id="e2" class="jr ecr"><span>Facture d'achat</span></div>
+    <div id="r3" class="jr"><span class="c">Achats</span><span class="m mt">2&nbsp;000</span><span></span></div>
+    <div id="r4" class="jr"><span class="c">Banque</span><span></span><span class="m mt">2&nbsp;000</span></div>
+    <div id="e3" class="jr ecr"><span>Électricité</span></div>
+    <div id="r5" class="jr"><span class="c">Autres charges externes</span><span class="m mt">200</span><span></span></div>
+    <div id="r6" class="jr"><span class="c">Banque</span><span></span><span class="m mt">200</span></div>
+    <div id="rt" class="jr tt"><span class="c">Total</span><span id="t-deb" class="m mt">0</span><span id="t-cre" class="m mt">0</span></div>
+  </div>
+
+  <div id="bilan" class="abs doc cpt" style="left:850px;top:40px">
+    <p class="doc-t">Bilan</p>
+    <div class="cols">
+      <div class="col"><p class="col-t">Actif</p>
+        <div id="l-banque" class="ligne"><p class="lib">Banque</p><p class="val mt">30&nbsp;000</p></div>
+        <div class="tot-col"><span>Total</span><b id="tt-ac" class="mt">30&nbsp;000</b></div></div>
+      <div class="col"><p class="col-t">Passif</p>
+        <div class="ligne"><p class="lib">Capital social</p><p class="val mt">20&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">Compte courant d'associé</p><p class="val mt">10&nbsp;000</p></div>
+        <div class="tot-col"><span>Total</span><b id="tt-pa" class="mt">30&nbsp;000</b></div></div>
+    </div>
+  </div>
+  <div id="cr" class="abs doc cpt" style="left:1380px;top:40px">
+    <p class="doc-t">Compte de Résultat</p>
+    <div class="cols">
+      <div class="col"><p class="col-t">Charges</p>
+        <div id="l-achats" class="ligne"><p class="lib">Achats</p><p class="val mt">2&nbsp;000</p></div>
+        <div id="l-ace" class="ligne"><p class="lib">Autres charges externes</p><p class="val mt">200</p></div>
+        <div class="tot-col"><span>Total</span><b id="tt-ch" class="mt">0</b></div></div>
+      <div class="col"><p class="col-t">Produits</p>
+        <div id="l-ventes" class="ligne"><p class="lib">Ventes</p><p class="val mt">300</p></div>
+        <div class="tot-col"><span>Total</span><b id="tt-pr" class="mt">0</b></div></div>
+    </div>
+  </div>
+  <p id="manque" class="abs phrase">Il manque au Bilan le résultat de l'année.</p>
+
+  <p id="refrain" class="abs phrase">Tout ce qu'une écriture demande, le document le porte déjà.</p>
+  <p id="retenir-t" class="abs">À retenir</p>
+  <div id="c1" class="abs carte" style="top:170px"><span class="n">1</span>Une facture ou un ticket de caisse dit <b>qui doit quoi à qui</b>, combien et quand. Deux questions suffisent&nbsp;: <b>où va la valeur</b>, <b>d'où elle vient</b>.</div>
+  <div id="c2" class="abs carte" style="top:380px"><span class="n">2</span>Dans la comptabilité en <b>partie double</b>, toute opération s'inscrit une fois au <b>débit</b>, une fois au <b>crédit</b>. Les deux colonnes du grand journal ont le <b>même total</b>.</div>
+  <div id="c3" class="abs carte" style="top:636px"><span class="n">3</span>Ce que l'activité a consommé ou gagné va au <b>Compte de Résultat</b>&nbsp;; ce que l'entreprise détient reste au <b>Bilan</b>.</div>
+  </div>
+</div>
+
+<script>/*__GSAP__*/</script>
+<script>
+const VOIX = /*__VOIX__*/;
+const S = Object.fromEntries(VOIX.segments.map(s => [s.id, s]));
+function at(id, mot, apres = 0) {
+  const s = S[id], i = s.texte.indexOf(mot) + (apres ? mot.length : 0);
+  if (i < (apres ? mot.length : 0)) throw new Error('introuvable : ' + mot + ' dans ' + id);
+  const P = s.phrases; let k = 0;
+  while (k + 1 < P.length && P[k + 1].i <= i) k++;
+  const i1 = k + 1 < P.length ? P[k + 1].i : s.texte.length;
+  const t1 = k + 1 < P.length ? P[k + 1].t : s.duree;
+  return s.debut + P[k].t + (t1 - P[k].t) * (i - P[k].i) / (i1 - P[k].i);
+}
+/* pas de « € » dans le Bilan ni dans le Compte de Résultat */
+const nombre = n => Math.round(n).toLocaleString('fr-FR').replace(/ |\s/g, ' ');
+function compte(tl, el, de, a, t, d = .3) {
+  const o = { v: de };
+  tl.fromTo(o, { v: de }, { v: a, duration: d, ease: 'power1.inOut', immediateRender: false,
+    onUpdate: () => { el.textContent = nombre(o.v); } }, t);
+}
+const $ = s => document.querySelector(s);
+const E = 'power2.out', D = 0.5;
+const tl = gsap.timeline({ paused: true });
+window.tl = tl; window.DUREE = VOIX.duree_totale;
+
+gsap.set(['#scene > *', '#logo', '#titre', '#entete', '#frise'], { autoAlpha: 0 });
+
+/* ── Plan 0 · ouverture ─────────────────────────────── */
+const sym = '#logo .lg-sym', mot = '#logo .lg-mot';
+tl.set('#logo', { autoAlpha: 1 }, 0)
+  .fromTo(sym, { opacity: 0, scale: .6, rotation: -90, transformOrigin: '50% 50%' }, { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: 'power3.out' }, .3)
+  .fromTo(mot, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: .9, ease: E }, .9)
+  .to('#logo', { top: 330, duration: .8, ease: 'power2.inOut' }, 2.2)
+  .fromTo('#titre', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .8, ease: E }, 2.6)
+  .to(['#logo', '#titre'], { autoAlpha: 0, duration: .6 }, 5.0)
+  .fromTo('#entete', { autoAlpha: 0, y: -20 }, { autoAlpha: 1, y: 0, duration: .6, ease: E }, 5.3);
+
+const euros = n => nombre(n) + ' €';
+function compteE(tl, el, de, a, t, d = .3) {
+  const o = { v: de };
+  tl.fromTo(o, { v: de }, { v: a, duration: d, ease: 'power1.inOut', immediateRender: false,
+    onUpdate: () => { el.textContent = euros(o.v); } }, t);
+}
+gsap.set(['#lst .pill', '#qv-r', '#qd-r', '#qv-a', '#qd-a', '#k1', '#k2', '#k3',
+  '#journal .jr:not(.tete)', '#h-emp', '#h-res', '#pd', '#l-achats', '#l-ace', '#l-ventes'], { autoAlpha: 0 });
+const HL = '#e2edfc';
+
+/* ── Plan 1 · trois documents ───────────────────────── */
+const p1 = 'p1-1';
+tl.fromTo('#tk', { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p1, 'un ticket'))
+  .fromTo('#fa', { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p1, "une facture d'achat"))
+  .fromTo('#fe', { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p1, "une facture d'électricité"))
+  .to(['#tk', '#fa', '#fe'], { y: -12, duration: .25, yoyo: true, repeat: 1, stagger: .15 }, at(p1, 'Chacun dit'))
+  .fromTo('#question', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .6, ease: E }, at(p1, 'Comment passer'));
+
+/* ── Plan 2 · ce que dit un document ────────────────── */
+const p21 = 'p2-1', t2 = S[p21].debut;
+tl.to(['#question', '#tk', '#fe'], { autoAlpha: 0, duration: .5 }, t2 - .8)
+  .set('#lst', { autoAlpha: 1 }, t2 - .5)
+  .to('#fa', { left: 560, top: 110, scale: 1.35, transformOrigin: '0 0', duration: .8, ease: 'power2.inOut' }, t2 - .5);
+[['#m1', ['#fa-emet', '#fa-dest'], 'les deux parties'], ['#m2', ['#fa-obj'], 'ce qui a été livré'],
+ ['#m3', ['#fa-tot'], 'le montant'], ['#m4', ['#fa-date'], 'la date']].forEach(([m, els, mot]) => {
+  tl.fromTo(m, { autoAlpha: 0, x: -14 }, { autoAlpha: 1, x: 0, duration: .4, ease: E }, at(p21, mot))
+    .to(els, { color: '#1063b9', duration: .3 }, at(p21, mot));
+});
+tl.set('#tk', { left: 140, top: 200 }, at(p21, 'Le ticket') - .1)
+  .fromTo('#tk', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: D, ease: E, immediateRender: false }, at(p21, 'Le ticket'));
+
+/* ── Plan 3 · les deux questions ────────────────────── */
+const p31 = 'p3-1', p32 = 'p3-2', t3 = S[p31].debut;
+tl.to(['#fa', '#tk', '#lst'], { autoAlpha: 0, duration: .5 }, t3 - .8)
+  .set(['#qv', '#qd'], { autoAlpha: 1 }, t3 - .3)
+  .set('#fe', { left: 795, top: 20, y: 0 }, t3 - .3)
+  .to('#fe', { autoAlpha: 1, duration: .6 }, t3 - .3)
+  .fromTo('#qv', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .5, ease: E }, at(p31, 'Où va la valeur'))
+  .to('#qv-r', { autoAlpha: 1, duration: .4 }, at(p31, "C'est l'emploi"))
+  .fromTo('#qd', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .5, ease: E }, at(p31, "D'où vient-elle"))
+  .to('#qd-r', { autoAlpha: 1, duration: .4 }, at(p31, "C'est la ressource"))
+  .fromTo('#qv-a', { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .5, ease: E }, at(p32, 'a consommé'))
+  .fromTo('#qd-a', { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .5, ease: E }, at(p32, "avec l'argent"));
+
+/* ── Plan 4 · partie simple, partie double ──────────── */
+const p41 = 'p4-1', p42 = 'p4-2', t4 = S[p41].debut;
+tl.to(['#fe', '#qv', '#qd'], { autoAlpha: 0, duration: .5 }, t4 - .8)
+  .fromTo('#cahier', { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: .6, ease: E }, t4 - .3)
+  .fromTo(['#k1', '#k2', '#k3'], { autoAlpha: 0, x: -14 }, { autoAlpha: 1, x: 0, duration: .35, ease: E, stagger: .5 }, at(p41, 'ce qui entre'))
+  .fromTo('#ps', { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: .5 }, at(p41, 'en partie simple'))
+  .fromTo('#banque', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p41, 'combien il reste'));
+compteE(tl, $('#v-banque'), 30000, 28100, at(p41, 'combien il reste') + .6, .6);
+const t42 = S[p42].debut;
+tl.to(['#cahier', '#ps', '#banque'], { autoAlpha: 0, duration: .5 }, t42 - .8)
+  .fromTo('#journal', { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: .7, ease: E }, t42 - .4)
+  .fromTo('#pd', { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: .5 }, at(p42, 'en partie double'))
+  .to('#h-deb', { color: '#1063b9', duration: .3 }, at(p42, 'une fois au débit'))
+  .to('#h-emp', { autoAlpha: 1, duration: .4 }, at(p42, 'où va la valeur'))
+  .to('#h-cre', { color: '#1063b9', duration: .3 }, at(p42, 'une fois au crédit'))
+  .to('#h-res', { autoAlpha: 1, duration: .4 }, at(p42, "d'où elle vient"));
+
+/* ── Plan 5 · trois écritures ───────────────────────── */
+const p51 = 'p5-1', p52 = 'p5-2', p53 = 'p5-3', p54 = 'p5-4';
+[[p51, '#e1', 'Le ticket'], [p51, '#r1', 'va en banque'], [p51, '#r2', 'vient des ventes'],
+ [p52, '#e2', 'La facture'], [p52, '#r3', 'Ils vont aux achats'], [p52, '#r4', 'viennent de la banque'],
+ [p53, '#e3', "L'électricité"], [p53, '#r5', 'Ils vont aux autres'], [p53, '#r6', 'viennent de la banque'],
+ [p54, '#rt', 'Additionnez']].forEach(([s, r, m]) =>
+  tl.fromTo(r, { autoAlpha: 0, x: -14 }, { autoAlpha: 1, x: 0, duration: .35, ease: E }, at(s, m)));
+compte(tl, $('#t-deb'), 0, 2500, at(p54, 'Additionnez') + .3, .6);
+compte(tl, $('#t-cre'), 0, 2500, at(p54, 'Additionnez') + .3, .6);
+tl.to('#rt', { backgroundColor: HL, duration: .4 }, at(p54, 'les totaux'))
+  .to('#rt', { backgroundColor: 'rgba(226,237,252,0)', duration: .4 }, at(p54, 'la comptabilité'));
+
+/* ── Plan 6 · deux documents ────────────────────────── */
+const p61 = 'p6-1', p62 = 'p6-2', p63 = 'p6-3', t6 = S[p61].debut;
+tl.to('#pd', { autoAlpha: 0, duration: .4 }, t6 - .9)
+  .to('#journal', { left: 40, top: 60, scale: .6, transformOrigin: '0 0', duration: .8, ease: 'power2.inOut' }, t6 - .8)
+  .fromTo(['#bilan', '#cr'], { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: .6, ease: E, stagger: .15 }, t6 - .3);
+[['#l-ventes', '#r2', 'les ventes'], ['#l-achats', '#r3', 'les achats'], ['#l-ace', '#r5', "l'électricité"]].forEach(([l, r, m]) =>
+  tl.fromTo(l, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .3, ease: E }, at(p61, m))
+    .to(r, { backgroundColor: HL, duration: .3 }, at(p61, m)));
+compte(tl, $('#tt-pr'), 0, 300, at(p61, 'les ventes'));
+compte(tl, $('#tt-ch'), 0, 2000, at(p61, 'les achats'));
+compte(tl, $('#tt-ch'), 2000, 2200, at(p61, "l'électricité"));
+tl.to(['#r1', '#r4', '#r6'], { backgroundColor: HL, duration: .3 }, at(p62, 'La banque'));
+compte(tl, $('#l-banque .val'), 30000, 28100, at(p62, 'La banque') + .2, .6);
+compte(tl, $('#tt-ac'), 30000, 28100, at(p62, 'La banque') + .2, .6);
+tl.to('#bilan .tot-col', { backgroundColor: '#fefce8', boxShadow: '0 0 0 3px #eab308', borderRadius: 10, duration: .4 }, at(p63, 'ne tombent plus'))
+  .fromTo('#manque', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .6, ease: E }, at(p63, 'il manque'));
+
+/* ── Plan 7 · le refrain ────────────────────────────── */
+const p7 = 'p7-1';
+tl.to(['#journal', '#bilan', '#cr', '#manque'], { autoAlpha: 0, duration: .6 }, S[p7].debut - .9)
+  .fromTo('#refrain', { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: .8, ease: E }, S[p7].debut);
+
+/* ── Plan 8 · à retenir ─────────────────────────────── */
+const p8 = 'p8-1';
+tl.to('#refrain', { autoAlpha: 0, duration: .5 }, S[p8].debut - .6)
+  .fromTo('#retenir-t', { autoAlpha: 0 }, { autoAlpha: 1, duration: D }, S[p8].debut)
+  .fromTo('#c1', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p8, 'Un document'))
+  .fromTo('#c2', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p8, 'Dans la comptabilité'))
+  .fromTo('#c3', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p8, "Ce que l'activité"));
+
+/* ── fin ────────────────────────────────────────────── */
+const t9 = VOIX.jingle_fin;
+tl.to(['#retenir-t', '#c1', '#c2', '#c3', '#entete'], { autoAlpha: 0, duration: .6 }, t9 - .6)
+  .set('#logo', { top: 430 }, t9 - .1)
+  .to('#logo', { autoAlpha: 1, duration: .6 }, t9)
+  .to(sym, { opacity: 1, rotation: 0, scale: 1, duration: .01 }, t9)
+  .to(mot, { opacity: 1, x: 0, duration: .01 }, t9)
+  .to('#logo', { autoAlpha: 1, duration: .1 }, VOIX.duree_totale - .1);
+
+window.seek = t => tl.seek(t, false);
+document.fonts.ready.then(() => { window.PRET = true; });
+</script>
+<!--__APERCU__-->
+</body></html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<title>Se financer — vidéo d'ouverture</title>
+<style>
+/*__FONTS__*/
+:root{
+  --s50:#f8fafc;--s100:#f1f5f9;--s200:#e2e8f0;--s300:#cbd5e1;--s400:#94a3b8;
+  --s500:#64748b;--s600:#475569;--s700:#334155;--s800:#1e293b;--s900:#0f172a;
+  --p50:#f1f7fe;--p100:#e2edfc;--p200:#bfdbf8;--p600:#1063b9;--p700:#0e4f97;--p900:#133a67;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#459ceb}
+body{font-family:Poppins,sans-serif;color:var(--s900);-webkit-font-smoothing:antialiased}
+#stage{position:relative;width:1920px;height:1080px;background:linear-gradient(to right,#459ceb,#c084fc);overflow:hidden}
+#scene{left:0;top:90px;width:1920px;height:990px}
+#entete{left:0;top:0;width:1920px;height:90px;background:transparent;border-bottom:1px solid #ffffff95;display:flex;align-items:center;gap:30px;padding:0 60px}
+#entete .lg{width:190px;flex:none}#entete .lg svg{width:100%;height:auto;display:block}
+#entete .sep{width:2px;height:44px;background:var(--s200)}
+#entete .mod{font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+#entete .chap{font-size:28px;font-weight:600;color:var(--s800);line-height:1.15}
+.abs{position:absolute}
+.mt{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+#logo{left:50%;top:430px;width:620px;transform:translateX(-50%)}
+#logo svg{width:100%;height:auto;display:block}
+#titre{left:0;right:0;top:640px;text-align:center;font-size:58px;font-weight:600;color:var(--s800)}
+#titre small{display:block;margin-bottom:14px;font-size:22px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+#flash{left:0;top:0;width:1920px;height:1080px;background:#fff;opacity:0;pointer-events:none;z-index:5}
+
+/* repère */
+#quand{left:0;right:0;top:34px;text-align:center;font-size:26px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--p900)}
+
+/* frise d'un exercice */
+#frise{left:300px;top:968px;width:1320px;height:60px}
+#frise .rail{position:absolute;left:0;right:0;top:14px;height:3px;background:var(--p700);border-radius:2px}
+#frise .bout{position:absolute;white-space:nowrap;top:30px;font-size:20px;font-weight:600;color:var(--p900);transform:translateX(-50%)}
+#repere{position:absolute;left:0;top:3px;width:25px;height:25px;margin-left:-12.5px;border-radius:50%;background:var(--p600);box-shadow:0 0 0 5px #fff}
+
+/* plan 1 */
+.acteur{width:300px;text-align:center}
+.acteur .tuile{width:260px;height:190px;margin:0 auto;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.acteur .tuile svg{width:76px;height:76px;color:var(--p600)}
+.acteur p{margin-top:12px;font-size:26px;font-weight:600;color:var(--s700)}
+.carte-doc{width:380px;height:280px;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.carte-doc i{display:block;width:220px;height:10px;border-radius:5px;background:var(--s200)}
+.carte-doc i+i{width:160px}
+.carte-doc .ic{width:110px;height:110px;color:var(--p600)}
+.carte-doc .ic svg{width:100%;height:100%}
+.carte-doc p{font-size:26px;font-weight:600;color:var(--s700);text-align:center;line-height:1.3;padding:0 20px}
+
+/* documents */
+.doc{width:840px;height:660px;border-radius:24px;background:#fff;padding:26px 26px 26px;display:flex;flex-direction:column}
+.doc-t{font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--s500)}
+.cols{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1}
+.col{position:relative;border-radius:14px;background:var(--s50);padding:14px 14px;display:flex;flex-direction:column}
+.col-t{font-size:20px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s400)}
+.col .q{position:absolute;right:14px;top:10px;font-family:Poppins,sans-serif;font-size:22px;font-weight:500;color:var(--p600)}
+.ligne{position:relative;margin-top:10px;border-radius:12px;padding:8px 14px;background:#fff}
+.ligne .lib{font-size:20px;line-height:1.25;color:var(--s700)}
+.ligne .val{margin-top:2px;font-size:32px;font-weight:800;color:var(--s900)}
+.tot-col{margin-top:auto;padding-top:12px;border-top:2px solid var(--s200);display:flex;justify-content:space-between;align-items:baseline}
+.tot-col span{font-size:20px;font-weight:600;color:var(--s500)}
+.tot-col b{font-size:30px;font-weight:800;color:var(--s900)}
+.res{margin-top:14px;border-radius:14px;background:var(--s50);padding:12px 18px;display:flex;justify-content:space-between;align-items:baseline}
+.res span{font-size:24px;font-weight:700;color:var(--s700)}
+.res b{font-size:34px;font-weight:800;color:var(--s900)}
+#egal{width:60px;height:60px;border-radius:50%;background:var(--p600);color:#fff;font-size:38px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px #fff}
+.coin{position:absolute;width:56px;height:56px;border:0 solid #fff}
+.coin.a{left:-26px;top:-26px;border-left-width:7px;border-top-width:7px;border-top-left-radius:12px}
+.coin.b{right:-26px;top:-26px;border-right-width:7px;border-top-width:7px;border-top-right-radius:12px}
+.coin.c{left:-26px;bottom:-26px;border-left-width:7px;border-bottom-width:7px;border-bottom-left-radius:12px}
+.coin.d{right:-26px;bottom:-26px;border-right-width:7px;border-bottom-width:7px;border-bottom-right-radius:12px}
+.point-q{width:84px;height:84px;border-radius:50%;background:#fff;color:var(--p600);display:flex;align-items:center;justify-content:center}
+.point-q svg{width:60px;height:60px}
+
+/* textes sur le fond */
+.phrase{left:120px;right:120px;text-align:center;font-family:Poppins,sans-serif;color:#fff;font-weight:500}
+.titre-passage{top:22px;font-size:44px}
+#refrain{top:360px;font-size:66px;line-height:1.3;text-wrap:balance}
+#refrain span{display:block}
+#refrain span+span{margin-top:24px}
+
+/* à retenir */
+#retenir-t{left:0;right:0;top:110px;text-align:center;font-size:26px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--p900)}
+.carte{left:260px;width:1400px;background:#fff;border-radius:22px;padding:28px 40px 28px 120px;font-size:34px;line-height:1.35;color:var(--s700)}
+.carte b{font-weight:700;color:var(--s900)}
+.carte .n{position:absolute;left:36px;top:30px;width:56px;height:56px;border-radius:50%;background:var(--p600);color:#fff;font-size:28px;font-weight:700;display:flex;align-items:center;justify-content:center}
+/* ── Du document à l'écriture ── */
+.pill{position:absolute;white-space:nowrap;background:#fff;color:var(--s800);font-size:24px;font-weight:600;padding:8px 20px;border-radius:999px}
+.pill.p{background:var(--p600);color:#fff}
+:root{--y100:#fef9c3;--y400:#facc15;--y500:#eab308;--y50:#fefce8;--pu600:#9333ea}
+.facture{width:330px;background:var(--y100);padding:30px 24px 30px;color:var(--s700);clip-path:polygon(0 8px,10% 0,20% 8px,30% 0,40% 8px,50% 0,60% 8px,70% 0,80% 8px,90% 0,100% 8px,100% calc(100% - 8px),90% 100%,80% calc(100% - 8px),70% 100%,60% calc(100% - 8px),50% 100%,40% calc(100% - 8px),30% 100%,20% calc(100% - 8px),10% 100%,0 calc(100% - 8px))}
+.facture .haut{display:flex;justify-content:space-between;align-items:baseline}
+.facture .emet{font-size:24px;font-weight:700;color:var(--s800)}
+.facture .type{font-size:16px;font-weight:800;letter-spacing:.12em;color:var(--s500)}
+.facture .dest,.facture .obj,.facture .date{margin-top:8px;font-size:20px;color:var(--s600)}
+.facture .fant{display:block;height:8px;border-radius:4px;background:var(--y400);margin-top:12px}
+.facture .tot{margin-top:18px;padding-top:12px;border-top:2px solid var(--y400);text-align:right;font-size:34px;font-weight:800;color:var(--s900)}
+.facture .ech{margin-top:4px;text-align:right;font-size:20px;color:var(--s600)}
+.facture .ht{display:block;text-align:right;font-size:18px;font-weight:700;color:var(--p600);margin-top:2px}
+.facture.ticket{width:250px}
+.lst{width:420px}
+.lst .pill{position:relative;display:block;width:max-content;margin-bottom:18px}
+#question{top:720px;font-size:46px;line-height:1.35}
+.qbox{width:560px;text-align:center}
+.qbox .pill{position:relative;display:inline-block}
+.qbox .pill b{color:var(--pu600);font-weight:700}
+.qbox .rep{margin-top:22px;font-family:Poppins,sans-serif;font-size:40px;font-weight:500;color:#fff}
+/* cahier */
+#cahier{left:330px;top:160px;width:820px;border-radius:24px;background:#fff;padding:26px 30px 30px}
+.cr3{display:grid;grid-template-columns:1fr 180px 180px;align-items:baseline;padding:12px 16px;border-top:2px solid var(--s100)}
+.cr3.tete{border-top:0;padding-bottom:16px}
+.cr3.tete span{font-size:20px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s400);text-align:right}
+.cr3.tete span:first-child{text-align:left}
+.cr3 .c{font-size:26px;color:var(--s700)}
+.cr3 .m{text-align:right;font-size:30px;font-weight:800;color:var(--s900)}
+#ps{left:740px;top:110px;transform:translateX(-50%)}
+#banque{width:330px;border-radius:18px;background:#fff;padding:18px 22px;display:flex;align-items:center;gap:18px}
+#banque svg{width:52px;height:52px;color:var(--p600);flex:none}
+#banque .lib{font-size:20px;color:var(--s500)}
+#banque .val{font-size:36px;font-weight:800;color:var(--s900)}
+/* grand journal */
+#journal{left:330px;top:80px;width:1260px;border-radius:24px;background:#fff;padding:22px 30px 24px}
+.jr{display:grid;grid-template-columns:1fr 240px 240px;align-items:baseline;padding:8px 16px;border-top:2px solid var(--s100);border-radius:10px}
+.jr.tete{border-top:0;padding-top:12px;padding-bottom:40px}
+.jr.tete span{font-size:20px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s400);text-align:right}
+.jr.tete span:first-child{text-align:left}
+.jr .c{font-size:26px;color:var(--s700)}
+.jr .m{text-align:right;font-size:30px;font-weight:800;color:var(--s900)}
+.jr.ecr{border-top:2px solid var(--s200);padding:12px 16px 2px}
+.jr.ecr span{font-size:20px;font-style:italic;color:var(--s500)}
+.jr.tt{border-top:3px solid var(--s300);margin-top:6px;padding-top:12px}
+.jr.tt .c{font-weight:700;color:var(--s600)}
+.col-h{position:relative}
+.col-h em{position:absolute;right:0;top:30px;font-style:normal;font-family:Poppins,sans-serif;font-size:22px;font-weight:600;color:var(--pu600);letter-spacing:0;text-transform:none}
+#pd{left:630px;top:-62px;transform:translateX(-50%)}
+/* documents compacts */
+.doc.cpt{width:500px;height:500px;padding:22px 20px}
+.doc.cpt .cols{gap:12px}
+.doc.cpt .ligne .val{font-size:30px}
+.halo{position:absolute;inset:0;border-radius:12px;border:3px solid var(--y500);background:var(--y50);z-index:-1;opacity:0}
+.ligne{z-index:0}
+#manque{left:850px;right:40px;top:660px;font-size:40px;line-height:1.35;text-align:center}
+/* ── La TVA ── */
+.tuile-a{width:240px;text-align:center}
+.tuile-a .tuile{width:220px;height:170px;margin:0 auto;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.tuile-a .tuile svg{width:70px;height:70px;color:var(--p600)}
+.tuile-a.cli .tuile svg{color:var(--pu600)}
+.tuile-a .tuile p{margin-top:10px;font-size:26px;font-weight:600;color:var(--s700)}
+.facture .lg{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;font-size:22px;color:var(--s700)}
+.facture .lg b{font-size:26px;font-weight:800;color:var(--s900)}
+.facture .lg.tva b,.facture .lg.tva span{color:var(--y700)}
+.facture .lg.ttc{margin-top:14px;padding-top:12px;border-top:2px solid var(--y400)}
+.facture .lg.ttc b{font-size:34px}
+:root{--y700:#a16207}
+.lst .pill b{color:var(--p600);font-weight:700}
+.carte-t{width:380px;border-radius:22px;background:#fff;padding:22px 26px;text-align:center}
+.carte-t .lib{font-size:22px;font-weight:600;color:var(--s500)}
+.carte-t .val{margin-top:6px;font-size:52px;font-weight:800;color:var(--s900)}
+.carte-t.dec{box-shadow:0 0 0 4px var(--y500)}
+.op{font-size:64px;font-weight:700;color:#fff}
+#question span{display:block}
+
+/* ── Produire et stocker ── */
+.etag{width:460px;border-radius:24px;background:#fff;padding:30px 30px 24px;text-align:center}
+.etag .rayon{display:flex;gap:30px;justify-content:center;padding-bottom:8px;border-bottom:6px solid var(--s300);margin-bottom:18px}
+.etag .rayon svg{width:84px;height:84px;color:var(--p600)}
+.etag .lib{font-size:22px;font-weight:600;color:var(--s500)}
+.etag .val{margin-top:4px;font-size:44px;font-weight:800;color:var(--s900)}
+#actif{width:560px;border-radius:24px;background:#fff;padding:26px 26px 26px}
+#actif .col{margin-top:14px}
+#actif .ligne{padding:14px 16px}
+#actif .ligne .lib{font-size:24px}
+#actif .ligne .tag{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:20px;font-weight:600;color:var(--pu600)}
+#rang{left:460px;top:130px;width:1000px;border-radius:24px;background:#fff;padding:22px 30px;display:flex;justify-content:space-between}
+#rang span{position:relative;display:block;width:68px;height:68px;color:var(--p600)}
+#rang span svg{width:100%;height:100%}
+#rang .rh{position:absolute;inset:-8px;border-radius:12px;border:3px solid var(--y500);background:var(--y50);z-index:-1;opacity:0}
+#rang{z-index:0}
+#cr{width:620px;height:480px}
+#tvar{top:70px;font-size:48px}
+#cr .ligne .val{font-size:32px}
+#journal .jr.tt .m{color:var(--s900)}
+#banque{width:400px}
+#banque .val{font-size:28px;white-space:nowrap}
+.croix{width:72px;height:72px;border-radius:50%;background:#fff;color:var(--pu600);display:flex;align-items:center;justify-content:center}
+.croix svg{width:58px;height:58px}
+.flecheb{font-size:56px;font-weight:700;color:#fff}
+
+/* ── Se financer ── */
+#equip{width:380px}
+#equip svg{width:64px;height:64px;color:var(--p600);display:block;margin:0 auto 6px}
+.pc{transform:translateX(-50%)}
+#mens{left:360px;top:150px;width:1200px;border-radius:24px;background:#fff;padding:26px 30px 30px}
+#mens .barre{display:flex;gap:8px;margin-top:18px;height:130px}
+#mens .barre div{border-radius:14px;background:var(--s200);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--s700);font-size:24px;font-weight:600;text-align:center;line-height:1.25}
+#mens .barre b{font-size:32px;font-weight:800}
+#b-cap{flex:5}#b-int{flex:1}
+#bilan,#cr{width:520px;height:520px}
+</style></head>
+<body><div id="stage">
+  <div id="logo" class="abs">/*__LOGO__*/</div>
+  <p id="titre" class="abs"><small>Comprendre la comptabilité</small>Se financer</p>
+  <div id="entete" class="abs"><div class="lg">/*__LOGO__*/</div><span class="sep"></span>
+    <div><p class="mod">Comprendre la comptabilité</p><p class="chap">Se financer</p></div></div>
+  <div id="frise" class="abs"></div>
+
+  <div id="scene" class="abs">
+  <div id="a-ent" class="abs tuile-a" style="left:560px;top:170px"><div class="tuile">/*__I:domain__*/<p>Entreprise</p></div></div>
+  <div id="equip" class="abs carte-t" style="left:960px;top:150px">/*__I:cog__*/<p class="lib">Équipement</p><p class="val mt">30&nbsp;000&nbsp;€</p></div>
+  <p id="question" class="abs phrase"><span id="qa">Où trouver cette somme&nbsp;?</span><span id="qb">Que coûtera vraiment ce choix&nbsp;?</span></p>
+
+  <div id="s-tre" class="abs tuile-a" style="left:300px;top:100px"><div class="tuile">/*__I:cash-multiple__*/<p>Trésorerie</p></div></div>
+  <div id="s-ass" class="abs tuile-a" style="left:840px;top:100px"><div class="tuile">/*__I:account-tie__*/<p>Associés</p></div></div>
+  <div id="s-ban" class="abs tuile-a" style="left:1380px;top:100px"><div class="tuile">/*__I:bank__*/<p>Banque</p></div></div>
+  <span id="l-tre" class="abs pill pc" style="left:420px;top:330px">ce qu'elle a produit</span>
+  <span id="l-ass" class="abs pill pc" style="left:960px;top:330px">ce qu'ils mettent</span>
+  <span id="l-ban" class="abs pill pc" style="left:1500px;top:330px">ce qu'un tiers prête</span>
+  <span id="a1" class="abs pill p pc" style="left:960px;top:420px">compte courant d'associé</span>
+  <span id="a2" class="abs pill pc" style="left:960px;top:490px">souple</span>
+  <span id="a3" class="abs pill pc" style="left:960px;top:560px">limité à ce que l'associé possède</span>
+  <span id="b1" class="abs pill p pc" style="left:1500px;top:420px">emprunt bancaire</span>
+  <span id="b2" class="abs pill pc" style="left:1500px;top:490px">plus cher, échéances fixes</span>
+  <span id="b3" class="abs pill pc" style="left:1500px;top:560px">une somme que les associés n'ont pas</span>
+
+  <div id="journal" class="abs" style="top:150px">
+    <p class="doc-t">Grand journal</p>
+    <div class="jr tete"><span>Compte</span><span id="h-deb" class="col-h">Débit<em>(emploi)</em></span><span id="h-cre" class="col-h">Crédit<em>(ressource)</em></span></div>
+    <div id="e1" class="jr ecr"><span>Déblocage de l'emprunt</span></div>
+    <div id="r1" class="jr"><span class="c">Banque</span><span class="m mt">30&nbsp;000</span><span></span></div>
+    <div id="r2" class="jr"><span class="c">Emprunt bancaire</span><span></span><span class="m mt">30&nbsp;000</span></div>
+  </div>
+  <span id="pj1" class="abs pill p pc" style="left:960px;top:560px">où va la valeur · le compte en banque</span>
+  <span id="pj2" class="abs pill p pc" style="left:960px;top:630px">d'où elle vient · la banque, qui prête</span>
+
+  <div id="bilan" class="abs doc cpt" style="left:700px;top:150px">
+    <p class="doc-t">Bilan</p>
+    <div class="cols">
+      <div class="col"><p class="col-t">Actif</p>
+        <div id="l-bq" class="ligne"><span class="halo"></span><p class="lib">Banque</p><p id="v-bq" class="val mt">10&nbsp;000</p></div>
+        <div class="tot-col"><span>Total</span><b id="tt-ac" class="mt">10&nbsp;000</b></div></div>
+      <div class="col"><p class="col-t">Passif</p>
+        <div class="ligne"><p class="lib">Capital social</p><p class="val mt">10&nbsp;000</p></div>
+        <div id="l-emp" class="ligne"><span class="halo"></span><p class="lib">Emprunt bancaire</p><p id="v-emp" class="val mt">30&nbsp;000</p></div>
+        <div class="tot-col"><span>Total</span><b id="tt-pa" class="mt">10&nbsp;000</b></div></div>
+    </div>
+  </div>
+  <span id="p-recu" class="abs pill pc" style="left:450px;top:330px">de l'argent reçu</span>
+  <span id="p-du" class="abs pill pc" style="left:1470px;top:430px">une somme due</span>
+
+  <div id="mens" class="abs">
+    <p class="doc-t">Une mensualité · 600&nbsp;€</p>
+    <div class="barre"><div id="b-cap"><span>Capital</span><b class="mt">500&nbsp;€</b></div><div id="b-int"><span>Intérêts</span><b class="mt">100&nbsp;€</b></div></div>
+  </div>
+  <span id="k1" class="abs pill pc" style="left:850px;top:430px">une <b style="color:var(--p600)">restitution</b></span>
+  <span id="k2" class="abs pill pc" style="left:850px;top:500px">rien n'a été consommé</span>
+  <span id="k3" class="abs pill pc" style="left:1440px;top:430px">le <b style="color:var(--y700)">prix du prêt</b></span>
+  <span id="k4" class="abs pill pc" style="left:1440px;top:500px">une charge</span>
+
+  <div id="cr" class="abs doc cpt" style="left:1040px;top:230px">
+    <p class="doc-t">Compte de Résultat</p>
+    <div class="cols">
+      <div class="col"><p class="col-t">Charges</p>
+        <div id="l-int" class="ligne"><span class="halo"></span><p class="lib">Charges d'intérêts</p><p class="val mt">100</p></div>
+        <div class="tot-col"><span>Total</span><b id="tt-ch" class="mt">0</b></div></div>
+      <div class="col"><p class="col-t">Produits</p>
+        <div class="tot-col"><span>Total</span><b class="mt">0</b></div></div>
+    </div>
+  </div>
+  <span id="e1b" class="abs pill pc" style="left:620px;top:790px">600 sortis du compte</span>
+  <span id="e2b" class="abs pill pc" style="left:620px;top:860px">500 ont changé de place</span>
+  <span id="e1c" class="abs pill pc" style="left:1300px;top:790px">100 seulement sur le résultat</span>
+
+  <p id="refrain" class="abs phrase">Rembourser une dette n'appauvrit pas une entreprise.</p>
+  <p id="retenir-t" class="abs">À retenir</p>
+  <div id="c1" class="abs carte" style="top:170px"><span class="n">1</span>Recevoir un emprunt <b>n'enrichit personne</b>&nbsp;: la trésorerie et la dette augmentent <b>du même montant</b>.</div>
+  <div id="c2" class="abs carte" style="top:400px"><span class="n">2</span>Une mensualité se partage&nbsp;: le <b>capital</b> réduit la dette et reste au <b>Bilan</b>, les <b>intérêts</b> passent au <b>Compte de Résultat</b>.</div>
+  <div id="c3" class="abs carte" style="top:630px"><span class="n">3</span>Emprunter à une <b>banque</b> ou à un <b>associé</b> n'engage pas de la même manière.</div>
+  </div>
+</div>
+<script>/*__GSAP__*/</script>
+<script>
+const VOIX = /*__VOIX__*/;
+const S = Object.fromEntries(VOIX.segments.map(s => [s.id, s]));
+function at(id, mot, apres = 0) {
+  const s = S[id], i = s.texte.indexOf(mot) + (apres ? mot.length : 0);
+  if (i < (apres ? mot.length : 0)) throw new Error('introuvable : ' + mot + ' dans ' + id);
+  const P = s.phrases; let k = 0;
+  while (k + 1 < P.length && P[k + 1].i <= i) k++;
+  const i1 = k + 1 < P.length ? P[k + 1].i : s.texte.length;
+  const t1 = k + 1 < P.length ? P[k + 1].t : s.duree;
+  return s.debut + P[k].t + (t1 - P[k].t) * (i - P[k].i) / (i1 - P[k].i);
+}
+/* pas de « € » dans le Bilan ni dans le Compte de Résultat */
+const nombre = n => Math.round(n).toLocaleString('fr-FR').replace(/ |\s/g, ' ');
+function compte(tl, el, de, a, t, d = .3) {
+  const o = { v: de };
+  tl.fromTo(o, { v: de }, { v: a, duration: d, ease: 'power1.inOut', immediateRender: false,
+    onUpdate: () => { el.textContent = nombre(o.v); } }, t);
+}
+const $ = s => document.querySelector(s);
+const E = 'power2.out', D = 0.5;
+const tl = gsap.timeline({ paused: true });
+window.tl = tl; window.DUREE = VOIX.duree_totale;
+
+gsap.set(['#scene > *', '#logo', '#titre', '#entete', '#frise'], { autoAlpha: 0 });
+
+/* ── Plan 0 · ouverture ─────────────────────────────── */
+const sym = '#logo .lg-sym', mot = '#logo .lg-mot';
+tl.set('#logo', { autoAlpha: 1 }, 0)
+  .fromTo(sym, { opacity: 0, scale: .6, rotation: -90, transformOrigin: '50% 50%' }, { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: 'power3.out' }, .3)
+  .fromTo(mot, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: .9, ease: E }, .9)
+  .to('#logo', { top: 330, duration: .8, ease: 'power2.inOut' }, 2.2)
+  .fromTo('#titre', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .8, ease: E }, 2.6)
+  .to(['#logo', '#titre'], { autoAlpha: 0, duration: .6 }, 5.0)
+  .fromTo('#entete', { autoAlpha: 0, y: -20 }, { autoAlpha: 1, y: 0, duration: .6, ease: E }, 5.3);
+
+const HL = '#e2edfc';
+gsap.set(['#qa', '#qb', '#journal .jr:not(.tete)', '#l-emp', '#l-int'], { autoAlpha: 0 });
+const pin = (el, t) => tl.fromTo(el, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .5, ease: E, immediateRender: false }, t);
+const ent = (el, t, y = 30) => tl.fromTo(el, { autoAlpha: 0, y }, { autoAlpha: 1, y: 0, duration: .6, ease: E, immediateRender: false }, t);
+const out = (els, t) => tl.to(els, { autoAlpha: 0, duration: .5 }, t);
+
+/* ── Plan 1 · s'équiper ─────────────────────────────── */
+const p1 = 'p1-1';
+ent('#a-ent', 6.2, 20);
+ent('#equip', at(p1, 'trente mille'));
+tl.set('#question', { autoAlpha: 1 }, at(p1, 'Où trouver') - .1)
+  .fromTo('#qa', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .6, ease: E }, at(p1, 'Où trouver'))
+  .fromTo('#qb', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .6, ease: E }, at(p1, 'et que coûtera'));
+
+/* ── Plan 2 · trois sources ─────────────────────────── */
+const p21 = 'p2-1', p22 = 'p2-2', t2 = S[p21].debut;
+out(['#question', '#a-ent', '#equip'], t2 - .8);
+[['#s-tre', '#l-tre', 'la trésorerie'], ['#s-ass', '#l-ass', "l'argent que ses associés"], ['#s-ban', '#l-ban', "et l'argent qu'un tiers"]].forEach(([s, l, w]) => {
+  ent(s, at(p21, w) - .2, 20); pin(l, at(p21, w) + .3); });
+out(['#l-tre', '#l-ass', '#l-ban'], S[p22].debut - .3);
+pin('#a1', at(p22, "c'est le compte courant"));
+pin('#a2', at(p22, 'Il est souple'));
+pin('#a3', at(p22, 'mais limité'));
+pin('#b1', at(p22, 'Un emprunt bancaire'));
+pin('#b2', at(p22, 'coûte plus cher'));
+pin('#b3', at(p22, 'En échange'));
+
+/* ── Plan 3 · l'emprunt au journal et au Bilan ──────── */
+const p31 = 'p3-1', p32 = 'p3-2', p33 = 'p3-3', t3 = S[p31].debut;
+out(['#s-tre', '#s-ass', '#s-ban', '#a1', '#a2', '#a3', '#b1', '#b2', '#b3'], t3 - .8);
+ent('#journal', t3 - .4);
+[['#e1', 'La banque prête'], ['#r1', 'la Banque'], ['#r2', "l'Emprunt bancaire"]].forEach(([r, w]) =>
+  tl.fromTo(r, { autoAlpha: 0, x: -14 }, { autoAlpha: 1, x: 0, duration: .35, ease: E }, at(p31, w)));
+tl.to('#r1', { backgroundColor: HL, duration: .3 }, at(p31, 'la Banque') + .3)
+  .to('#r2', { backgroundColor: HL, duration: .3 }, at(p31, "l'Emprunt bancaire") + .3);
+pin('#pj1', at(p31, 'au débit'));
+pin('#pj2', at(p31, 'Au crédit'));
+out(['#journal', '#pj1', '#pj2'], S[p32].debut - .8);
+ent('#bilan', S[p32].debut - .4);
+compte(tl, $('#v-bq'), 10000, 40000, at(p32, 'à quarante mille'));
+compte(tl, $('#tt-ac'), 10000, 40000, at(p32, 'à quarante mille'));
+tl.to('#l-bq .halo', { opacity: 1, duration: .4 }, at(p32, 'à quarante mille'))
+  .fromTo('#l-emp', { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .35, ease: E }, at(p32, 'une ligne apparaît'))
+  .to('#l-emp .halo', { opacity: 1, duration: .4 }, at(p32, 'une ligne apparaît') + .3);
+compte(tl, $('#tt-pa'), 10000, 40000, at(p32, 'une ligne apparaît'));
+pin('#p-recu', at(p33, "Elle a reçu"));
+pin('#p-du', at(p33, 'et elle le doit'));
+
+/* ── Plan 4 · une mensualité, deux choses ───────────── */
+const p41 = 'p4-1', p42 = 'p4-2', p43 = 'p4-3', t4 = S[p41].debut;
+out(['#bilan', '#p-recu', '#p-du'], t4 - .8);
+tl.to(['#l-bq .halo', '#l-emp .halo'], { opacity: 0, duration: .01 }, t4 - .2);
+ent('#mens', t4 - .4);
+tl.to('#b-cap', { backgroundColor: '#1063b9', color: '#fff', duration: .4 }, at(p42, 'Cinq cents'))
+  .to('#b-int', { backgroundColor: '#facc15', color: '#0f172a', duration: .4 }, at(p43, 'Cent euros'));
+pin('#k1', at(p42, 'une restitution'));
+pin('#k2', at(p42, 'et rien'));
+pin('#k3', at(p43, 'le prix du prêt'));
+pin('#k4', at(p43, "C'est une charge"));
+
+/* ── Plan 5 · l'échéance dans les deux documents ────── */
+const p51 = 'p5-1', p52 = 'p5-2', t5 = S[p51].debut;
+out(['#mens', '#k1', '#k2', '#k3', '#k4'], t5 - .8);
+tl.set('#bilan', { left: 380, top: 230 }, t5 - .5);
+ent('#bilan', t5 - .4);
+ent('#cr', t5 - .2);
+const qtb = at(p51, 'baisse de six cents'), qtd = at(p51, 'et la dette'), qtc = at(p51, 'seuls les cent');
+compte(tl, $('#v-bq'), 40000, 39400, qtb); compte(tl, $('#tt-ac'), 40000, 39400, qtb);
+tl.to('#l-bq .halo', { opacity: 1, duration: .4 }, qtb);
+compte(tl, $('#v-emp'), 30000, 29500, qtd); compte(tl, $('#tt-pa'), 40000, 39500, qtd);
+tl.to('#l-emp .halo', { opacity: 1, duration: .4 }, qtd)
+  .fromTo('#l-int', { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .35, ease: E }, qtc)
+  .to('#l-int .halo', { opacity: 1, duration: .4 }, qtc + .3);
+compte(tl, $('#tt-ch'), 0, 100, qtc);
+pin('#e1b', at(p52, 'Sur six cents'));
+pin('#e1c', at(p52, 'cent seulement'));
+pin('#e2b', at(p52, 'Le reste'));
+
+/* ── Plan 6 · le refrain ────────────────────────────── */
+const p6 = 'p6-1';
+out(['#bilan', '#cr', '#e1b', '#e2b', '#e1c'], S[p6].debut - .9);
+tl.fromTo('#refrain', { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: .8, ease: E }, S[p6].debut - .3);
+
+/* ── Plan 7 · à retenir ─────────────────────────────── */
+const p7 = 'p7-1';
+tl.to('#refrain', { autoAlpha: 0, duration: .5 }, S[p7].debut - .6)
+  .fromTo('#retenir-t', { autoAlpha: 0 }, { autoAlpha: 1, duration: D }, S[p7].debut - .1)
+  .fromTo('#c1', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p7, 'Recevoir'))
+  .fromTo('#c2', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p7, 'Une mensualité'))
+  .fromTo('#c3', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p7, 'Enfin'));
+
+/* ── fin ────────────────────────────────────────────── */
+const t9 = VOIX.jingle_fin;
+tl.to(['#retenir-t', '#c1', '#c2', '#c3', '#entete'], { autoAlpha: 0, duration: .6 }, t9 - .6)
+  .set('#logo', { top: 430 }, t9 - .1)
+  .to('#logo', { autoAlpha: 1, duration: .6 }, t9)
+  .to(sym, { opacity: 1, rotation: 0, scale: 1, duration: .01 }, t9)
+  .to(mot, { opacity: 1, x: 0, duration: .01 }, t9)
+  .to('#logo', { autoAlpha: 1, duration: .1 }, VOIX.duree_totale - .1);
+
+window.seek = t => tl.seek(t, false);
+document.fonts.ready.then(() => { window.PRET = true; });
+</script>
+<!--__APERCU__-->
+</body></html>

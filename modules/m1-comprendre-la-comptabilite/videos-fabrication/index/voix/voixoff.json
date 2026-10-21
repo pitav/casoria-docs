@@ -1,0 +1,72 @@
+[
+ {
+  "id": "p1-1",
+  "plan": 1,
+  "texte": "Bienvenue dans ce module. Vous allez apprendre à lire les deux documents principaux qui résument la vie d'une entreprise : le Bilan et le Compte de Résultat. Et à comprendre comment ils se remplissent.",
+  "fichier": "p1-1.mp3",
+  "duree": 11.86,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Bienvenue dans ce module. Vous allez apprendre à lire les deux documents principaux qui résument la vie d'une entreprise : le bilan et le compte de résultat, et à comprendre comment ils se remplissent."
+ },
+ {
+  "id": "p2-1",
+  "plan": 2,
+  "texte": "Savoir les lire, c'est pouvoir dire si une entreprise gagne de l'argent, si elle peut payer ce qu'elle doit, et si elle passera l'année. Qu'il s'agisse de la vôtre, d'un client ou d'un fournisseur.",
+  "fichier": "p2-1.mp3",
+  "duree": 12.65,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Savoir les lire, c'est pouvoir dire si une entreprise gagne de l'argent, si elle peut payer ce qu'elle doit et si elle passera l'année. Qu'il s'agisse de la vôtre, d'un client ou d'un fournisseur."
+ },
+ {
+  "id": "p3-1",
+  "plan": 3,
+  "texte": "Ces deux documents, vous allez les remplir vous-même, sur une année entière d'entreprise. Vous enregistrez les opérations qui vous apprennent quelque chose. Les autres, comme les centaines de factures d'une année ordinaire, l'application s'en charge.",
+  "fichier": "p3-1.mp3",
+  "duree": 14.21,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Ces deux documents, vous allez les remplir vous-même sur une année entière d'entreprise. Vous enregistrez les opérations qui vous apprennent quelque chose. Les autres, comme les centaines de factures d'une année ordinaire, l'application s'en charge."
+ },
+ {
+  "id": "p3-2",
+  "plan": 3,
+  "texte": "Chaque enregistrement arrive au moment où vous venez de comprendre pourquoi il a lieu.",
+  "fichier": "p3-2.mp3",
+  "duree": 5.5,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Chaque enregistrement arrive au moment où vous venez de comprendre pourquoi il a lieu."
+ },
+ {
+  "id": "p4-1",
+  "plan": 4,
+  "texte": "Pour cela, vous suivrez une entreprise, Latitude Café, qui torréfie du café et le vend en sachets. Elle naît le cinq janvier deux mille vingt-six. Elle achète, vend, emprunte, s'équipe, embauche, se trompe une fois sur une livraison. Et le trente et un décembre, elle arrête ses comptes.",
+  "fichier": "p4-1.mp3",
+  "duree": 22.9,
+  "fidelite": 0.863,
+  "essais": 3,
+  "transcription": "Pour cela, vous suivrez une entreprise : Latitude Café, qui torréfie du café et le vend en sachet. Elle naît le 5 janvier 2026. Elle achète, vend, emprunte, s'équipe, embauche, se trompe une fois sur une livraison. Et le 31 décembre, elle arrête ses comptes."
+ },
+ {
+  "id": "p5-1",
+  "plan": 5,
+  "texte": "À la fin de ce module, vous vous direz : je comprends enfin ce que je regarde quand j'ai les comptes d'une entreprise sous les yeux.",
+  "fichier": "p5-1.mp3",
+  "duree": 8.21,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "À la fin de ce module, vous vous direz : je comprends enfin ce que je regarde quand j'ai les comptes d'une entreprise sous les yeux."
+ },
+ {
+  "id": "p6-1",
+  "plan": 6,
+  "texte": "Les deux documents vous attendent au chapitre suivant.",
+  "fichier": "p6-1.mp3",
+  "duree": 3.1,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Les deux documents vous attendent au chapitre suivant."
+ }
+]

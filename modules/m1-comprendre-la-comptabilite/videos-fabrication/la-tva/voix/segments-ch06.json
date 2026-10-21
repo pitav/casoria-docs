@@ -1,0 +1,16 @@
+[
+{"id":"p1-1","plan":1,"texte":"Une entreprise envoie une facture de douze mille euros à son client. Pourtant, elle n'en gardera pas tout. Une partie ne correspond à aucune vente : c'est une taxe. Combien partira à l'État, et où cette somme se range-t-elle d'ici là ?"},
+{"id":"p2-1","plan":2,"texte":"Un prix contient deux montants. Le prix hors taxes, dix mille euros, est le prix de ce qui a été vendu. La taxe sur la valeur ajoutée s'y ajoute, à un taux fixé par la loi : ici vingt pour cent, soit deux mille euros. Le client paie le total, toutes taxes comprises : douze mille euros."},
+{"id":"p2-2","plan":2,"texte":"Seul le prix hors taxes revient à l'entreprise. La taxe appartient à l'État."},
+{"id":"p3-1","plan":3,"texte":"Quand elle vend, l'entreprise facture la taxe à son client : c'est la TVA collectée, deux mille euros."},
+{"id":"p3-2","plan":3,"texte":"Quand elle achète, elle paie la taxe à son fournisseur : sur sept mille deux cents euros, mille deux cents de taxe. C'est la TVA déductible. Elle la retranchera de ce qu'elle doit à l'État."},
+{"id":"p4-1","plan":4,"texte":"Au grand journal, la vente s'écrit maintenant sur trois lignes. Douze mille euros vont en banque, au débit. Ils viennent des ventes, pour dix mille, et de la TVA collectée, pour deux mille, au crédit."},
+{"id":"p4-2","plan":4,"texte":"L'achat suit le même chemin, en miroir. Six mille euros aux achats et mille deux cents à la TVA déductible, au débit. Sept mille deux cents euros de la banque, au crédit."},
+{"id":"p4-3","plan":4,"texte":"Les deux comptes de taxe n'existent que dans le grand journal. Ils n'ont de ligne ni au Bilan, ni au Compte de Résultat."},
+{"id":"p5-1","plan":5,"texte":"À la fin du trimestre, une écriture rapproche les deux comptes. L'entreprise a collecté deux mille euros de taxe, et en a payé mille deux cents. Elle ne verse que la différence : huit cents euros. C'est la TVA à décaisser."},
+{"id":"p5-2","plan":5,"texte":"Cette somme a sa ligne au Passif du Bilan, comme toute somme que l'entreprise devra remettre à quelqu'un. Les deux comptes de taxe, eux, tombent à zéro."},
+{"id":"p6-1","plan":6,"texte":"Le compte en banque porte quatre mille huit cents euros. Mais huit cents ne sont pas à l'entreprise : ils sont à l'État."},
+{"id":"p6-2","plan":6,"texte":"Le Compte de Résultat ne porte que les prix hors taxes : dix mille euros de ventes, six mille euros d'achats, et pas un centime de taxe. La taxe traverse la trésorerie sans jamais toucher au résultat."},
+{"id":"p7-1","plan":7,"texte":"L'entreprise ne fait que tenir la caisse de l'État."},
+{"id":"p8-1","plan":8,"texte":"À retenir. La TVA s'ajoute au prix sans appartenir au vendeur : seul le montant hors taxes est le prix de ce qui a été vendu. La TVA collectée sur les ventes et la TVA déductible sur les achats s'accumulent dans le grand journal. Une écriture n'en garde que la différence, au Passif du Bilan : c'est ce que l'entreprise doit à l'État."}
+]

@@ -1,0 +1,171 @@
+<p class="kicker">Comprendre la comptabilité sans être comptable — composant du Chapitre 8</p>
+<h1>&lt;TrouveErreurBilan /&gt;</h1>
+<p class="chapo">Fiche v1, 16 septembre 2026. <strong>Le Bilan de l'apprenant à la fin du Chapitre 8, avec une
+ligne en trop.</strong> L'apprenant clique sur la ligne qu'il croit fausse. Une ligne juste se coche et il
+continue&nbsp;; la bonne ligne se barre, dit où elle va, et le total de l'Actif redescend à celui de sa
+grille. Pas de glisser-déposer, pas de validation en deux temps, un seul texte de réponse. Sources&nbsp;:
+déroulé v27 (sections 2, 5, 7 et fiche du Chapitre 8), le Chapitre 8 livré, le rejeu du journal jusqu'au
+Chapitre 8, et le <code>&lt;AvantApresStock /&gt;</code> v4 pour le style. <strong>La consigne, la question et
+les onze textes de retour sont du texte affiché</strong>&nbsp;: ils se relisent comme du corps.</p>
+<p class="pied">Casoria — &lt;TrouveErreurBilan /&gt;, fiche v1</p>
+
+<h2 class="nu">1 — Ce que le composant fait faire</h2>
+<p>Le déroulé donne la forme, «&nbsp;Trouve l'erreur [JDC 1], sur le Bilan que l'apprenant vient de
+construire&nbsp;», et le moment, «&nbsp;l'instant précis où il ressemble enfin à un vrai bilan&nbsp;».
+Le paragraphe qui précède le composant donne le critère de lecture&nbsp;: à l'Actif, ce que l'entreprise
+détient&nbsp;; au Passif, d'où chaque euro est venu.</p>
+<p><strong>Le test de la règle 0 passe.</strong> Le texte donne le critère, il ne l'applique pas. Passer onze
+lignes au crible et décider laquelle n'est pas «&nbsp;détenue&nbsp;», le texte ne peut pas le faire à la place
+de l'apprenant, et aucune phrase du chapitre, avant ou après, ne nomme la ligne fautive. C'est la lecture
+active que le déroulé demande, rien de plus.</p>
+<p class="declaration">Le texte donne la règle de lecture. Le composant la fait appliquer, ligne par ligne.</p>
+
+<h2>2 — Sa place</h2>
+<p>Là où le chapitre livré porte déjà le bloc <code>.composant</code>&nbsp;: dans le dernier sous-titre, après
+l'illustration brut / amortissements / net, avant le contrôle du compte 512. Le déroulé le veut ainsi
+(«&nbsp;après le bloc 2, au point d'étape&nbsp;»). Aucune écriture n'est à passer dans ce sous-titre&nbsp;: le
+composant n'a pas à précéder un bloc.</p>
+<p><strong>Le composant occupe la moitié droite, à la place du Bilan.</strong> Il porte donc le Bilan
+lui-même, comme le <code>&lt;AvantApresStock /&gt;</code> portait le Compte de Résultat.</p>
+
+<h2>3 — L'écran</h2>
+<p>De haut en bas&nbsp;: la consigne et le régime (créneaux <code>#activite</code> et <code>#info</code> de
+<code>M1ActiviteSection</code>), le panneau amber de la question, le Bilan en slate, le verdict, le
+«&nbsp;Tout reprendre&nbsp;».</p>
+<p><strong>Un écart assumé avec la règle du pied</strong>&nbsp;: le verdict ne va pas sous le panneau
+d'activité mais sous le Bilan. La règle dit que la réponse arrive «&nbsp;là où l'apprenant vient de
+cliquer&nbsp;», et ici l'apprenant clique dans le document&nbsp;: les lignes sont les boutons. Le panneau
+amber ne porte que la question.</p>
+<p><img src="trouve-erreur-bilan-a.png" alt="Premier écran, le curseur sur une ligne" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">Premier écran, à 720&nbsp;px. Le curseur survole une ligne, qui prend le liseré amber de
+l'activité.</p>
+<p><img src="trouve-erreur-bilan-b.png" alt="Deux lignes justes cochées, verdict Presque" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">Deux essais. Les deux lignes justes sont éteintes et cochées&nbsp;; le verdict répond au
+dernier clic, le stock, qui reçoit «&nbsp;Presque&nbsp;».</p>
+<p><img src="trouve-erreur-bilan-c.png" alt="La ligne trouvée, le total corrigé, verdict Bonne réponse" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">La ligne trouvée. Elle reste à sa place, barrée, avec sa destination. Le total de l'Actif
+garde l'ancienne valeur à côté de la nouvelle. Le cadre du Bilan passe au trait plein.</p>
+
+<h2>4 — La matière, et l'erreur choisie</h2>
+<h3>Ce qui est affiché</h3>
+<p>Le Bilan exact de la grille à la fin du Chapitre 8, <strong>rejoué ligne par ligne</strong> (<code>rejeu.py 08</code>,
+total de contrôle 388&nbsp;328,90&nbsp;€), dans l'ordre de la grille et avec les intitulés d'une ligne.
+Une seule ligne ajoutée.</p>
+<table class="serree">
+<thead><tr><th>Actif</th><th class="num">Montant</th><th style="padding-left:18px">Passif</th><th class="num">Montant</th></tr></thead>
+<tbody>
+<tr><td>215 Torréfacteur</td><td class="num">36&nbsp;000,00&nbsp;€</td><td style="padding-left:18px">101 Capital social</td><td class="num">30&nbsp;000,00&nbsp;€</td></tr>
+<tr><td>2815 Amortissements du torréfacteur</td><td class="num">−&nbsp;3&nbsp;600,00&nbsp;€</td><td style="padding-left:18px">455 Compte courant d'associé</td><td class="num">15&nbsp;000,00&nbsp;€</td></tr>
+<tr><td>355 Stock de café torréfié</td><td class="num">15&nbsp;000,00&nbsp;€</td><td style="padding-left:18px">164 Emprunt bancaire</td><td class="num">34&nbsp;458,60&nbsp;€</td></tr>
+<tr><td>411 Créances clients</td><td class="num">90&nbsp;000,00&nbsp;€</td><td style="padding-left:18px">401 Dettes fournisseurs</td><td class="num">97&nbsp;200,00&nbsp;€</td></tr>
+<tr><td>512 Trésorerie</td><td class="num">61&nbsp;371,10&nbsp;€</td><td style="padding-left:18px">4455 État — TVA à décaisser</td><td class="num">1&nbsp;200,00&nbsp;€</td></tr>
+<tr><td><strong>601 Achats de café vert</strong> (l'intruse)</td><td class="num"><strong>55&nbsp;000,00&nbsp;€</strong></td><td style="padding-left:18px"></td><td></td></tr>
+<tr class="total"><td>Total actif</td><td class="num">253&nbsp;771,10&nbsp;€ → 198&nbsp;771,10&nbsp;€</td><td style="padding-left:18px">Total passif</td><td class="num">177&nbsp;858,60&nbsp;€</td></tr>
+</tbody></table>
+<p>198&nbsp;771,10&nbsp;€ et 177&nbsp;858,60&nbsp;€ sont les deux totaux que la section 4 du déroulé relève au
+point d'étape. Les 55&nbsp;000&nbsp;€ sont le solde du compte 601 au même instant (25&nbsp;000&nbsp;€ au
+premier trimestre, 30&nbsp;000&nbsp;€ au deuxième).</p>
+
+<h3>Pourquoi les achats de café vert</h3>
+<ul>
+<li><strong>C'est la matière du chapitre présent.</strong> Le premier sous-titre du Chapitre 8 la nomme mot
+pour mot&nbsp;: «&nbsp;du café vert qu'elle torréfie et qu'elle vend […] Toutes sont passées au Compte de
+Résultat, du côté des charges, parce que l'activité les a consommées dans l'année.&nbsp;»</li>
+<li><strong>Elle touche l'objectif du chapitre</strong>, distinguer ce qui est consommé de ce qui est
+détenu. Le torréfacteur est l'autre moitié de la même distinction, et il est juste en haut de la colonne.</li>
+<li><strong>Elle se trouve par le raisonnement, pas par la mémoire d'un nombre.</strong> L'apprenant n'a
+besoin d'aucun montant pour la repérer.</li>
+<li><strong>Elle a une vraie fausse piste</strong>, le stock de café torréfié, deux lignes plus haut. Même
+produit, sort opposé. C'est là que la compréhension se joue.</li>
+</ul>
+
+<h3>Ce qui est écarté, et pourquoi</h3>
+<ul>
+<li><strong>Le torréfacteur à 43&nbsp;200&nbsp;€ TTC.</strong> Se trouve en se souvenant d'un nombre, pas en
+comprenant.</li>
+<li><strong>La ligne d'amortissements rangée au Passif.</strong> Juste, mais trop fine pour un premier
+arrêt sur image&nbsp;; elle suppose de raisonner sur le sens d'un crédit.</li>
+<li><strong>La dotation aux amortissements à l'Actif.</strong> Deux lignes à 3&nbsp;600&nbsp;€ côte à côte,
+confusion garantie.</li>
+<li><strong>L'emprunt resté à 35&nbsp;000&nbsp;€, ou les intérêts au Bilan</strong> (Chapitre 7). Permis
+par la règle 1, mais 541,40&nbsp;€ ou 87,50&nbsp;€ ne se voient pas sur un Bilan de cette taille.</li>
+<li><strong>Un écart entre les deux totaux.</strong> Il est normal jusqu'au Chapitre 11. La question le
+dit d'emblée, «&nbsp;ce n'est pas l'erreur&nbsp;», sans en donner la cause, que le paragraphe du dessus vient
+d'écrire. Le composant ne dit jamais que l'écart est le résultat, ce qui serait faux (déroulé, section 4).</li>
+</ul>
+
+<h2>5 — Geste par geste</h2>
+<p><strong>Un seul clic par ligne.</strong> Chercher une ligne fausse est une suite de tentatives, pas une
+position qu'on engage&nbsp;: c'est le régime du <code>&lt;FriseEncaissement /&gt;</code>, pas celui du
+<code>&lt;AvantApresStock /&gt;</code>.</p>
+<ul>
+<li><strong>Ligne juste</strong> → elle s'éteint, prend une coche lime, ne se clique plus. Le verdict
+répond à ce clic. La recherche se resserre d'elle-même.</li>
+<li><strong>La bonne ligne</strong> → elle se barre sur fond lime et affiche «&nbsp;→ Compte de
+Résultat&nbsp;». Le total de l'Actif affiche 253&nbsp;771,10&nbsp;€ → 198&nbsp;771,10&nbsp;€. Toutes les lignes
+se figent.</li>
+<li><strong>Tout reprendre</strong> → tout revient au premier écran. Le bouton est toujours à sa place,
+invisible tant qu'il n'y a rien à reprendre&nbsp;: il ne saute pas sous le doigt.</li>
+<li><strong>Mesure</strong> → seule la première ligne cliquée part à l'événement
+<code>premiere-reponse</code>. Aucun score, aucun compte d'essais.</li>
+</ul>
+
+<h3>Les onze textes de retour</h3>
+<table class="serree">
+<thead><tr><th>Ligne cliquée</th><th>Verdict</th><th>Texte</th></tr></thead>
+<tbody>
+<tr><td>601 Achats de café vert</td><td>Bonne réponse</td><td>Ce café vert n'existe plus sous cette forme. Latitude Café l'a torréfié, l'activité l'a consommé, et sa place est au Compte de Résultat, du côté des charges. La ligne quitte l'Actif, qui passe de 253&nbsp;771,10&nbsp;€ à 198&nbsp;771,10&nbsp;€. Ce qui reste de ce café sur les étagères y figure déjà, c'est le stock de café torréfié.</td></tr>
+<tr><td>355 Stock de café torréfié</td><td>Presque</td><td>Vous êtes sur la bonne piste, c'est une affaire de café. Mais celui-ci attend sur les étagères, torréfié et pas encore vendu. L'entreprise le détient.</td></tr>
+<tr><td>215 Torréfacteur</td><td>Mauvaise réponse</td><td>La machine servira cinq ans. L'entreprise la détient, à son prix hors taxes.</td></tr>
+<tr><td>2815 Amortissements</td><td>Mauvaise réponse</td><td>Le signe moins surprend, et il est juste. Cette ligne se retranche de la machine, qui vaut encore 32&nbsp;400&nbsp;€ dans les comptes.</td></tr>
+<tr><td>411 Créances clients</td><td>Mauvaise réponse</td><td>Des clients doivent encore ces factures. Cet argent reviendra à l'entreprise.</td></tr>
+<tr><td>512 Trésorerie</td><td>Mauvaise réponse</td><td>C'est l'argent sur le compte en banque, une fois le torréfacteur payé.</td></tr>
+<tr><td>101 Capital social</td><td>Mauvaise réponse</td><td>C'est l'argent que les associés ont apporté à la création.</td></tr>
+<tr><td>455 Compte courant d'associé</td><td>Mauvaise réponse</td><td>C'est ce que l'entreprise doit encore à Thomas, après lui avoir rendu 5&nbsp;000&nbsp;€.</td></tr>
+<tr><td>164 Emprunt bancaire</td><td>Mauvaise réponse</td><td>C'est ce que l'entreprise doit encore à la banque, une fois la première échéance payée.</td></tr>
+<tr><td>401 Dettes fournisseurs</td><td>Mauvaise réponse</td><td>Ce sont des factures de fournisseurs que l'entreprise n'a pas encore payées.</td></tr>
+<tr><td>4455 État — TVA</td><td>Mauvaise réponse</td><td>C'est de la TVA que l'entreprise doit encore à l'État.</td></tr>
+</tbody></table>
+<p>Plus la consigne («&nbsp;Une ligne de ce Bilan n'a rien à y faire. Trouvez-la.&nbsp;»), le régime («&nbsp;Rien
+n'est noté. Une ligne juste se coche, et vous continuez.&nbsp;») et la question («&nbsp;Quelle ligne ne devrait
+pas figurer au Bilan de Latitude Café&nbsp;? Cliquez dessus. Les deux totaux ne sont pas égaux, et ce n'est
+pas l'erreur.&nbsp;»).</p>
+<p><strong>Une remarque fausse ne désigne jamais la bonne ligne</strong>, elle dit seulement pourquoi la
+ligne cliquée est à sa place. Seule exception, voulue&nbsp;: le «&nbsp;Presque&nbsp;» du stock, qui oriente
+vers le café.</p>
+<p><strong>Pourquoi «&nbsp;Presque&nbsp;» pour le stock.</strong> Cliquer dessus, c'est appliquer le bon
+raisonnement — le café consommé n'a rien à faire au Bilan — au mauvais café. C'est exactement le cas que la
+règle réserve au troisième verdict. Le signe moins de la ligne 2815 est aussi une fausse piste honorable,
+mais le raisonnement («&nbsp;un Bilan n'a pas de montant négatif&nbsp;») est faux&nbsp;: il reste
+«&nbsp;Mauvaise réponse&nbsp;», avec une remarque qui commence par lui donner raison de s'étonner.</p>
+
+<h2>6 — Palette, étroit, clavier</h2>
+<ul>
+<li><strong>Amber</strong> pour la question, et pour le survol et le focus d'une ligne. <strong>Slate</strong>
+pour le Bilan. <strong>Lime</strong> pour ce qui est acquis&nbsp;: la coche d'une ligne juste, la ligne
+trouvée. Aucune information par la couleur seule&nbsp;: verdict écrit, coche, trait barré, destination
+écrite.</li>
+<li><strong>Sous 640&nbsp;px</strong>, le Passif passe sous l'Actif (<code>sm:grid-cols-2</code>). Rien ne
+se perd&nbsp;: la question porte sur une ligne, pas sur la comparaison des colonnes.</li>
+<li><strong>Clavier</strong>&nbsp;: chaque ligne est un bouton, Tab les parcourt, Entrée clique. Une ligne
+cochée prend <code>aria-disabled</code> et non <code>disabled</code>, pour que le focus ne se perde pas au
+moment du clic. Le verdict est une région <code>role="status"</code>, toujours rendue, hauteur réservée.</li>
+<li><strong>Classes ajoutées à <code>activite.css</code></strong>&nbsp;: <code>.ligne-choix</code> et ses
+deux sous-parties, <code>.ligne-juste</code>, <code>.coche</code>, <code>.ligne-trouvee</code>,
+<code>.barre</code>, <code>.ligne-destination</code>. Livrées en bloc à coller
+(<code>ajout-activite-trouve-erreur.css</code>), pas en feuille entière.</li>
+</ul>
+
+<h2>7 — Ce qui reste à trancher</h2>
+<ol>
+<li><strong>Les textes affichés</strong>, section 5, à relire comme du corps.</li>
+<li><strong>L'intruse.</strong> Les achats de café vert, ou une autre de la liste écartée.</li>
+<li><strong>Le verdict sous le Bilan</strong> plutôt que sous le panneau de question.</li>
+<li><strong>«&nbsp;Mauvaise réponse&nbsp;» en rouge à chaque essai</strong>, comme la frise. Si c'est jugé
+punitif sur une recherche à onze lignes, la coche seule suffirait, avec la remarque en slate.</li>
+<li><strong>Le prénom «&nbsp;Thomas&nbsp;»</strong> dans la remarque du compte courant, repris du
+Chapitre 7.</li>
+<li><strong>Le déroulé</strong> ne change pas&nbsp;: la ligne de la section 5 («&nbsp;Lecture active du Bilan
+au point d'étape&nbsp;») reste vraie. La phrase de la fiche du Chapitre 8, «&nbsp;l'une cherche une anomalie
+dans le résultat&nbsp;», devrait dire «&nbsp;dans le Bilan&nbsp;».</li>
+</ol>

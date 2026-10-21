@@ -1,0 +1,32 @@
+  /* ═════════════════════════════════════════════════════════════════════════
+     AJOUT DU 16 SEPTEMBRE 2026 — <SimulateurBfr />
+     À coller à la fin du bloc `.activite { … }`. Additif : rien d'existant
+     n'est modifié.
+     ═════════════════════════════════════════════════════════════════════════ */
+
+  /* ── Un curseur ──────────────────────────────────────────────────────────
+     Le curseur natif, teinté par `accent-color` : rien à redessiner, et le
+     clavier, le toucher et le lecteur d'écran marchent sans une ligne de
+     plus. Le focus prend l'anneau amber des autres éléments d'activité. */
+  .curseur-activite {
+    display: block; width: 100%; height: 20px; margin: 0;
+    accent-color: var(--color-amber-600); cursor: pointer;
+    &:focus-visible { outline: 2px solid var(--color-amber-500); outline-offset: 2px; border-radius: var(--radius-sm); }
+  }
+
+  /* le point de départ du curseur, un trait sous la piste. Il suppose que le
+     départ est au milieu, ce que le <SimulateurBfr /> garantit (chaque curseur
+     va de zéro au double). Le parent porte `position: relative`. */
+  .repere-depart {
+    position: absolute; left: 50%; top: 100%;
+    width: 1px; height: 5px; transform: translateX(-0.5px);
+    background: var(--color-slate-400); pointer-events: none;
+  }
+
+  /* ── Un état qui n'est pas un verdict ────────────────────────────────────
+     Le panneau d'un simulateur : il n'y a pas une bonne réponse, et ce qui
+     n'est pas encore atteint n'est ni faux ni « presque ». Contour amber sur
+     fond blanc, pour se détacher du panneau d'activité posé juste au-dessus.
+     Quand c'est atteint, `.panneau-final` seul, en lime. Le mot en tête porte
+     l'information, comme pour le verdict. */
+  .panneau-final-attente { border-color: var(--color-amber-300); background: var(--color-white); color: var(--color-amber-900); }

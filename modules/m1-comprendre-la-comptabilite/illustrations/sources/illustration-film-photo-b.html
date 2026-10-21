@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><style>
+:root{
+  --g50:#f8fafc; --g100:#f1f5f9; --g200:#e2e8f0; --g300:#cbd5e1; --g400:#94a3b8;
+  --g500:#64748b; --g600:#475569; --g700:#334155; --g800:#1e293b; --g900:#0f172a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,"Segoe UI",sans-serif;background:#fff;color:var(--g900)}
+.img{width:100%;max-width:720px;padding:24px 24px 22px;background:#fff}
+.sur{font-size:.63rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--g500)}
+.nom{margin-top:1px;font-size:1.02rem;font-weight:800;color:var(--g900)}
+.quand{font-size:.74rem;color:var(--g500)}
+/* squelette d'un document : deux colonnes, aucun contenu */
+.squel{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.col{border-radius:6px;background:var(--g50);padding:7px 8px 9px}
+.col-t{font-size:.56rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--g400)}
+.col i{display:block;height:5px;border-radius:3px;background:var(--g200);margin-top:7px}
+.col i:nth-of-type(2){width:78%} .col i:nth-of-type(3){width:62%} .col i:nth-of-type(4){width:84%}
+
+/* ── Version B : la même année, deux règles ──────────────────────────
+   Les deux documents posent la même règle de douze mois. Le film la
+   remplit, la photo n'en garde que le dernier soir. */
+.panneaux{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.pan{border:1.5px solid var(--g300);border-radius:10px;padding:13px 13px 13px}
+.quand{margin-top:1px}
+
+.regle{position:relative;margin-top:14px;display:grid;grid-template-columns:repeat(12,1fr);gap:2px}
+.m{height:24px;border-radius:2px}
+.plein .m{background:var(--g500)}
+.plein .m.juin{background:var(--g900)}
+.vide .m{background:#fff;border:1.5px solid var(--g200)}
+.vide .m.juin{border:1.5px dashed var(--g400)}
+/* l'instant : un trait au bout de la règle */
+.vide .instant{position:absolute;right:-3px;top:-6px;bottom:-6px;width:4px;border-radius:2px;background:var(--g900)}
+
+.lettres{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;margin-top:4px;
+  font-size:.6rem;text-align:center;color:var(--g400)}
+.lettres .juin{color:var(--g900);font-weight:800}
+.dit{margin-top:6px;flex-wrap:wrap;display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:.72rem;color:var(--g600)}
+.dit b{font-weight:700;color:var(--g900)}
+.dit .juin-note{flex:none}
+.squel{margin-top:13px}
+
+@media (max-width:640px){
+  .img{padding:20px 16px 18px}
+  .panneaux{grid-template-columns:1fr;gap:14px}
+  .m{height:22px}
+}
+</style></head><body>
+<div class="img" id="img"><div class="panneaux">
+
+  <div class="pan">
+    <p class="sur">Le film</p>
+    <p class="nom">Le Compte de Résultat</p>
+    <p class="quand">du 5&nbsp;janvier au 31&nbsp;décembre</p>
+    <div class="regle plein">
+      <span class="m"></span><span class="m"></span><span class="m"></span><span class="m"></span>
+      <span class="m"></span><span class="m juin"></span><span class="m"></span><span class="m"></span>
+      <span class="m"></span><span class="m"></span><span class="m"></span><span class="m"></span>
+    </div>
+    <div class="lettres"><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span class="juin">J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span></div>
+    <p class="dit"><span><b>Toute l’année est filmée</b></span><span class="juin-note">juin en fait partie</span></p>
+    <div class="squel">
+      <div class="col"><p class="col-t">Charges</p><i></i><i></i><i></i><i></i></div>
+      <div class="col"><p class="col-t">Produits</p><i></i><i></i><i></i></div>
+    </div>
+  </div>
+
+  <div class="pan">
+    <p class="sur">La photo</p>
+    <p class="nom">Le Bilan</p>
+    <p class="quand">le 31&nbsp;décembre, le soir</p>
+    <div class="regle vide">
+      <span class="m"></span><span class="m"></span><span class="m"></span><span class="m"></span>
+      <span class="m"></span><span class="m juin"></span><span class="m"></span><span class="m"></span>
+      <span class="m"></span><span class="m"></span><span class="m"></span><span class="m"></span>
+      <span class="instant"></span>
+    </div>
+    <div class="lettres"><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span class="juin">J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span></div>
+    <p class="dit"><span><b>Seul le dernier soir</b></span><span class="juin-note">juin n’y figure pas</span></p>
+    <div class="squel">
+      <div class="col"><p class="col-t">Actif</p><i></i><i></i><i></i><i></i></div>
+      <div class="col"><p class="col-t">Passif</p><i></i><i></i><i></i></div>
+    </div>
+  </div>
+
+</div></div>
+</body></html>

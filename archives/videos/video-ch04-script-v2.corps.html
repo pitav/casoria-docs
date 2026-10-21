@@ -1,0 +1,223 @@
+<p class="kicker">Casoria • Vidéo témoin • script et storyboard v2</p>
+<h1>Facturé n'est pas encaissé — la vidéo d'ouverture</h1>
+<p class="chapo">Première vidéo du module, faite pour fixer le rythme, le ton et la charte graphique des douze
+autres. <strong>Rien n'est animé tant que ce papier n'est pas validé.</strong> Le cahier des charges est le
+bloc «&nbsp;Ce que vous avez appris&nbsp;» du chapitre, ses trois points, ni plus ni moins. Pas de Latitude
+Café, et aucun métier&nbsp;: une entreprise dont on ne dit jamais ce qu'elle fait, un client, un fournisseur,
+des chiffres fictifs et ronds, le vocabulaire exact du texte. <strong>La v2 retire le métier de la v1</strong>, trop
+incarné, à la demande du décideur.</p>
+
+<table class="serree">
+<tbody>
+<tr><td class="cle">Durée visée</td><td>3&nbsp;minutes environ&nbsp;: une voix off d'environ 400 mots, soit 2&nbsp;min&nbsp;40 à 2&nbsp;min&nbsp;50 selon le débit, plus 10&nbsp;s d'ouverture et de fin</td></tr>
+<tr><td class="cle">Format</td><td>16:9, 1920&nbsp;×&nbsp;1080, 30 images par seconde. Page HTML animée par GSAP, rendue en MP4</td></tr>
+<tr><td class="cle">Voix</td><td>Synthèse française, à choisir à l'écoute (section 4). Consigne de ton&nbsp;: calme, posée,
+chaleureuse, débit moyen, aucune emphase publicitaire</td></tr>
+<tr><td class="cle">Le cas</td><td>Une entreprise, sans métier ni nom, vend à un client pour 10&nbsp;000&nbsp;€ à trente
+jours, et achète à un fournisseur pour 4&nbsp;000&nbsp;€ à trente jours</td></tr>
+<tr><td class="cle">Lignes affichées</td><td>Compte de Résultat&nbsp;: «&nbsp;Ventes&nbsp;», «&nbsp;Achats&nbsp;». Bilan&nbsp;: «&nbsp;Créances clients&nbsp;»,
+«&nbsp;Banque&nbsp;» à l'Actif, «&nbsp;Dettes fournisseurs&nbsp;» au Passif. Les noms de <code>comptes.ts</code>,
+sans numéro, sauf les deux lignes du Compte de Résultat&nbsp;: «&nbsp;produits finis&nbsp;» et «&nbsp;matières
+premières&nbsp;» diraient le métier, la vidéo garde le premier mot</td></tr>
+</tbody>
+</table>
+
+<h2 class="saut">1 — Le script, plan par plan</h2>
+<p>La colonne de gauche est ce que dit la voix, exactement. Les sommes y sont écrites en lettres, comme la
+voix les lira. La colonne de droite est ce que l'écran montre. <strong>L'écran ne répète pas la voix mot
+pour mot</strong>&nbsp;: il porte les sommes, les noms de lignes, et une seule phrase écrite, le refrain.</p>
+
+<h3>Plan 0 — Ouverture · 6 s · sans voix</h3>
+<table>
+<thead><tr><th style="width:46%">Voix</th><th>Écran</th></tr></thead>
+<tbody>
+<tr><td><em>(aucune)</em></td><td>Le symbole du logo se dessine, le nom Casoria apparaît. Fondu vers le titre du
+chapitre en Poppins, «&nbsp;Facturé n'est pas encaissé&nbsp;», sur fond clair. Même ouverture pour les treize
+vidéos, seul le titre change.</td></tr>
+</tbody>
+</table>
+
+<h3>Plan 1 — La question · 15 s</h3>
+<table>
+<thead><tr><th style="width:46%">Voix</th><th>Écran</th></tr></thead>
+<tbody>
+<tr><td>Une entreprise livre une commande à un client. Elle envoie sa facture&nbsp;: dix mille euros, payables
+à trente jours. La commande est partie. Sur le compte en banque de l'entreprise, rien n'a bougé. Alors, ce
+jour-là, a-t-elle gagné quelque chose&nbsp;?</td>
+<td>Une frise de trente jours en bas de l'écran, un repère sur le premier. Au-dessus, trois pictogrammes neutres, sans
+détail ni visage&nbsp;: «&nbsp;Entreprise&nbsp;» au centre, «&nbsp;Client&nbsp;» à droite, «&nbsp;Fournisseur&nbsp;» à
+gauche, encore en gris. Un colis part de l'entreprise vers le client, une facture apparaît&nbsp;: «&nbsp;10&nbsp;000&nbsp;€ — à 30 jours&nbsp;». Une carte
+«&nbsp;Compte en banque&nbsp;» reste immobile. La question s'écrit en serif, au centre, et reste deux
+secondes.</td></tr>
+</tbody>
+</table>
+
+<h3>Plan 2 — La vente compte dès la facture · 35 s</h3>
+<table>
+<thead><tr><th style="width:46%">Voix</th><th>Écran</th></tr></thead>
+<tbody>
+<tr><td>Oui. Une vente compte le jour où elle est faite, pas le jour où elle est payée. Le Compte de Résultat
+dit ce que l'activité a gagné, et non ce qu'elle a reçu. La commande est livrée, le prix est fixé, le client
+le doit. La vente s'inscrit dès la facture.</td>
+<td>Le Compte de Résultat entre par la droite, en purple. La ligne «&nbsp;Ventes de produits finis&nbsp;»
+La ligne «&nbsp;Ventes&nbsp;»
+apparaît, et ses 10&nbsp;000&nbsp;€ montent depuis zéro. La carte du compte en banque, elle, reste à
+0&nbsp;€.</td></tr>
+<tr><td>Pourquoi ne pas attendre l'argent&nbsp;? Imaginez deux entreprises qui vendent exactement la même
+chose. L'un est payé tout de suite, l'autre dans trente jours. Si l'on attendait le virement, ils
+n'auraient pas le même résultat. Le résultat dépendrait de la ponctualité des clients.</td>
+<td>Deux pictogrammes d'entreprise identiques, côte à côte, chacun avec son Compte de Résultat. Version «&nbsp;si l'on
+attendait&nbsp;»&nbsp;: 10&nbsp;000&nbsp;€ d'un côté, 0&nbsp;€ de l'autre, en gris. Cette version se barre.
+Les deux comptes reviennent à 10&nbsp;000&nbsp;€.</td></tr>
+</tbody>
+</table>
+
+<h3>Plan 3 — La créance client · 20 s</h3>
+<table>
+<thead><tr><th style="width:46%">Voix</th><th>Écran</th></tr></thead>
+<tbody>
+<tr><td>Ce que le client doit ne disparaît pas pour autant. C'est une créance client, une somme facturée et
+pas encore reçue. Elle se range à l'Actif du Bilan, avec ce que l'entreprise détient&nbsp;: le droit d'être
+payée est bien quelque chose qu'elle détient.</td>
+<td>Le Bilan entre à gauche, en bleu, avec ses deux colonnes Actif et Passif. La facture se place entre les
+deux documents, une flèche vers chacun&nbsp;: la même somme lue deux fois. À l'Actif, la ligne
+«&nbsp;Créances clients&nbsp;» apparaît, 10&nbsp;000&nbsp;€, surlignée en amber, la couleur de ce qui
+attend.</td></tr>
+</tbody>
+</table>
+
+<h3>Plan 4 — La dette fournisseur · 30 s</h3>
+<table>
+<thead><tr><th style="width:46%">Voix</th><th>Écran</th></tr></thead>
+<tbody>
+<tr><td>Le même délai existe à l'achat. L'entreprise achète à son fournisseur pour quatre mille euros,
+payables eux aussi à trente jours. La livraison est faite, l'activité la consomme&nbsp;: la charge s'inscrit dès
+la facture.
+Ce que l'entreprise doit encore est une dette fournisseur. Elle se range au Passif du Bilan, qui dit d'où
+vient l'argent. Pendant trente jours, c'est le fournisseur qui finance cet achat.</td>
+<td>En miroir du plan 3. Le pictogramme du fournisseur s'éclaire, un colis
+arrive vers l'entreprise, une facture «&nbsp;4&nbsp;000&nbsp;€ — à 30 jours&nbsp;». Au Compte de
+Résultat, «&nbsp;Achats&nbsp;», 4&nbsp;000&nbsp;€. Au Passif, «&nbsp;Dettes
+fournisseurs&nbsp;», 4&nbsp;000&nbsp;€, surlignée en amber. Le compte en banque n'a toujours pas
+bougé.</td></tr>
+<tr><td>Le délai accordé au client joue contre l'entreprise. Celui qu'elle obtient de son fournisseur joue en
+sa faveur.</td>
+<td>Les deux lignes amber se répondent, une de chaque côté du Bilan&nbsp;: «&nbsp;contre&nbsp;» sous la
+créance, «&nbsp;pour&nbsp;» sous la dette.</td></tr>
+</tbody>
+</table>
+
+<h3>Plan 5 — Le jour du règlement · 30 s</h3>
+<table>
+<thead><tr><th style="width:46%">Voix</th><th>Écran</th></tr></thead>
+<tbody>
+<tr><td>Trente jours plus tard, le client paie. Ce jour-là, seul le Bilan bouge. Ce que le client devait
+tombe à zéro, et l'argent en banque monte de dix mille euros. L'entreprise ne détient ni plus ni moins
+qu'avant&nbsp;: une promesse de paiement est devenue de l'argent.</td>
+<td>Le repère de la frise glisse jusqu'au trentième jour. À l'Actif, «&nbsp;Créances clients&nbsp;»
+descend de 10&nbsp;000 à 0&nbsp;€ pendant que «&nbsp;Banque&nbsp;» monte de 0 à 10&nbsp;000&nbsp;€, au même
+rythme. L'amber s'efface.</td></tr>
+<tr><td>Le Compte de Résultat, lui, ne reçoit rien. La vente a déjà été comptée. La compter à l'arrivée de
+l'argent, ce serait compter deux fois la même vente&nbsp;: le jour où le client paie, l'entreprise ne gagne
+rien de plus.</td>
+<td>Le Compte de Résultat reste immobile, légèrement estompé, avec une mention discrète&nbsp;:
+«&nbsp;aucune ligne nouvelle&nbsp;».</td></tr>
+</tbody>
+</table>
+
+<h3>Plan 6 — Le refrain · 15 s</h3>
+<table>
+<thead><tr><th style="width:46%">Voix</th><th>Écran</th></tr></thead>
+<tbody>
+<tr><td>Revenez au premier soir. L'entreprise avait gagné dix mille euros, et n'en avait pas reçu un seul.
+Les deux sont vrais en même temps. Le résultat n'est pas la trésorerie.</td>
+<td>Retour au premier jour de la frise. Deux étiquettes face à face&nbsp;: «&nbsp;gagné
+10&nbsp;000&nbsp;€&nbsp;» côté Compte de Résultat, «&nbsp;reçu 0&nbsp;€&nbsp;» côté banque. Puis, seule à
+l'écran, en serif&nbsp;: <strong>Le résultat n'est pas la trésorerie.</strong></td></tr>
+</tbody>
+</table>
+
+<h3>Plan 7 — À retenir · 20 s</h3>
+<table>
+<thead><tr><th style="width:46%">Voix</th><th>Écran</th></tr></thead>
+<tbody>
+<tr><td>À retenir. Une vente compte dès la facture, parce que le résultat dit ce que l'activité a gagné. L'attente
+porte un nom de chaque côté&nbsp;: une créance client à l'Actif, une dette fournisseur au Passif. Et le jour du
+règlement, seul le Bilan bouge.</td>
+<td>Trois cartes s'empilent, une par point, chacune avec son mot clé en gras. Ce sont les trois points
+du bloc «&nbsp;Ce que vous avez appris&nbsp;», dans le même ordre.</td></tr>
+</tbody>
+</table>
+
+<h3>Plan 8 — Fin · 4 s · sans voix</h3>
+<table>
+<thead><tr><th style="width:46%">Voix</th><th>Écran</th></tr></thead>
+<tbody>
+<tr><td><em>(aucune)</em></td><td>Logo Casoria, fond clair. Même fin pour les treize vidéos.</td></tr>
+</tbody>
+</table>
+
+<h2 class="saut">2 — Ce que le script s'interdit</h2>
+<ul>
+<li><strong>Aucune notion hors des trois points.</strong> L'échéance, l'encaissement, le décaissement et le
+plafond légal de soixante jours sont dans le texte du chapitre, pas dans le bloc «&nbsp;Ce que vous avez
+appris&nbsp;»&nbsp;: la vidéo ne les nomme pas.</li>
+<li><strong>Ni débit, ni crédit, ni grand journal.</strong> Le bloc ne parle que du Bilan et du Compte de
+Résultat, et c'est là que se lit l'idée.</li>
+<li><strong>Aucun renvoi à un autre chapitre</strong>, et aucun mot de fabrication («&nbsp;la grille&nbsp;»,
+«&nbsp;bloc&nbsp;», «&nbsp;poste&nbsp;»).</li>
+<li><strong>Le «&nbsp;vous&nbsp;» est l'apprenant</strong>, jamais l'entreprise, qui reste à la troisième
+personne.</li>
+<li><strong>Aucun métier, aucun nom, aucun visage.</strong> L'entreprise, le client et le fournisseur sont
+des rôles. Ce qui s'échange est «&nbsp;une commande&nbsp;», «&nbsp;une livraison&nbsp;», jamais un objet
+identifiable. C'est la règle pour les treize vidéos.</li>
+</ul>
+
+<h2 class="saut">3 — La charte vidéo, première proposition</h2>
+<table>
+<thead><tr><th style="width:22%">Élément</th><th>Proposition</th></tr></thead>
+<tbody>
+<tr><td class="cle">Fond</td><td>Clair, slate-50. Les documents sont des panneaux blancs à coins arrondis et ombre
+légère, comme dans l'application.</td></tr>
+<tr><td class="cle">Couleurs</td><td><strong>Bleu</strong> (votre palette, 500 et 600) pour le Bilan&nbsp;;
+<strong>purple</strong> pour le Compte de Résultat&nbsp;; <strong>amber</strong> pour ce qui attend d'être
+payé&nbsp;; <strong>slate</strong> pour le texte et la structure&nbsp;; <strong>lime</strong> réservé, et
+absent de cette vidéo. Une couleur garde le même sens dans les treize vidéos.</td></tr>
+<tr><td class="cle">Typographie</td><td><strong>Poppins</strong> pour le titre et les mots clés&nbsp;;
+<strong>serif</strong> pour la question d'ouverture et le refrain, comme les accroches du module&nbsp;;
+<strong>Roboto</strong> pour les noms de lignes et les étiquettes&nbsp;; <strong>Roboto Mono</strong> pour les
+sommes, qui gardent ainsi leurs chiffres alignés quand elles défilent.</td></tr>
+<tr><td class="cle">Serif à la vidéo</td><td>Georgia n'est pas une police libre, et le rendu vidéo doit embarquer
+ses polices. Je propose <strong>Gelasio</strong>, police libre de Google Fonts dessinée aux mêmes mesures que
+Georgia&nbsp;: même encombrement, même allure.</td></tr>
+<tr><td class="cle">Mouvement</td><td>Une idée par plan. Entrées en fondu et glissement court, 0,4 à 0,6&nbsp;s,
+sans rebond. Une somme qui change défile, elle ne saute pas. Une demi-seconde de silence entre deux plans.</td></tr>
+<tr><td class="cle">Sous-titres</td><td>Pas incrustés dans l'image. Un fichier de sous-titres à part, tiré du
+script, que le lecteur de l'application affiche à la demande.</td></tr>
+<tr><td class="cle">Son</td><td>La voix seule. Une musique discrète est possible, mais elle se décide après avoir
+entendu la voix.</td></tr>
+</tbody>
+</table>
+
+<h2 class="saut">4 — Le paragraphe d'essai pour les voix</h2>
+<p>Le même paragraphe sera lu par chaque voix candidate, deux ou trois en Chirp 3 HD, deux en Gemini. Il est
+pris au plan 2, parce qu'il mêle une affirmation, une explication et une question.</p>
+<div class="note"><span class="t">Paragraphe d'essai</span>
+<p>Oui. Une vente compte le jour où elle est faite, pas le jour où elle est payée. Le Compte de Résultat dit ce
+que l'activité a gagné, et non ce qu'elle a reçu. La commande est livrée, le prix est fixé, le client le doit.
+La vente s'inscrit dès la facture. Pourquoi ne pas attendre l'argent&nbsp;? Imaginez deux entreprises qui
+vendent exactement la même chose.</p></div>
+
+<h2 class="saut">5 — À trancher</h2>
+<ol>
+<li><strong>Les couleurs par document</strong>&nbsp;: bleu pour le Bilan, purple pour le Compte de Résultat,
+amber pour l'attente. Ce partage vaudra pour toute la série.</li>
+<li><strong>Gelasio</strong> à la place de Georgia pour le serif.</li>
+<li><strong>La durée</strong>, autour de 3&nbsp;minutes. C'est le plafond que je propose pour toute la
+série&nbsp;; les chapitres denses, comme <em>La TVA</em>, devront tenir dedans.</li>
+<li><strong>La clé d'API Google</strong>, pour fabriquer les échantillons de voix.</li>
+</ol>
+
+<p class="fin">Vidéo témoin — script et storyboard v2, 14&nbsp;octobre 2026. Source&nbsp;: la page
+<code>facture-n-est-pas-encaisse.vue</code> telle qu'elle est après la passe de clarification, et le déroulé
+v30, section 9.</p>

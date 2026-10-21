@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><style>
+:root{
+  --g50:#f8fafc; --g100:#f1f5f9; --g200:#e2e8f0; --g300:#cbd5e1; --g400:#94a3b8;
+  --g500:#64748b; --g600:#475569; --g700:#334155; --g800:#1e293b; --g900:#0f172a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,"Segoe UI",sans-serif;background:#fff;color:var(--g900)}
+.img{width:100%;max-width:720px;padding:24px 24px 22px;background:#fff}
+
+/* Les questions ne s'écrivent qu'une fois, en tête de rangée. Sous chaque
+   papier ne reste que la réponse, en trois ou quatre mots. Les rangées sont
+   communes : les réponses tombent à la même hauteur sous des papiers qui
+   n'ont ni la même taille ni la même forme. */
+.tab{display:grid;grid-template-columns:max-content repeat(3,1fr);column-gap:14px}
+.doc-zone{grid-row:1;height:192px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:14px}
+.lab,.q{border-top:1.5px solid var(--g200);padding:11px 0 10px;display:flex;align-items:center}
+.lab{grid-column:1;font-size:.56rem;font-weight:800;letter-spacing:.07em;white-space:nowrap;line-height:1.35;text-transform:uppercase;color:var(--g400)}
+.lab1,.q1{grid-row:2}
+.lab2,.q2{grid-row:3}
+.q{justify-content:center;text-align:center;font-size:.86rem;font-weight:600;color:var(--g900)}
+.ligne-doc{display:contents}
+.c1 .doc-zone,.c1 .q{grid-column:2}
+.c2 .doc-zone,.c2 .q{grid-column:3}
+.c3 .doc-zone,.c3 .q{grid-column:4}
+
+/* ── les papiers ─────────────────────────────────────────────── */
+.papier{--k:1.09;font-size:calc(var(--k)*1rem);background:#fff;border:1.5px solid var(--g300);color:var(--g700);
+  box-shadow:0 6px 14px -10px rgba(15,23,42,.35)}
+.fant{display:block;height:4px;border-radius:2px;background:var(--g200)}
+sup{font-size:.7em;line-height:0}
+.mt{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* le ticket : étroit, bord bas dentelé */
+.ticket{width:calc(var(--k)*112px);padding:11px 10px 20px;text-align:center;border:0;background:var(--g100);box-shadow:none;
+  clip-path:polygon(0 0,100% 0,100% 100%,94% 96%,88% 100%,82% 96%,76% 100%,70% 96%,64% 100%,58% 96%,52% 100%,
+  46% 96%,40% 100%,34% 96%,28% 100%,22% 96%,16% 100%,10% 96%,4% 100%,0 96%)}
+.ticket .enseigne{font-size:.58em;font-weight:800;letter-spacing:.09em;color:var(--g800)}
+.ticket .type{margin-top:3px;font-size:.5em;font-weight:800;letter-spacing:.1em;color:var(--g400);white-space:nowrap}
+.ticket .sous{margin-top:1px;font-size:.52em;color:var(--g500)}
+.ticket .pt{margin:8px 0 7px;border-top:1px dashed var(--g400)}
+.ticket .fant{background:var(--g300)}
+.ticket .fant{margin:5px auto 0}
+.ticket .tot{display:flex;justify-content:space-between;font-size:.6em;font-weight:800;color:var(--g900)}
+
+/* la facture du grossiste : un en-tête, un tableau */
+.facture{width:calc(var(--k)*170px);padding:11px 11px 12px}
+.facture .haut{display:flex;justify-content:space-between;align-items:baseline}
+.facture .emet{font-size:.64em;font-weight:800;color:var(--g800)}
+.facture .type{font-size:.5em;font-weight:800;letter-spacing:.12em;color:var(--g400)}
+.facture .dest{margin-top:6px;font-size:.52em;color:var(--g500)}
+.facture .lig{margin-top:9px;display:flex;gap:6px;justify-content:space-between;align-items:baseline;font-size:.55em;padding:4px 0;
+  border-top:1px solid var(--g200);border-bottom:1px solid var(--g200);color:var(--g700)}
+.facture .fant{margin-top:6px}
+.facture .tot{margin-top:9px;display:flex;justify-content:flex-end;gap:8px;align-items:baseline;font-size:.5em;color:var(--g500)}
+.facture .tot b{font-size:1.36em;font-weight:800;color:var(--g900)}
+
+/* la facture d'électricité : un bandeau, un graphique de consommation */
+.edf{width:calc(var(--k)*146px);padding:0 0 11px;overflow:hidden}
+.edf .band{background:var(--g700);color:#fff;padding:6px 10px;font-size:.58em;font-weight:700}
+.edf .corps{padding:8px 10px 0}
+.edf .per{font-size:.52em;color:var(--g500)}
+.edf .barres{margin-top:7px;height:34px;display:flex;align-items:flex-end;gap:3px;border-bottom:1px solid var(--g300)}
+.edf .barres i{flex:1;background:var(--g200);border-radius:1px 1px 0 0}
+.edf .barres i:last-child{background:var(--g500)}
+.edf .tot{margin-top:8px;display:flex;justify-content:space-between;align-items:baseline;font-size:.5em;color:var(--g500)}
+.edf .tot b{font-size:1.36em;font-weight:800;color:var(--g900)}
+
+/* ── En étroit : une rangée par papier ────────────────────────────
+   Les deux questions passent en tête de colonne, les réponses se lisent
+   à droite de chaque papier, toujours dans les deux mêmes colonnes. */
+@media (max-width:640px){
+  .img{padding:18px 16px 16px}
+  .tab{grid-template-columns:130px 1fr 1fr;column-gap:0}
+  .br-large{display:none}
+  .lab{white-space:normal}
+  .papier{--k:1}
+  .lab{border-top:0;padding:0 0 8px;align-items:flex-end;justify-content:center;text-align:center;font-size:.54rem}
+  .lab1{grid-column:2;grid-row:1}
+  .lab2{grid-column:3;grid-row:1}
+  .doc-zone{height:auto;padding:12px 0;align-items:center;border-top:1.5px solid var(--g200)}
+  .q{padding:0 6px;font-size:.76rem;line-height:1.3}
+  .q{text-wrap:balance}
+  .facture .lig .mt{display:none}
+  .lab{padding:0 4px 8px}
+  .c1 .doc-zone{grid-column:1;grid-row:2} .c1 .q1{grid-column:2;grid-row:2} .c1 .q2{grid-column:3;grid-row:2}
+  .c2 .doc-zone{grid-column:1;grid-row:3} .c2 .q1{grid-column:2;grid-row:3} .c2 .q2{grid-column:3;grid-row:3}
+  .c3 .doc-zone{grid-column:1;grid-row:4} .c3 .q1{grid-column:2;grid-row:4} .c3 .q2{grid-column:3;grid-row:4}
+  .ticket{width:100px}
+  .ticket .enseigne{letter-spacing:.03em}
+  .ticket .type{letter-spacing:.04em}
+  .facture{width:124px;padding:9px 9px 10px}
+  .facture .emet{font-size:.58rem}
+  .edf{width:122px}
+}
+</style></head><body>
+<div class="img" id="img"><div class="tab">
+  <p class="lab lab1">Où va la<br class="br-large"> valeur&nbsp;?</p>
+  <p class="lab lab2">D’où<br class="br-large"> vient-elle&nbsp;?</p>
+
+
+  <div class="ligne-doc c1">
+    <div class="doc-zone">
+      <div class="papier ticket">
+        <p class="enseigne">LATITUDE CAFÉ</p>
+        <p class="type">TICKET DE CAISSE</p>
+        <p class="sous">Comptoir<br>samedi 17&nbsp;janvier</p>
+        <div class="pt"></div>
+        <span class="fant" style="width:86%"></span>
+        <span class="fant" style="width:70%"></span>
+        <span class="fant" style="width:80%"></span>
+        <span class="fant" style="width:60%"></span>
+        <div class="pt"></div>
+        <p class="tot"><span>TOTAL</span><span class="mt">320,00&nbsp;€</span></p>
+      </div>
+    </div>
+    <p class="q q1">Sur le compte</p>
+    <p class="q q2">Des ventes du jour</p>
+  </div>
+
+  <div class="ligne-doc c2">
+    <div class="doc-zone">
+      <div class="papier facture">
+        <div class="haut"><span class="emet">Verdecafé</span><span class="type">FACTURE</span></div>
+        <p class="dest">à Latitude Café · janvier</p>
+        <p class="lig"><span>Café vert, 1<sup>er</sup> lot</span><span class="mt">1&nbsp;800,00</span></p>
+        <span class="fant" style="width:74%"></span>
+        <span class="fant" style="width:52%"></span>
+        <p class="tot"><span>Total</span><b class="mt">1&nbsp;800,00&nbsp;€</b></p>
+      </div>
+    </div>
+    <p class="q q1">Dans le café vert</p>
+    <p class="q q2">Du compte</p>
+  </div>
+
+  <div class="ligne-doc c3">
+    <div class="doc-zone">
+      <div class="papier edf">
+        <p class="band">Facture d’électricité</p>
+        <div class="corps">
+          <p class="per">Consommation · janvier</p>
+          <div class="barres"><i style="height:40%"></i><i style="height:55%"></i><i style="height:35%"></i><i style="height:60%"></i><i style="height:45%"></i><i style="height:85%"></i></div>
+          <p class="tot"><span>À payer</span><b class="mt">240,00&nbsp;€</b></p>
+        </div>
+      </div>
+    </div>
+    <p class="q q1">Dans l’électricité</p>
+    <p class="q q2">Du compte</p>
+  </div>
+
+  </div></div>
+</body></html>

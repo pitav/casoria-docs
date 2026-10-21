@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<style>
+:root{
+  --g50:#f8fafc; --g100:#f1f5f9; --g200:#e2e8f0; --g300:#cbd5e1; --g400:#94a3b8;
+  --g500:#64748b; --g600:#475569; --g700:#334155; --g800:#1e293b; --g900:#0f172a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,"Segoe UI",sans-serif;background:#fff;color:var(--g900)}
+.img{width:100%;max-width:720px;padding:26px 24px 24px;background:#fff}
+
+/* la sortie unique */
+.sortie{text-align:center}
+.sortie .m{font-size:2.1rem;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.sortie .l{margin-top:2px;font-size:.78rem;color:var(--g500)}
+
+/* la fourche */
+.fourche{position:relative;height:46px;margin:0 auto;width:66%}
+.fourche .tronc{position:absolute;left:50%;top:0;width:2px;height:16px;background:var(--g300);transform:translateX(-50%)}
+.fourche .barre{position:absolute;left:0;right:0;top:16px;height:2px;background:var(--g300)}
+.fourche .br{position:absolute;top:16px;width:2px;height:30px;background:var(--g300)}
+.fourche .br.g{left:0}
+.fourche .br.d{right:0}
+
+/* les deux parts */
+.parts{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.part{display:flex;flex-direction:column}
+.part{text-align:center}
+.part .m{font-size:1.35rem;font-weight:800;font-variant-numeric:tabular-nums}
+.part .n{margin-top:1px;font-size:.78rem;font-weight:600;color:var(--g600)}
+.part .fleche{margin:8px auto 0;width:2px;height:20px;background:var(--g300);position:relative}
+.part .fleche::after{content:"";position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);
+  border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid var(--g400)}
+
+/* les deux documents */
+.doc{margin-top:10px;flex:1;display:flex;flex-direction:column;border:1.5px solid var(--g300);border-radius:10px;padding:12px 13px 14px;text-align:left}
+.doc-t{font-size:.63rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--g500)}
+
+/* gauche : consommé */
+.ligne{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:10px;
+  padding-bottom:7px;border-bottom:1px solid var(--g100)}
+.ligne .lib{font-size:.8rem;color:var(--g800)}
+.ligne .val{font-size:.85rem;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--g900)}
+.vide{margin-top:auto;border:1.5px dashed var(--g300);border-radius:7px;padding:9px 10px;
+  font-size:.73rem;line-height:1.4;color:var(--g500);text-align:center}
+
+/* droite : le Bilan, deux côtés */
+.bilan{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.cote{border-radius:7px;background:var(--g50);padding:8px 9px}
+.cote-t{font-size:.56rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--g400)}
+.cote .lib{margin-top:3px;font-size:.72rem;line-height:1.25;color:var(--g700)}
+.cote .val{margin-top:5px;font-size:.92rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--g900)}
+.cote .val i{font-style:normal;color:var(--g500);font-weight:700;margin-right:2px}
+.meme{margin-top:auto;padding-top:9px;text-align:center;font-size:.68rem;font-weight:600;color:var(--g500)}
+.meme span{display:inline-block;border-top:1px solid var(--g300);padding-top:5px;padding-left:18px;padding-right:18px}
+.punch{margin-top:9px;font-size:.82rem;font-weight:700;line-height:1.4;color:var(--g900);text-align:center}
+
+/* ── En étroit : les deux panneaux passent l'un sous l'autre ──────────────
+   La fourche à deux branches n'a plus de sens en colonne : il reste le tronc,
+   et un « + » entre les deux parts — le signe posé de la <CalculetteTva />.
+   Les hauteurs n'ont plus à s'aligner, donc le blanc du milieu disparaît. */
+@media (max-width: 640px){
+  .img{padding:20px 16px 18px}
+
+  .sortie .m{font-size:1.85rem}
+
+  .fourche{width:2px;height:24px}
+  .fourche .barre, .fourche .br{display:none}
+  .fourche .tronc{height:24px}
+
+  .parts{grid-template-columns:1fr;gap:0}
+  .part .fleche{display:none}
+  .doc{margin-top:9px}
+
+  /* le blanc de calage n'a plus lieu d'être */
+  .vide{margin-top:11px}
+  .meme{margin-top:11px}
+
+  /* le signe qui dit que les deux parts font le total */
+  .part + .part{position:relative;padding-top:38px;margin-top:4px}
+  .part + .part::before{content:"+";position:absolute;top:2px;left:50%;transform:translateX(-50%);
+    font-size:1.25rem;font-weight:800;line-height:1;color:var(--g400)}
+
+  /* Actif et Passif restent côte à côte : c'est tout le sujet */
+  .bilan{gap:8px}
+  .cote{padding:7px 8px}
+  .cote .lib{font-size:.7rem}
+}
+</style></head><body>
+
+<div class="img" id="img">
+
+  <div class="sortie">
+    <p class="m">628,90&nbsp;€</p>
+    <p class="l">une seule sortie du compte, le 30 juin</p>
+  </div>
+
+  <div class="fourche">
+    <div class="tronc"></div><div class="barre"></div>
+    <div class="br g"></div><div class="br d"></div>
+  </div>
+
+  <div class="parts">
+
+    <!-- les intérêts -->
+    <div class="part">
+      <p class="m">87,50&nbsp;€</p>
+      <p class="n">les intérêts</p>
+      <div class="fleche"></div>
+      <div class="doc">
+        <p class="doc-t">Compte de Résultat</p>
+        <div class="ligne">
+          <span class="lib">Charges d’intérêts</span>
+          <span class="val">+ 87,50&nbsp;€</span>
+        </div>
+        <div class="vide">Rien au Bilan n’en garde la trace.<br>Le service est consommé.</div>
+      </div>
+    </div>
+
+    <!-- le capital -->
+    <div class="part">
+      <p class="m">541,40&nbsp;€</p>
+      <p class="n">le remboursement du capital</p>
+      <div class="fleche"></div>
+      <div class="doc">
+        <p class="doc-t">Bilan</p>
+        <div class="bilan">
+          <div class="cote">
+            <p class="cote-t">Actif</p>
+            <p class="lib">Le compte en banque</p>
+            <p class="val"><i>−</i>541,40&nbsp;€</p>
+          </div>
+          <div class="cote">
+            <p class="cote-t">Passif</p>
+            <p class="lib">La dette envers la banque</p>
+            <p class="val"><i>−</i>541,40&nbsp;€</p>
+          </div>
+        </div>
+        <p class="meme"><span>les deux descendent du même montant</span></p>
+        <p class="punch">Moins d’argent, moins de dettes.<br>Ce que l’entreprise vaut n’a pas bougé.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body></html>

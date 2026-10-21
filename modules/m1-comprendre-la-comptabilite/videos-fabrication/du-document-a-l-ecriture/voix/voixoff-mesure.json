@@ -1,0 +1,413 @@
+{
+ "voix": "voice_dur676prxpls",
+ "modele": "gemini-3.8-flash-tts",
+ "duree_totale": 197.79,
+ "segments": [
+  {
+   "id": "p1-1",
+   "plan": 1,
+   "texte": "Trois documents arrivent à l'entreprise : un ticket de caisse, une facture d'achat, une facture d'électricité. Chacun dit qui doit quoi à qui, mais aucun ne dit ce qu'il faut inscrire. Comment passer du document à l'écriture ?",
+   "fichier": "p1-1.mp3",
+   "duree": 16.42,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Trois documents arrivent à l'entreprise : un ticket de caisse, une facture d'achat, une facture d'électricité. Chacun dit qui doit quoi à qui, mais aucun ne dit ce qu'il faut inscrire. Comment passer du document à l'écriture ?",
+   "debut": 6.0,
+   "fin": 22.42,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.32
+    },
+    {
+     "i": 42,
+     "t": 2.831
+    },
+    {
+     "i": 111,
+     "t": 7.936
+    },
+    {
+     "i": 185,
+     "t": 13.823
+    }
+   ]
+  },
+  {
+   "id": "p2-1",
+   "plan": 2,
+   "texte": "Une facture constate une vente ou un achat. Elle nomme les deux parties, ce qui a été livré, le montant et la date. Le ticket de caisse dit la même chose, en plus court.",
+   "fichier": "p2-1.mp3",
+   "duree": 12.89,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Une facture constate une vente ou un achat. Elle nomme les deux parties, ce qui a été livré, le montant et la date. Le ticket de caisse dit la même chose, en plus court.",
+   "debut": 23.82,
+   "fin": 36.71,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.275
+    },
+    {
+     "i": 44,
+     "t": 3.753
+    },
+    {
+     "i": 116,
+     "t": 8.447
+    }
+   ]
+  },
+  {
+   "id": "p3-1",
+   "plan": 3,
+   "texte": "On reprend les deux questions du grand journal. Où va la valeur ? C'est l'emploi. D'où vient-elle ? C'est la ressource.",
+   "fichier": "p3-1.mp3",
+   "duree": 8.26,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "On reprend les deux questions du Grand Journal. Où va la valeur ? C'est l'emploi. D'où vient-elle ? C'est la ressource.",
+   "debut": 38.11,
+   "fin": 46.37,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.241
+    },
+    {
+     "i": 48,
+     "t": 3.095
+    },
+    {
+     "i": 66,
+     "t": 4.438
+    },
+    {
+     "i": 82,
+     "t": 5.697
+    },
+    {
+     "i": 100,
+     "t": 7.117
+    }
+   ]
+  },
+  {
+   "id": "p3-2",
+   "plan": 3,
+   "texte": "Sur la facture d'électricité, la réponse tient en une phrase. L'entreprise a consommé un service, et elle l'a payé avec l'argent de son compte.",
+   "fichier": "p3-2.mp3",
+   "duree": 9.98,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Sur la facture d'électricité, la réponse tient en une phrase. L'entreprise a consommé un service et elle l'a payé avec l'argent de son compte.",
+   "debut": 47.17,
+   "fin": 57.15,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.279
+    },
+    {
+     "i": 62,
+     "t": 4.357
+    }
+   ]
+  },
+  {
+   "id": "p4-1",
+   "plan": 4,
+   "texte": "Un simple cahier noterait ce qui entre et ce qui sort : c'est la comptabilité en partie simple. Elle dit combien il reste sur le compte, rien de plus.",
+   "fichier": "p4-1.mp3",
+   "duree": 11.74,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Un simple cahier noterait ce qui entre et ce qui sort. C'est la comptabilité en partie simple. Elle dit combien il reste sur le compte. Rien de plus.",
+   "debut": 58.55,
+   "fin": 70.29,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.242
+    },
+    {
+     "i": 56,
+     "t": 4.746
+    },
+    {
+     "i": 96,
+     "t": 8.102
+    }
+   ]
+  },
+  {
+   "id": "p4-2",
+   "plan": 4,
+   "texte": "La comptabilité en partie double écrit les deux moitiés de chaque opération : une fois au débit, où va la valeur, une fois au crédit, d'où elle vient, pour le même montant.",
+   "fichier": "p4-2.mp3",
+   "duree": 12.46,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "La comptabilité en partie double écrit les deux moitiés de chaque opération. Une fois au débit, où va la valeur, une fois au crédit, d'où elle vient, pour le même montant.",
+   "debut": 71.09,
+   "fin": 83.55,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.324
+    },
+    {
+     "i": 78,
+     "t": 5.461
+    }
+   ]
+  },
+  {
+   "id": "p5-1",
+   "plan": 5,
+   "texte": "Le ticket de caisse : trois cents euros de ventes. La valeur va en banque, au débit. Elle vient des ventes, au crédit.",
+   "fichier": "p5-1.mp3",
+   "duree": 8.9,
+   "fidelite": 0.857,
+   "essais": 3,
+   "transcription": "Le ticket de caisse, 300 € de vente. La valeur va en banque, au débit, elle vient des ventes, au crédit.",
+   "debut": 84.95,
+   "fin": 93.85,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.212
+    },
+    {
+     "i": 22,
+     "t": 1.517
+    },
+    {
+     "i": 51,
+     "t": 3.509
+    },
+    {
+     "i": 85,
+     "t": 6.714
+    }
+   ]
+  },
+  {
+   "id": "p5-2",
+   "plan": 5,
+   "texte": "La facture d'achat : deux mille euros, payés le jour même. Ils vont aux achats, au débit, et viennent de la banque, au crédit.",
+   "fichier": "p5-2.mp3",
+   "duree": 9.5,
+   "fidelite": 0.894,
+   "essais": 3,
+   "transcription": "La facture d'achat, 2000 euros payée le jour même. Ils vont aux achats, au débit, et viennent de la banque, au crédit.",
+   "debut": 94.65,
+   "fin": 104.15,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.0
+    },
+    {
+     "i": 21,
+     "t": 1.591
+    },
+    {
+     "i": 59,
+     "t": 4.298
+    }
+   ]
+  },
+  {
+   "id": "p5-3",
+   "plan": 5,
+   "texte": "L'électricité : deux cents euros. Ils vont aux autres charges externes, au débit, et viennent de la banque, au crédit.",
+   "fichier": "p5-3.mp3",
+   "duree": 10.22,
+   "fidelite": 0.895,
+   "essais": 3,
+   "transcription": "L'électricité, 200 €. Ils vont aux autres charges externes au débit et viennent de la banque au crédit.",
+   "debut": 104.95,
+   "fin": 115.17,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.245
+    },
+    {
+     "i": 16,
+     "t": 2.013
+    },
+    {
+     "i": 34,
+     "t": 3.776
+    }
+   ]
+  },
+  {
+   "id": "p5-4",
+   "plan": 5,
+   "texte": "Additionnez chaque colonne : les totaux sont égaux. S'ils diffèrent, une écriture est fausse : la comptabilité se surveille elle-même.",
+   "fichier": "p5-4.mp3",
+   "duree": 9.82,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Additionnez chaque colonne. Les totaux sont égaux. S'ils diffèrent, une écriture est fausse. La comptabilité se surveille elle-même.",
+   "debut": 115.97,
+   "fin": 125.79,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.217
+    },
+    {
+     "i": 29,
+     "t": 2.433
+    },
+    {
+     "i": 52,
+     "t": 4.485
+    },
+    {
+     "i": 95,
+     "t": 7.491
+    }
+   ]
+  },
+  {
+   "id": "p6-1",
+   "plan": 6,
+   "texte": "Mais les deux lignes d'une écriture ne vont pas au même document. Ce que l'activité a consommé ou gagné part au Compte de Résultat : les ventes, les achats, l'électricité.",
+   "fichier": "p6-1.mp3",
+   "duree": 12.86,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Mais les deux lignes d'une écriture ne vont pas au même document. Ce que l'activité a consommé ou gagné part au compte de résultat : les ventes, les achats, l'électricité.",
+   "debut": 127.19,
+   "fin": 140.05,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.291
+    },
+    {
+     "i": 66,
+     "t": 4.052
+    },
+    {
+     "i": 133,
+     "t": 10.034
+    }
+   ]
+  },
+  {
+   "id": "p6-2",
+   "plan": 6,
+   "texte": "La banque reste au Bilan : c'est une chose que l'entreprise détient.",
+   "fichier": "p6-2.mp3",
+   "duree": 5.21,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "La banque reste au bilan. C'est une chose que l'entreprise détient.",
+   "debut": 140.85,
+   "fin": 146.06,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.261
+    },
+    {
+     "i": 27,
+     "t": 2.815
+    }
+   ]
+  },
+  {
+   "id": "p6-3",
+   "plan": 6,
+   "texte": "Au Bilan, les deux colonnes ne tombent plus juste. Ce n'est pas une erreur : il manque le résultat de l'année, calculé à la fin.",
+   "fichier": "p6-3.mp3",
+   "duree": 8.74,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Au bilan, les deux colonnes ne tombent plus juste. Ce n'est pas une erreur, il manque le résultat de l'année, calculé à la fin.",
+   "debut": 146.86,
+   "fin": 155.6,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.324
+    },
+    {
+     "i": 51,
+     "t": 3.874
+    },
+    {
+     "i": 77,
+     "t": 5.139
+    }
+   ]
+  },
+  {
+   "id": "p7-1",
+   "plan": 7,
+   "texte": "Tout ce qu'une écriture demande, le document le porte déjà.",
+   "fichier": "p7-1.mp3",
+   "duree": 4.54,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Tout ce qu'une écriture demande, le document le porte déjà.",
+   "debut": 157.0,
+   "fin": 161.54,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.416
+    }
+   ]
+  },
+  {
+   "id": "p8-1",
+   "plan": 8,
+   "texte": "À retenir. Un document dit qui doit quoi à qui, combien et quand. Deux questions le traduisent : où va la valeur, et d'où elle vient. Dans la comptabilité en partie double, toute opération s'inscrit une fois au débit, une fois au crédit. Les deux colonnes du grand journal ont le même total. Ce que l'activité consomme ou gagne va au Compte de Résultat, ce que l'entreprise détient reste au Bilan.",
+   "fichier": "p8-1.mp3",
+   "duree": 28.85,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "À retenir. Un document dit qui doit quoi à qui, combien et quand. Deux questions le traduisent : où va la valeur et d'où elle vient ? Dans la comptabilité en partie double, toute opération s'inscrit une fois au débit, une fois au crédit. Les deux colonnes du grand journal ont le même total. Ce que l'activité consomme ou gagne va au compte de résultat, ce que l'entreprise détient reste au bilan.",
+   "debut": 162.94,
+   "fin": 191.79,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.25
+    },
+    {
+     "i": 11,
+     "t": 1.484
+    },
+    {
+     "i": 66,
+     "t": 5.128
+    },
+    {
+     "i": 97,
+     "t": 6.712
+    },
+    {
+     "i": 134,
+     "t": 10.207
+    },
+    {
+     "i": 238,
+     "t": 16.897
+    },
+    {
+     "i": 292,
+     "t": 21.782
+    }
+   ]
+  }
+ ]
+}

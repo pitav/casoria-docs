@@ -1,0 +1,297 @@
+<p class="kicker">Comprendre la comptabilité sans être comptable — composant du Chapitre 3</p>
+<h1>&lt;EcritureDragDrop /&gt;</h1>
+<p class="chapo">Fiche v2, 12 septembre 2026. Sources&nbsp;: déroulé de module v26, sections 5, 7 et 10, et le
+Chapitre 3 livré. Cette fiche dit ce que le composant doit obtenir et comment il se comporte&nbsp;; elle ne dit
+pas comment il s'écrit. <strong>La consigne, les libellés, les deux phrases de retour et la phrase de clôture
+sont du texte affiché à l'apprenant</strong>&nbsp;: ils relèvent de la charte et se relisent comme du corps de
+chapitre. Ce qui reste à trancher est rassemblé à la dernière section.</p>
+<p class="pied">Casoria — &lt;EcritureDragDrop /&gt;, fiche v2</p>
+
+<h2 class="nu">1 — Ce que le composant doit obtenir</h2>
+<p>Le déroulé, section 7, est catégorique. L'activité « ne sert pas d'exercice d'application&nbsp;: c'est le
+support d'enseignement de la partie double ». Elle ne vient donc pas vérifier ce que le chapitre dit, elle est
+l'endroit où il se dit.</p>
+<ul>
+<li><strong>Une opération donne deux lignes, jamais une.</strong> Tant que la seconde n'est pas posée,
+l'écriture est visiblement inachevée, et rien ne le dit par un texte.</li>
+<li><strong>Les deux lignes ne vont pas dans la même colonne, et elles portent le même montant.</strong>
+C'est la définition de la partie double, obtenue par la main avant d'être lue.</li>
+<li><strong>Les deux totaux sont égaux à chaque écriture achevée.</strong> Ils sont au pied des deux colonnes,
+et l'apprenant les voit se rejoindre deux fois.</li>
+</ul>
+<p class="declaration">L'écriture à reconstituer est déjà connue. Il n'y a rien à deviner, tout à voir.</p>
+<p>C'est le parti pris de la fiche, et il découle du rôle que le déroulé donne à l'activité. Un exercice
+d'application demanderait à l'apprenant de trouver les comptes&nbsp;; celui-ci les lui donne et ne lui laisse
+qu'une décision, la colonne. La difficulté n'est pas le sujet, la forme l'est.</p>
+
+<h2>2 — Sa place dans le chapitre</h2>
+<p>Entre le paragraphe qui décrit les quatre colonnes du grand journal, avec sa précision sur les numéros de
+compte, et celui qui ouvre le samedi 17 janvier. C'est l'emplacement que porte le chapitre livré, et il suit
+la règle du déroulé, section 7. L'activité prépare, le bloc acte.</p>
+<div class="note"><span class="t">Le composant n'écrit pas dans le journal du module</span>
+<p>Son journal est le sien. Il rejoue deux écritures que l'apprenant a passées de sa main au Chapitre 2, et
+rien de ce qu'il pose ici ne se retrouve dans le grand journal, le Bilan ou le Compte de Résultat de
+l'application. <strong>La première écriture du module qui touche le Compte de Résultat reste celle du bloc
+qui suit</strong>, la vente au comptoir du 17 janvier. Le chapitre le dit dans sa légende, et l'activité ne
+doit pas le lui prendre.</p></div>
+
+<h2>3 — L'écran dont le composant dispose</h2>
+<p class="declaration">Un composant ne dispose pas de l'écran. Il dispose de la moitié droite.</p>
+<p>Le dispositif partage la page en deux dans le sens de la hauteur. Le texte du chapitre à gauche, le Bilan
+et le Compte de Résultat à droite, et c'est dans cette colonne de droite que les composants s'affichent.
+<strong>La largeur utile est donc de l'ordre de 700&nbsp;px, pas des 1&nbsp;480&nbsp;px du conteneur</strong>,
+et la hauteur compte autant que la largeur, puisque le lecteur ne doit pas avoir à défiler pour voir ce qu'il
+manipule.</p>
+<p>Trois conséquences, et elles valent pour tous les composants du module.</p>
+<ul>
+<li><strong>Schématiser plutôt qu'écrire.</strong> Un tableau à quatre colonnes ne tient pas dans cette
+largeur sans que ses libellés se cassent. Deux zones côte à côte disent la même chose et tiennent.</li>
+<li><strong>Chaque mot affiché se justifie.</strong> Les libellés au journal, répétés sur les deux lignes
+d'une même écriture, sont sortis des lignes et portés une fois, en tête d'opération.</li>
+<li><strong>Un état se montre avant de se dire.</strong> L'écriture inachevée se voit à ses deux totaux
+inégaux et à l'opération qui ne figure que dans une colonne. La phrase qui l'expliquait en v1 est
+supprimée.</li>
+</ul>
+
+<h2>4 — Anatomie de l'écran</h2>
+<p>De haut en bas, quatre bandes. Deux zones sur la même ligne, puis le journal schématisé en dessous, sur le
+modèle du <code>&lt;TriActifPassif /&gt;</code>.</p>
+<table>
+<thead><tr><th style="width:26%">Élément d'écran</th><th>Contenu et rôle</th></tr></thead>
+<tbody>
+<tr><td class="cle">Consigne et compteur</td><td>Une ligne, plus une ligne de régime, plus « 3 / 4 » à
+droite. Proposition&nbsp;: « Vous avez déjà passé ces écritures. Remettez chaque ligne dans sa
+colonne. »</td></tr>
+<tr><td class="cle">Relevé de compte</td><td>À gauche de la première ligne. Deux mouvements et un solde,
+c'est tout. L'opération en cours est marquée d'un filet. <strong>Le composant l'appelle « Relevé de compte »
+et rien d'autre</strong>&nbsp;— c'est le mot que tout le monde comprend.</td></tr>
+<tr><td class="cle">À placer</td><td>À droite de la première ligne, en face du relevé. Les lignes de
+l'opération en cours qui restent à poser, une ou deux. Jamais celles d'une autre opération.</td></tr>
+<tr><td class="cle">Les deux zones du journal</td><td>Dessous, côte à côte. Débit à gauche, Crédit à droite,
+chacune portant son nom et la question à laquelle elle répond. <strong>Une surface en pointillé, exactement
+comme les quatre zones du <code>&lt;TriActifPassif /&gt;</code></strong>.</td></tr>
+<tr><td class="cle">Une ligne posée</td><td>Elle s'inscrit dans sa zone, sous le nom de son opération, avec
+son numéro de compte, son intitulé et son montant. Trois éléments, pas un de plus.</td></tr>
+<tr><td class="cle">Les deux totaux</td><td>Au pied de chaque zone, sur un filet. C'est là que se lit
+l'égalité, et c'est là que se lit l'écriture inachevée.</td></tr>
+</tbody>
+</table>
+<p><img src="ecriture-dragdrop.png" alt="Maquette du composant" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">La maquette est à l'échelle de la colonne de droite, 720&nbsp;px. La première opération est
+reconstituée, la seconde a sa ligne de débit et tient la seconde&nbsp;; la zone du crédit est visée et montre
+en creux l'emplacement que la ligne occuperait. Les deux totaux diffèrent, et c'est la seule chose qui dit
+que l'écriture n'est pas finie.</p>
+<div class="note"><span class="t">Les quatre colonnes du journal sont toujours là</span>
+<p>Le chapitre écrit que le grand journal porte quatre colonnes et pas une de plus. Elles y sont
+toutes&nbsp;: le numéro et l'intitulé sur la ligne, le débit et le crédit par la zone où elle se range. La
+schématisation ne retire pas une colonne, <strong>elle remplace un tableau par une géographie</strong>, ce
+que le module fait déjà partout ailleurs.</p></div>
+
+<h2>5 — La matière, et la règle qui la choisit</h2>
+<p class="declaration">Une activité n'emploie que des notions du chapitre présent et du chapitre précédent.
+À défaut, elle emploie des choses génériques, que l'on comprend sans rien savoir.</p>
+<p>C'est la règle posée le 12 septembre 2026, et elle durcit celle de la fiche du
+<code>&lt;TriActifPassif /&gt;</code>, qui n'interdisait que les notions postérieures. Appliquée ici, elle ne
+laisse qu'un candidat, <strong>les deux virements du 5 janvier</strong>, qui sont l'affaire entière du
+Chapitre 2.</p>
+<table class="serree">
+<thead><tr><th style="width:22%">Opération</th><th class="ch">N°</th><th style="width:30%">Ce que l'apprenant lit</th><th class="ch">Zone</th><th class="num">Montant</th></tr></thead>
+<tbody>
+<tr><td>Apport en capital</td><td class="ch">512</td><td>Trésorerie</td><td class="ch">Débit</td><td class="num">30&nbsp;000,00</td></tr>
+<tr><td></td><td class="ch">101</td><td>Capital social</td><td class="ch">Crédit</td><td class="num">30&nbsp;000,00</td></tr>
+<tr><td>Apport en compte courant</td><td class="ch">512</td><td>Trésorerie</td><td class="ch">Débit</td><td class="num">20&nbsp;000,00</td></tr>
+<tr><td></td><td class="ch">455</td><td>Compte courant d'associé</td><td class="ch">Crédit</td><td class="num">20&nbsp;000,00</td></tr>
+<tr class="total"><td>Totaux</td><td class="ch"></td><td></td><td class="ch"></td><td class="num">50&nbsp;000,00</td></tr>
+</tbody>
+</table>
+<p>Quatre lignes, quatre dépôts, trois comptes que le Chapitre 2 a tous nommés. Les montants sont ceux du
+scénario, et le libellé au journal — « Apport en capital », « Apport en compte courant — T. Vasseur » — est
+porté une fois par opération, jamais deux fois par ligne.</p>
+
+<h3>Ce que la règle écarte, et pourquoi</h3>
+<p>Les trois opérations de janvier — la vente au comptoir de <span class="num-text">320&nbsp;€</span>, le café
+vert à <span class="num-text">1&nbsp;800&nbsp;€</span>, l'électricité à <span class="num-text">240&nbsp;€</span> —
+sont les trois blocs du chapitre, et elles arrivent toutes après le composant. Les mettre dans l'activité
+reviendrait à passer l'écriture avant de la présenter, et à ôter au bloc 1 ce que le chapitre lui réserve. La
+TVA est le Chapitre 5, la créance le Chapitre 4, et une écriture à plus de deux lignes appartient aux
+Chapitres 5 et 7. Il ne reste rien d'autre que le 5 janvier, et c'est une bonne nouvelle.</p>
+
+<div class="note"><span class="t">Pourquoi le relevé, et pas une facture</span>
+<p>Le chapitre s'ouvre sur trois documents, un ticket et deux factures, et tous trois appartiennent à ses
+blocs. Le relevé du 5 janvier est le seul document déjà rencontré qui ne soit réservé nulle part, et le
+Chapitre 2 le nomme deux fois. Il porte en outre exactement la thèse du chapitre&nbsp;: deux virements qui se
+ressemblent trait pour trait donnent deux écritures différentes, parce qu'un document dit qui doit quoi à qui
+et jamais ce qu'il faut en inscrire. <strong>Le composant fait donc au doigt ce que l'accroche annonce en
+trois lignes.</strong></p></div>
+
+<div class="note"><span class="t">Le risque connu de cette matière</span>
+<p>Les deux opérations font entrer de l'argent, et la trésorerie est au débit les deux fois. Un apprenant
+peut en conclure que la trésorerie va toujours à gauche, ce que les deux blocs suivants démentent dans la
+même page. <strong>Aucune ligne affichée ne doit rattacher une colonne à un compte</strong>, ni dans le
+retour, ni dans la clôture&nbsp;: les phrases de la section 7 portent sur la question, jamais sur le compte
+déposé, et c'est ce qui protège de la fausse règle. Une troisième opération à trésorerie sortante réglerait
+le point, mais elle n'existe pas avant le premier bloc. <strong>Point à surveiller aux tests
+utilisateurs.</strong></p></div>
+
+<div class="note"><span class="t">L'élimination, ici, est l'acquisition</span>
+<p>La fiche du <code>&lt;TriActifPassif /&gt;</code> interdit qu'un élément se place par élimination. Ce
+composant fait l'inverse et l'assume. Quand la première ligne d'une opération est posée au débit, déduire
+que la seconde va au crédit <em>est</em> la leçon du chapitre. Les deux zones restent pourtant ouvertes à
+chaque dépôt, et un dépôt dans la mauvaise est refusé&nbsp;— sans quoi la seconde ligne se placerait seule et
+il n'y aurait plus de geste du tout.</p></div>
+
+<h2>6 — Ce qui se passe, geste par geste</h2>
+<table>
+<thead><tr><th style="width:26%">Situation</th><th>Réponse du composant</th></tr></thead>
+<tbody>
+<tr><td class="cle">Le geste</td><td>Glisser-déposer à la souris ou au doigt, et — toujours disponible, à
+toutes les tailles — un appui sur la ligne puis un appui sur la zone. Le second est aussi le chemin du
+clavier.</td></tr>
+<tr><td class="cle">Survol d'une zone</td><td>La zone visée passe du pointillé au trait plein et se teinte,
+et l'emplacement que la ligne occuperait apparaît en creux, à son rang. Aucune zone ne se marque avant qu'une
+ligne soit tenue.</td></tr>
+<tr><td class="cle">Dépôt juste</td><td>La ligne s'inscrit dans la zone, sous le nom de son opération, et le
+total de la zone bouge. Pas de félicitation. Le fait que la ligne reste en place <em>est</em> la
+réponse.</td></tr>
+<tr><td class="cle">Dépôt faux</td><td>La ligne ne s'inscrit pas. Elle reste dans « À placer », et une phrase
+d'une ligne s'affiche sous la consigne — celles de la section 7. Pas de croix, pas de rouge, pas de comptage
+des erreurs.</td></tr>
+<tr><td class="cle">Écriture inachevée</td><td>Rien ne s'écrit. L'opération ne figure que dans une des deux
+zones, et les deux totaux diffèrent. C'est le seul moment où ils diffèrent.</td></tr>
+<tr><td class="cle">Écriture achevée</td><td>Les deux totaux se rejoignent et l'opération suivante s'ouvre,
+dans le relevé et dans « À placer ». Rien d'autre ne bouge.</td></tr>
+<tr><td class="cle">Reprendre une ligne posée</td><td>Toujours possible, y compris après la fin. La ligne
+reprise redevient une ligne à placer et le total de sa zone la perd.</td></tr>
+<tr><td class="cle">Les quatre lignes placées</td><td>« À placer » disparaît et laisse à sa place une phrase
+de clôture. Proposition&nbsp;: « Deux virements, quatre lignes, et les deux colonnes portent le même
+total. » Le texte du chapitre reprend juste en dessous, sur ce que ce contrôle permet de détecter.</td></tr>
+<tr><td class="cle">Tout reprendre</td><td>Un bouton discret vide les deux zones. Rien ne se rejoue tout
+seul, et l'activité ne redémarre jamais d'elle-même.</td></tr>
+<tr><td class="cle">Quitter et revenir</td><td>L'état est conservé. L'apprenant retrouve le composant tel
+qu'il l'a laissé, en cours ou terminé, et la reprise de séance ne le rejoue pas.</td></tr>
+</tbody>
+</table>
+<div class="note"><span class="t">Les totaux se lisent après, jamais pendant</span>
+<p>Ils bougent à chaque dépôt, mais <strong>aucun texte ne demande de les regarder bouger</strong>. Empilé sur
+un téléphone, le pied d'une zone est à un défilement de la ligne qu'on saisit, et une consigne qui suppose les
+deux dans le même champ de vision est fausse à cette taille. La clôture les commente une fois les quatre
+lignes posées, ce qui est un <em>après</em>. Règle générale du module, établie au Chapitre 6.</p></div>
+
+<h2>7 — Les phrases de retour</h2>
+<p>Deux phrases couvrent les quatre dépôts faux possibles, parce que <strong>la réponse porte sur la question
+à laquelle la zone répond, jamais sur le compte déposé</strong>. C'est ce qui les rend courtes, c'est ce qui
+les fait enseigner au lieu de corriger, et c'est ce qui empêche l'apprenant d'en tirer qu'un compte appartient
+à une colonne.</p>
+<table>
+<thead><tr><th style="width:32%">Ce qui est déposé, et où</th><th>Ce qui s'affiche</th></tr></thead>
+<tbody>
+<tr><td class="cle">Une ligne d'emploi, déposée au crédit</td><td>« Cette ligne ne dit pas d'où vient la
+valeur. Elle dit où elle va. »</td></tr>
+<tr><td class="cle">Une ligne de ressource, déposée au débit</td><td>« Cette ligne ne dit pas où va la
+valeur. Elle dit d'où elle vient. »</td></tr>
+</tbody>
+</table>
+<p class="legende">Chaque zone porte sous son nom la question à laquelle elle répond, « où va la valeur » et
+« d'où elle vient ». La phrase de retour emploie donc les mots que l'apprenant a sous les yeux, et la fin de
+phrase de la v1, qui désignait la colonne de gauche ou de droite, est retirée&nbsp;: la zone est là, elle se
+montre toute seule.</p>
+
+<h2>8 — Ce que le composant ne fait pas</h2>
+<ul>
+<li><strong>Aucun score, aucun chronomètre, aucun échec possible.</strong> Le déroulé sépare les deux
+régimes. Les quiz évaluent, les activités enseignent.</li>
+<li><strong>Aucune saisie au clavier d'un montant.</strong> Les montants viennent du relevé et sont portés par
+les lignes. L'apprenant décide d'une colonne, jamais d'un chiffre.</li>
+<li><strong>Aucun choix de compte.</strong> Les quatre lignes arrivent nommées et numérotées. Trouver le bon
+compte est une compétence de comptable, et ce module n'en forme pas.</li>
+<li><strong>Aucune trace dans le grand journal, le Bilan ou le Compte de Résultat du module.</strong></li>
+<li><strong>Rien sur le déséquilibre du Bilan.</strong> Le chapitre s'en charge trois paragraphes plus bas, et
+c'est un autre sujet que le contrôle du journal.</li>
+<li><strong>Aucun mot nouveau.</strong> Si un libellé ou une phrase a besoin d'un terme que les Chapitres 2 et
+3 n'ont pas donné, c'est le libellé qu'il faut changer.</li>
+</ul>
+
+<h2>9 — Palette, empilement, téléphone, clavier</h2>
+<p class="declaration">Le sable porte ce qui vient du document. Le grand journal est tout en slate.</p>
+<p>C'est la seconde règle du 12 septembre 2026, précisée le jour même. Aucune autre couleur n'entre, la
+couleur ne porte jamais seule une information, et le texte tient ses contrastes sur blanc. <strong>La
+coupure est celle des deux moitiés de l'activité</strong>. En haut, ce que l'apprenant reçoit — le relevé
+et les lignes à placer — est en sable. En bas, ce qu'il construit est en slate, comme le Bilan et le Compte
+de Résultat du <code>&lt;TriActifPassif /&gt;</code>. Le geste va donc du chaud vers le neutre, et le
+journal ne se confond jamais avec sa source.</p>
+<table class="serree">
+<thead><tr><th style="width:34%">Rôle</th><th>Teinte</th></tr></thead>
+<tbody>
+<tr><td class="cle">Consigne, phrase de retour</td><td>sable&nbsp;800 à sable&nbsp;900</td></tr>
+<tr><td class="cle">Relevé de compte et « À placer », fonds et filets</td><td>sable&nbsp;50,
+sable&nbsp;100, sable&nbsp;200, sable&nbsp;300</td></tr>
+<tr><td class="cle">Ligne à placer</td><td>fond sable&nbsp;700, texte blanc&nbsp;; sable&nbsp;800 et liseré
+sable&nbsp;400 quand elle est tenue</td></tr>
+<tr><td class="cle">Zone du journal</td><td>trait pointillé slate&nbsp;300 sur blanc au repos, trait plein
+slate&nbsp;800 sur fond slate&nbsp;100 quand elle est visée</td></tr>
+<tr><td class="cle">Ligne posée, ligne en creux</td><td>liseré slate&nbsp;400 sur fond slate&nbsp;50,
+numéro slate&nbsp;700&nbsp;; le creux en slate&nbsp;500, liseré tireté</td></tr>
+<tr><td class="cle">Noms des zones, en-têtes, filets, mentions</td><td>slate&nbsp;400 à slate&nbsp;800</td></tr>
+<tr><td class="cle">Texte courant, filets et montants de total</td><td>slate&nbsp;800, slate&nbsp;900</td></tr>
+</tbody>
+</table>
+<p class="legende">La zone visée se marque d'abord par son trait, qui passe du pointillé au plein, et
+seulement ensuite par son fond. C'est ce qui permet au journal de se passer d'une couleur d'accentuation
+sans rien perdre&nbsp;; le <code>&lt;TriActifPassif /&gt;</code>, dont les zones se marquaient à la lime,
+est à reprendre sur le même principe.</p>
+<p><strong>En étroit, tout s'empile en une colonne</strong> dans l'ordre relevé, à placer, débit, crédit, et
+« À placer » reste accroché en haut de l'écran pendant toute l'activité. Les deux zones du journal sont les
+seules à ne jamais se séparer si la largeur le permet encore, puisque le choix entre elles est le geste entier
+de l'activité. <strong>Sous une certaine largeur, le geste en deux appuis devient le geste principal</strong>,
+et le glisser-déposer un agrément.</p>
+<p>Au clavier, la tabulation parcourt les lignes à placer, l'entrée saisit la ligne, la tabulation passe alors
+d'une zone à l'autre, l'entrée dépose, l'échappement rend la ligne. Chaque zone est un groupe nommé, et le
+retour d'un dépôt faux est annoncé par une région dédiée. Aucune information n'est portée par la couleur
+seule&nbsp;: la zone visée est marquée par son trait autant que par son fond.</p>
+
+<h2>10 — Ce que l'intégration attend</h2>
+<table>
+<thead><tr><th style="width:26%">Point</th><th>Décision</th></tr></thead>
+<tbody>
+<tr><td class="cle">Contenu</td><td>Les deux opérations, leurs quatre lignes, les deux phrases et les deux
+lignes du relevé vivent dans le composant, pas dans le texte du chapitre. Le <code>.corps.html</code> livré
+ne porte que <code>&lt;EcritureDragDrop /&gt;</code>, sans attribut.</td></tr>
+<tr><td class="cle">Largeur</td><td>Le composant se dessine pour la colonne de droite, autour de
+700&nbsp;px. Il doit tenir sans défilement interne à cette largeur, et s'empiler en dessous.</td></tr>
+<tr><td class="cle">État</td><td>Conservé sous la même clé que la progression de l'apprenant. La liste des
+lignes posées, leur zone, et l'état terminé.</td></tr>
+<tr><td class="cle">Événements</td><td>Un événement à chaque dépôt, juste ou faux, avec la ligne et la zone
+visée, et un à l'achèvement. C'est là qu'on saura si la fausse règle du débit s'installe.</td></tr>
+<tr><td class="cle">Parenté</td><td>Le moteur est celui du <code>&lt;TriActifPassif /&gt;</code> — des lignes
+à placer, des zones en pointillé, un dépôt refusé avec sa phrase. <strong>Ne pas fusionner
+maintenant</strong>&nbsp;; noter que trois composants du module au moins la partagent.</td></tr>
+</tbody>
+</table>
+
+<h2>11 — Ce qui reste à trancher</h2>
+<ol>
+<li><strong>Les deux phrases de retour, la consigne et la phrase de clôture.</strong> C'est du texte
+affiché&nbsp;: il se relit comme du corps, avec la relecture profane.</li>
+<li><strong>Le relevé de compte comme document.</strong> La fiche le retient à la section 5. Les deux autres
+voies sont un document par opération, qui alourdit, ou pas de document du tout, qui prive le chapitre de sa
+thèse.</li>
+<li><strong>Les totaux au pied des zones.</strong> Affichés en permanence dans cette fiche. L'autre voie est
+de ne les afficher qu'aux écritures achevées, ce qui protège d'une lecture fausse mais retire au composant sa
+plus belle démonstration.</li>
+<li><strong>Le niveau de difficulté.</strong> Quatre dépôts binaires, c'est peu, et la règle de la section 5
+interdit d'en ajouter ici. Si les tests donnent l'activité trop courte, ce qui s'ajoute est une reprise du
+composant au Chapitre 4, sur la vente à échéance, avec la créance comme troisième compte.</li>
+<li><strong>Le nom du composant.</strong> <code>&lt;EcritureDragDrop /&gt;</code> mêle le français et
+l'anglais quand tous les autres sont en français, et il nomme le geste plutôt que ce qu'on reconstitue. La
+table de nommage du déroulé fait foi et rien ne se renomme en cours de route&nbsp;; si le nom doit changer,
+c'est la table de la section 5 du déroulé qui change d'abord. Proposition à y porter&nbsp;:
+<code>&lt;EcritureAuJournal /&gt;</code>.</li>
+</ol>
+
+<p class="fin">Fiche v2, 12 septembre 2026. <strong>Changement depuis la v1</strong>&nbsp;: l'écran est refait
+pour la colonne de droite, seule largeur dont un composant dispose réellement (section 3). Le tableau à quatre
+colonnes laisse la place à deux zones en pointillé, sur le modèle du <code>&lt;TriActifPassif /&gt;</code>, le
+relevé et les lignes à placer passent côte à côte au-dessus, le document s'appelle « Relevé de compte », les
+libellés au journal quittent les lignes pour la tête d'opération, et la mention d'écriture inachevée est
+supprimée au profit des deux totaux. <strong>La palette se partage en deux</strong>&nbsp;: le sable pour le
+relevé et les lignes à placer, le slate pour tout le grand journal (section 9).</p>

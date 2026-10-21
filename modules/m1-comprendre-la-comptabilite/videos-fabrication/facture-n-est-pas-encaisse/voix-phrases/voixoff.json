@@ -1,0 +1,466 @@
+{
+ "voix": "voice_dur676prxpls",
+ "modele": "gemini-3.8-flash-tts",
+ "duree_totale": 189.158,
+ "segments": [
+  {
+   "id": "p1-1",
+   "plan": 1,
+   "texte": "Une entreprise livre une commande à un client. Elle envoie sa facture : dix mille euros, payables à trente jours. La commande est partie. Sur le compte en banque de l'entreprise, rien n'a bougé. Alors, ce jour-là, a-t-elle gagné quelque chose ?",
+   "phrases": [
+    {
+     "texte": "Une entreprise livre une commande à un client.",
+     "fichier": "p1-1-1.mp3",
+     "debut": 6.0,
+     "fin": 8.424,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Une entreprise livre une commande à un client."
+    },
+    {
+     "texte": "Elle envoie sa facture : dix mille euros, payables à trente jours.",
+     "fichier": "p1-1-2.mp3",
+     "debut": 8.874,
+     "fin": 12.786,
+     "fidelite": 0.909,
+     "essais": 3,
+     "transcription": "Elle envoie sa facture, 10 000 euros, payable à 30 jours."
+    },
+    {
+     "texte": "La commande est partie.",
+     "fichier": "p1-1-3.mp3",
+     "debut": 13.236,
+     "fin": 14.412,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "La commande est partie"
+    },
+    {
+     "texte": "Sur le compte en banque de l'entreprise, rien n'a bougé.",
+     "fichier": "p1-1-4.mp3",
+     "debut": 14.862,
+     "fin": 17.982,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Sur le compte en banque de l'entreprise, rien n'a bougé."
+    },
+    {
+     "texte": "Alors, ce jour-là, a-t-elle gagné quelque chose ?",
+     "fichier": "p1-1-5.mp3",
+     "debut": 18.432,
+     "fin": 22.296,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Alors, ce jour-là, a-t-elle gagné quelque chose ?"
+    }
+   ],
+   "debut": 6.0,
+   "fin": 22.296
+  },
+  {
+   "id": "p2-1",
+   "plan": 2,
+   "texte": "Oui. Une vente compte le jour où elle est faite, pas le jour où elle est payée. Le Compte de Résultat dit ce que l'activité a gagné, et non ce qu'elle a reçu. La commande est livrée, le prix est fixé, le client le doit. La vente s'inscrit dès la facture.",
+   "phrases": [
+    {
+     "texte": "Oui.",
+     "fichier": "p2-1-1.mp3",
+     "debut": 23.296,
+     "fin": 23.656,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Oui"
+    },
+    {
+     "texte": "Une vente compte le jour où elle est faite, pas le jour où elle est payée.",
+     "fichier": "p2-1-2.mp3",
+     "debut": 24.106,
+     "fin": 28.162,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Une vente compte le jour où elle est faite, pas le jour où elle est payée."
+    },
+    {
+     "texte": "Le Compte de Résultat dit ce que l'activité a gagné, et non ce qu'elle a reçu.",
+     "fichier": "p2-1-3.mp3",
+     "debut": 28.612,
+     "fin": 33.82,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Le compte de résultat dit ce que l'activité a gagné et non ce qu'elle a reçu."
+    },
+    {
+     "texte": "La commande est livrée, le prix est fixé, le client le doit.",
+     "fichier": "p2-1-4.mp3",
+     "debut": 34.27,
+     "fin": 39.694,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "La commande est livrée, le prix est fixé, le client le doit."
+    },
+    {
+     "texte": "La vente s'inscrit dès la facture.",
+     "fichier": "p2-1-5.mp3",
+     "debut": 40.144,
+     "fin": 42.4,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "La vente s'inscrit dès la facture."
+    }
+   ],
+   "debut": 23.296,
+   "fin": 42.4
+  },
+  {
+   "id": "p2-2",
+   "plan": 2,
+   "texte": "Pourquoi ne pas attendre l'argent ? Imaginez deux entreprises qui vendent exactement la même chose. L'une est payée tout de suite, l'autre dans trente jours. Si l'on attendait le virement, elles n'auraient pas le même résultat. Le résultat dépendrait de la ponctualité des clients.",
+   "phrases": [
+    {
+     "texte": "Pourquoi ne pas attendre l'argent ?",
+     "fichier": "p2-2-1.mp3",
+     "debut": 43.0,
+     "fin": 44.68,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Pourquoi ne pas attendre l'argent"
+    },
+    {
+     "texte": "Imaginez deux entreprises qui vendent exactement la même chose.",
+     "fichier": "p2-2-2.mp3",
+     "debut": 45.13,
+     "fin": 49.786,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Imaginez deux entreprises qui vendent exactement la même chose."
+    },
+    {
+     "texte": "L'une est payée tout de suite, l'autre dans trente jours.",
+     "fichier": "p2-2-3.mp3",
+     "debut": 50.236,
+     "fin": 53.884,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "L'une est payée tout de suite, l'autre dans 30 jours."
+    },
+    {
+     "texte": "Si l'on attendait le virement, elles n'auraient pas le même résultat.",
+     "fichier": "p2-2-4.mp3",
+     "debut": 54.334,
+     "fin": 58.222,
+     "fidelite": 0.846,
+     "essais": 3,
+     "transcription": "Si l'on attendait le virement, elle n'aurait pas le même résultat."
+    },
+    {
+     "texte": "Le résultat dépendrait de la ponctualité des clients.",
+     "fichier": "p2-2-5.mp3",
+     "debut": 58.672,
+     "fin": 62.464,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Le résultat dépendrait de la ponctualité des clients."
+    }
+   ],
+   "debut": 43.0,
+   "fin": 62.464
+  },
+  {
+   "id": "p3-1",
+   "plan": 3,
+   "texte": "Ce que le client doit ne disparaît pas pour autant. C'est une créance client, une somme facturée et pas encore reçue. Elle se range à l'Actif du Bilan, avec ce que l'entreprise détient : le droit d'être payée est bien quelque chose qu'elle détient.",
+   "phrases": [
+    {
+     "texte": "Ce que le client doit ne disparaît pas pour autant.",
+     "fichier": "p3-1-1.mp3",
+     "debut": 63.464,
+     "fin": 66.824,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Ce que le client doit ne disparaît pas pour autant."
+    },
+    {
+     "texte": "C'est une créance client, une somme facturée et pas encore reçue.",
+     "fichier": "p3-1-2.mp3",
+     "debut": 67.274,
+     "fin": 71.906,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "C'est une créance client, une somme facturée et pas encore reçue."
+    },
+    {
+     "texte": "Elle se range à l'Actif du Bilan, avec ce que l'entreprise détient : le droit d'être payée est bien quelque chose qu'elle détient.",
+     "fichier": "p3-1-3.mp3",
+     "debut": 72.356,
+     "fin": 80.852,
+     "fidelite": 0.962,
+     "essais": 1,
+     "transcription": "Elle se range à l'actif du bilan avec ce que l'entreprise détient. Le droit d'être payé est bien quelque chose qu'elle détient."
+    }
+   ],
+   "debut": 63.464,
+   "fin": 80.852
+  },
+  {
+   "id": "p4-1",
+   "plan": 4,
+   "texte": "Le même délai existe à l'achat. L'entreprise achète à son fournisseur pour quatre mille euros, payables eux aussi à trente jours. La livraison est faite, l'activité la consomme : la charge s'inscrit dès la facture. Ce que l'entreprise doit encore est une dette fournisseur. Elle se range au Passif du Bilan, qui dit d'où vient l'argent. Pendant trente jours, c'est le fournisseur qui finance cet achat.",
+   "phrases": [
+    {
+     "texte": "Le même délai existe à l'achat.",
+     "fichier": "p4-1-1.mp3",
+     "debut": 81.852,
+     "fin": 83.748,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Le même délai existe à l'achat."
+    },
+    {
+     "texte": "L'entreprise achète à son fournisseur pour quatre mille euros, payables eux aussi à trente jours.",
+     "fichier": "p4-1-2.mp3",
+     "debut": 84.198,
+     "fin": 89.67,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "L'entreprise achète à son fournisseur pour 4 000 € payables, eux aussi, à 30 jours."
+    },
+    {
+     "texte": "La livraison est faite, l'activité la consomme : la charge s'inscrit dès la facture.",
+     "fichier": "p4-1-3.mp3",
+     "debut": 90.12,
+     "fin": 96.288,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "La livraison est faite, l'activité la consomme, la charge s'inscrit dès la facture."
+    },
+    {
+     "texte": "Ce que l'entreprise doit encore est une dette fournisseur.",
+     "fichier": "p4-1-4.mp3",
+     "debut": 96.738,
+     "fin": 100.314,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Ce que l'entreprise doit encore est une dette fournisseur."
+    },
+    {
+     "texte": "Elle se range au Passif du Bilan, qui dit d'où vient l'argent.",
+     "fichier": "p4-1-5.mp3",
+     "debut": 100.764,
+     "fin": 104.604,
+     "fidelite": 1.0,
+     "essais": 2,
+     "transcription": "Elle se range au passif du bilan, qui dit d'où vient l'argent."
+    },
+    {
+     "texte": "Pendant trente jours, c'est le fournisseur qui finance cet achat.",
+     "fichier": "p4-1-6.mp3",
+     "debut": 105.054,
+     "fin": 108.918,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Pendant 30 jours, c'est le fournisseur qui finance cet achat."
+    }
+   ],
+   "debut": 81.852,
+   "fin": 108.918
+  },
+  {
+   "id": "p4-2",
+   "plan": 4,
+   "texte": "Le délai accordé au client joue contre l'entreprise. Celui qu'elle obtient de son fournisseur joue en sa faveur.",
+   "phrases": [
+    {
+     "texte": "Le délai accordé au client joue contre l'entreprise.",
+     "fichier": "p4-2-1.mp3",
+     "debut": 109.518,
+     "fin": 113.31,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Le délai accordé au client joue contre l'entreprise."
+    },
+    {
+     "texte": "Celui qu'elle obtient de son fournisseur joue en sa faveur.",
+     "fichier": "p4-2-2.mp3",
+     "debut": 113.76,
+     "fin": 117.12,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Celui qu'elle obtient de son fournisseur joue en sa faveur."
+    }
+   ],
+   "debut": 109.518,
+   "fin": 117.12
+  },
+  {
+   "id": "p5-1",
+   "plan": 5,
+   "texte": "Trente jours plus tard, le client paie. Ce jour-là, seul le Bilan bouge. Ce que le client devait tombe à zéro, et l'argent en banque monte de dix mille euros. L'entreprise ne détient ni plus ni moins qu'avant : une promesse de paiement est devenue de l'argent.",
+   "phrases": [
+    {
+     "texte": "Trente jours plus tard, le client paie.",
+     "fichier": "p5-1-1.mp3",
+     "debut": 118.12,
+     "fin": 120.592,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Trente jours plus tard, le client paie."
+    },
+    {
+     "texte": "Ce jour-là, seul le Bilan bouge.",
+     "fichier": "p5-1-2.mp3",
+     "debut": 121.042,
+     "fin": 123.634,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Ce jour-là, seul le bilan bouge."
+    },
+    {
+     "texte": "Ce que le client devait tombe à zéro, et l'argent en banque monte de dix mille euros.",
+     "fichier": "p5-1-3.mp3",
+     "debut": 124.084,
+     "fin": 129.532,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Ce que le client devait tombe à zéro et l'argent en banque monte de 10 000 euros."
+    },
+    {
+     "texte": "L'entreprise ne détient ni plus ni moins qu'avant : une promesse de paiement est devenue de l'argent.",
+     "fichier": "p5-1-4.mp3",
+     "debut": 129.982,
+     "fin": 136.918,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "L'entreprise ne détient ni plus ni moins qu'avant. Une promesse de paiement est devenue de l'argent."
+    }
+   ],
+   "debut": 118.12,
+   "fin": 136.918
+  },
+  {
+   "id": "p5-2",
+   "plan": 5,
+   "texte": "Le Compte de Résultat, lui, ne reçoit rien. La vente a déjà été comptée. La compter à l'arrivée de l'argent, ce serait compter deux fois la même vente : le jour où le client paie, l'entreprise ne gagne rien de plus.",
+   "phrases": [
+    {
+     "texte": "Le Compte de Résultat, lui, ne reçoit rien.",
+     "fichier": "p5-2-1.mp3",
+     "debut": 137.518,
+     "fin": 140.206,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Le compte de résultat, lui, ne reçoit rien."
+    },
+    {
+     "texte": "La vente a déjà été comptée.",
+     "fichier": "p5-2-2.mp3",
+     "debut": 140.656,
+     "fin": 142.696,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "la vente a déjà été comptée"
+    },
+    {
+     "texte": "La compter à l'arrivée de l'argent, ce serait compter deux fois la même vente : le jour où le client paie, l'entreprise ne gagne rien de plus.",
+     "fichier": "p5-2-3.mp3",
+     "debut": 143.146,
+     "fin": 151.306,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "La compter à l'arrivée de l'argent, ce serait compter deux fois la même vente. Le jour où le client paie, l'entreprise ne gagne rien de plus."
+    }
+   ],
+   "debut": 137.518,
+   "fin": 151.306
+  },
+  {
+   "id": "p6-1",
+   "plan": 6,
+   "texte": "Revenez au premier soir. L'entreprise avait gagné dix mille euros, et n'en avait pas reçu un seul. Les deux sont vrais en même temps. Le résultat n'est pas la trésorerie.",
+   "phrases": [
+    {
+     "texte": "Revenez au premier soir.",
+     "fichier": "p6-1-1.mp3",
+     "debut": 152.306,
+     "fin": 153.962,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Revenez au premier soir"
+    },
+    {
+     "texte": "L'entreprise avait gagné dix mille euros, et n'en avait pas reçu un seul.",
+     "fichier": "p6-1-2.mp3",
+     "debut": 154.412,
+     "fin": 159.236,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "L'entreprise avait gagné dix mille euros et n'en avait pas reçu un seul."
+    },
+    {
+     "texte": "Les deux sont vrais en même temps.",
+     "fichier": "p6-1-3.mp3",
+     "debut": 159.686,
+     "fin": 161.582,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Les deux sont vrais en même temps."
+    },
+    {
+     "texte": "Le résultat n'est pas la trésorerie.",
+     "fichier": "p6-1-4.mp3",
+     "debut": 162.032,
+     "fin": 164.6,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Le résultat n'est pas la trésorerie"
+    }
+   ],
+   "debut": 152.306,
+   "fin": 164.6
+  },
+  {
+   "id": "p7-1",
+   "plan": 7,
+   "texte": "À retenir. Une vente compte dès la facture, parce que le résultat dit ce que l'activité a gagné. L'attente porte un nom de chaque côté : une créance client à l'Actif, une dette fournisseur au Passif. Et le jour du règlement, seul le Bilan bouge.",
+   "phrases": [
+    {
+     "texte": "À retenir.",
+     "fichier": "p7-1-1.mp3",
+     "debut": 165.6,
+     "fin": 166.416,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "À retenir"
+    },
+    {
+     "texte": "Une vente compte dès la facture, parce que le résultat dit ce que l'activité a gagné.",
+     "fichier": "p7-1-2.mp3",
+     "debut": 166.866,
+     "fin": 172.914,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Une vente compte dès la facture parce que le résultat dit ce que l'activité a gagné."
+    },
+    {
+     "texte": "L'attente porte un nom de chaque côté : une créance client à l'Actif, une dette fournisseur au Passif.",
+     "fichier": "p7-1-3.mp3",
+     "debut": 173.364,
+     "fin": 180.756,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "L'attente porte un nom de chaque côté. Une créance client à l'actif, une dette fournisseur au passif."
+    },
+    {
+     "texte": "Et le jour du règlement, seul le Bilan bouge.",
+     "fichier": "p7-1-4.mp3",
+     "debut": 181.206,
+     "fin": 184.158,
+     "fidelite": 1.0,
+     "essais": 1,
+     "transcription": "Et le jour du règlement, seul le bilan bouge."
+    }
+   ],
+   "debut": 165.6,
+   "fin": 184.158
+  }
+ ]
+}

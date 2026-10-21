@@ -1,0 +1,77 @@
+[
+{
+"id": "p1-1",
+"plan": 1,
+"texte": "Par exemple, une entreprise achète une machine vingt mille euros. L'argent sort de son compte en banque. Pourtant, au Compte de Résultat, le total des charges ne bouge pas. Où va cette somme, et que coûte vraiment la machine ?"
+},
+{
+"id": "p2-1",
+"plan": 2,
+"texte": "La matière première, l'électricité disparaissent dans l'année : ce sont des charges. Une machine, elle, sera encore là dans cinq ans."
+},
+{
+"id": "p2-2",
+"plan": 2,
+"texte": "Acheter un bien qui servira plusieurs années n'est pas une charge, c'est un investissement. L'entreprise ne consomme pas ce bien, elle le détient. Il se range à l'Actif du Bilan, sous le nom d'immobilisation."
+},
+{
+"id": "p3-1",
+"plan": 3,
+"texte": "Au Bilan, une ligne apparaît à l'Actif, Immobilisations corporelles, pour vingt mille euros. Le compte en banque descend de trente mille à dix mille euros."
+},
+{
+"id": "p3-2",
+"plan": 3,
+"texte": "Au Compte de Résultat, rien. Le total des charges reste à quarante mille euros."
+},
+{
+"id": "p4-1",
+"plan": 4,
+"texte": "Pourtant, la machine s'use, un peu chaque jour où elle tourne. Sans en tenir compte, l'année paraîtrait meilleure qu'elle n'est."
+},
+{
+"id": "p4-2",
+"plan": 4,
+"texte": "La comptabilité étale donc son prix sur sa durée d'usage, une part par année. C'est l'amortissement."
+},
+{
+"id": "p4-3",
+"plan": 4,
+"texte": "Par exemple, sur cinq ans, en parts égales : quatre mille euros par an. C'est l'amortissement linéaire. La durée, c'est l'entreprise qui l'estime."
+},
+{
+"id": "p5-1",
+"plan": 5,
+"texte": "Mais la machine est arrivée le premier juillet. La première année, elle n'a servi que six mois. On ne compte que les mois d'usage réel, c'est le prorata temporis : deux mille euros."
+},
+{
+"id": "p6-1",
+"plan": 6,
+"texte": "Ces deux mille euros sont une charge, la dotation aux amortissements. Le total des charges passe de quarante mille à quarante-deux mille euros, sans qu'un euro sorte du compte en banque."
+},
+{
+"id": "p6-2",
+"plan": 6,
+"texte": "Au Bilan, la machine garde son prix d'achat. En dessous, une ligne apparaît, Amortissements des immobilisations, avec un signe moins. Vingt mille moins deux mille : dix-huit mille euros. C'est la valeur nette comptable, ce que la machine vaut encore dans les comptes."
+},
+{
+"id": "p7-1",
+"plan": 7,
+"texte": "Le Bilan ne se remplit pas à côté du grand journal. Filtré sur le compte Banque, le journal montre trente mille euros au débit, vingt mille au crédit."
+},
+{
+"id": "p7-2",
+"plan": 7,
+"texte": "La différence, dix mille euros, est exactement ce qu'affiche la ligne Banque du Bilan. Le Bilan, c'est le journal résumé, compte par compte."
+},
+{
+"id": "p8-1",
+"plan": 8,
+"texte": "L'achat change ce que l'entreprise détient. L'amortissement change ce qu'elle a consommé."
+},
+{
+"id": "p9-1",
+"plan": 9,
+"texte": "À retenir. Un bien qui sert plusieurs années n'est pas une charge : il entre à l'Actif du Bilan. L'amortissement étale sa consommation, et chaque part annuelle est une charge. Enfin, le Bilan résume le grand journal, compte par compte."
+}
+]

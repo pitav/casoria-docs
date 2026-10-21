@@ -1,0 +1,72 @@
+[
+{
+"id": "p1-1",
+"plan": 1,
+"texte": "Par exemple, le soir du trente et un décembre, les comptes d'une entreprise sont arrêtés. Le Compte de Résultat annonce vingt mille euros de bénéfice."
+},
+{
+"id": "p1-2",
+"plan": 1,
+"texte": "Le Bilan, lui, ne tombe pas juste : cinquante mille euros à l'Actif, trente mille au Passif. L'écart vaut vingt mille euros, exactement le bénéfice. Pourquoi ?"
+},
+{
+"id": "p2-1",
+"plan": 2,
+"texte": "Une société paie un impôt sur ce qu'elle a gagné dans l'année, l'impôt sur les sociétés. Il se calcule sur le résultat avant impôt, ici vingt mille euros."
+},
+{
+"id": "p2-2",
+"plan": 2,
+"texte": "Jusqu'à quarante-deux mille cinq cents euros de bénéfice, le taux est de quinze pour cent. Vingt mille euros à quinze pour cent font trois mille euros."
+},
+{
+"id": "p3-1",
+"plan": 3,
+"texte": "L'impôt est une charge de l'année, il fait baisser le résultat. Ce qui reste une fois l'État servi est le résultat net, dix-sept mille euros. Sur une perte, il n'y a pas d'impôt."
+},
+{
+"id": "p4-1",
+"plan": 4,
+"texte": "Au Compte de Résultat, une ligne Impôt sur les sociétés apparaît. Au Bilan, une dette apparaît au Passif, État, IS à payer. Le compte en banque ne bouge pas : l'impôt sera versé l'année suivante."
+},
+{
+"id": "p5-1",
+"plan": 5,
+"texte": "Ces dix-sept mille euros ne sont pas une somme que l'entreprise garde pour elle. Ils reviennent aux associés, qui ont apporté l'argent du départ. L'entreprise les détient, elle ne les possède pas."
+},
+{
+"id": "p6-1",
+"plan": 6,
+"texte": "Le Passif dit d'où vient ce que l'entreprise détient. Il range côte à côte ce qu'elle devra rembourser, et ce qu'elle n'a pas à rembourser, les capitaux propres."
+},
+{
+"id": "p6-2",
+"plan": 6,
+"texte": "Ce que l'année a rapporté est déjà à l'Actif. Cette valeur n'a été ni apportée, ni prêtée, ni facturée. Elle a été gagnée."
+},
+{
+"id": "p7-1",
+"plan": 7,
+"texte": "Le résultat net se reporte donc au Passif, parmi les capitaux propres, à côté du capital social. Ce que le film de l'année a produit vient grossir la photo du trente et un décembre."
+},
+{
+"id": "p7-2",
+"plan": 7,
+"texte": "Les deux totaux du Bilan tombent alors sur le même nombre, cinquante mille euros."
+},
+{
+"id": "p8-1",
+"plan": 8,
+"texte": "Quelques mois plus tard, les associés décident de ce que devient ce résultat. C'est l'affectation du résultat. Une part reste dans l'entreprise, la réserve légale, exigée par la loi. Une part peut leur être versée, le dividende. Le reste attend l'année suivante, le report à nouveau."
+},
+{
+"id": "p9-1",
+"plan": 9,
+"texte": "Le résultat figure au Passif parce qu'il appartient à quelqu'un d'autre que l'entreprise qui l'a gagné."
+},
+{
+"id": "p10-1",
+"plan": 10,
+"texte": "À retenir. L'État prend sa part avant les associés. Le résultat net s'inscrit au Passif, parmi les capitaux propres, parce qu'il revient aux associés. Enfin, une fois le résultat reporté, les deux totaux du Bilan tombent sur le même nombre."
+}
+]

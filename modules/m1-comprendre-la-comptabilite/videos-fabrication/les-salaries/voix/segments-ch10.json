@@ -1,0 +1,15 @@
+[
+{"id":"p1-1","plan":1,"texte":"Par exemple, une entreprise embauche une salariée. Son contrat porte deux mille euros brut par mois. Ce montant n'est ni celui que la salariée recevra, ni celui que l'entreprise paiera. Combien coûte vraiment ce salaire ?"},
+{"id":"p2-1","plan":2,"texte":"Le salaire brut est la rémunération convenue, celle qui figure au contrat, avant toute retenue."},
+{"id":"p2-2","plan":2,"texte":"Une partie en est retenue et versée aux organismes qui financent la retraite, la maladie et le chômage. Ce sont les charges salariales, ici vingt-deux pour cent : quatre cent quarante euros."},
+{"id":"p2-3","plan":2,"texte":"Ce qui reste est le salaire net, mille cinq cent soixante euros. C'est le seul montant que la salariée voit arriver sur son compte en banque."},
+{"id":"p3-1","plan":3,"texte":"En plus du brut, l'entreprise verse ses propres cotisations, qui s'y ajoutent. Ce sont les charges patronales, ici quarante-deux pour cent : huit cent quarante euros."},
+{"id":"p3-2","plan":3,"texte":"Le brut et ces cotisations forment le coût total employeur, deux mille huit cent quarante euros. L'entreprise ne garde rien de l'écart : il part aux organismes sociaux."},
+{"id":"p4-1","plan":4,"texte":"Tout cet argent ne part pas en même temps. Le net part le mois même. Les cotisations se versent aux organismes à date fixe, le plus souvent le mois suivant."},
+{"id":"p5-1","plan":5,"texte":"Au Bilan, le compte en banque ne baisse que du net, de dix mille à huit mille quatre cent quarante euros. Au Passif, une ligne apparaît, Dettes sociales, pour mille deux cent quatre-vingts euros : les cotisations dues, pas encore versées."},
+{"id":"p5-2","plan":5,"texte":"Le Compte de Résultat, lui, n'attend pas. Il enregistre le salaire brut et les charges patronales dès le mois du travail."},
+{"id":"p6-1","plan":6,"texte":"Un associé qui dirige sa société, comme le président d'une SAS, reçoit le même bulletin de paie. On l'appelle un assimilé salarié. Une différence : il ne cotise pas à l'assurance chômage, et n'y a donc aucun droit."},
+{"id":"p6-2","plan":6,"texte":"Sa rémunération paie un travail. Le dividende, lui, rémunère un capital."},
+{"id":"p7-1","plan":7,"texte":"Le coût d'un salarié est toujours plus élevé que la rémunération qu'il perçoit."},
+{"id":"p8-1","plan":8,"texte":"À retenir. Le montant du contrat n'est celui de personne : une part est retenue au salarié, une autre s'ajoute pour l'employeur. L'entreprise reverse cet écart aux organismes sociaux, et ce qu'elle doit encore figure au Passif du Bilan. Enfin, un associé dirigeant reçoit un bulletin comme les autres, sans droit au chômage."}
+]

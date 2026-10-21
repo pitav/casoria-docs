@@ -1,0 +1,377 @@
+{
+ "voix": "voice_dur676prxpls",
+ "modele": "gemini-3.8-flash-tts",
+ "duree_totale": 196.43,
+ "segments": [
+  {
+   "id": "p1-1",
+   "plan": 1,
+   "texte": "Une entreprise envoie une facture de douze mille euros à son client. Pourtant, elle n'en gardera pas tout. Une partie ne correspond à aucune vente : c'est une taxe. Combien partira à l'État, et où cette somme se range-t-elle d'ici là ?",
+   "fichier": "p1-1.mp3",
+   "duree": 15.86,
+   "fidelite": 0.945,
+   "transcription": "Une entreprise envoie une facture de 12 000 € à son client. Pourtant, elle n'en gardera pas tout. Une partie ne correspond à aucune vente. C'est une taxe. Combien partira à l'État et où cette somme se range-t-elle d'ici là ?",
+   "debut": 6.0,
+   "fin": 21.86,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.281
+    },
+    {
+     "i": 69,
+     "t": 4.515
+    },
+    {
+     "i": 107,
+     "t": 6.85
+    },
+    {
+     "i": 149,
+     "t": 9.857
+    },
+    {
+     "i": 165,
+     "t": 11.409
+    }
+   ]
+  },
+  {
+   "id": "p2-1",
+   "plan": 2,
+   "texte": "Un prix contient deux montants. Le prix hors taxes, dix mille euros, est le prix de ce qui a été vendu. La taxe sur la valeur ajoutée s'y ajoute, à un taux fixé par la loi : ici vingt pour cent, soit deux mille euros. Le client paie le total, toutes taxes comprises : douze mille euros.",
+   "fichier": "p2-1.mp3",
+   "duree": 22.06,
+   "fidelite": 0.804,
+   "transcription": "Un prix contient deux montants. Le prix hors taxe, 10 000 €, est le prix de ce qui a été vendu. La taxe sur la valeur ajoutée s'y ajoute, à un taux fixé par la loi, ici 20 %, soit 2 000 €. Le client paie le total, toutes taxes comprises, 12 000 €.",
+   "debut": 23.26,
+   "fin": 45.32,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.283
+    },
+    {
+     "i": 32,
+     "t": 3.042
+    },
+    {
+     "i": 104,
+     "t": 7.772
+    },
+    {
+     "i": 174,
+     "t": 13.131
+    },
+    {
+     "i": 218,
+     "t": 16.791
+    },
+    {
+     "i": 268,
+     "t": 20.864
+    }
+   ]
+  },
+  {
+   "id": "p2-2",
+   "plan": 2,
+   "texte": "Seul le prix hors taxes revient à l'entreprise. La taxe appartient à l'État.",
+   "fichier": "p2-2.mp3",
+   "duree": 5.62,
+   "fidelite": 0.933,
+   "transcription": "Seul le prix hors taxe revient à l'entreprise. La taxe appartient à l'État.",
+   "debut": 46.12,
+   "fin": 51.74,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.242
+    },
+    {
+     "i": 48,
+     "t": 3.621
+    }
+   ]
+  },
+  {
+   "id": "p3-1",
+   "plan": 3,
+   "texte": "Quand elle vend, l'entreprise facture la taxe à son client : c'est la TVA collectée, deux mille euros.",
+   "fichier": "p3-1.mp3",
+   "duree": 7.13,
+   "fidelite": 0.889,
+   "transcription": "Quand elle vend, l'entreprise facture la taxe à son client. C'est la TVA collectée : 2000 €.",
+   "debut": 53.14,
+   "fin": 60.27,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.242
+    },
+    {
+     "i": 61,
+     "t": 3.758
+    }
+   ]
+  },
+  {
+   "id": "p3-2",
+   "plan": 3,
+   "texte": "Quand elle achète, elle paie la taxe à son fournisseur : sur sept mille deux cents euros, mille deux cents de taxe. C'est la TVA déductible. Elle la retranchera de ce qu'elle doit à l'État.",
+   "fichier": "p3-2.mp3",
+   "duree": 12.38,
+   "fidelite": 0.829,
+   "transcription": "Quand elle achète, elle paie la taxe à son fournisseur. Sur 7 200 €, 1 200 de taxe. C'est la TVA déductible. Elle la retranchera de ce qu'elle doit à l'État.",
+   "debut": 61.07,
+   "fin": 73.45,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.0
+    },
+    {
+     "i": 57,
+     "t": 3.925
+    },
+    {
+     "i": 116,
+     "t": 7.71
+    },
+    {
+     "i": 141,
+     "t": 9.987
+    }
+   ]
+  },
+  {
+   "id": "p4-1",
+   "plan": 4,
+   "texte": "Au grand journal, la vente s'écrit maintenant sur trois lignes. Douze mille euros vont en banque, au débit. Ils viennent des ventes, pour dix mille, et de la TVA collectée, pour deux mille, au crédit.",
+   "fichier": "p4-1.mp3",
+   "duree": 14.69,
+   "fidelite": 0.853,
+   "transcription": "Au grand journal, la vente s'écrit maintenant sur trois lignes. 12000 € vont en banque, au débit. Ils viennent des ventes pour 10000, et de la TVA collectée pour 2000, au crédit.",
+   "debut": 74.85,
+   "fin": 89.54,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.237
+    },
+    {
+     "i": 64,
+     "t": 4.775
+    },
+    {
+     "i": 108,
+     "t": 7.88
+    }
+   ]
+  },
+  {
+   "id": "p4-2",
+   "plan": 4,
+   "texte": "L'achat suit le même chemin, en miroir. Six mille euros aux achats et mille deux cents à la TVA déductible, au débit. Sept mille deux cents euros de la banque, au crédit.",
+   "fichier": "p4-2.mp3",
+   "duree": 12.62,
+   "fidelite": 0.759,
+   "transcription": "L'achat suit le même chemin, en miroir. 6000 € aux achats et 1200 à la TVA déductible au débit, 7200 € de la banque au crédit.",
+   "debut": 90.34,
+   "fin": 102.96,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.262
+    },
+    {
+     "i": 40,
+     "t": 3.545
+    },
+    {
+     "i": 118,
+     "t": 9.237
+    }
+   ]
+  },
+  {
+   "id": "p4-3",
+   "plan": 4,
+   "texte": "Les deux comptes de taxe n'existent que dans le grand journal. Ils n'ont de ligne ni au Bilan, ni au Compte de Résultat.",
+   "fichier": "p4-3.mp3",
+   "duree": 8.14,
+   "fidelite": 1.0,
+   "transcription": "Les deux comptes de taxe n'existent que dans le grand journal. Ils n'ont de ligne ni au bilan ni au compte de résultat.",
+   "debut": 103.76,
+   "fin": 111.9,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.294
+    },
+    {
+     "i": 63,
+     "t": 4.178
+    }
+   ]
+  },
+  {
+   "id": "p5-1",
+   "plan": 5,
+   "texte": "À la fin du trimestre, une écriture rapproche les deux comptes. L'entreprise a collecté deux mille euros de taxe, et en a payé mille deux cents. Elle ne verse que la différence : huit cents euros. C'est la TVA à décaisser.",
+   "fichier": "p5-1.mp3",
+   "duree": 14.57,
+   "fidelite": 0.8,
+   "transcription": "À la fin du trimestre, une écriture rapproche les deux comptes. L'entreprise a collecté 2 000 € de taxes et en a payé 1 200. Elle ne verse que la différence, 800 €. C'est la TVA à décaisser.",
+   "debut": 113.3,
+   "fin": 127.87,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.28
+    },
+    {
+     "i": 64,
+     "t": 4.134
+    },
+    {
+     "i": 145,
+     "t": 9.137
+    },
+    {
+     "i": 179,
+     "t": 12.377
+    },
+    {
+     "i": 197,
+     "t": 14.52
+    }
+   ]
+  },
+  {
+   "id": "p5-2",
+   "plan": 5,
+   "texte": "Cette somme a sa ligne au Passif du Bilan, comme toute somme que l'entreprise devra remettre à quelqu'un. Les deux comptes de taxe, eux, tombent à zéro.",
+   "fichier": "p5-2.mp3",
+   "duree": 9.58,
+   "fidelite": 0.966,
+   "transcription": "Cette somme a sa ligne au passif du bilan, comme toute somme que l'entreprise devra remettre à quelqu'un. Les deux comptes de taxes, eux, tombent à zéro.",
+   "debut": 128.67,
+   "fin": 138.25,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.0
+    },
+    {
+     "i": 106,
+     "t": 6.793
+    }
+   ]
+  },
+  {
+   "id": "p6-1",
+   "plan": 6,
+   "texte": "Le compte en banque porte quatre mille huit cents euros. Mais huit cents ne sont pas à l'entreprise : ils sont à l'État.",
+   "fichier": "p6-1.mp3",
+   "duree": 7.46,
+   "fidelite": 0.8,
+   "transcription": "Le compte en banque porte 4 800 euros, mais 800 ne sont pas à l'entreprise, ils sont à l'État.",
+   "debut": 139.65,
+   "fin": 147.11,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.285
+    },
+    {
+     "i": 57,
+     "t": 3.829
+    },
+    {
+     "i": 102,
+     "t": 6.28
+    }
+   ]
+  },
+  {
+   "id": "p6-2",
+   "plan": 6,
+   "texte": "Le Compte de Résultat ne porte que les prix hors taxes : dix mille euros de ventes, six mille euros d'achats, et pas un centime de taxe. La taxe traverse la trésorerie sans jamais toucher au résultat.",
+   "fichier": "p6-2.mp3",
+   "duree": 13.94,
+   "fidelite": 0.778,
+   "transcription": "Le compte de résultat ne porte que les prix hors taxe. 10 000 € de vente, 6 000 € d'achat, et pas un centime de taxe. La taxe traverse la trésorerie sans jamais toucher au résultat.",
+   "debut": 147.91,
+   "fin": 161.85,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.293
+    },
+    {
+     "i": 57,
+     "t": 4.487
+    },
+    {
+     "i": 137,
+     "t": 9.912
+    }
+   ]
+  },
+  {
+   "id": "p7-1",
+   "plan": 7,
+   "texte": "L'entreprise ne fait que tenir la caisse de l'État.",
+   "fichier": "p7-1.mp3",
+   "duree": 3.65,
+   "fidelite": 1.0,
+   "transcription": "L'entreprise ne fait que tenir la caisse de l'État",
+   "debut": 163.25,
+   "fin": 166.9,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.0
+    }
+   ]
+  },
+  {
+   "id": "p8-1",
+   "plan": 8,
+   "texte": "À retenir. La TVA s'ajoute au prix sans appartenir au vendeur : seul le montant hors taxes est le prix de ce qui a été vendu. La TVA collectée sur les ventes et la TVA déductible sur les achats s'accumulent dans le grand journal. Une écriture n'en garde que la différence, au Passif du Bilan : c'est ce que l'entreprise doit à l'État.",
+   "fichier": "p8-1.mp3",
+   "duree": 22.13,
+   "fidelite": 0.985,
+   "transcription": "À retenir. La TVA s'ajoute au prix sans appartenir au vendeur. Seul le montant hors taxe est le prix de ce qui a été vendu. La TVA collectée sur les ventes et la TVA déductible sur les achats s'accumulent dans le grand journal. Une écriture n'en garde que la différence au passif du bilan, c'est ce que l'entreprise doit à l'État.",
+   "debut": 168.3,
+   "fin": 190.43,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.272
+    },
+    {
+     "i": 11,
+     "t": 1.226
+    },
+    {
+     "i": 64,
+     "t": 3.347
+    },
+    {
+     "i": 126,
+     "t": 9.409
+    },
+    {
+     "i": 230,
+     "t": 14.291
+    },
+    {
+     "i": 294,
+     "t": 20.204
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,256 @@
+/* =========================================================================
+   CASORIA — feuille de style unique des documents de référence
+   Source de vérité du rendu. Toute modification ici se propage aux trois
+   documents (charte, déroulé, chapitres) et à leurs PDF.
+   ========================================================================= */
+
+:root{
+  --encre:        #14181f;
+  --encre-douce:  #4a5262;
+  --lexique:      #3c528f;   /* couleur du lexique, contraste 7,5:1 sur blanc */
+  --trait:        #d8dce4;
+  --trait-fort:   #aab2c0;
+  --fond-doux:    #f4f6fa;
+  --fond-alerte:  #eef1f8;
+  --fond-oui:     #f2f7f2;
+  --fond-non:     #faf3f3;
+  --bord-oui:     #4a7a52;
+  --bord-non:     #a35a5a;
+}
+
+@page{
+  size: A4;
+  margin: 20mm 18mm 18mm 18mm;
+  @bottom-left{
+    content: string(pieddepage);
+    font-family: Carlito, sans-serif;
+    font-size: 7.5pt;
+    color: #8b93a3;
+    letter-spacing: .02em;
+  }
+  @bottom-right{
+    content: counter(page);
+    font-family: Carlito, sans-serif;
+    font-size: 7.5pt;
+    color: #8b93a3;
+  }
+}
+@page:first{ @bottom-left{ content: none } @bottom-right{ content: none } }
+
+html{ font-size: 10.5pt }
+body{
+  font-family: Carlito, "Segoe UI", sans-serif;
+  color: var(--encre);
+  line-height: 1.5;
+  margin: 0;
+  hyphens: none;
+}
+
+/* ---------- en-tête de document ---------------------------------------- */
+.kicker{
+  font-size: 7.5pt; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--encre-douce); margin: 0 0 14px;
+}
+h1{
+  font-size: 26pt; line-height: 1.12; font-weight: 700; letter-spacing: -.015em;
+  margin: 0 0 10px; color: var(--encre);
+}
+.chapo{
+  font-size: 10pt; color: var(--encre-douce); line-height: 1.55;
+  margin: 0 0 22px; padding-bottom: 18px; border-bottom: 2px solid var(--encre);
+}
+.pied{ string-set: pieddepage content() ; position: absolute; left:-9999px }
+
+/* ---------- titres ------------------------------------------------------ */
+h2{
+  font-size: 14pt; font-weight: 700; letter-spacing: -.01em;
+  margin: 26px 0 10px; padding-top: 10px; border-top: 1px solid var(--trait-fort);
+  break-after: avoid;
+}
+h2.nu{ border-top: none; padding-top: 0 }
+h3{
+  font-size: 11pt; font-weight: 700; margin: 18px 0 6px;
+  break-after: avoid;
+}
+h4{
+  font-size: 8pt; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--encre-douce); margin: 16px 0 6px; break-after: avoid;
+}
+p{ margin: 0 0 9px }
+ul, ol{ margin: 0 0 10px; padding-left: 18px }
+li{ margin-bottom: 4px }
+strong{ font-weight: 700 }
+a{ color: var(--lexique); text-decoration: none }
+
+/* ---------- tableaux ---------------------------------------------------- */
+table{
+  width: 100%; border-collapse: collapse; margin: 8px 0 14px;
+  font-size: 9pt; break-inside: auto;
+}
+thead th{
+  text-align: left; font-size: 7.5pt; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--encre-douce); font-weight: 700;
+  border-bottom: 1.5px solid var(--encre); padding: 5px 8px 5px 0; vertical-align: bottom;
+}
+tbody td{
+  padding: 6px 8px 6px 0; border-bottom: 1px solid var(--trait); vertical-align: top;
+}
+tbody tr{ break-inside: avoid }
+td.num, th.num{ text-align: right; padding-right: 0; font-variant-numeric: tabular-nums }
+td.cle{ font-weight: 700; width: 26% }
+td.ch{ width: 7%; color: var(--encre-douce) }
+table.serree td{ padding-top: 4px; padding-bottom: 4px }
+tr.total td{ font-weight: 700; border-bottom: 1.5px solid var(--encre) }
+
+/* ---------- libellé de compte : numéro + classe, précision pédagogique -- */
+.libelle > div + div{ margin-top: 2px; font-size: 8.5pt; color: var(--encre-douce) }
+.libelle .cpt{ font-weight: 700 }
+.libelle > div:first-child .cpt{ margin-right: 5px; color: var(--encre) }
+.libelle > div + div .cpt{ font-weight: 600 }
+
+/* ---------- encadrés ---------------------------------------------------- */
+.note{
+  background: var(--fond-doux); border-left: 3px solid var(--trait-fort);
+  padding: 10px 12px; margin: 12px 0 14px; font-size: 9.5pt;
+  break-inside: avoid;
+}
+.note .t{
+  display: block; font-size: 7.5pt; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--encre-douce); font-weight: 700; margin-bottom: 4px;
+}
+.note p:last-child{ margin-bottom: 0 }
+
+.alert{
+  background: var(--fond-alerte); border-left: 3px solid var(--lexique);
+  padding: 10px 12px; margin: 12px 0 14px; font-size: 9.5pt; break-inside: avoid;
+}
+.alert .t{
+  display: block; font-size: 7.5pt; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--lexique); font-weight: 700; margin-bottom: 4px;
+}
+.alert p:last-child{ margin-bottom: 0 }
+
+/* ---------- écrire / ne pas écrire -------------------------------------- */
+.compare{ display: table; width: 100%; border-spacing: 10px 0; margin: 10px -10px 14px; break-inside: avoid }
+.compare > div{ display: table-cell; width: 50%; padding: 9px 11px; font-size: 9.5pt; vertical-align: top }
+.oui{ background: var(--fond-oui); border-left: 3px solid var(--bord-oui) }
+.non{ background: var(--fond-non); border-left: 3px solid var(--bord-non) }
+.compare .t{
+  display: block; font-size: 7.5pt; letter-spacing: .16em; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 5px;
+}
+.oui .t{ color: var(--bord-oui) } .non .t{ color: var(--bord-non) }
+.compare p:last-child{ margin-bottom: 0 }
+
+/* ---------- panneaux d'écritures ---------------------------------------- */
+.panneau{ margin: 14px 0 16px; break-inside: avoid }
+.panneau > .t{
+  display: block; font-size: 7.5pt; letter-spacing: .16em; text-transform: uppercase;
+  font-weight: 700; padding-bottom: 5px; margin-bottom: 8px;
+  border-bottom: 1.5px solid var(--encre);
+}
+.panneau--auto > .t{ color: var(--encre-douce); border-bottom-color: var(--trait-fort) }
+.op{
+  font-size: 7.5pt; letter-spacing: .1em; text-transform: uppercase; font-weight: 700;
+  color: var(--encre-douce); margin: 10px 0 4px;
+}
+.op:first-of-type{ margin-top: 0 }
+.lignes{ list-style: none; margin: 0 0 6px; padding: 0 }
+.lignes li{
+  font-family: "DejaVu Sans Mono", monospace; font-size: 8pt; line-height: 1.45;
+  padding: 2px 0 2px 22px; text-indent: -12px; border-left: 2px solid var(--trait); margin-bottom: 0;
+}
+.panneau--auto .lignes li{ color: var(--encre-douce) }
+.legende{ font-size: 9pt; color: var(--encre-douce); margin: 6px 0 0 }
+
+/* ---------- chapitre rédigé --------------------------------------------- */
+.video{
+  background: var(--fond-doux); padding: 11px 13px; margin: 0 0 18px;
+  font-size: 9.5pt; color: var(--encre-douce); break-inside: avoid;
+}
+.video .t{
+  display: block; font-size: 7.5pt; letter-spacing: .16em; text-transform: uppercase;
+  font-weight: 700; color: var(--encre-douce); margin-bottom: 5px;
+}
+.accroche{
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-style: italic; font-size: 12pt; line-height: 1.55; margin: 0 0 20px;
+}
+.image-slot{
+  border: 1px dashed var(--trait-fort); background: #fbfcfe;
+  padding: 22px 12px 12px; text-align: center; margin: 12px 0 14px; break-inside: avoid;
+}
+.image-slot .t{
+  display: block; font-size: 7.5pt; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--trait-fort); font-weight: 700; margin-bottom: 8px;
+}
+.image-slot .cap{ font-size: 9pt; color: var(--encre-douce); text-align: left }
+.composant{
+  border: 1px solid var(--trait-fort); padding: 9px 12px; margin: 12px 0 14px;
+  break-inside: avoid;
+}
+.composant code{
+  font-family: "DejaVu Sans Mono", monospace; font-size: 9.5pt; font-weight: 700;
+  color: var(--lexique);
+}
+.composant .cap{ display: block; font-size: 8.5pt; color: var(--encre-douce); margin-top: 3px }
+.declaration{ font-weight: 700; font-size: 11.5pt; margin: 14px 0 }
+.lex{ color: var(--lexique) }
+.appris{
+  border-top: 2px solid var(--encre); padding-top: 12px; margin-top: 20px; break-inside: avoid;
+}
+.appris h2{ border: none; padding: 0; margin: 0 0 8px }
+.appris ul{ margin: 0; padding-left: 18px }
+
+/* ---------- la précision (ancre + note) --------------------------------- */
+.prec{
+  font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0;
+  display: inline; cursor: pointer; text-align: left;
+  border-bottom: 1px dotted var(--trait-fort);
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.prec:hover, .prec:focus-visible{ border-bottom-color: var(--encre) }
+/* PDF de rédaction et de relecture seulement : l'ancre passe en souligné plein,
+   pour se repérer d'un coup d'œil. Le rendu réel et le PDF de livraison gardent
+   le pointillé (charte, section 22). */
+.relecture .prec{ border-bottom: 1px solid var(--encre) }
+.prec-note{
+  font-size: 9.5pt; color: var(--encre-douce); line-height: 1.45;
+  border-left: 2px solid var(--trait); padding: 1px 0 1px 12px;
+  margin: 10px 0 12px; break-inside: avoid;
+}
+
+/* ---------- fin de module : glossaire et liste des écarts ---------------
+   Deux blocs propres au dernier chapitre. Ajout purement additif : aucun autre
+   document n'emploie ces classes, donc aucun rendu existant ne bouge. */
+.glossaire{ margin: 16px 0 14px }
+.glossaire > .t{
+  display: block; font-size: 7.5pt; letter-spacing: .16em; text-transform: uppercase;
+  font-weight: 700; color: var(--encre-douce);
+  padding-bottom: 5px; margin-bottom: 8px; border-bottom: 1.5px solid var(--encre);
+}
+.glossaire table{ margin: 0 }
+.glossaire td.cle{ width: 22%; font-weight: 700 }
+
+.aside{
+  background: var(--fond-doux); border-left: 3px solid var(--lexique);
+  padding: 12px 14px; margin: 16px 0; font-size: 9.5pt;
+}
+.aside > .t{
+  display: block; font-size: 7.5pt; letter-spacing: .18em; text-transform: uppercase;
+  font-weight: 700; color: var(--lexique); margin-bottom: 8px;
+}
+.aside dl{ margin: 0 }
+.aside dt{ font-weight: 700; margin-top: 9px; break-after: avoid }
+.aside dt:first-of-type{ margin-top: 0 }
+.aside dd{ margin: 2px 0 0 }
+
+/* ---------- divers ------------------------------------------------------ */
+.checklist{ list-style: none; padding-left: 0 }
+.checklist li{ padding-left: 20px; text-indent: -20px; margin-bottom: 5px }
+.checklist li::before{ content: "\2610\00a0\00a0"; color: var(--trait-fort) }
+.fin{
+  margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--trait-fort);
+  font-size: 9pt; color: var(--encre-douce);
+}
+.saut{ break-before: page }

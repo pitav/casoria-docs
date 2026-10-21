@@ -1,0 +1,2579 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   illustrations.css — feuille des illustrations Casoria, module 1
+   Création le 17 septembre 2026, avec le Chapitre 4.
+
+   Une illustration n'a pas de geste : slate seul, jamais amber ni lime.
+   Tout est imbriqué sous .illustration, pour ne rien croiser avec
+   activite.css (.activite) ni avec les styles du texte.
+
+   Deux blocs :
+     1. LE VOCABULAIRE COMMUN — titre, document, colonnes, ligne, flèche,
+        fantômes. Le Chapitre 6 (miroir du 4) le réutilisera tel quel.
+     2. UNE SECTION PAR ILLUSTRATION, sous .illustration.<nom>.
+
+   .illustration est un conteneur (container-type) : l'étroit s'écrit en
+   @container, pas en @media — l'illustration vit dans une colonne de texte,
+   pas à la largeur de l'écran. Seuils en em, propres à chaque illustration.
+   Les Chapitres 4 et 6 n'ont encore que leur version large ; les autres
+   (1, 2, 3, 5, 7, 8, 9, 11, 12) ont les deux.
+
+   Attention aux rangées et colonnes redéfinies en étroit : deux classes du
+   même élément à spécificité égale, c'est la dernière écrite qui gagne
+   (d'où .td.td-lib au Chapitre 8).
+
+   Les éléments internes sont des div et des span, jamais des p : les styles
+   de texte du chapitre ne doivent pas s'y appliquer.
+
+   Accessibilité : aucun texte sous 0,6rem ni plus clair que slate-500
+   (4,5:1 sur blanc et sur slate-50) ; tout trait qui porte un sens au moins
+   en slate-500 (3:1). slate-300 et slate-200 sont réservés aux bords et aux
+   fantômes, qui ne portent rien seuls.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.illustration {
+  --ill-trait: var(--color-slate-300);   /* bords des documents, de la facture */
+  --ill-fleche: var(--color-slate-500);  /* flèches, pointillé d'attente (3:1 mini) */
+  --ill-fond: var(--color-slate-50);     /* fond des colonnes */
+  --ill-fantome: var(--color-slate-200); /* lignes d'écriture muettes */
+  --ill-encre: var(--color-slate-700);   /* libellés, trait des lignes lues */
+
+  container-type: inline-size;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 720px;
+  padding: 22px 24px;
+  /* le panneau : l'équivalent de « mb-15 rounded-lg shadow-lg » ; les valeurs
+     de secours sont celles de Tailwind v4, au cas où le thème ne les émet pas */
+  margin-bottom: calc(var(--spacing, .25rem) * 15);
+  border-radius: var(--radius-lg, .5rem);
+  box-shadow: var(--shadow-lg, 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1));
+  background: var(--color-white);
+  color: var(--color-slate-900);
+  line-height: 1.25;
+  text-align: left;
+
+  & *,
+  & *::before,
+  & *::after {
+    box-sizing: border-box;
+  }
+
+  /* ═════════════════════════════════════════════════════════════════════════
+     1 — LE VOCABULAIRE COMMUN
+     ═════════════════════════════════════════════════════════════════════════ */
+
+  /* le moment de l'image, en tête */
+  .quand {
+    text-align: center;
+    font-size: .63rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--color-slate-500);
+  }
+
+  /* un document (Bilan, Compte de Résultat) et ses deux colonnes */
+  .document {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    padding: 10px 10px 11px;
+    border: 1.5px solid var(--ill-trait);
+    border-radius: 10px;
+  }
+
+  .document-titre {
+    font-size: .6rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--color-slate-500);
+  }
+
+  .colonnes {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin-top: 8px;
+  }
+
+  .colonne {
+    min-height: 112px;
+    padding: 6px 6px 8px;
+    border-radius: 6px;
+    background: var(--ill-fond);
+  }
+
+  .colonne-titre {
+    font-size: .6rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--color-slate-500);
+  }
+
+  /* une ligne muette, qui dit « il y a d'autres choses ici » sans les écrire */
+  .fantome {
+    display: block;
+    height: 4px;
+    margin-top: 8px;
+    border-radius: 2px;
+    background: var(--ill-fantome);
+
+    &.court { width: 70%; }
+    &.l90 { width: 90%; }
+    &.l65 { width: 65%; }
+  }
+
+  /* une ligne lue : libellé sans numéro de compte, montant en gras */
+  .ligne {
+    margin-top: 6px;
+    padding: 5px 6px;
+    border: 1.5px solid var(--ill-encre);
+    border-radius: 5px;
+    background: var(--color-white);
+  }
+
+  .ligne-lib {
+    font-size: .62rem;
+    line-height: 1.25;
+    color: var(--ill-encre);
+  }
+
+  .ligne-val {
+    margin-top: 2px;
+    font-size: .86rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  /* Une absence de mouvement qui est la leçon s'écrit à pleine encre :
+     même texte que .ligne, seul le trait passe au pointillé. */
+  .ligne.pas-encore {
+    border-style: dashed;
+  }
+
+  /* flèche horizontale ; le trait est l'élément, la pointe son ::after */
+  .fleche {
+    position: relative;
+    height: 2px;
+    background: var(--ill-fleche);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -5px;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+    }
+
+    &.gauche::after {
+      left: -2px;
+      border-right: 8px solid var(--ill-fleche);
+    }
+
+    &.droite::after {
+      right: -2px;
+      border-left: 8px solid var(--ill-fleche);
+    }
+  }
+
+  /* Mode contraste élevé (Windows) : le navigateur efface les fonds, donc le
+     trait des flèches et le pointillé d'attente. On les garde en couleur
+     système ; forced-color-adjust: none laisse aussi les bordures
+     transparentes des pointes… transparentes. Les fantômes, eux, peuvent
+     disparaître : ils ne portent rien. */
+  @media (forced-colors: active) {
+    --ill-fleche: CanvasText;
+    /* l'ombre disparaît dans ce mode : un trait garde le bord du panneau */
+    border: 1px solid CanvasText;
+
+    .fleche,
+    .fleche::after,
+    .attente::before {
+      forced-color-adjust: none;
+    }
+  }
+
+  /* ═════════════════════════════════════════════════════════════════════════
+     2 — LES ILLUSTRATIONS
+     ═════════════════════════════════════════════════════════════════════════ */
+
+  /* ── Chapitre 1 — m1/illustration/LeFilmEtLaPhoto.vue ────────────────────
+     La même année, deux règles de douze mois. Le film la remplit, la photo
+     n'en garde que le dernier soir ; juin est suivi d'un panneau à l'autre.
+     Les documents sont des squelettes (.colonnes, .colonne, .fantome du
+     vocabulaire commun), sans hauteur minimale. */
+  &.le-film-et-la-photo {
+
+    .panneaux {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .pan {
+      min-width: 0;
+      padding: 13px;
+      border: 1.5px solid var(--ill-trait);
+      border-radius: 10px;
+    }
+
+    .pan-sur {
+      font-size: .63rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--color-slate-500);
+    }
+
+    .pan-nom {
+      margin-top: 1px;
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--color-slate-900);
+    }
+
+    .pan-date {
+      margin-top: 1px;
+      font-size: .74rem;
+      color: var(--color-slate-500);
+    }
+
+    /* la règle : douze cases ; l'instant est posé au bout, par-dessus */
+    .regle {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 2px;
+      margin-top: 14px;
+    }
+
+    .mois {
+      height: 24px;
+      border-radius: 2px;
+    }
+
+    .plein .mois {
+      background: var(--color-slate-500);
+
+      &.vise { background: var(--color-slate-900); }
+    }
+
+    /* les cases vides sont des bords ; juin, qui porte le sens, est au
+       moins en slate-500 */
+    .vide .mois {
+      border: 1.5px solid var(--ill-trait);
+      background: var(--color-white);
+
+      &.vise { border: 1.5px dashed var(--ill-fleche); }
+    }
+
+    .instant {
+      position: absolute;
+      top: -6px;
+      right: -3px;
+      bottom: -6px;
+      width: 4px;
+      border-radius: 2px;
+      background: var(--color-slate-900);
+    }
+
+    .lettres {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 2px;
+      margin-top: 4px;
+      text-align: center;
+      font-size: .6rem;
+      color: var(--color-slate-500);
+
+      .vise {
+        font-weight: 800;
+        color: var(--color-slate-900);
+      }
+    }
+
+    .dit {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0 8px;
+      margin-top: 6px;
+      font-size: .72rem;
+      color: var(--color-slate-600);
+
+      b {
+        font-weight: 700;
+        color: var(--color-slate-900);
+      }
+    }
+
+    .colonnes {
+      gap: 8px;
+      margin-top: 13px;
+    }
+
+    .colonne {
+      min-height: 0;
+      padding: 7px 8px 9px;
+    }
+
+    .fantome {
+      height: 5px;
+      margin-top: 7px;
+      border-radius: 3px;
+    }
+
+    /* Contraste élevé : la règle pleine et l'instant sont des fonds, que le
+       navigateur effacerait. Juin y reste désigné par sa lettre en gras
+       (même sélecteurs que la règle de base, sinon elle l'emporte). */
+    @media (forced-colors: active) {
+      .plein .mois,
+      .plein .mois.vise,
+      .instant {
+        forced-color-adjust: none;
+        background: CanvasText;
+      }
+    }
+
+    /* En étroit : les panneaux s'empilent. */
+    @container (max-width: 36em) {
+      .panneaux {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .mois { height: 22px; }
+    }
+  }
+
+  /* ── Chapitre 2 — m1/illustration/ApportEnCapital.vue ────────────────────
+     Le grand journal réduit à son T. Les icônes sont des <UIcon /> : leur
+     taille suit la taille de police (1em), leur couleur le texte. En étroit,
+     les deux colonnes restent côte à côte — c'est le sujet — ; on réduit,
+     on n'empile pas. */
+  &.apport-en-capital {
+
+    .journal {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr auto;
+      margin-top: 12px;
+      border-top: 2px solid var(--color-slate-800);
+    }
+
+    .g {
+      grid-column: 1;
+      border-right: 2px solid var(--color-slate-800);
+    }
+
+    .d { grid-column: 2; }
+
+    .entete {
+      grid-row: 1;
+      padding-top: 9px;
+      text-align: center;
+
+      b {
+        display: block;
+        font-size: .95rem;
+        font-weight: 800;
+        color: var(--color-slate-900);
+      }
+
+      span {
+        display: block;
+        font-size: .72rem;
+        color: var(--color-slate-500);
+      }
+    }
+
+    .corps {
+      grid-row: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 34px;
+      padding: 18px 10px 16px;
+    }
+
+    .pied {
+      grid-row: 3;
+      padding: 10px 0 4px;
+      border-top: 1.5px solid var(--ill-fantome);
+      text-align: center;
+      font-size: 1.35rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    /* une figure : une icône, un nom, parfois une part */
+    .fig {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .fig-icone {
+      display: block;
+      font-size: 64px;
+      color: var(--ill-encre);
+    }
+
+    .banque .fig-icone { font-size: 60px; }
+
+    .fig-nom {
+      margin-top: 3px;
+      font-size: .76rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--color-slate-800);
+
+      /* sous 340 px environ, « Le compte en banque » passe à la ligne :
+         en deux moitiés, pas un mot seul */
+      span {
+        display: block;
+        text-wrap: balance;
+      }
+    }
+
+    .fig-part {
+      margin-top: 4px;
+      font-size: .86rem;
+      font-weight: 700;
+      color: var(--color-slate-600);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    /* Contraste élevé : en mode CSS, une icône est un fond sous un masque,
+       que le navigateur effacerait. */
+    @media (forced-colors: active) {
+      .fig-icone {
+        forced-color-adjust: none;
+        color: CanvasText;
+      }
+    }
+
+    @container (max-width: 36em) {
+      .entete {
+        b { font-size: .85rem; }
+        span { font-size: .64rem; }
+      }
+
+      .corps {
+        gap: 14px;
+        padding: 14px 4px 12px;
+      }
+
+      .fig-icone,
+      .banque .fig-icone { font-size: 44px; }
+
+      .fig-nom { font-size: .64rem; }
+      .fig-part { font-size: .68rem; }
+      .pied { font-size: 1.05rem; }
+    }
+  }
+
+  /* ── Chapitre 3 — m1/illustration/TroisDocumentsDeuxQuestions.vue ────────
+     Trois papiers, deux questions écrites une fois en tête de rangée. Les
+     rangées sont communes : les réponses tombent à la même hauteur sous des
+     papiers qui n'ont ni la même taille ni la même forme. Chaque papier est
+     un .document-col en display: contents (p1, p2, p3 donnent sa place).
+
+     Les papiers sont dessinés en em : --k les agrandit tous d'un coup (le
+     plafond en large est la facture, à peu près la largeur de sa colonne).
+     Leurs petits textes ne descendent pas sous 0,6rem : max(.6rem, …).
+     Attention, un em imbriqué se compose (le montant dans .papier-total). */
+  &.trois-documents-deux-questions {
+
+    .tableau {
+      display: grid;
+      grid-template-columns: max-content repeat(3, 1fr);
+      column-gap: 14px;
+    }
+
+    .document-col { display: contents; }
+
+    .zone {
+      grid-row: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 6px 0 14px;
+    }
+
+    .question,
+    .reponse {
+      display: flex;
+      align-items: center;
+      padding: 11px 0 10px;
+      border-top: 1.5px solid var(--ill-fantome);
+    }
+
+    .question {
+      grid-column: 1;
+      font-size: .6rem;
+      font-weight: 800;
+      line-height: 1.35;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: var(--color-slate-500);
+    }
+
+    .reponse {
+      justify-content: center;
+      text-align: center;
+      font-size: .86rem;
+      font-weight: 600;
+      color: var(--color-slate-900);
+    }
+
+    .question-va,
+    .reponse.va { grid-row: 2; }
+
+    .question-vient,
+    .reponse.vient { grid-row: 3; }
+
+    .p1 .zone, .p1 .reponse { grid-column: 2; }
+    .p2 .zone, .p2 .reponse { grid-column: 3; }
+    .p3 .zone, .p3 .reponse { grid-column: 4; }
+
+    /* ── les papiers ── */
+    .papier {
+      --k: 1.09;
+      font-size: calc(var(--k) * 1rem);
+      line-height: 1.3;
+      border: 1.5px solid var(--ill-trait);
+      background: var(--color-white);
+      color: var(--ill-encre);
+      box-shadow: 0 6px 14px -10px rgb(15 23 42 / .35);
+    }
+
+    .papier .fantome {
+      height: 4px;
+      margin-top: 6px;
+    }
+
+    .montant {
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .papier-total {
+      display: flex;
+      align-items: baseline;
+      margin-top: 9px;
+      font-size: max(.6rem, .5em);
+      color: var(--color-slate-600);
+
+      b {
+        font-size: 1.25em;
+        font-weight: 800;
+        color: var(--color-slate-900);
+      }
+    }
+
+    /* le ticket : étroit, bord bas dentelé ; sur son fond slate-100, le
+       texte secondaire passe en slate-600 (slate-500 n'y fait que 4,3:1) */
+    .ticket {
+      width: calc(var(--k) * 124px);
+      padding: 11px 10px 20px;
+      border: 0;
+      background: var(--color-slate-100);
+      box-shadow: none;
+      text-align: center;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 94% 96%, 88% 100%, 82% 96%, 76% 100%,
+        70% 96%, 64% 100%, 58% 96%, 52% 100%, 46% 96%, 40% 100%, 34% 96%, 28% 100%,
+        22% 96%, 16% 100%, 10% 96%, 4% 100%, 0 96%);
+
+      .fantome {
+        margin: 5px auto 0;
+        background: var(--ill-trait);
+      }
+    }
+
+    .ticket-enseigne {
+      font-size: max(.6rem, .58em);
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--color-slate-800);
+    }
+
+    .ticket-type {
+      margin-top: 3px;
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: var(--color-slate-600);
+    }
+
+    .ticket-sous {
+      margin-top: 1px;
+      font-size: max(.6rem, .52em);
+      color: var(--color-slate-600);
+    }
+
+    .pointilles {
+      margin: 8px 0 7px;
+      border-top: 1px dashed var(--color-slate-400);
+    }
+
+    .ticket-total {
+      display: flex;
+      justify-content: space-between;
+      gap: 4px;
+      font-size: max(.6rem, .6em);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--color-slate-900);
+    }
+
+    /* la facture du grossiste : un en-tête, un tableau */
+    .facture {
+      width: calc(var(--k) * 170px);
+      padding: 11px 11px 12px;
+
+      .papier-total {
+        justify-content: flex-end;
+        gap: 8px;
+      }
+    }
+
+    .facture-haut {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .facture-emet {
+      font-size: .64em;
+      font-weight: 800;
+      color: var(--color-slate-800);
+    }
+
+    .facture-type {
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--color-slate-500);
+    }
+
+    .facture-dest {
+      margin-top: 6px;
+      font-size: max(.6rem, .52em);
+      color: var(--color-slate-500);
+    }
+
+    .facture-ligne {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6px;
+      margin-top: 9px;
+      padding: 4px 0;
+      border-top: 1px solid var(--ill-fantome);
+      border-bottom: 1px solid var(--ill-fantome);
+      font-size: max(.6rem, .55em);
+
+      sup {
+        font-size: .7em;
+        line-height: 0;
+      }
+    }
+
+    /* la facture d'électricité : un bandeau, un graphique de consommation */
+    .electricite {
+      width: calc(var(--k) * 146px);
+      padding-bottom: 11px;
+      overflow: hidden;
+
+      .papier-total { justify-content: space-between; }
+    }
+
+    .electricite-bandeau {
+      padding: 6px 10px;
+      background: var(--color-slate-700);
+      color: var(--color-white);
+      font-size: max(.6rem, .58em);
+      font-weight: 700;
+    }
+
+    .electricite-corps { padding: 8px 10px 0; }
+
+    .electricite-periode {
+      font-size: max(.6rem, .52em);
+      color: var(--color-slate-500);
+    }
+
+    .barres {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 34px;
+      margin-top: 7px;
+      border-bottom: 1px solid var(--ill-trait);
+
+      i {
+        flex: 1;
+        border-radius: 1px 1px 0 0;
+        background: var(--ill-fantome);
+
+        &:last-child { background: var(--color-slate-500); }
+      }
+    }
+
+    /* Contraste élevé : le ticket et les barres sont des fonds. Le ticket
+       garde un bord (le dentelé coupe celui du bas) ; les barres sont
+       reprises en couleurs système, le mois facturé plein. */
+    @media (forced-colors: active) {
+      .ticket { border: 1px solid CanvasText; }
+
+      .barres i,
+      .barres i:last-child {
+        forced-color-adjust: none;
+        border: 1px solid CanvasText;
+        background: Canvas;
+      }
+
+      .barres i:last-child { background: CanvasText; }
+    }
+
+    /* En étroit : une rangée par papier. Les deux questions passent en tête
+       des deux colonnes de réponses, sur une ou deux lignes. */
+    @container (max-width: 36em) {
+      .tableau {
+        grid-template-columns: 134px 1fr 1fr;
+        column-gap: 0;
+      }
+
+      /* les questions gardent leur coupure du large : « D'où / vient-elle ? »
+         plutôt que « vient- / elle ? » */
+      .question {
+        align-items: flex-end;
+        justify-content: center;
+        padding: 0 2px 8px;
+        border-top: 0;
+        text-align: center;
+        letter-spacing: .03em;
+        white-space: normal;
+      }
+
+      .question-va { grid-column: 2; grid-row: 1; }
+      .question-vient { grid-column: 3; grid-row: 1; }
+
+      .zone {
+        grid-column: 1;
+        align-items: center;
+        padding: 12px 0;
+        border-top: 1.5px solid var(--ill-fantome);
+      }
+
+      .reponse {
+        padding: 0 6px;
+        border-top: 1.5px solid var(--ill-fantome);
+        font-size: .76rem;
+        line-height: 1.3;
+        text-wrap: balance;
+      }
+
+      /* même spécificité que les .p1 .zone du large, sinon ils l'emportent */
+      .document-col .zone { grid-column: 1; }
+      .document-col .reponse.va { grid-column: 2; }
+      .document-col .reponse.vient { grid-column: 3; }
+
+      .p1 .zone, .p1 .reponse { grid-row: 2; }
+      .p2 .zone, .p2 .reponse { grid-row: 3; }
+      .p3 .zone, .p3 .reponse { grid-row: 4; }
+
+      .papier { --k: 1; }
+
+      .ticket { width: 116px; }
+      .ticket-enseigne { letter-spacing: .03em; }
+      .ticket-type { letter-spacing: .02em; }
+
+      .facture {
+        width: 130px;
+        padding: 9px 8px 10px;
+      }
+
+      .facture-emet { font-size: .6rem; }
+      .facture-type { letter-spacing: .02em; }
+      .facture-ligne .montant { display: none; }
+
+      .electricite { width: 122px; }
+    }
+
+    /* Très étroit (petits téléphones) : trois colonnes ne tiennent plus.
+       Chaque papier prend toute la largeur, ses deux réponses dessous, sous
+       les deux questions restées en tête. */
+    @container (max-width: 18em) {
+      .tableau { grid-template-columns: 1fr 1fr; }
+
+      .question-va { grid-column: 1; }
+      .question-vient { grid-column: 2; }
+
+      .document-col .zone { grid-column: 1 / -1; padding: 12px 0 8px; }
+      .document-col .reponse.va { grid-column: 1; }
+      .document-col .reponse.vient { grid-column: 2; }
+
+      .reponse {
+        align-items: flex-start;
+        padding: 0 6px 14px;
+        border-top: 0;
+      }
+
+      .p1 .zone { grid-row: 2; }
+      .p1 .reponse { grid-row: 3; }
+      .p2 .zone { grid-row: 4; }
+      .p2 .reponse { grid-row: 5; }
+      .p3 .zone { grid-row: 6; }
+      .p3 .reponse { grid-row: 7; }
+    }
+  }
+
+  /* ── Chapitre 4 — m1/illustration/VenteAEcheance.vue ─────────────────────
+     La facture au milieu, un document de chaque côté. Les deux flèches
+     portent le même montant : la vente n'est pas partagée, elle est lue
+     deux fois. */
+  &.vente-a-echeance {
+
+    .scene {
+      display: grid;
+      grid-template-columns: 1fr 28px 156px 28px 1fr;
+      align-items: center;
+      margin-top: 14px;
+    }
+
+    .facture {
+      padding: 10px 10px 11px;
+      border: 1.5px solid var(--ill-trait);
+      background: var(--color-white);
+      color: var(--ill-encre);
+      box-shadow: 0 6px 14px -10px rgb(15 23 42 / .35);
+    }
+
+    .facture-haut {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .facture-emet {
+      font-size: .6rem;
+      font-weight: 800;
+      color: var(--color-slate-800);
+    }
+
+    .facture-type {
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--color-slate-500);
+    }
+
+    .facture-dest {
+      margin-top: 7px;
+      font-size: .6rem;
+      line-height: 1.35;
+      color: var(--color-slate-500);
+
+      b {
+        display: block;
+        font-weight: 600;
+        color: var(--color-slate-800);
+      }
+    }
+
+    .facture .fantome {
+      margin-top: 6px;
+    }
+
+    .facture-tot {
+      margin-top: 9px;
+      padding-top: 6px;
+      border-top: 1px solid var(--ill-fantome);
+      text-align: right;
+      font-size: .74rem;
+      font-weight: 800;
+      color: var(--color-slate-900);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .facture-ech {
+      margin-top: 2px;
+      text-align: right;
+      font-size: .6rem;
+      color: var(--color-slate-500);
+    }
+
+    /* la trésorerie attend : un court pointillé vertical, puis l'échéance */
+    .attente {
+      margin-top: 3px;
+      text-align: center;
+      font-size: .6rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--color-slate-500);
+
+      &::before {
+        content: "";
+        display: block;
+        width: 2px;
+        height: 9px;
+        margin: 0 auto 2px;
+        background: repeating-linear-gradient(var(--ill-fleche) 0 2px, transparent 2px 4px);
+      }
+    }
+
+    .ligne.pas-encore {
+      margin-top: 3px;
+    }
+  }
+
+  /* ── Chapitre 5 — m1/illustration/UnPrixDeuxMontants.vue ─────────────────
+     Deux lectures du même prix, sur la même longueur. Le composant pose
+     --parts (« 10fr 2fr ») : les pistes portent les montants eux-mêmes. */
+  &.un-prix-deux-montants {
+
+    .quand {
+      text-align: left;
+    }
+
+    .schema {
+      display: grid;
+      grid-template-columns: max-content var(--parts);
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    .qui {
+      padding-right: 16px;
+      font-size: .78rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--color-slate-800);
+
+      span {
+        display: block;
+        font-size: .66rem;
+        font-weight: 400;
+        color: var(--color-slate-500);
+      }
+    }
+
+    .q1, .ttc { grid-row: 1; }
+    .meme { grid-row: 2; }
+    .q2, .ht, .taxe { grid-row: 3; }
+    .dest { grid-row: 4; }
+
+    .barre {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 56px;
+      padding: 0 12px;
+    }
+
+    .barre-m {
+      font-size: 1.15rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .barre-n {
+      font-size: .68rem;
+      line-height: 1.2;
+    }
+
+    .ttc,
+    .ht {
+      background: var(--color-slate-800);
+      color: var(--color-white);
+
+      .barre-n { color: var(--ill-trait); }
+    }
+
+    .ttc {
+      grid-column: 2 / 4;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .ht {
+      grid-column: 2;
+      border-radius: 8px 0 0 8px;
+    }
+
+    .taxe {
+      grid-column: 3;
+      padding: 0 8px;
+      border-left: 2px solid var(--color-white);
+      border-radius: 0 8px 8px 0;
+      background: var(--ill-fantome);
+      color: var(--color-slate-900);
+      text-align: center;
+
+      .barre-n { color: var(--ill-encre); }
+    }
+
+    /* même longueur : deux pointillés aux extrémités, entre les barres */
+    .meme {
+      grid-column: 2 / 4;
+      display: flex;
+      justify-content: space-between;
+      height: 26px;
+      padding: 0 1px;
+
+      i {
+        display: block;
+        width: 0;
+        height: 100%;
+        border-left: 1.5px dashed var(--ill-fleche);
+      }
+    }
+
+    /* où va chaque part : une tige, une pointe, puis le nom */
+    .dest {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 6px;
+      text-align: center;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 2px;
+        height: 14px;
+        background: var(--ill-fleche);
+      }
+
+      &::after {
+        content: "";
+        order: 1;
+        display: block;
+        width: 0;
+        margin-top: -1px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 7px solid var(--ill-fleche);
+      }
+
+      span {
+        order: 2;
+        margin-top: 4px;
+        font-size: .8rem;
+        font-weight: 700;
+        color: var(--color-slate-900);
+      }
+    }
+
+    .d-ht { grid-column: 2; }
+    .d-taxe { grid-column: 3; }
+
+    /* Contraste élevé : les barres sont des fonds ; on garde leur longueur. */
+    @media (forced-colors: active) {
+      .barre,
+      .dest::before,
+      .dest::after {
+        forced-color-adjust: none;
+      }
+
+      .ttc,
+      .ht {
+        background: CanvasText;
+        color: Canvas;
+
+        .barre-n { color: Canvas; }
+      }
+
+      .taxe {
+        border: 1px solid CanvasText;
+        background: Canvas;
+        color: CanvasText;
+
+        .barre-n { color: CanvasText; }
+      }
+    }
+
+    /* En étroit : les intitulés passent au-dessus des barres, sur une ligne ;
+       les barres gardent leur proportion. */
+    @container (max-width: 36em) {
+      .schema {
+        grid-template-columns: var(--parts);
+      }
+
+      .qui {
+        grid-column: 1 / 3;
+        padding: 0 0 5px;
+
+        span {
+          display: inline;
+          margin-left: 6px;
+        }
+      }
+
+      .q1 { grid-row: 1; }
+      .ttc { grid-row: 2; grid-column: 1 / 3; }
+      .meme { grid-row: 3; grid-column: 1 / 3; height: 18px; }
+      .q2 { grid-row: 4; }
+      .ht { grid-row: 5; grid-column: 1; }
+      .taxe { grid-row: 5; grid-column: 2; padding: 0 4px; }
+      .dest { grid-row: 6; }
+      .d-ht { grid-column: 1; }
+      .d-taxe { grid-column: 2; }
+
+      .barre { height: 52px; padding: 0 10px; }
+      .barre-m { font-size: 1rem; }
+      .barre-n { font-size: .6rem; }
+
+      .dest span {
+        font-size: .72rem;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  /* ── Chapitre 6 — m1/illustration/StockLuDeuxFois.vue ────────────────────
+     Le miroir du Chapitre 4 : même charpente, mais au centre l'objet
+     lui-même, une étagère de sachets dessinée en CSS. */
+  &.stock-lu-deux-fois {
+
+    .scene {
+      display: grid;
+      grid-template-columns: 1fr 28px 138px 28px 1fr;
+      align-items: center;
+      margin-top: 14px;
+    }
+
+    /* la trésorerie, séparée du stock : pas de mention d'attente ici */
+    .ligne.pas-encore {
+      margin-top: 10px;
+    }
+
+    .etagere {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .planche {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      padding: 0 6px;
+      border-bottom: 4px solid var(--ill-fleche);
+      border-radius: 0 0 2px 2px;
+
+      & + .planche {
+        margin-top: 8px;
+      }
+    }
+
+    /* un sachet : le corps, le rabat (::before), l'étiquette (::after) */
+    .sachet {
+      position: relative;
+      width: 17px;
+      height: 25px;
+      border-radius: 2px 2px 3px 3px;
+      background: var(--color-slate-700);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        border-radius: 2px 2px 0 0;
+        background: var(--color-slate-500);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 4px;
+        right: 4px;
+        height: 7px;
+        border-radius: 1px;
+        background: var(--ill-fantome);
+      }
+    }
+
+    .etagere-nom {
+      margin-top: 10px;
+      font-size: .66rem;
+      line-height: 1.3;
+      color: var(--color-slate-600);
+    }
+
+    .etagere-val {
+      margin-top: 2px;
+      font-size: .95rem;
+      font-weight: 800;
+      color: var(--color-slate-900);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    /* Contraste élevé : les sachets sont des fonds, que le navigateur
+       effacerait. Corps et rabat se fondent, l'étiquette reste en creux. */
+    @media (forced-colors: active) {
+      .sachet,
+      .sachet::before,
+      .sachet::after {
+        forced-color-adjust: none;
+      }
+
+      .sachet,
+      .sachet::before {
+        background: CanvasText;
+      }
+
+      .sachet::after {
+        background: Canvas;
+      }
+    }
+  }
+
+  /* ── Chapitre 7, premier emplacement — m1/illustration/TroisFaconsDeFinancer.vue
+     Trois sources en colonnes, trois lectures en rangées, intitulés écrits
+     une fois (en slate-700 : ils portent seuls la clé de la rangée). Les
+     marches éteintes des jauges sont des bords slate-500, pas des fantômes :
+     sans elles on ne lit pas « une sur trois ». En étroit, les colonnes
+     restent côte à côte et les intitulés passent au-dessus de leur rangée. */
+  &.trois-facons-de-financer {
+
+    .quand {
+      text-align: left;
+    }
+
+    .tableau {
+      display: grid;
+      grid-template-columns: max-content repeat(3, 1fr);
+      column-gap: 16px;
+      margin-top: 14px;
+    }
+
+    .c1 { grid-column: 2; }
+    .c2 { grid-column: 3; }
+    .c3 { grid-column: 4; }
+    .r1 { grid-row: 2; }
+    .r2 { grid-row: 3; }
+    .r3 { grid-row: 4; }
+
+    .source {
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 12px;
+      text-align: center;
+    }
+
+    .source-icone {
+      display: block;
+      font-size: 52px;
+      color: var(--ill-encre);
+    }
+
+    .source-nom {
+      margin-top: 4px;
+      font-size: .84rem;
+      font-weight: 700;
+      color: var(--color-slate-900);
+    }
+
+    /* l'intitulé : deux morceaux, l'un sous l'autre en large */
+    .intitule {
+      grid-column: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      column-gap: .3em;
+      padding: 10px 0;
+      border-top: 1.5px solid var(--ill-fantome);
+      font-size: .62rem;
+      font-weight: 800;
+      line-height: 1.35;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: var(--ill-encre);
+    }
+
+    .cellule {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+      border-top: 1.5px solid var(--ill-fantome);
+    }
+
+    /* trois marches, sans chiffre : un ordre, pas une mesure */
+    .jauge {
+      display: flex;
+      gap: 4px;
+
+      i {
+        display: block;
+        width: 26px;
+        height: 12px;
+        border: 1.5px solid var(--ill-fleche);
+        border-radius: 2px;
+        background: var(--color-white);
+
+        &.allumee {
+          border-color: var(--ill-encre);
+          background: var(--ill-encre);
+        }
+      }
+    }
+
+    .reponse {
+      text-align: center;
+      font-size: .86rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--color-slate-900);
+      text-wrap: balance;
+    }
+
+    /* le sens de lecture : la flèche commune, sous les trois colonnes */
+    .sens {
+      grid-row: 5;
+      grid-column: 2 / 5;
+      margin: 12px 2px 5px 0;
+    }
+
+    /* Contraste élevé : icônes et marches allumées sont des fonds. */
+    @media (forced-colors: active) {
+      .source-icone {
+        forced-color-adjust: none;
+        color: CanvasText;
+      }
+
+      .jauge i.allumee {
+        forced-color-adjust: none;
+        border-color: CanvasText;
+        background: CanvasText;
+      }
+    }
+
+    @container (max-width: 36em) {
+      .tableau {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 8px;
+      }
+
+      .c1 { grid-column: 1; }
+      .c2 { grid-column: 2; }
+      .c3 { grid-column: 3; }
+
+      .source-icone { font-size: 38px; }
+      .source-nom { font-size: .72rem; }
+
+      .intitule {
+        grid-column: 1 / 4;
+        flex-direction: row;
+        justify-content: center;
+        padding: 9px 0 2px;
+      }
+
+      .cellule {
+        padding: 6px 0 10px;
+        border-top: 0;
+      }
+
+      .intitule.r1 { grid-row: 2; }
+      .cellule.r1 { grid-row: 3; }
+      .intitule.r2 { grid-row: 4; }
+      .cellule.r2 { grid-row: 5; }
+      .intitule.r3 { grid-row: 6; }
+      .cellule.r3 { grid-row: 7; }
+
+      .sens {
+        grid-row: 8;
+        grid-column: 1 / 4;
+      }
+
+      .jauge {
+        gap: 3px;
+
+        i {
+          width: 18px;
+          height: 10px;
+        }
+      }
+
+      .reponse { font-size: .72rem; }
+    }
+  }
+
+  /* ── Chapitre 7, second emplacement — m1/illustration/UneMensualiteDeuxParts.vue
+     Une sortie du compte, une fourche, deux parts, deux documents. Traits en
+     bordures (le contraste élevé les garde d'office). La fourche mesure la
+     moitié de la largeur plus la demi-gouttière : ses branches tombent au
+     milieu de chaque colonne. En étroit, les parts s'empilent, il ne reste
+     que le tronc et un « + » entre elles ; Actif et Passif, eux, restent
+     côte à côte à toutes les largeurs. */
+  &.une-mensualite-deux-parts {
+    --ecart: 22px;
+
+    .sortie {
+      text-align: center;
+    }
+
+    .sortie-montant {
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -.01em;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .sortie-lib {
+      margin-top: 2px;
+      font-size: .78rem;
+      color: var(--color-slate-500);
+    }
+
+    .fourche {
+      position: relative;
+      width: calc(50% + var(--ecart) / 2);
+      height: 46px;
+      margin: 6px auto 0;
+    }
+
+    .tronc {
+      position: absolute;
+      top: 0;
+      left: calc(50% - 1px);
+      height: 16px;
+      border-left: 2px solid var(--ill-fleche);
+    }
+
+    .branches {
+      position: absolute;
+      top: 16px;
+      right: -1px;
+      bottom: 0;
+      left: -1px;
+      border: 2px solid var(--ill-fleche);
+      border-bottom: 0;
+    }
+
+    .parts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--ecart);
+      align-items: stretch;
+    }
+
+    .part {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .part-montant {
+      font-size: 1.35rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .part-nom {
+      margin-top: 1px;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--color-slate-600);
+    }
+
+    /* une flèche vers le bas : la tige en bordure, la pointe en ::after */
+    .fleche-bas {
+      position: relative;
+      display: block;
+      width: 0;
+      height: 20px;
+      margin: 8px auto 0;
+      border-left: 2px solid var(--ill-fleche);
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: -6px;
+        border-top: 7px solid var(--ill-fleche);
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+      }
+    }
+
+    .document {
+      flex: 1;
+      margin-top: 10px;
+      padding: 12px 13px 14px;
+      text-align: left;
+    }
+
+    .document-titre {
+      font-size: .63rem;
+      letter-spacing: .13em;
+    }
+
+    /* à gauche : consommé */
+    .cr-ligne {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin: 10px 0 11px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--ill-fantome);
+    }
+
+    .cr-lib {
+      font-size: .8rem;
+      color: var(--color-slate-800);
+    }
+
+    .cr-val {
+      font-size: .85rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      color: var(--color-slate-900);
+    }
+
+    /* l'absence est la leçon : pleine encre, trait en pointillé */
+    .trace {
+      margin-top: auto;
+      padding: 9px 10px;
+      border: 1.5px dashed var(--ill-fleche);
+      border-radius: 7px;
+      text-align: center;
+      font-size: .73rem;
+      line-height: 1.4;
+      color: var(--ill-encre);
+      text-wrap: balance;
+    }
+
+    /* à droite : le Bilan, deux côtés (.colonnes du vocabulaire commun) */
+    .colonnes {
+      flex: none;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .colonne {
+      min-height: 0;
+      padding: 8px 9px;
+    }
+
+    .cote-lib {
+      margin-top: 3px;
+      font-size: .72rem;
+      line-height: 1.25;
+      color: var(--ill-encre);
+    }
+
+    .cote-val {
+      margin-top: 5px;
+      font-size: .92rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      color: var(--color-slate-900);
+    }
+
+    .meme {
+      margin-top: auto;
+      padding-top: 9px;
+      text-align: center;
+      font-size: .68rem;
+      font-weight: 600;
+      color: var(--color-slate-500);
+      text-wrap: balance;
+
+      span {
+        display: inline-block;
+        padding: 5px 18px 0;
+        border-top: 1px solid var(--ill-trait);
+      }
+    }
+
+    .chute {
+      margin-top: 9px;
+      text-align: center;
+      font-size: .82rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--color-slate-900);
+      text-wrap: balance;
+    }
+
+    /* Contraste élevé : les bordures transparentes de la pointe doivent le
+       rester ; Actif et Passif perdent leur fond, un bord les sépare. */
+    @media (forced-colors: active) {
+      .fleche-bas::after {
+        forced-color-adjust: none;
+      }
+
+      .colonne {
+        border: 1px solid CanvasText;
+      }
+    }
+
+    @container (max-width: 36em) {
+      .sortie-montant { font-size: 1.85rem; }
+
+      .fourche {
+        width: auto;
+        height: 24px;
+        margin-bottom: 4px;
+      }
+
+      .tronc { height: 24px; }
+      .branches { display: none; }
+
+      .parts {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .fleche-bas { display: none; }
+      .document { margin-top: 9px; }
+
+      /* le blanc de calage n'a plus lieu d'être */
+      .trace,
+      .meme { margin-top: 11px; }
+
+      /* le signe qui dit que les deux parts font la mensualité */
+      .part + .part {
+        position: relative;
+        margin-top: 4px;
+        padding-top: 38px;
+
+        &::before {
+          content: "+";
+          position: absolute;
+          top: 2px;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 1.25rem;
+          font-weight: 800;
+          line-height: 1;
+          color: var(--color-slate-500);
+        }
+      }
+
+      /* Actif et Passif restent côte à côte : c'est tout le sujet */
+      .colonnes { gap: 8px; }
+      .colonne { padding: 7px 8px; }
+      .cote-lib { font-size: .7rem; }
+    }
+  }
+
+  /* ── Chapitre 8 — m1/illustration/BrutNet.vue ────────────────────────────
+     Le torréfacteur écrit de deux façons, deux panneaux empilés. En haut le
+     net en pointillé à pleine encre (existe, pas écrit) ; en bas le net
+     encadré en trait plein (le nombre qu'on va chercher). */
+  &.brut-net {
+
+    .pan {
+      padding: 12px 14px 14px;
+      border: 1.5px solid var(--ill-trait);
+      border-radius: 10px;
+
+      & + .pan { margin-top: 16px; }
+    }
+
+    .pan-t {
+      font-size: .63rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ill-encre);
+    }
+
+    .pan-actif {
+      margin-top: 3px;
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--color-slate-500);
+    }
+
+    /* en haut : deux lignes, une accolade, le net à calculer */
+    .deux {
+      display: grid;
+      grid-template-columns: 1fr 150px 30px 150px;
+      align-items: stretch;
+      margin-top: 8px;
+    }
+
+    .rangees { grid-column: 1 / 3; }
+
+    .rangee {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      padding: 8px 10px;
+      border: 1.5px solid var(--ill-encre);
+      border-radius: 5px;
+      background: var(--color-white);
+
+      & + .rangee { margin-top: 6px; }
+    }
+
+    .rangee-lib {
+      font-size: .82rem;
+      color: var(--ill-encre);
+    }
+
+    .rangee-val {
+      font-size: 1rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .acc {
+      position: relative;
+      grid-column: 3;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        left: 6px;
+        width: 9px;
+        border: 2px solid var(--ill-fleche);
+        border-left: 0;
+        border-radius: 0 4px 4px 0;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        width: 13px;
+        height: 2px;
+        background: var(--ill-fleche);
+      }
+    }
+
+    .calc {
+      grid-column: 4;
+      align-self: center;
+      padding: 7px 10px;
+      border: 1.5px dashed var(--ill-encre);
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .calc-val {
+      font-size: 1.15rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .calc-n {
+      font-size: .62rem;
+      color: var(--color-slate-600);
+    }
+
+    /* en bas : une ligne, trois colonnes */
+    .trois,
+    .suite {
+      display: grid;
+      grid-template-columns: 1fr repeat(3, 150px);
+    }
+
+    .trois {
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .th {
+      padding: 0 10px 6px;
+      border-bottom: 1.5px solid var(--ill-trait);
+      text-align: right;
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--color-slate-600);
+    }
+
+    .th-actif { text-align: left; }
+    .th-net { color: var(--color-slate-900); }
+
+    .td {
+      padding: 10px;
+      text-align: right;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ill-encre);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .td-lib {
+      text-align: left;
+      font-size: .82rem;
+      font-weight: 400;
+    }
+
+    .td-net {
+      border: 1.5px solid var(--ill-encre);
+      border-radius: 5px;
+      background: var(--color-white);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-slate-900);
+    }
+
+    .suite {
+      grid-column: 1 / 5;
+      padding-top: 4px;
+      border-top: 1px solid var(--ill-fantome);
+
+      .fantome { margin: 8px 10px 0; }
+      .demi { width: 50%; }
+      .d { justify-self: end; width: 60px; }
+    }
+
+    @media (forced-colors: active) {
+      .acc::after { forced-color-adjust: none; }
+    }
+
+    /* En étroit : le « = » remplace l'accolade ; en bas, le nom du bien
+       monte au-dessus des trois colonnes. */
+    @container (max-width: 40em) {
+      .pan { padding: 11px 11px 12px; }
+
+      .deux { grid-template-columns: 1fr; }
+      .rangees { grid-column: 1; }
+      .acc { display: none; }
+
+      .calc {
+        position: relative;
+        grid-column: 1;
+        justify-self: end;
+        margin-top: 10px;
+
+        &::before {
+          content: "=";
+          position: absolute;
+          top: 50%;
+          right: calc(100% + 10px);
+          transform: translateY(-50%);
+          font-size: 1.2rem;
+          font-weight: 800;
+          color: var(--ill-fleche);
+        }
+      }
+
+      .rangee-lib { font-size: .74rem; }
+      .rangee-val { font-size: .9rem; }
+
+      .trois,
+      .suite {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      /* rangées explicites ; .td.td-lib doit l'emporter sur .td */
+      .th-actif { display: none; }
+      .th { grid-row: 2; padding: 0 6px 5px; letter-spacing: 0; }
+      .td { grid-row: 3; padding: 9px 6px; font-size: .86rem; }
+      .td.td-lib { grid-row: 1; grid-column: 1 / 4; padding: 0 0 6px; font-size: .82rem; }
+      .td-net { font-size: .95rem; }
+      .suite { grid-row: 4; grid-column: 1 / 4; }
+      .suite .demi { display: none; }
+    }
+  }
+
+  /* ── Chapitre 9 — m1/illustration/SalaireDeLea.vue ────────────────────────
+     Une barre à l'échelle, trois accolades. Le composant pose --parts
+     (« 1716fr 484fr 924fr ») : en colonnes en large, en rangées en étroit,
+     où la barre se dresse. */
+  &.salaire-de-lea {
+
+    .quand {
+      margin-bottom: 14px;
+      text-align: left;
+    }
+
+    .schema {
+      display: grid;
+      grid-template-columns: var(--parts);
+    }
+
+    /* les accolades : un texte, un trait en crochet */
+    .acc {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .acc-txt {
+      text-align: center;
+      font-size: .8rem;
+      line-height: 1.35;
+      color: var(--color-slate-600);
+
+      b {
+        margin-right: 4px;
+        font-size: 1.02rem;
+        font-weight: 800;
+        color: var(--color-slate-900);
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+
+      em {
+        display: block;
+        margin-top: 2px;
+        font-style: normal;
+        font-weight: 700;
+        color: var(--color-slate-800);
+      }
+    }
+
+    .acc-trait {
+      border: 0 solid var(--ill-fleche);
+    }
+
+    .acc-haut .acc-trait {
+      height: 9px;
+      margin-top: 5px;
+      border-width: 2px 2px 0;
+      border-radius: 3px 3px 0 0;
+    }
+
+    .acc-bas .acc-trait {
+      height: 9px;
+      margin-bottom: 6px;
+      border-width: 0 2px 2px;
+      border-radius: 0 0 3px 3px;
+    }
+
+    .acc-total {
+      grid-row: 1;
+      grid-column: 1 / 4;
+
+      .acc-txt b { font-size: 1.5rem; }
+    }
+
+    .acc-contrat {
+      grid-row: 2;
+      grid-column: 1 / 3;
+      margin-top: 10px;
+    }
+
+    .acc-org {
+      grid-row: 4;
+      grid-column: 2 / 4;
+      margin-top: 46px;
+    }
+
+    /* la barre, en trois parts */
+    .seg {
+      position: relative;
+      grid-row: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 58px;
+      margin-top: 6px;
+      padding: 0 10px;
+      text-align: center;
+    }
+
+    .seg-m {
+      font-size: 1.05rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .seg-net {
+      grid-column: 1;
+      border-radius: 8px 0 0 8px;
+      background: var(--color-slate-800);
+      color: var(--color-white);
+    }
+
+    .seg-sal {
+      grid-column: 2;
+      border-left: 2px solid var(--color-white);
+      background: var(--color-slate-500);
+      color: var(--color-white);
+    }
+
+    .seg-pat {
+      grid-column: 3;
+      border-left: 2px solid var(--color-white);
+      border-radius: 0 8px 8px 0;
+      background: var(--ill-fantome);
+      color: var(--color-slate-900);
+    }
+
+    /* sous la barre, le nom de chaque part */
+    .seg-lab {
+      position: absolute;
+      top: calc(100% + 7px);
+      left: 0;
+      right: 0;
+      padding: 0 4px;
+      font-size: .72rem;
+      line-height: 1.3;
+      color: var(--color-slate-500);
+
+      strong {
+        font-weight: 700;
+        color: var(--color-slate-800);
+      }
+    }
+
+    /* Contraste élevé : la barre est faite de fonds ; on garde ses trois
+       parts, séparées par des traits. */
+    @media (forced-colors: active) {
+      .seg {
+        forced-color-adjust: none;
+        border: 1px solid CanvasText;
+        background: Canvas;
+        color: CanvasText;
+      }
+
+      .seg-net {
+        background: CanvasText;
+        color: Canvas;
+      }
+
+      .seg-lab,
+      .seg-lab strong {
+        color: CanvasText;
+      }
+    }
+
+    /* En étroit : même grille, axes échangés. La barre se dresse ; les deux
+       accolades du dessus passent à gauche, celle du dessous à droite. */
+    @container (max-width: 36em) {
+      .schema {
+        grid-template-columns: 86px 80px 1fr 88px;
+        grid-template-rows: var(--parts);
+        column-gap: 5px;
+        height: 400px;
+      }
+
+      .acc {
+        flex-direction: row;
+        align-items: stretch;
+      }
+
+      .acc-txt {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: .68rem;
+        line-height: 1.3;
+
+        b {
+          display: block;
+          margin: 0 0 2px;
+          font-size: .9rem;
+        }
+      }
+
+      .acc-trait {
+        flex: none;
+        width: 8px;
+        height: auto;
+        margin: 0;
+      }
+
+      .acc-haut .acc-txt { padding-right: 5px; text-align: right; }
+      .acc-haut .acc-trait { height: auto; margin: 0; border-width: 2px 0 2px 2px; border-radius: 3px 0 0 3px; }
+      .acc-bas .acc-txt { padding-left: 5px; text-align: left; }
+      .acc-bas .acc-trait { height: auto; margin: 0; border-width: 2px 2px 2px 0; border-radius: 0 3px 3px 0; }
+
+      .acc-total { grid-row: 1 / 4; grid-column: 1; }
+      .acc-total .acc-txt b { font-size: 1.1rem; }
+      .acc-contrat { grid-row: 1 / 3; grid-column: 2; margin-top: 0; }
+      .acc-org { grid-row: 2 / 4; grid-column: 4; margin-top: 0; }
+
+      .seg {
+        grid-column: 3;
+        height: auto;
+        min-height: 0;
+        margin: 0;
+        padding: 4px 6px;
+      }
+
+      .seg-net { grid-row: 1; border-radius: 8px 8px 0 0; }
+      .seg-sal { grid-row: 2; border-left: 0; border-top: 2px solid var(--color-white); }
+      .seg-pat { grid-row: 3; border-left: 0; border-top: 2px solid var(--color-white); border-radius: 0 0 8px 8px; }
+      .seg-m { font-size: .92rem; }
+
+      /* le nom passe dans la barre, à la couleur du texte de sa part */
+      .seg-lab {
+        position: static;
+        margin-top: 2px;
+        padding: 0;
+        font-size: .62rem;
+        line-height: 1.2;
+        color: inherit;
+
+        strong { color: inherit; }
+      }
+    }
+  }
+
+  /* ── Chapitre 11 — m1/illustration/UnResultatTroisParts.vue ───────────────
+     Une seule colonne : les associés, le résultat tel que le Bilan arrêté le
+     porte, une fourche à trois branches, trois parts sans montant. Traits en
+     bordures. La fourche mesure deux tiers de la largeur plus un tiers de
+     la gouttière (--ecart) : ses branches tombent au milieu de chaque case.
+     En étroit, même disposition, textes et icônes réduits. */
+  &.un-resultat-trois-parts {
+
+    .scene {
+      --ecart: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* la décision */
+    .qui {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qui-icones {
+      display: flex;
+      gap: 2px;
+    }
+
+    .qui-icone {
+      display: block;
+      font-size: 34px;
+      color: var(--ill-encre);
+    }
+
+    .qui-texte {
+      text-align: left;
+      font-size: .76rem;
+      line-height: 1.3;
+
+      b {
+        display: block;
+        font-weight: 700;
+        color: var(--color-slate-800);
+      }
+
+      span {
+        display: block;
+        font-size: .66rem;
+        color: var(--color-slate-500);
+      }
+    }
+
+    /* le résultat, tel que le Bilan arrêté le porte */
+    .micro {
+      margin-top: 12px;
+      padding: 7px 16px 8px;
+      border: 1.5px solid var(--ill-encre);
+      border-radius: 8px;
+      background: var(--color-white);
+    }
+
+    .micro-titre {
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      color: var(--color-slate-600);
+    }
+
+    .micro-lib {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 3px;
+      font-size: .76rem;
+      color: var(--ill-encre);
+    }
+
+    .micro-icone {
+      display: block;
+      font-size: 15px;
+    }
+
+    .micro-val {
+      margin-top: 1px;
+      font-size: 1.45rem;
+      font-weight: 800;
+      line-height: 1.15;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    /* la fourche : le résultat se partage, c'est le sujet */
+    .fourche {
+      position: relative;
+      width: calc(200% / 3 + var(--ecart) / 3);
+      height: 30px;
+    }
+
+    .tronc,
+    .milieu {
+      position: absolute;
+      left: calc(50% - 1px);
+      border-left: 2px solid var(--ill-fleche);
+    }
+
+    .tronc {
+      top: 0;
+      height: 12px;
+    }
+
+    .milieu {
+      top: 12px;
+      bottom: 0;
+    }
+
+    .branches {
+      position: absolute;
+      top: 12px;
+      right: -1px;
+      bottom: 0;
+      left: -1px;
+      border: 2px solid var(--ill-fleche);
+      border-bottom: 0;
+    }
+
+    .parts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--ecart);
+      width: 100%;
+    }
+
+    .part {
+      padding: 8px 6px 9px;
+      border: 1.5px solid var(--ill-encre);
+      border-radius: 6px;
+      background: var(--color-white);
+      text-wrap: balance;
+
+      b {
+        display: block;
+        font-size: .76rem;
+        font-weight: 800;
+        line-height: 1.25;
+        color: var(--color-slate-900);
+      }
+
+      span {
+        display: block;
+        margin-top: 3px;
+        font-size: .66rem;
+        line-height: 1.3;
+        color: var(--color-slate-600);
+      }
+    }
+
+    /* Contraste élevé : les icônes sont des fonds masqués. */
+    @media (forced-colors: active) {
+      .qui-icone,
+      .micro-icone {
+        forced-color-adjust: none;
+        color: CanvasText;
+      }
+    }
+
+    /* (--ecart est posé sur .scene : le conteneur ne s'interroge pas
+       lui-même) */
+    @container (max-width: 36em) {
+      .scene { --ecart: 5px; }
+
+      .qui-icone { font-size: 30px; }
+      .micro-val { font-size: 1.3rem; }
+      .part { padding: 7px 4px 8px; }
+      .part b { font-size: .68rem; }
+      .part span { font-size: .6rem; }
+    }
+  }
+
+  /* ── Chapitre 12 — m1/illustration/ArgentAu31Decembre.vue ─────────────────
+     Quatre lignes du Bilan et la machine, à une seule échelle. Trois
+     colonnes : intitulé, piste, montant — les montants à droite, pour que le
+     trait de la trésorerie ne passe sur aucun chiffre. Le composant pose
+     --max (la plus longue barre) et --niveau (la trésorerie) sur .graphe,
+     et --m (son montant) sur chaque barre. */
+  &.argent-au-31-decembre {
+
+    .quand {
+      text-align: left;
+    }
+
+    .graphe {
+      --libelles: 150px;
+      --montant: 96px;
+      position: relative;
+      display: grid;
+      grid-template-columns: var(--libelles) 1fr var(--montant);
+      align-items: center;
+      row-gap: 8px;
+      margin-top: 16px;
+    }
+
+    .groupe {
+      grid-column: 1 / -1;
+      margin-top: 10px;
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--color-slate-500);
+
+      &.premier { margin-top: 0; }
+
+      &.projet {
+        margin-top: 18px;
+        padding-top: 12px;
+        border-top: 1px solid var(--ill-fantome);
+      }
+    }
+
+    .lib {
+      padding-right: 10px;
+      font-size: .72rem;
+      line-height: 1.2;
+      color: var(--ill-encre);
+    }
+
+    .piste {
+      min-width: 0;
+    }
+
+    .barre {
+      display: block;
+      height: 22px;
+      border-radius: 4px;
+      width: calc(100% * var(--m) / var(--max));
+    }
+
+    .actif .barre {
+      background: var(--color-slate-800);
+    }
+
+    .passif .barre {
+      border: 1.5px solid var(--ill-encre);
+      background: var(--color-white);
+    }
+
+    .projet .barre {
+      border: 1.5px dashed var(--ill-encre);
+      background: var(--color-white);
+    }
+
+    .val {
+      padding-left: 12px;
+      text-align: right;
+      font-size: .86rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    /* le niveau de la trésorerie, prolongé sur tout le graphe */
+    .niveau {
+      position: absolute;
+      top: -4px;
+      bottom: 0;
+      width: 0;
+      left: calc(var(--libelles) + (100% - var(--libelles) - var(--montant)) * var(--niveau) / var(--max));
+      border-left: 1.5px dashed var(--ill-fleche);
+
+      span {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        margin-bottom: 3px;
+        transform: translateX(-50%);
+        font-size: .6rem;
+        font-weight: 600;
+        white-space: nowrap;
+        color: var(--ill-fleche);
+      }
+    }
+
+    /* Contraste élevé : les barres pleines sont des fonds, que le navigateur
+       effacerait. On les garde en couleurs système. */
+    @media (forced-colors: active) {
+      .barre {
+        forced-color-adjust: none;
+      }
+
+      .actif .barre {
+        background: CanvasText;
+      }
+
+      .passif .barre,
+      .projet .barre {
+        background: Canvas;
+        border-color: CanvasText;
+      }
+    }
+
+    /* En étroit : l'intitulé passe au-dessus de sa barre, devant le trait
+       (fond blanc sous le texte seul). Même échelle. */
+    @container (max-width: 32em) {
+      .graphe {
+        --libelles: 0px;
+        --montant: 78px;
+        grid-template-columns: 1fr var(--montant);
+        row-gap: 2px;
+        margin-top: 24px;
+      }
+
+      .lib {
+        position: relative;
+        z-index: 1;
+        grid-column: 1 / -1;
+        margin-top: 6px;
+        padding: 0;
+
+        span {
+          padding-right: 4px;
+          background: var(--color-white);
+        }
+      }
+
+      .groupe { margin-top: 8px; }
+      .groupe.premier { margin-top: 0; }
+      .groupe.projet { margin-top: 14px; }
+      .barre { height: 18px; }
+      .val { font-size: .8rem; }
+    }
+  }
+
+  /* ═════════════════════════════════════════════════════════════════════════
+     3 — HORS CHAPITRE
+     ═════════════════════════════════════════════════════════════════════════ */
+
+  /* ── m1/illustration/DeuxColonnes.vue ─────────────────────────────────────
+     Pas liée à un chapitre : l'écran du module en général, pour la section
+     « Simulez, Visualisez, Comprenez ». Tout en dur côté template (pas de
+     scene, pas de v-for) : classes propres (.col-texte, .col-comptes,
+     .moment) — .moment n'est pas .ligne du vocabulaire commun, qui empile
+     intitulé et montant plutôt que de les mettre côte à côte.
+     Aucune bordure ne délimite une zone (demande de Pascal) : le Bilan, le
+     Compte de Résultat, le Grand Journal et les montants du texte ne sont
+     séparés que par le titre et l'espacement. Le conteneur des deux colonnes
+     est le div.flex du template (classe Tailwind, pas une classe à nous) :
+     .flex ici ne lui donne qu'un espacement. */
+  &.deux-colonnes {
+
+    & > .flex {
+      gap: 22px;
+    }
+
+    .col-texte {
+      flex: 1.15;
+      min-width: 0;
+    }
+
+    .col-comptes {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* le montant du texte ou d'un document : intitulé et montant côte à
+       côte, sans cadre. En compact (dans un document), plus petit. */
+    .moment {
+      margin-top: 11px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .moment-lib {
+      font-size: .72rem;
+      line-height: 1.25;
+      color: var(--ill-encre);
+    }
+
+    .moment-val {
+      font-size: .78rem;
+      font-weight: 800;
+      color: var(--color-slate-900);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .moment.compact {
+      margin-top: 8px;
+    }
+
+    .moment.compact .moment-lib { font-size: .6rem; }
+    .moment.compact .moment-val { font-size: .72rem; }
+
+    /* sans cadre, le document ne garde que son titre pour se signaler ;
+       la hauteur minimale du vocabulaire commun (112px) reste à 0, pensée
+       pour une seule colonne à deux blocs (Ch. 1, 6), pas pour trois
+       documents empilés sans bordure pour les séparer */
+    .document {
+      border: none;
+    }
+
+    .colonne {
+      min-height: 0;
+    }
+
+    .colonne .fantome {
+      margin-top: 7px;
+    }
+
+    .journal .moment:first-child {
+      margin-top: 8px;
+    }
+  }
+}

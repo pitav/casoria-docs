@@ -1,0 +1,510 @@
+<p class="kicker">Comprendre la comptabilité sans être comptable — composant du Chapitre 6</p>
+<h1>&lt;AvantApresStock /&gt;</h1>
+<p class="chapo">Fiche v4, 15 septembre 2026. <strong>La v4 rassemble la réponse en un seul endroit et la
+nomme.</strong> Elle arrivait à deux endroits — une phrase dans le panneau d'activité, une autre sous le
+document — et on ne savait plus laquelle était la bonne. Il n'y a désormais qu'un <strong>panneau de
+verdict</strong>, placé juste sous le panneau d'activité, qui porte le mot, la remarque adressée à la
+réponse donnée, et ce qui s'est passé. <strong>Trois verdicts et non deux</strong>, section 7. La v3
+corrigeait le geste&nbsp;: trois boutons d'action pour une question à réponse unique disaient
+«&nbsp;faites l'une de ces trois choses&nbsp;» quand il fallait dire «&nbsp;une seule de ces trois est
+vraie&nbsp;». Ce sont désormais trois boutons radio et un bouton de validation, les trois restent à l'écran
+après le choix, et le pied porte le «&nbsp;Tout reprendre&nbsp;» des trois autres composants à la place d'un
+«&nbsp;Revoir&nbsp;» dont personne ne voyait l'effet. <strong>La v2 ne changeait aucune décision de
+fond</strong> non plus&nbsp;:
+elle reprenait la v1 sur la feuille <code>activite.css</code> telle qu'elle est aujourd'hui, amber et non
+sable, et sur le patron de <code>M1ActiviteSection</code> que portent le <code>&lt;TriActifPassif /&gt;</code>
+et le <code>&lt;FriseEncaissement /&gt;</code> — d'où la disposition, qui met le panneau d'activité avant le
+document&nbsp;; les libellés de compte, qui suivent ceux de la frise&nbsp;; et la ligne qui arrive, qui
+devient un élément acquis. Sources&nbsp;: déroulé de module v27, sections 2, 5 et 7,
+fiche du Chapitre 6 et son bloc d'arbitrages, le Chapitre 6 livré, et les deux composants ci-dessus. Cette fiche dit ce que le composant doit obtenir
+et comment il se comporte&nbsp;; elle ne dit pas comment il s'écrit. <strong>La consigne, la question, les
+trois réponses et les trois textes de verdict sont du texte affiché à l'apprenant</strong>&nbsp;:
+ils relèvent de la charte et se relisent comme du corps de chapitre. Elle applique les trois règles de
+composant du 12 septembre 2026. Ce qui reste à trancher est rassemblé à la dernière section.</p>
+<p class="pied">Casoria — &lt;AvantApresStock /&gt;, fiche v4</p>
+
+<h2 class="nu">1 — Ce que le composant doit obtenir</h2>
+<p>Le déroulé donne l'objectif en une phrase, «&nbsp;provoquer une prise de position avant
+l'explication&nbsp;», et la table de la section 5 donne la forme, «&nbsp;prise de position, puis révélation
+animée&nbsp;». Le point de vigilance pédagogique de la fiche du chapitre dit pourquoi&nbsp;: l'apprenant va
+chercher ce montant du mauvais côté, et c'est exactement là que la compréhension se joue. Le composant est
+donc le seul endroit du module où une erreur est <em>souhaitée</em> avant d'être réparée.</p>
+<ul>
+<li><strong>Le résultat monte.</strong> C'est la réponse la moins spontanée des trois, et la seule chose que
+l'apprenant doit avoir vue de ses yeux avant de lire la section qui l'explique.</li>
+<li><strong>Le total des charges ne bouge pas.</strong> C'est l'autre moitié de la leçon, et c'est la seule
+que le composant enseigne seul&nbsp;: une colonne qui reste immobile pendant que l'autre grandit se voit,
+elle ne se raconte pas.</li>
+<li><strong>La position est prise avant, jamais après.</strong> Un apprenant qui a répondu «&nbsp;il
+baisse&nbsp;» lit la section suivante autrement qu'un apprenant qui ne s'est pas engagé. C'est tout ce que
+l'activité achète, et cela suffit à la justifier.</li>
+</ul>
+<p class="declaration">Le composant montre que le résultat monte. Le texte dit pourquoi.</p>
+<p>C'est le partage du <code>&lt;CalculetteTva /&gt;</code>, à sa deuxième application, et il faut le tenir
+aussi fermement&nbsp;: là-bas le composant produisait le nombre et le texte le nommait&nbsp;; ici le
+composant produit le mouvement et le texte en donne la raison. Toute la section 5 de cette fiche consiste à
+écarter le <em>pourquoi</em>, qui appartient au sous-titre suivant.</p>
+
+<h2>2 — Sa place dans le chapitre</h2>
+<p>En fin du premier sous-titre, «&nbsp;Ce que l'entreprise détient n'est pas toujours de l'argent&nbsp;»,
+juste après le paragraphe qui pose la question et avant le sous-titre «&nbsp;Les charges et les produits ne
+comptent pas le même café&nbsp;». C'est l'emplacement que porte le chapitre livré, et la fiche du chapitre a
+dû l'arbitrer&nbsp;: la fiche d'origine plaçait l'activité en ouverture du second sous-titre, dont le titre
+est rédigé en affirmation et aurait révélé la réponse.</p>
+<div class="note"><span class="t">La question est celle du corps, pas celle de la fiche de chapitre</span>
+<p>La fiche demandait «&nbsp;le résultat baisse-t-il, reste-t-il inchangé, augmente-t-il&nbsp;?&nbsp;» en
+attendant <em>augmente</em>. Posée sur l'événement, la bonne réponse est pourtant <em>inchangé</em>&nbsp;:
+l'entreprise a payé son café d'un côté et en récupère la valeur de l'autre. <strong>«&nbsp;Augmente&nbsp;»
+n'est vrai que de la grille telle qu'elle est affichée</strong>, où les achats sont déjà inscrits et la
+valeur produite ne l'est pas encore. Le corps pose donc la question sur les deux totaux affichés, et le
+composant reprend ses mots au caractère près — «&nbsp;faire baisser le résultat, le laisser où il est, ou le
+faire monter&nbsp;». <strong>Rien dans le composant ne demande si l'entreprise s'est enrichie</strong>&nbsp;:
+à cette question-là, la réponse serait non, et c'est la déclaration du sous-titre suivant qui la porte.</p></div>
+
+<h2>3 — L'écran dont le composant dispose</h2>
+<p class="declaration">Le composant occupe la place du Compte de Résultat. Il doit donc le porter.</p>
+<p>Le dispositif partage la page en deux dans le sens de la hauteur, le texte à gauche, le Bilan et le Compte
+de Résultat à droite, et c'est dans cette colonne de droite que les composants s'affichent. <strong>La
+largeur utile est de l'ordre de 700&nbsp;px</strong>, et la maquette de la section suivante est faite à
+720&nbsp;px. Mais la règle 3 a ici une conséquence que les trois composants précédents n'avaient pas
+rencontrée&nbsp;: tant que le composant est affiché, le document sur lequel porte sa question ne l'est pas.
+Il ne peut donc pas y renvoyer, il doit le montrer.</p>
+<p>C'est ce qui ouvre, pour ce composant et pour lui seul jusqu'ici, le critère restrictif de la charte,
+section 18. Le trajet vers le document n'est pas fastidieux, il est <strong>impossible</strong> à l'instant
+où la question se pose.</p>
+<div class="note"><span class="t">La grille ne porte aucune ligne de résultat avant le Chapitre 11</span>
+<p>Vérifié à la section 2 du déroulé&nbsp;: dans la colonne Charges, «&nbsp;= Résultat avant impôt&nbsp;» et
+«&nbsp;Résultat net&nbsp;» s'allument au Chapitre 11, et rien d'autre ne les précède. <strong>Au Chapitre 6,
+le Compte de Résultat affiche deux totaux et pas de résultat.</strong> Le composant porte donc sa ligne de
+résultat <em>sous</em> le document et non dedans&nbsp;: le document est ce que l'apprenant retrouvera à
+l'écran, la ligne est la lecture que le composant en fait. C'est aussi ce qui interdit de la dessiner comme
+une ligne de grille.</p></div>
+<p>Ce que la règle impose pour le reste.</p>
+<ul>
+<li><strong>Deux colonnes, pas quatre.</strong> Un «&nbsp;avant&nbsp;» et un «&nbsp;après&nbsp;» côte à côte
+auraient demandé quatre colonnes dans 700&nbsp;px. Le composant montre un seul document qui change, ce qui
+est de toute façon la bonne image&nbsp;: l'avant et l'après sont deux instants, pas deux objets.</li>
+<li><strong>Les totaux des deux colonnes sont alignés</strong>, comme à la grille depuis le déroulé v26. La
+colonne la plus courte se remplit de vide, et l'écart entre les deux totaux se lit d'un seul regard.</li>
+<li><strong>Une ligne, un compte, un montant.</strong> La grille porte deux lignes par compte, numéro et nom
+de classe puis terme métier&nbsp;; les composants du module n'en gardent qu'une, numéro et libellé
+pédagogique — «&nbsp;601 Achats de café vert&nbsp;». Le <code>&lt;FriseEncaissement /&gt;</code> a déjà fixé
+ces intitulés, et celui-ci les reprend au caractère près.</li>
+</ul>
+
+<h2>4 — Anatomie de l'écran</h2>
+<p>De haut en bas, cinq bandes. La consigne, le panneau d'activité en amber qui porte la question et les
+trois réponses, <strong>le panneau de verdict</strong>, le document en slate, et le résultat sous son filet.
+C'est la disposition du <code>&lt;FriseEncaissement /&gt;</code> — panneau d'activité d'abord, documents
+ensuite — avec le verdict inséré entre les deux.</p>
+<p class="declaration">La réponse arrive en un seul endroit, et c'est celui où l'apprenant vient de
+cliquer.</p>
+<table>
+<thead><tr><th style="width:26%">Élément d'écran</th><th>Contenu et rôle</th></tr></thead>
+<tbody>
+<tr><td class="cle">Consigne</td><td>Le titre de l'activité, une phrase, qui dit ce qui ne figure pas encore
+au document. Proposition&nbsp;: «&nbsp;Le café torréfié qui attend sur les étagères ne figure pas encore au
+Compte de Résultat.&nbsp;»</td></tr>
+<tr><td class="cle">Ligne de régime</td><td>Une ligne, en petit. «&nbsp;Rien n'est noté. Vous répondez, et la
+suite s'affiche.&nbsp;» Elle prévient qu'aucune réponse ne sera refusée.</td></tr>
+<tr><td class="cle">Le panneau d'activité</td><td>Le fond amber, titré «&nbsp;La question&nbsp;». Il porte la
+question et les trois réponses, puis, après le choix, la réponse donnée et sa phrase de retour.
+<strong>Il reste en place</strong>&nbsp;: rien ne saute sous le curseur au moment du clic.</td></tr>
+<tr><td class="cle">La question</td><td>Une ligne, avec les mots du corps. «&nbsp;Une fois ces
+15&nbsp;000&nbsp;€ pris en compte, que devient le résultat&nbsp;?&nbsp;»</td></tr>
+<tr><td class="cle">Les trois réponses</td><td><strong>Trois boutons radio alignés</strong>, dans un groupe
+qui porte la question pour nom. «&nbsp;Il baisse&nbsp;», «&nbsp;Il reste où il est&nbsp;», «&nbsp;Il
+monte&nbsp;». Aucun n'est présenté comme le bon, et <strong>les trois restent à l'écran après le
+choix</strong>, celui qui a été fait marqué de sa pastille.</td></tr>
+<tr><td class="cle">Valider ma réponse</td><td>Un bouton d'activité, <strong>inactif tant qu'aucune case
+n'est cochée</strong>. Il disparaît une fois la réponse prise.</td></tr>
+<tr><td class="cle">Le panneau de verdict</td><td>Le panneau final du module, <strong>juste sous le panneau
+d'activité</strong>. Il porte le mot du verdict — «&nbsp;Bonne réponse&nbsp;», «&nbsp;Presque&nbsp;»,
+«&nbsp;Mauvaise réponse&nbsp;» —, puis la remarque adressée à la réponse donnée, puis ce qui s'est passé.
+<strong>Un seul endroit, un seul texte</strong>, section 7. Il prend la place du bouton de
+validation.</td></tr>
+<tr><td class="cle">Le document</td><td>Une zone de résultat en slate, titrée «&nbsp;Compte de
+Résultat&nbsp;» avec la question à laquelle il répond, et deux colonnes, Charges et Produits. Deux lignes de
+compte à gauche, deux à droite, chacune avec son numéro et son libellé. <strong>Aucune ligne de
+résultat.</strong> La zone passe au trait appuyé quand elle change, comme les deux documents de la
+frise.</td></tr>
+<tr><td class="cle">Les deux totaux</td><td>Au pied de chaque colonne, sur un filet plein, <strong>à la même
+hauteur</strong>. Le total des produits porte son ancienne valeur à côté de la nouvelle une fois la
+révélation faite.</td></tr>
+<tr><td class="cle">La ligne qui arrive</td><td>Dans la colonne Produits, sous les deux ventes, avec le
+liseré des éléments acquis du module. <strong>Elle porte un nom, une mention et un montant, sans numéro de
+compte</strong>, section 5.</td></tr>
+<tr><td class="cle">La ligne de résultat</td><td>Hors de la zone, sous un filet plein. «&nbsp;Le
+résultat&nbsp;», la soustraction écrite en petit, et le montant en grand. Elle est affichée dès le premier
+écran, parce qu'elle est vraie à chaque instant.</td></tr>
+<tr><td class="cle">Ce qui s'est passé</td><td>La seconde moitié du verdict, la même pour les trois
+réponses. Proposition&nbsp;: «&nbsp;Les 15&nbsp;000&nbsp;€ se sont rangés du côté des produits, et le total
+des charges n'a pas bougé d'un euro&nbsp;: le résultat passe de 6&nbsp;000&nbsp;€ à
+21&nbsp;000&nbsp;€.&nbsp;» <strong>Elle porte les nombres</strong>, et c'est elle qui tient lieu de réponse
+quand les deux colonnes s'empilent.</td></tr>
+<tr><td class="cle">Tout reprendre</td><td>Le bouton neutre des trois composants précédents, au pied, au
+même endroit et sous le même nom. Il remet l'activité à zéro — section 6.</td></tr>
+</tbody>
+</table>
+<p><img src="avant-apres-stock-a.png" alt="Maquette du composant, la question posée" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">Premier état, à 720&nbsp;px. Le panneau d'activité porte la question, les trois réponses
+et le bouton de validation, qui reste inactif tant qu'aucune case n'est cochée. Le document suit, ses deux
+totaux alignés, et le résultat sous son filet. Rien n'annonce quelle réponse est attendue.</p>
+<p><img src="avant-apres-stock-b.png" alt="Maquette du composant, après la révélation" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">Second état, la réponse validée et la révélation faite. <strong>Le verdict est
+immédiatement sous le panneau d'activité</strong>, là où l'apprenant vient de cliquer, et il porte
+tout&nbsp;: le mot, la remarque adressée à sa réponse, et ce qui s'est passé. Le document confirme juste en
+dessous — la ligne s'est inscrite du côté des produits, le total est passé de 39&nbsp;000&nbsp;€ à
+54&nbsp;000&nbsp;€ et le résultat de 6&nbsp;000&nbsp;€ à 21&nbsp;000&nbsp;€, la colonne des charges restant
+immobile et son total à la même hauteur qu'avant. Les trois réponses sont toujours à l'écran, figées, celle
+qui a été donnée marquée de sa pastille.</p>
+<p><img src="avant-apres-stock-c.png" alt="Les trois verdicts" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">Les trois verdicts, à comparer. <strong>Le mot dit tout à lui seul</strong>&nbsp;: un
+lecteur qui ne distingue pas les teintes lit «&nbsp;Bonne réponse&nbsp;», «&nbsp;Presque&nbsp;»,
+«&nbsp;Mauvaise réponse&nbsp;», et la seconde moitié du texte est la même pour les trois. C'est le
+«&nbsp;Presque&nbsp;» qui se discute — section 7.</p>
+
+<h2>5 — La matière, et la règle qui la choisit</h2>
+<p class="declaration">Une activité n'emploie que des notions du chapitre présent et du chapitre précédent.
+Et de son chapitre, seulement ce qu'il a déjà dit au point où elle se place.</p>
+<p>Le composant arrive tôt dans son chapitre, après quatre paragraphes seulement, et la règle est ici plus
+serrée qu'à aucun des trois composants précédents. Presque tout ce dont il paraît avoir besoin se trouve
+dans le sous-titre qui le suit.</p>
+<h3>Ce que le composant a le droit d'employer</h3>
+<table>
+<thead><tr><th style="width:34%">Notion</th><th>D'où elle vient</th></tr></thead>
+<tbody>
+<tr><td class="cle">Le stock, 15&nbsp;000&nbsp;€ de café torréfié</td><td>Premier sous-titre du chapitre,
+deux paragraphes plus haut. Défini comme des marchandises détenues et pas encore vendues.</td></tr>
+<tr><td class="cle">Les deux totaux, 39&nbsp;000&nbsp;€ et 33&nbsp;000&nbsp;€</td><td>Le paragraphe qui
+précède immédiatement le composant, et qui les cite tous les deux.</td></tr>
+<tr><td class="cle">Les quatre lignes de compte</td><td>Chapitres 3, 4 et 5. Les montants sont ceux du
+premier trimestre, inscrits au Chapitre 5.</td></tr>
+<tr><td class="cle">Le résultat, produits moins charges</td><td>Chapitre 1, qui installe les deux documents
+et leur fermeture.</td></tr>
+<tr><td class="cle">Le résultat n'est pas la trésorerie</td><td>Chapitres 4 et 5, dans les deux sens. Sert à
+la phrase de retour de la réponse «&nbsp;il reste où il est&nbsp;».</td></tr>
+</tbody>
+</table>
+<h3>La matière retenue</h3>
+<table>
+<thead><tr><th style="width:46%">Ligne</th><th class="num" style="width:16%;padding-right:16px">Montant</th><th>Colonne</th></tr></thead>
+<tbody>
+<tr><td>601 Achats de café vert</td><td class="num" style="padding-right:16px">25&nbsp;000</td><td>Charges</td></tr>
+<tr><td>615 Autres charges externes</td><td class="num" style="padding-right:16px">8&nbsp;000</td><td>Charges</td></tr>
+<tr><td>701 Ventes aux professionnels</td><td class="num" style="padding-right:16px">30&nbsp;000</td><td>Produits</td></tr>
+<tr><td>707 Ventes au comptoir</td><td class="num" style="padding-right:16px">9&nbsp;000</td><td>Produits</td></tr>
+<tr><td>Le café invendu — la ligne qui arrive</td><td class="num" style="padding-right:16px">15&nbsp;000</td><td>Produits</td></tr>
+<tr class="total"><td>Le résultat, avant puis après</td><td class="num" style="padding-right:16px">6&nbsp;000 → 21&nbsp;000</td><td>33&nbsp;000 de charges, inchangé</td></tr>
+</tbody>
+</table>
+<p>Les quatre lignes de compte portent les libellés que le <code>&lt;FriseEncaissement /&gt;</code> a fixés
+pour les composants — la grille, elle, porte en plus le nom de classe —, et leurs montants sont ceux que le
+panneau automatique du Chapitre 5 a inscrits. <strong>Les deux totaux
+tombent juste</strong>&nbsp;: 25&nbsp;000 et 8&nbsp;000 font les 33&nbsp;000&nbsp;€ de charges,
+30&nbsp;000 et 9&nbsp;000 les 39&nbsp;000&nbsp;€ de produits, et ce sont les deux nombres que le paragraphe
+d'au-dessus vient de citer.</p>
+<div class="note"><span class="t">La ligne qui arrive ne porte pas de numéro de compte, et c'est voulu</span>
+<p>À la grille, cette case s'appelle «&nbsp;7135 Variation des stocks · Café torréfié&nbsp;», et elle
+s'allume bien au Chapitre 6. Mais <strong>le terme appartient au sous-titre suivant</strong>, et le numéro au
+panneau d'écritures qui le clôt. Le composant nomme donc la ligne avec les mots que le corps a déjà donnés,
+«&nbsp;Le café invendu&nbsp;», sa mention dit «&nbsp;ce que l'atelier a produit et pas encore
+vendu&nbsp;», et elle reste sans numéro quand les quatre autres en portent un.
+<strong>L'asymétrie est lisible et elle est juste</strong>&nbsp;: cette ligne n'a pas encore de nom de compte
+parce que le chapitre ne l'a pas encore donné. C'est le miroir exact de la
+<code>&lt;CalculetteTva /&gt;</code>, où la ligne ne portait pas son compte pour une raison inverse —
+là-bas parce que le compte était la question, ici parce qu'il est la réponse d'après.</p></div>
+<h3>Ce que la règle écarte, et pourquoi</h3>
+<table>
+<thead><tr><th style="width:34%">Écarté</th><th>Motif</th></tr></thead>
+<tbody>
+<tr><td class="cle">Le terme «&nbsp;variation de stock&nbsp;», le compte 7135</td><td>Le sous-titre suivant,
+qui les introduit tous les deux. Voir la section 1&nbsp;: le composant produit le mouvement, le texte le
+nomme.</td></tr>
+<tr><td class="cle">Le raisonnement — le coût est déjà compté du côté des charges</td><td>C'est le
+<em>pourquoi</em>, et il est la matière entière du sous-titre suivant. <strong>Aucune phrase du composant ne
+l'approche</strong>, y compris les trois phrases de retour, qui ne parlent que de ce qui est à l'écran.</td></tr>
+<tr><td class="cle">«&nbsp;C'est en vendant ce café, pas en le produisant, que Latitude Café gagnera quelque
+chose&nbsp;»</td><td>La déclaration du sous-titre suivant. C'est elle qui répare le risque de la section 5,
+et une activité ne prend pas au chapitre ce qu'il se réserve.</td></tr>
+<tr><td class="cle">Le Bilan, le compte 355, la ligne de stock à l'Actif</td><td>L'Actif a été nommé deux
+paragraphes plus haut, donc le sujet est licite. <strong>Écarté par le test des axes</strong>&nbsp;:
+l'illustration du chapitre montre les mêmes 15&nbsp;000&nbsp;€ aux deux endroits en même temps, le composant
+montre le sens de variation du résultat. Deux axes, aucun doublon — et c'est l'illustration qui cède si l'un
+des deux doit céder, jamais le composant.</td></tr>
+<tr><td class="cle">L'écriture, ses deux lignes, le débit et le crédit</td><td>Le panneau, deux sous-titres
+plus bas. Le composant ne montre aucune écriture, aucun sens, aucune colonne de journal — même frontière
+qu'à la <code>&lt;CalculetteTva /&gt;</code> et au <code>&lt;FriseEncaissement /&gt;</code>.</td></tr>
+<tr><td class="cle">La TVA, les comptes 4456 et 4457, la ligne 4455 au Bilan</td><td>Chapitre 5, donc
+licites. Absentes tout de même&nbsp;: le Compte de Résultat ne porte pas un centime de taxe, et le
+Chapitre 5 l'a écrit noir sur blanc. Les faire apparaître ici démentirait sa dernière section.</td></tr>
+<tr><td class="cle">Le stock initial, le stock final, l'écart entre les deux</td><td>Le sous-titre suivant
+pour la définition, le Chapitre 10 pour le recomptage. Le composant ne dit pas d'où viennent les
+15&nbsp;000&nbsp;€ — le corps ne l'écrit pas non plus, et le déroulé v27 le porte en attente.</td></tr>
+<tr><td class="cle">La date, «&nbsp;fin avril&nbsp;»</td><td><strong>Le composant ne date rien.</strong> La
+grille ne porte à cet instant que le premier trimestre&nbsp;: les 39&nbsp;000&nbsp;€ et les
+33&nbsp;000&nbsp;€ sont ce que l'écran affiche, pas les chiffres réels de fin avril. La consigne dit
+«&nbsp;tel qu'il s'affiche aujourd'hui&nbsp;», ce qui est vrai des deux.</td></tr>
+<tr><td class="cle">Les cinq semaines de ventes, l'ordre de grandeur du stock</td><td>Dit deux paragraphes
+plus haut, donc licite. Sans emploi ici&nbsp;: le composant travaille sur un sens de variation, pas sur une
+proportion.</td></tr>
+</tbody>
+</table>
+<div class="note"><span class="t">Le risque connu de cette matière</span>
+<p>Le résultat passe de 6&nbsp;000&nbsp;€ à 21&nbsp;000&nbsp;€, il est multiplié par trois et demi, et c'est
+un spectacle. <strong>Un apprenant peut en repartir avec «&nbsp;torréfier rapporte&nbsp;»</strong>, ce qui
+est exactement la fausse règle que le chapitre existe pour défaire. La protection est
+textuelle&nbsp;: le composant n'emploie jamais les verbes <em>gagner</em>, <em>rapporter</em> ni
+<em>enrichir</em>, il ne parle que de totaux et de colonnes&nbsp;; la déclaration du sous-titre suivant et le
+troisième sous-titre entier, «&nbsp;On ne paie pas un fournisseur avec du café&nbsp;», font le reste.
+<strong>Le chiffre à regarder aux tests, et c'est peut-être le plus intéressant du module&nbsp;: la
+répartition des trois réponses.</strong> Le point de vigilance de la fiche de chapitre attend une majorité
+de «&nbsp;il baisse&nbsp;»&nbsp;; si la majorité répond «&nbsp;il monte&nbsp;» du premier coup, c'est le
+chapitre qui a trop dit avant le composant, et c'est son premier sous-titre qu'il faut relire.</p></div>
+
+<h2>6 — Ce qui se passe, geste par geste</h2>
+<table>
+<thead><tr><th style="width:26%">Situation</th><th>Réponse du composant</th></tr></thead>
+<tbody>
+<tr><td class="cle">Le geste</td><td><strong>Deux temps&nbsp;: on coche, puis on valide.</strong> Une seule
+décision dans tout le composant, et c'est ce qui le sépare des trois précédents. Au clavier, les flèches
+parcourent le groupe et l'espace coche, sans rien déclencher&nbsp;; c'est le bouton de validation qui
+engage.</td></tr>
+<tr><td class="cle">La réponse est prise</td><td>La révélation part, <strong>quelle que soit la
+réponse</strong>. Aucune n'est refusée, aucune ne porte de croix, aucune n'est rouge. La seule différence
+entre les trois est la phrase qui accompagne.</td></tr>
+<tr><td class="cle">La révélation, dans l'ordre</td><td>La ligne s'inscrit du côté des produits&nbsp;; le
+total des produits passe de 39&nbsp;000 à 54&nbsp;000&nbsp;; le résultat passe de 6&nbsp;000&nbsp;€ à
+21&nbsp;000&nbsp;€. <strong>La colonne des charges ne bouge pas, et c'est ce qu'il faut voir.</strong> Une
+seconde et demie en tout, pas davantage. <strong>Les deux nombres changent d'un coup, ils ne défilent
+pas</strong>&nbsp;: un compteur qui monte ferait passer sous les yeux une suite de nombres faux, ce que la
+règle de la <code>&lt;CalculetteTva /&gt;</code> interdit déjà à un résultat.</td></tr>
+<tr><td class="cle">Après</td><td>Les deux valeurs anciennes restent à côté des nouvelles, le total des
+produits comme le résultat. L'apprenant qui a détourné les yeux retrouve l'avant et l'après sans rien
+rejouer.</td></tr>
+<tr><td class="cle">Tout reprendre</td><td>Le bouton du pied remet l'activité à zéro&nbsp;: la case se
+décoche, la ligne ressort, les deux nombres reviennent. <strong>Comme aux trois autres composants, au même
+endroit et sous le même nom.</strong></td></tr>
+<tr><td class="cle">Quitter et revenir</td><td>L'état est conservé. L'apprenant retrouve le composant tel
+qu'il l'a laissé, et la question ne se repose pas.</td></tr>
+<tr><td class="cle">Mouvement réduit</td><td>Sous <code>prefers-reduced-motion</code>, les deux états
+basculent sans animation et la région d'annonce dit ce qui a changé. Rien n'est perdu&nbsp;: le composant
+porte l'avant et l'après à l'écrit.</td></tr>
+</tbody>
+</table>
+<div class="note"><span class="t">Un total ne bouge sous les yeux de l'apprenant que dans un composant</span>
+<p>C'est la première fois du module qu'un nombre s'anime, et cela paraît contredire la règle de saisie du
+21 août 2026&nbsp;: <em>interdit de demander de regarder un total bouger pendant qu'une ligne s'inscrit.</em>
+<strong>Cette règle vise la grille, pas un composant.</strong> Son motif est que le texte et la grille sont
+sur le même écran sans être dans le même champ de vision, et qu'un téléphone les sépare d'un défilement. Un
+composant, lui, tient son propre cadre&nbsp;: la ligne et le total qu'elle déplace sont à deux centimètres
+l'un de l'autre, à toutes les largeurs, et c'est le composant qui en répond. <strong>La règle se reformule
+donc ainsi&nbsp;: un total ne bouge sous les yeux de l'apprenant que dans un composant, jamais dans la
+grille.</strong> À porter au déroulé, section 4, à côté du comportement du panneau automatique.</p>
+<p>C'est aussi, incidemment, la première mise en œuvre de la réparation que cette même règle appelait&nbsp;:
+<strong>afficher l'ancienne valeur à côté de la nouvelle</strong>. Elle est ici gratuite, et elle affranchit
+la phrase de clôture de toute mise en page.</p></div>
+
+<h2>7 — Le verdict, et pourquoi il en faut trois</h2>
+<p>C'est une question à réponse unique, donc elle se corrige&nbsp;: le composant dit en toutes lettres ce
+que vaut la réponse donnée. <strong>Mais deux verdicts ne suffisent pas ici</strong>, et la raison est dans
+la matière du chapitre, pas dans le goût.</p>
+<table>
+<thead><tr><th style="width:22%">La réponse</th><th style="width:20%">Le verdict</th><th>La remarque qui l'accompagne</th></tr></thead>
+<tbody>
+<tr><td class="cle">Il monte</td><td><strong>Bonne réponse</strong><br>lime</td><td>«&nbsp;C'est bien ce que
+font les deux totaux, et c'est la réponse qui vient le moins spontanément des trois.&nbsp;»</td></tr>
+<tr><td class="cle">Il reste où il est</td><td><strong>Presque</strong><br>amber</td><td>«&nbsp;Latitude Café
+n'a ni encaissé ni dépensé un euro de plus, et c'est vrai. Mais la question porte sur les deux totaux
+affichés, et eux ne sont pas restés en place.&nbsp;»</td></tr>
+<tr><td class="cle">Il baisse</td><td><strong>Mauvaise réponse</strong><br>error</td><td>«&nbsp;Regardez la
+colonne des charges&nbsp;: elle n'a pas bougé, et rien ne s'y est ajouté.&nbsp;»</td></tr>
+</tbody>
+</table>
+<p class="legende">Les trois sont suivies de la même phrase, celle qui dit ce qui s'est passé et porte les
+nombres. <strong>Aucune des trois ne donne la raison</strong>, qui est la matière du sous-titre suivant.</p>
+<div class="note"><span class="t">«&nbsp;Il reste où il est&nbsp;» n'est pas une mauvaise réponse</span>
+<p>Le bloc d'arbitrages de la fiche du chapitre l'écrit noir sur blanc&nbsp;: <em>posée sur l'événement, la
+bonne réponse est</em> inchangé — l'entreprise a payé son café d'un côté et en récupère la valeur de
+l'autre. <strong>Cette réponse-là est un raisonnement juste appliqué au mauvais objet</strong>, et c'est
+exactement le raisonnement que le sous-titre suivant vient honorer. La peindre en rouge et lui écrire
+«&nbsp;mauvaise réponse&nbsp;» dirait faux à quelque chose de vrai, à l'endroit précis où le chapitre
+demande de l'égard&nbsp;: la vidéo d'ouverture annonce que la plupart des gens répondent de travers
+<em>pour une raison qui les honore</em>.</p>
+<p><strong>D'où le troisième verdict</strong>, qui ne coûte qu'une teinte déjà présente dans le système. Si
+l'on devait n'en garder que deux, ce serait «&nbsp;Bonne réponse&nbsp;» pour «&nbsp;il monte&nbsp;» et
+«&nbsp;Presque&nbsp;» pour les deux autres — jamais «&nbsp;Mauvaise réponse&nbsp;» sur celle du
+milieu.</p></div>
+<div class="note"><span class="t">Un verdict n'est pas une note</span>
+<p>Le composant nomme la réponse, il ne compte rien&nbsp;: pas de score, pas de série, pas de chronomètre,
+et l'apprenant peut tout reprendre. <strong>C'est ce qui sépare encore ce composant d'un quiz</strong>, et
+c'est la seule frontière qui reste depuis que le verdict est écrit. La mesure, elle, ne retient que la
+première réponse — section 10.</p></div>
+
+<h2>8 — Ce que le composant ne fait pas</h2>
+<ul>
+<li><strong>Aucun score, aucune série, aucun chronomètre.</strong> Le composant nomme la réponse, il ne la
+compte pas, et les trois mènent au même écran. Les quiz notent, les activités corrigent et enseignent.</li>
+<li><strong>Aucune écriture, aucun journal, aucun débit ni crédit.</strong> C'est la frontière avec le
+panneau, deux sous-titres plus bas, et elle ne se franchit pas.</li>
+<li><strong>Aucun Bilan.</strong> Ni la ligne de stock à l'Actif, ni la trésorerie. L'illustration du
+chapitre porte cet axe, le composant porte l'autre.</li>
+<li><strong>Aucune trace dans le Compte de Résultat, le Bilan ou le grand journal du module.</strong> Le
+document affiché dans le composant est une représentation. La ligne de 15&nbsp;000&nbsp;€ entre pour de bon
+par le panneau, et par lui seul.</li>
+<li><strong>Aucun verbe de gain.</strong> Ni <em>gagner</em>, ni <em>rapporter</em>, ni <em>enrichir</em>, ni
+<em>bénéfice</em>. Le composant parle de totaux, de colonnes et de résultat, et le chapitre garde la charge
+de dire ce qu'une entreprise gagne.</li>
+<li><strong>Aucun curseur, aucune saisie, aucun montant à calculer.</strong> L'apprenant donne un sens de
+variation, rien d'autre.</li>
+<li><strong>Aucun mot que le chapitre n'a pas encore donné au-dessus de lui.</strong> Si un libellé en
+réclame un, c'est le libellé qui change.</li>
+</ul>
+
+<h2>9 — Palette, empilement, téléphone, clavier</h2>
+<p class="declaration">L'amber porte l'activité, le slate porte le document, et le lime ne porte que ce qui
+est acquis.</p>
+<p>C'est la seconde règle du 12 septembre, relue sur la feuille <code>activite.css</code> telle qu'elle est
+aujourd'hui. Le composant n'y ajoute aucune couleur et n'en invente aucune classe de plus que les trois
+nommées plus bas. <strong>Il est le premier du module à n'avoir aucun dépôt</strong>, donc rien en amber
+n'entre dans le document&nbsp;: la coupure tombe entre le panneau d'activité et la zone de résultat.</p>
+<table>
+<thead><tr><th style="width:34%">Rôle</th><th>Classe, et ce qu'elle porte</th></tr></thead>
+<tbody>
+<tr><td class="cle">Consigne et ligne de régime</td><td>les deux créneaux de
+<code>M1ActiviteSection</code>, comme aux trois composants précédents</td></tr>
+<tr><td class="cle">Le panneau d'activité</td><td><code>.bg-activite</code> — fond amber 50, filet amber 200.
+Son titre en <code>.titre-panneau .color-activite</code></td></tr>
+<tr><td class="cle">La question, la réponse donnée</td><td>amber 900, une taille au-dessus du corps du
+composant</td></tr>
+<tr><td class="cle">Les trois réponses</td><td><code>.option-activite</code>, classe à ajouter&nbsp;: un
+<code>label</code> à filet amber 200 sur blanc, amber 600 et fond amber 100 quand il est coché, slate quand
+le groupe est figé</td></tr>
+<tr><td class="cle">Valider ma réponse</td><td><code>.btn-activite .btn-activite-color</code> — fond
+amber 600, amber 700 au survol, slate 200 quand il est inactif</td></tr>
+<tr><td class="cle">Le panneau de verdict</td><td><code>.panneau-final</code> pour la bonne réponse,
+<code>.panneau-final-presque</code> (amber 50 et 300) et <code>.panneau-final-faux</code> (error 50 et 300),
+deux classes à ajouter. Son mot en <code>.titre-panneau</code>, qui hérite de la teinte du panneau</td></tr>
+<tr><td class="cle">Le document</td><td><code>.zone-resultat</code>, avec
+<code>.zone-resultat-nue</code> puis <code>.zone-resultat-remplie</code> — le même passage au trait appuyé
+que les deux documents de la frise quand ils bougent</td></tr>
+<tr><td class="cle">Les lignes de compte</td><td><code>.ligne-doc</code>, classe à ajouter&nbsp;: numéro et
+libellé en slate 700 à 800, filet de séparation slate 100. <strong>Ce ne sont pas des
+<code>.item-place</code></strong>, l'apprenant ne les a pas posées</td></tr>
+<tr><td class="cle">La ligne qui arrive</td><td><code>.item-place</code> — liseré lime 500 sur fond slate 50,
+exactement comme une ligne inscrite de la frise et un élément placé du tri. <strong>C'est ce qui la
+distingue des quatre autres, et c'est déjà la convention du module</strong></td></tr>
+<tr><td class="cle">Les deux totaux</td><td><code>.total-doc</code>, classe à ajouter&nbsp;: filet plein
+slate 700, et un <code>margin-top</code> automatique qui tient les deux pieds à la même hauteur</td></tr>
+<tr><td class="cle">Une valeur ancienne</td><td><code>.valeur-avant</code>, classe à ajouter&nbsp;: slate 400,
+suivie d'une flèche, à gauche de la nouvelle</td></tr>
+<tr><td class="cle">Ligne de résultat</td><td>hors de la zone, filet plein slate 700, soustraction en
+slate 500, montant en slate 800</td></tr>
+<tr><td class="cle">Le mot du verdict</td><td>C'est lui qui porte l'information&nbsp;;
+<strong>la teinte ne fait que la doubler</strong>, et c'est le premier endroit du module où cette clause se
+vérifie d'elle-même</td></tr>
+<tr><td class="cle">Tout reprendre</td><td><code>UButton size="sm" color="neutral"</code>, comme aux trois
+autres composants</td></tr>
+</tbody>
+</table>
+<p class="legende"><strong>Six classes à ajouter à <code>activite.css</code></strong>, et un état
+— <code>.ligne-doc</code>, <code>.total-doc</code>, <code>.valeur-avant</code>,
+<code>.option-activite</code>, <code>.panneau-final-presque</code>, <code>.panneau-final-faux</code>, et
+<code>.btn-activite:disabled</code>. <strong>Le <code>.panneau-final</code> existant n'est pas
+touché</strong>&nbsp;: le lime reste le cas juste, et les deux composants qui l'emploient déjà ne bougent
+pas. Tout le reste existe déjà.</p>
+<div class="note"><span class="t">La case qui s'allume ne s'invente pas ici</span>
+<p>Le déroulé, section 2, demande déjà à l'application qu'une case allumée pour la première fois et une case
+qui varie ensuite se distinguent visuellement. Le composant <strong>reprend la convention plutôt que d'en
+créer une</strong>&nbsp;: la ligne qui arrive est un <code>.item-place</code>, et le total qui varie garde
+son ancienne valeur à côté de la nouvelle. <strong>Un point à noter au passage</strong>&nbsp;: la zone de
+résultat, elle, ne se distingue que par la teinte de son filet, slate 300 puis slate 600, là où une zone de
+dépôt passe du pointillé au plein. C'est la feuille telle qu'elle est, et c'est le seul endroit du système
+où une information tient à une couleur seule.</p></div>
+<p><strong>L'empilement coûte quelque chose à ce composant, et c'est le seul des quatre dans ce cas.</strong>
+Sous 480&nbsp;px, les deux colonnes s'empilent, Charges au-dessus de Produits&nbsp;: le total des charges
+sort alors du champ de vision au moment précis où le total des produits bouge, et l'immobilité de l'un ne
+peut plus se voir. <strong>C'est la phrase de clôture qui la porte</strong>, et c'est sa vraie fonction —
+«&nbsp;Le total des charges n'a pas bougé d'un euro&nbsp;» est ce qui reste quand les deux colonnes ne sont
+plus côte à côte. Le cadre entier fait moins de 300&nbsp;px de haut en étroit, ce qui limite la casse.</p>
+<p>Au clavier, la tabulation parcourt les trois réponses et l'entrée répond. La révélation est annoncée par
+une région dédiée, qui dit la ligne inscrite, le total des produits avant et après, et que le total des
+charges ne change pas. <strong>C'est le seul endroit du module où une annonce doit dire qu'un nombre
+<em>n'a pas</em> bougé</strong>, et elle doit le dire, puisque c'est la moitié de la leçon.</p>
+
+<h2>10 — Ce que l'intégration attend</h2>
+<table>
+<thead><tr><th style="width:22%">Point</th><th>Décision</th></tr></thead>
+<tbody>
+<tr><td class="cle">Contenu</td><td>Les quatre lignes, la ligne qui arrive, la consigne, la question, les
+trois réponses, les trois phrases et la clôture vivent dans le composant. Le <code>.corps.html</code> livré
+ne porte que <code>&lt;AvantApresStock /&gt;</code>, sans attribut.</td></tr>
+<tr><td class="cle">Les montants</td><td>Cinq nombres écrits une seule fois — 25&nbsp;000, 8&nbsp;000,
+30&nbsp;000, 9&nbsp;000 et 15&nbsp;000. <strong>Les deux totaux et les deux résultats se
+calculent</strong>&nbsp;; aucun n'est écrit en dur dans une chaîne, la phrase de clôture comprise.</td></tr>
+<tr><td class="cle">Accord avec la grille</td><td><strong>Les cinq nombres doivent être ceux du Compte de
+Résultat du module à ce point du parcours.</strong> Une lecture vive depuis le store exposerait le composant
+à l'ordre dans lequel l'apprenant a travaillé&nbsp;; la recommandation est de les tenir dans le composant et
+d'ajouter un test qui les compare à l'état attendu. Un montant du scénario qui bougerait ferait alors échouer
+le test au lieu de passer inaperçu.</td></tr>
+<tr><td class="cle">Largeur</td><td>Le composant se dessine pour la colonne de droite, autour de
+700&nbsp;px, et doit tenir sans défilement interne à cette largeur.</td></tr>
+<tr><td class="cle">État</td><td>Conservé sous la même clé que la progression. <strong>La réponse choisie
+suffit</strong>&nbsp;: l'état entier s'en déduit.</td></tr>
+<tr><td class="cle">Événements</td><td>Un seul événement, la réponse validée, et <strong>seulement la
+première</strong>&nbsp;: celles qui suivent un «&nbsp;Tout reprendre&nbsp;» sont données en connaissant le
+résultat et ne mesurent rien. Le chiffre à surveiller est la répartition des trois — voir la
+section 5.</td></tr>
+<tr><td class="cle">Parenté</td><td><strong>Premier composant du module sans glisser-déposer</strong>, et
+premier à animer un nombre. Il ne partage pas le moteur des trois précédents, ce qui repousse d'autant la
+question de leur fusion.</td></tr>
+</tbody>
+</table>
+
+<h2>11 — Ce qui reste à trancher</h2>
+<ol>
+<li><strong>La consigne, la question, les trois réponses, les trois phrases de retour et la clôture.</strong>
+C'est du texte affiché&nbsp;: il se relit comme du corps, avec la relecture profane.</li>
+<li><strong>La ligne de résultat.</strong> La fiche la retient, hors du document, parce que la question porte
+sur elle. Le coût est réel&nbsp;: <strong>la grille n'affiche aucun résultat avant le Chapitre 11</strong>, et
+l'apprenant qui la cherchera à l'écran ne l'y trouvera pas. L'autre voie est de s'en tenir aux deux totaux et
+de laisser la clôture dire le sens.</li>
+<li><strong>Le nom de la ligne qui arrive.</strong> «&nbsp;Le café invendu&nbsp;» dans cette fiche. Deux
+autres voies&nbsp;: un montant sans nom, qui dirait que le chapitre ne l'a pas encore donné&nbsp;; ou le
+vrai libellé de grille, qui prendrait au sous-titre suivant son terme.</li>
+<li><strong>La validation en deux temps.</strong> La v3 fait cocher puis valider, parce qu'une position
+qu'on prend d'un seul clic est trop facile à prendre par mégarde, et parce que le temps entre les deux
+gestes est celui où l'apprenant relit les deux totaux. <strong>Le coût est réel</strong>&nbsp;: c'est un
+geste de plus que le <code>&lt;FriseEncaissement /&gt;</code>, qui pose la même forme de question en un
+seul clic. La différence à assumer, si on la garde&nbsp;: <strong>là-bas une réponse fausse revient et on
+recommence, ici elle est prise une fois.</strong></li>
+<li><strong>Trois phrases de retour ou une seule.</strong> Trois ici, parce que la réponse «&nbsp;il reste où
+il est&nbsp;» mérite qu'on lui donne raison. Une seule serait plus sûre et plus pauvre.</li>
+<li><strong>Le doublon avec la légende du panneau.</strong> Deux sous-titres plus bas, elle écrit
+«&nbsp;Le total des produits monte de 39&nbsp;000&nbsp;€ à 54&nbsp;000&nbsp;€&nbsp;» — le mouvement que le
+composant aura déjà montré. <strong>La fiche le tient pour voulu</strong>, prédiction puis exécution, mais la
+légende peut aussi se raccourcir maintenant que le composant existe.</li>
+<li><strong>Les trois classes ajoutées à <code>activite.css</code></strong> — <code>.ligne-doc</code>,
+<code>.total-doc</code> et <code>.valeur-avant</code>. Elles décrivent une ligne de document que l'apprenant
+n'a pas posée, un pied de colonne et une valeur ancienne&nbsp;: <strong>rien de propre au Chapitre 6</strong>,
+et les trois resserviront au <code>&lt;TrouveErreurBilan /&gt;</code> du Chapitre 8, qui lit un document lui
+aussi. À valider comme un ajout de vocabulaire, pas comme une exception.</li>
+<li><strong>Le nom du composant.</strong> <code>&lt;AvantApresStock /&gt;</code> nomme le dispositif et non
+ce qu'on obtient, comme les trois précédents. <strong>Le cas est pourtant plus faible ici</strong>&nbsp;:
+«&nbsp;avant / après&nbsp;» désigne un patron d'activité que le module peut réemployer, et le nom est exact.
+Proposition, si le patron ne resert pas&nbsp;: <code>&lt;StockAuResultat /&gt;</code>. Rien ne se renomme
+sans que la table de la section 5 du déroulé change d'abord.</li>
+</ol>
+
+<p class="fin">Fiche v1 du 12 septembre 2026, v2 du 15 septembre. Cinquième application des trois règles de composant du
+12 septembre, et la première à ne demander qu'une seule décision à l'apprenant. Elle ajoute deux
+règles. <strong>Un total ne bouge sous les yeux de l'apprenant que dans un composant, jamais dans la
+grille</strong> — reformulation de la règle de saisie du 21 août, à porter au déroulé, section 4. Et
+<strong>une prise de position ne se rejoue pas, mais c'est une règle de mesure et non une règle
+d'écran</strong>&nbsp;: l'apprenant reprend l'activité comme partout ailleurs dans le module, et c'est
+l'événement qui ne retient que la première réponse. <strong>La v2 avait mis cette règle dans le bouton, et
+le bouton était le mauvais endroit</strong> — un «&nbsp;Revoir&nbsp;» qui rejoue une animation de deux
+secondes à quatre cents pixels du curseur ne se voit pas, et personne n'attend cela d'un pied
+d'activité. Elle applique pour la deuxième fois le partage posé par la
+<code>&lt;CalculetteTva /&gt;</code>, sous une autre forme&nbsp;: le composant montre ce qui se produit, le
+texte dit pourquoi.</p>

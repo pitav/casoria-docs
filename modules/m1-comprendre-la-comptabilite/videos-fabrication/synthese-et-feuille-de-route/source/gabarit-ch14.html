@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<title>Synthèse et feuille de route — vidéo d'ouverture</title>
+<style>
+/*__FONTS__*/
+:root{
+  --s50:#f8fafc;--s100:#f1f5f9;--s200:#e2e8f0;--s300:#cbd5e1;--s400:#94a3b8;
+  --s500:#64748b;--s600:#475569;--s700:#334155;--s800:#1e293b;--s900:#0f172a;
+  --p50:#f1f7fe;--p100:#e2edfc;--p200:#bfdbf8;--p600:#1063b9;--p700:#0e4f97;--p900:#133a67;
+  --y50:#fefce8;--y100:#fef9c3;--y400:#facc15;--y500:#eab308;--y700:#a16207;--pu600:#9333ea;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#459ceb}
+body{font-family:Poppins,sans-serif;color:var(--s900);-webkit-font-smoothing:antialiased}
+#stage{position:relative;width:1920px;height:1080px;background:linear-gradient(to right,#459ceb,#c084fc);overflow:hidden}
+#scene{left:0;top:90px;width:1920px;height:990px}
+#entete{left:0;top:0;width:1920px;height:90px;background:transparent;border-bottom:1px solid #ffffff95;display:flex;align-items:center;gap:30px;padding:0 60px}
+#entete .lg{width:190px;flex:none}#entete .lg svg{width:100%;height:auto;display:block}
+#entete .sep{width:2px;height:44px;background:var(--s200)}
+#entete .mod{font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+#entete .chap{font-size:28px;font-weight:600;color:var(--s800);line-height:1.15}
+.abs{position:absolute}
+.mt{font-variant-numeric:tabular-nums;white-space:nowrap}
+#logo{left:50%;top:430px;width:620px;transform:translateX(-50%)}
+#logo svg{width:100%;height:auto;display:block}
+#titre{left:0;right:0;top:640px;text-align:center;font-size:58px;font-weight:600;color:var(--s800)}
+#titre small{display:block;margin-bottom:14px;font-size:22px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+
+.pill{position:absolute;white-space:nowrap;background:#fff;color:var(--s800);font-size:24px;font-weight:600;padding:8px 20px;border-radius:999px}
+.pill.p{background:var(--p600);color:#fff}
+.pc{transform:translateX(-50%)}
+.phrase{left:120px;right:120px;text-align:center;font-family:Poppins,sans-serif;color:#fff;font-weight:500}
+.phrase span{display:block}
+
+/* Bilan, Compte de Résultat */
+.doc{border-radius:24px;background:#fff;padding:22px 24px 24px;display:flex;flex-direction:column}
+.doc-t{font-size:24px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--s500)}
+.cols{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1}
+.col{position:relative;border-radius:14px;background:var(--s50);padding:12px 12px;display:flex;flex-direction:column}
+.col-t{font-size:18px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s400)}
+.ligne{position:relative;z-index:0;margin-top:7px;border-radius:12px;padding:7px 14px;background:#fff;display:flex;align-items:baseline;gap:12px}
+.ligne .lib{flex:1;min-width:0;font-size:19px;line-height:1.25;color:var(--s700)}
+.ligne .val{font-size:25px;font-weight:800;color:var(--s900)}
+.halo{position:absolute;inset:0;border-radius:12px;border:3px solid var(--y500);background:var(--y50);z-index:-1;opacity:0}
+.tot-col{margin-top:auto;padding-top:10px;border-top:2px solid var(--s200);display:flex;justify-content:space-between;align-items:baseline}
+.tot-col span{font-size:18px;font-weight:600;color:var(--s500)}
+.tot-col b{font-size:27px;font-weight:800;color:var(--s900)}
+.res{position:relative;z-index:0;margin-top:12px;border-radius:14px;background:var(--s50);padding:10px 16px;display:flex;justify-content:space-between;align-items:baseline}
+.res span{font-size:22px;font-weight:700;color:var(--s700)}
+.res b{font-size:30px;font-weight:800;color:var(--s900)}
+#bilan{left:60px;top:60px;width:880px}
+#cr{left:980px;top:60px;width:880px}
+.cote{left:1450px}
+
+/* plan 3 : le film et la photo */
+#annee{left:210px;top:110px;width:1500px;height:540px;border-radius:24px;background:#fff;padding:26px 30px}
+#annee .rail{position:absolute;left:100px;right:160px;top:300px;height:6px;border-radius:3px;background:var(--s300)}
+#annee .bout{position:absolute;top:322px;font-size:22px;font-weight:700;color:var(--s600);transform:translateX(-50%);white-space:nowrap}
+#film{position:absolute;left:100px;width:1240px;top:150px;height:110px;border-radius:16px;background:var(--p100);display:flex;align-items:center;justify-content:center;gap:16px;font-size:26px;font-weight:700;color:var(--p900)}
+#film svg,#photo svg{width:46px;height:46px;color:var(--p600)}
+#photo{position:absolute;left:1340px;top:400px;width:300px;margin-left:-150px;white-space:nowrap;text-align:center;font-size:22px;font-weight:700;color:var(--p900)}
+#photo .pt{position:absolute;left:50%;top:-106px;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:var(--p600);box-shadow:0 0 0 5px #fff}
+#p-cons{left:745px;top:700px}
+#p-det{left:1210px;top:700px}
+
+/* plan 5 : une vente */
+.facture{width:300px;background:var(--y100);padding:28px 24px;color:var(--s700);clip-path:polygon(0 8px,10% 0,20% 8px,30% 0,40% 8px,50% 0,60% 8px,70% 0,80% 8px,90% 0,100% 8px,100% calc(100% - 8px),90% 100%,80% calc(100% - 8px),70% 100%,60% calc(100% - 8px),50% 100%,40% calc(100% - 8px),30% 100%,20% calc(100% - 8px),10% 100%,0 calc(100% - 8px))}
+.facture .type{font-size:16px;font-weight:800;letter-spacing:.12em;color:var(--s500)}
+.facture .obj{margin-top:10px;font-size:22px;color:var(--s700)}
+.facture .fant{display:block;height:8px;border-radius:4px;background:var(--y400);margin-top:12px}
+.facture .tot{margin-top:18px;padding-top:12px;border-top:2px solid var(--y400);text-align:right;font-size:36px;font-weight:800;color:var(--s900)}
+.carte-m{width:520px;border-radius:24px;background:#fff;padding:26px 34px;text-align:center}
+.carte-m .mo{display:flex;align-items:center;justify-content:center;gap:12px;font-size:24px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--p700)}
+.carte-m .mo svg{width:40px;height:40px;color:var(--p600)}
+.carte-m .lib{margin-top:14px;font-size:24px;font-weight:600;color:var(--s500)}
+.carte-m .val{margin-top:4px;font-size:52px;font-weight:800;color:var(--s900)}
+.fl{font-size:60px;font-weight:700;color:#fff}
+
+/* plan 6 : d'autres allures */
+.mini{position:absolute;border-radius:18px;background:#fff;padding:20px}
+.mini i{display:block;height:12px;border-radius:6px;background:var(--s200);margin-top:12px}
+.mini i:first-child{margin-top:0;height:16px;background:var(--s300);width:60%}
+#q6{top:560px;font-size:56px;line-height:1.3}
+#q6 span+span{margin-top:6px}
+
+/* plan 7 : les mots */
+#mots{left:160px;top:60px;width:1600px;height:560px}
+#mots .pill{font-size:28px;padding:10px 24px}
+#p-docs{left:960px;top:700px}
+
+/* plan 8 : les cas écartés */
+#ecart{left:560px;top:90px;width:800px;border-radius:24px;background:#fff;padding:30px 36px}
+#ecart .t{font-size:24px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s500)}
+#ecart .it{display:flex;align-items:center;gap:16px;margin-top:20px;font-size:30px;font-weight:600;color:var(--s800)}
+#ecart .it svg{width:36px;height:36px;color:var(--p600);flex:none}
+#ecart .it.etc{color:var(--s500);font-weight:500}
+#p-recon{left:960px;top:560px}
+
+/* plan 9 : décider */
+.tuile-a{width:340px;text-align:center}
+.tuile-a .tuile{width:320px;height:200px;margin:0 auto;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 20px}
+.tuile-a .tuile svg{width:70px;height:70px;color:var(--p600)}
+.tuile-a .tuile p{margin-top:12px;font-size:26px;font-weight:600;line-height:1.25;color:var(--s700)}
+
+/* refrain, à retenir */
+#refrain{top:390px;font-size:66px;line-height:1.3;text-wrap:balance}
+#retenir-t{left:0;right:0;top:110px;text-align:center;font-size:26px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--p900)}
+.carte{left:260px;width:1400px;background:#fff;border-radius:22px;padding:28px 40px 28px 120px;font-size:34px;line-height:1.35;color:var(--s700)}
+.carte b{font-weight:700;color:var(--s900)}
+.carte .n{position:absolute;left:36px;top:30px;width:56px;height:56px;border-radius:50%;background:var(--p600);color:#fff;font-size:28px;font-weight:700;display:flex;align-items:center;justify-content:center}
+</style></head>
+<body><div id="stage">
+  <div id="logo" class="abs">/*__LOGO__*/</div>
+  <p id="titre" class="abs"><small>Comprendre la comptabilité</small>Synthèse et feuille de route</p>
+  <div id="entete" class="abs"><div class="lg">/*__LOGO__*/</div><span class="sep"></span>
+    <div><p class="mod">Comprendre la comptabilité</p><p class="chap">Synthèse et feuille de route</p></div></div>
+
+  <div id="scene" class="abs">
+  <!-- plans 1, 2, 4 -->
+  <div id="bilan" class="abs doc">
+    <p class="doc-t">Bilan au 31 décembre</p>
+    <div class="cols">
+      <div class="col"><p class="col-t">Actif</p>
+        <div class="ligne"><p class="lib">Immobilisations corporelles</p><p class="val mt">36&nbsp;000</p></div>
+        <div id="l-am" class="ligne"><span class="halo"></span><p class="lib">Amortissements des immobilisations</p><p class="val mt">−6&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">Stocks</p><p class="val mt">20&nbsp;000</p></div>
+        <div id="l-cc" class="ligne"><span class="halo"></span><p class="lib">Créances clients</p><p class="val mt">40&nbsp;000</p></div>
+        <div id="l-bq" class="ligne"><span class="halo"></span><p class="lib">Banque</p><p class="val mt">10&nbsp;000</p></div>
+        <div class="tot-col"><span>Total</span><b class="mt">100&nbsp;000</b></div></div>
+      <div class="col"><p class="col-t">Passif</p>
+        <div class="ligne"><p class="lib">Capital social</p><p class="val mt">20&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">Résultat de l'exercice</p><p class="val mt">17&nbsp;000</p></div>
+        <div id="l-emp" class="ligne"><span class="halo"></span><p class="lib">Emprunt bancaire</p><p class="val mt">48&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">Dettes fournisseurs</p><p class="val mt">10&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">État — TVA à décaisser</p><p class="val mt">2&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">État — IS à payer</p><p class="val mt">3&nbsp;000</p></div>
+        <div class="tot-col"><span>Total</span><b class="mt">100&nbsp;000</b></div></div>
+    </div>
+  </div>
+  <div id="cr" class="abs doc">
+    <p class="doc-t">Compte de Résultat</p>
+    <div class="cols">
+      <div class="col"><p class="col-t">Charges</p>
+        <div class="ligne"><p class="lib">Achats</p><p class="val mt">110&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">Autres charges externes</p><p class="val mt">34&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">Dotation aux amortissements</p><p class="val mt">6&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">Impôt sur les sociétés</p><p class="val mt">3&nbsp;000</p></div>
+        <div class="tot-col"><span>Total</span><b class="mt">153&nbsp;000</b></div></div>
+      <div class="col"><p class="col-t">Produits</p>
+        <div class="ligne"><p class="lib">Ventes</p><p class="val mt">170&nbsp;000</p></div>
+        <div class="tot-col"><span>Total</span><b class="mt">170&nbsp;000</b></div></div>
+    </div>
+    <div id="r-cr" class="res"><span class="halo"></span><span>Résultat</span><b class="mt">17&nbsp;000</b></div>
+  </div>
+  <span id="p-cc" class="abs pill cote pc" style="top:150px">ventes facturées, pas encore réglées</span>
+  <span id="p-am" class="abs pill cote pc" style="top:250px">l'usage déjà fait</span>
+  <span id="p-emp" class="abs pill cote pc" style="top:350px">ce que la banque attend encore</span>
+  <span id="p-orig" class="abs pill p cote pc" style="top:480px">chaque ligne a une origine</span>
+  <span id="p-photo" class="abs pill p pc" style="left:500px;top:760px">au Bilan · la photo</span>
+  <span id="p-film" class="abs pill p pc" style="left:1420px;top:760px">au Compte de Résultat · le film</span>
+
+  <!-- plan 3 -->
+  <div id="annee" class="abs">
+    <p class="doc-t" style="font-size:26px">Une année</p>
+    <div id="film">/*__I:movie-open-outline__*/Compte de Résultat · le film</div>
+    <div class="rail"></div>
+    <span class="bout" style="left:100px">1<sup>er</sup> jour</span>
+    <span class="bout" style="left:1340px">31 décembre</span>
+    <div id="photo"><span class="pt"></span>/*__I:camera__*/<br>Bilan · la photo</div>
+  </div>
+  <span id="p-cons" class="abs pill pc">consommé et gagné</span>
+  <span id="p-det" class="abs pill pc">ce qu'elle détient, d'où cela vient</span>
+
+  <!-- plan 5 -->
+  <div id="fact" class="abs facture" style="left:180px;top:200px"><p class="type">FACTURE · VENTE</p><p class="obj">Livrée au client</p><span class="fant"></span><span class="fant" style="width:70%"></span><p class="tot mt">1&nbsp;000&nbsp;€</p></div>
+  <p id="fl1" class="abs fl" style="left:540px;top:180px">→</p>
+  <p id="fl2" class="abs fl" style="left:540px;top:400px">→</p>
+  <div id="k-cr" class="abs carte-m" style="left:660px;top:110px"><p class="mo">/*__I:file-chart-outline__*/Compte de Résultat</p><p class="lib">Ventes</p><p class="val mt">+1&nbsp;000</p></div>
+  <div id="k-bq" class="abs carte-m" style="left:660px;top:390px"><p class="mo">/*__I:bank__*/Compte en banque</p><p class="lib">Reçu</p><p class="val mt">0&nbsp;€</p></div>
+  <span id="p-auss" class="abs pill p pc" style="left:1500px;top:190px">compté aussitôt</span>
+  <span id="p-rien" class="abs pill pc" style="left:1500px;top:470px">rien reçu</span>
+  <span id="p-crea" class="abs pill pc" style="left:330px;top:560px">une créance client</span>
+
+  <!-- plan 6 -->
+  <div id="m1" class="abs mini" style="left:340px;top:80px;width:360px;height:380px"><i></i><i></i><i></i><i style="width:80%"></i><i></i></div>
+  <div id="m2" class="abs mini" style="left:780px;top:80px;width:360px;height:380px"><i></i><i></i><i style="width:70%"></i><i></i><i></i><i style="width:85%"></i><i></i><i></i><i style="width:60%"></i><i></i><i></i><i></i><i style="width:75%"></i><i></i></div>
+  <div id="m3" class="abs mini" style="left:1220px;top:80px;width:360px;height:380px"><i></i><i style="width:50%"></i><i></i><i></i><i style="width:90%"></i><i></i><i style="width:65%"></i><i></i><i></i></div>
+  <p id="q6" class="abs phrase"><span id="qa">Où est l'argent,</span><span id="qb">et d'où vient-il&nbsp;?</span></p>
+
+  <!-- plan 7 -->
+  <div id="mots" class="abs">
+    <span class="pill mo" style="left:40px;top:20px">Actif</span>
+    <span class="pill mo" style="left:250px;top:110px">Passif</span>
+    <span class="pill mo" style="left:520px;top:20px">Créances clients</span>
+    <span class="pill mo" style="left:930px;top:40px">Dettes fournisseurs</span>
+    <span class="pill mo" style="left:1300px;top:120px">Charges</span>
+    <span class="pill mo" style="left:40px;top:230px">TVA à décaisser</span>
+    <span class="pill mo" style="left:470px;top:180px">Produits</span>
+    <span class="pill mo" style="left:760px;top:180px">Stocks</span>
+    <span class="pill mo" style="left:1020px;top:260px">Amortissement</span>
+    <span class="pill mo" style="left:400px;top:330px">Capitaux propres</span>
+    <span class="pill mo" style="left:60px;top:420px">Débit</span>
+    <span class="pill mo" style="left:250px;top:470px">Crédit</span>
+    <span class="pill mo" style="left:800px;top:400px">Besoin en fonds de roulement</span>
+    <span class="pill mo" style="left:1320px;top:380px">Marge nette</span>
+    <span class="pill mo" style="left:560px;top:490px">Grand journal</span>
+    <span class="pill mo" style="left:1080px;top:490px">Autonomie financière</span>
+  </div>
+  <span id="p-docs" class="abs pill p pc">sur les documents que vous recevez</span>
+  <span id="p-rep" class="abs pill pc" style="left:960px;top:790px">pas comptable, mais plus besoin de faire répéter</span>
+
+  <!-- plan 8 -->
+  <div id="ecart" class="abs">
+    <p class="t">Laissé de côté par ce module</p>
+    <p class="it" id="e1">/*__I:eye-outline__*/La franchise en base de TVA</p>
+    <p class="it" id="e2">/*__I:eye-outline__*/La location du matériel</p>
+    <p class="it etc" id="e3">/*__I:dots-horizontal__*/et d'autres cas, listés en fin de chapitre</p>
+  </div>
+  <span id="p-recon" class="abs pill p pc">à reconnaître, pas à apprendre</span>
+
+  <!-- plan 9 -->
+  <span id="k-dec" class="abs pill p pc" style="left:960px;top:90px">lire, puis décider</span>
+  <div id="d1" class="abs tuile-a" style="left:260px;top:220px"><div class="tuile">/*__I:calendar-clock__*/<p>Les délais qu'on accorde</p></div></div>
+  <div id="d2" class="abs tuile-a" style="left:790px;top:220px"><div class="tuile">/*__I:calendar-check__*/<p>Ceux qu'on obtient</p></div></div>
+  <div id="d3" class="abs tuile-a" style="left:1320px;top:220px"><div class="tuile">/*__I:bank__*/<p>Le moment d'emprunter</p></div></div>
+  <span id="k-suite" class="abs pill pc" style="left:960px;top:520px">les modules suivants</span>
+
+  <p id="refrain" class="abs phrase">Ce que vous savez lire désormais, c'est n'importe quel bilan.</p>
+  <p id="retenir-t" class="abs">À retenir</p>
+  <div id="c1" class="abs carte" style="top:170px"><span class="n">1</span>Chaque ligne du <b>Bilan</b> et du <b>Compte de Résultat</b> vient d'une <b>opération</b>.</div>
+  <div id="c2" class="abs carte" style="top:390px"><span class="n">2</span>Le <b>film</b> et la <b>photo</b> ne disent pas la même chose&nbsp;: le <b>bénéfice</b> n'est pas le <b>compte en banque</b>.</div>
+  <div id="c3" class="abs carte" style="top:610px"><span class="n">3</span>Les <b>cas écartés</b> sont listés pour que vous les <b>reconnaissiez</b> sur vos propres comptes.</div>
+  </div>
+</div>
+<script>/*__GSAP__*/</script>
+<script>
+const VOIX = /*__VOIX__*/;
+const S = Object.fromEntries(VOIX.segments.map(s => [s.id, s]));
+function at(id, mot, apres = 0) {
+  const s = S[id], i = s.texte.indexOf(mot) + (apres ? mot.length : 0);
+  if (i < (apres ? mot.length : 0)) throw new Error('introuvable : ' + mot + ' dans ' + id);
+  const P = s.phrases; let k = 0;
+  while (k + 1 < P.length && P[k + 1].i <= i) k++;
+  const i1 = k + 1 < P.length ? P[k + 1].i : s.texte.length;
+  const t1 = k + 1 < P.length ? P[k + 1].t : s.duree;
+  return s.debut + P[k].t + (t1 - P[k].t) * (i - P[k].i) / (i1 - P[k].i);
+}
+const E = 'power2.out', D = 0.5;
+const tl = gsap.timeline({ paused: true });
+window.tl = tl; window.DUREE = VOIX.duree_totale;
+gsap.set(['#scene > *', '#logo', '#titre', '#entete'], { autoAlpha: 0 });
+
+/* ── Plan 0 · ouverture ─────────────────────────────── */
+const sym = '#logo .lg-sym', mot = '#logo .lg-mot';
+tl.set('#logo', { autoAlpha: 1 }, 0)
+  .fromTo(sym, { opacity: 0, scale: .6, rotation: -90, transformOrigin: '50% 50%' }, { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: 'power3.out' }, .3)
+  .fromTo(mot, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: .9, ease: E }, .9)
+  .to('#logo', { top: 330, duration: .8, ease: 'power2.inOut' }, 2.2)
+  .fromTo('#titre', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .8, ease: E }, 2.6)
+  .to(['#logo', '#titre'], { autoAlpha: 0, duration: .6 }, 5.0)
+  .fromTo('#entete', { autoAlpha: 0, y: -20 }, { autoAlpha: 1, y: 0, duration: .6, ease: E }, 5.3);
+
+const pin = (el, t) => tl.fromTo(el, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .5, ease: E, immediateRender: false }, t);
+const ent = (el, t, y = 30) => tl.fromTo(el, { autoAlpha: 0, y }, { autoAlpha: 1, y: 0, duration: .6, ease: E, immediateRender: false }, t);
+const out = (els, t) => tl.to(els, { autoAlpha: 0, duration: .5 }, t);
+const halo = (el, t, v = 1) => tl.to(el + ' .halo', { opacity: v, duration: .4 }, t);
+const span = (el, t) => tl.fromTo(el, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .6, ease: E, immediateRender: false }, t);
+const VIDES = '#bilan .ligne, #bilan .tot-col b, #cr .ligne, #cr .tot-col b, #cr .res b';
+gsap.set(VIDES, { autoAlpha: 0 });
+gsap.set(['#film', '#photo', '#qa', '#qb', '#e1', '#e2', '#e3'], { autoAlpha: 0 });
+gsap.set('#mots .pill', { autoAlpha: 0 });
+
+/* ── Plan 1 · deux pages vides, puis complètes ──────── */
+const p11 = 'p1-1', p12 = 'p1-2';
+ent('#bilan', 6.0); ent('#cr', 6.2);
+const tcomp = at(p12, 'ils sont complets');
+tl.to('#bilan .ligne, #bilan .tot-col b', { autoAlpha: 1, duration: .3, stagger: .12 }, tcomp - .4)
+  .to('#cr .ligne, #cr .tot-col b, #cr .res b', { autoAlpha: 1, duration: .3, stagger: .12 }, tcomp - .2);
+
+/* ── Plan 2 · d'où vient chaque ligne ───────────────── */
+const p21 = 'p2-1', p22 = 'p2-2', p23 = 'p2-3', t2 = S[p21].debut;
+out('#cr', t2 - .8);
+tl.to('#bilan', { left: 100, top: 110, duration: .8, ease: 'power2.inOut' }, t2 - .6);
+halo('#l-cc', at(p21, 'les créances')); pin('#p-cc', at(p21, 'des ventes'));
+halo('#l-am', at(p22, "l'amortissement")); pin('#p-am', at(p22, "l'usage"));
+halo('#l-emp', at(p22, "L'emprunt")); pin('#p-emp', at(p22, 'ce que la banque'));
+pin('#p-orig', S[p23].debut);
+
+/* ── Plan 3 · le film et la photo ───────────────────── */
+const p31 = 'p3-1', p32 = 'p3-2', t3 = S[p31].debut;
+out(['#bilan', '#p-cc', '#p-am', '#p-emp', '#p-orig'], t3 - .8);
+['#l-cc', '#l-am', '#l-emp'].forEach(el => halo(el, t3 - .3, 0));
+tl.set('#bilan', { left: 60, top: 60 }, t3 - .2);
+ent('#annee', t3 - .4);
+tl.fromTo('#film', { autoAlpha: 0, scaleX: .2, transformOrigin: '0% 50%' }, { autoAlpha: 1, scaleX: 1, duration: 1.2, ease: 'power2.inOut', immediateRender: false }, at(p31, 'le film'));
+pin('#p-cons', at(p31, 'consommé'));
+ent('#photo', at(p32, 'Le Bilan'), 20);
+pin('#p-det', at(p32, 'ce que l'));
+
+/* ── Plan 4 · bénéfice et compte en banque ──────────── */
+const p4 = 'p4-1', t4 = S[p4].debut;
+out(['#annee', '#p-cons', '#p-det'], t4 - .8);
+ent('#bilan', t4 - .4); ent('#cr', t4 - .2);
+halo('#r-cr', at(p4, 'Les dix-sept mille')); pin('#p-film', at(p4, 'le film'));
+halo('#l-bq', at(p4, 'Les dix mille')); pin('#p-photo', at(p4, 'la photo'));
+
+/* ── Plan 5 · une vente devient une créance ─────────── */
+const p5 = 'p5-1', t5 = S[p5].debut;
+out(['#bilan', '#cr', '#p-film', '#p-photo'], t5 - .8);
+['#r-cr', '#l-bq'].forEach(el => halo(el, t5 - .3, 0));
+ent('#fact', t5 - .4, 20);
+pin('#p-crea', at(p5, 'une créance'));
+ent('#fl1', at(p5, 'Le Compte de Résultat') - .2, 0); ent('#k-cr', at(p5, 'Le Compte de Résultat'), 20);
+pin('#p-auss', at(p5, 'aussitôt'));
+ent('#fl2', at(p5, 'Le compte en banque') - .2, 0); ent('#k-bq', at(p5, 'Le compte en banque'), 20);
+pin('#p-rien', at(p5, 'rien reçu'));
+
+/* ── Plan 6 · d'autres allures, la même question ────── */
+const p61 = 'p6-1', p62 = 'p6-2', t6 = S[p61].debut;
+out(['#fact', '#fl1', '#fl2', '#k-cr', '#k-bq', '#p-auss', '#p-rien', '#p-crea'], t6 - .8);
+ent('#m1', t6 - .4, 20); ent('#m2', t6 - .2, 20); ent('#m3', t6, 20);
+tl.set('#q6', { autoAlpha: 1 }, S[p62].debut - .2);
+span('#qa', at(p62, "où est l'argent"));
+span('#qb', at(p62, "et d'où"));
+
+/* ── Plan 7 · les mots des documents réels ──────────── */
+const p7 = 'p7-1', t7 = S[p7].debut;
+out(['#m1', '#m2', '#m3', '#q6'], t7 - .8);
+tl.set('#mots', { autoAlpha: 1 }, t7 - .5);
+tl.fromTo('#mots .pill', { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .4, stagger: .35, ease: E, immediateRender: false }, t7 - .4);
+pin('#p-docs', at(p7, 'Ils figurent'));
+pin('#p-rep', at(p7, 'mais cela évite'));
+
+/* ── Plan 8 · ce que le module a écarté ─────────────── */
+const p8 = 'p8-1', t8 = S[p8].debut;
+out(['#mots', '#p-docs', '#p-rep'], t8 - .8);
+ent('#ecart', t8 - .4);
+pin('#e1', at(p8, 'de la franchise')); pin('#e2', at(p8, 'la location'));
+pin('#e3', at(p8, 'Ils sont listés'));
+pin('#p-recon', at(p8, 'reconnaissiez'));
+
+/* ── Plan 9 · la suite ──────────────────────────────── */
+const p9 = 'p9-1', t9 = S[p9].debut;
+out(['#ecart', '#p-recon'], t9 - .8);
+pin('#k-dec', t9 - .3);
+ent('#d1', at(p9, 'les délais'), 20); ent('#d2', at(p9, 'ceux qu'), 20); ent('#d3', at(p9, 'le moment'), 20);
+pin('#k-suite', at(p9, 'des modules suivants'));
+
+/* ── Plan 10 · le refrain ───────────────────────────── */
+const p10 = 'p10-1';
+out(['#k-dec', '#d1', '#d2', '#d3', '#k-suite'], S[p10].debut - .9);
+tl.fromTo('#refrain', { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: .8, ease: E }, S[p10].debut - .3);
+
+/* ── Plan 11 · à retenir ────────────────────────────── */
+const p11r = 'p11-1';
+tl.to('#refrain', { autoAlpha: 0, duration: .5 }, S[p11r].debut - .6)
+  .fromTo('#retenir-t', { autoAlpha: 0 }, { autoAlpha: 1, duration: D }, S[p11r].debut - .1)
+  .fromTo('#c1', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p11r, 'Chaque ligne'))
+  .fromTo('#c2', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p11r, 'Le film'))
+  .fromTo('#c3', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p11r, 'Enfin'));
+
+/* ── fin ────────────────────────────────────────────── */
+const tf = VOIX.jingle_fin;
+tl.to(['#retenir-t', '#c1', '#c2', '#c3', '#entete'], { autoAlpha: 0, duration: .6 }, tf - .6)
+  .set('#logo', { top: 430 }, tf - .1)
+  .to('#logo', { autoAlpha: 1, duration: .6 }, tf)
+  .to(sym, { opacity: 1, rotation: 0, scale: 1, duration: .01 }, tf)
+  .to(mot, { opacity: 1, x: 0, duration: .01 }, tf)
+  .to('#logo', { autoAlpha: 1, duration: .1 }, VOIX.duree_totale - .1);
+
+window.seek = t => tl.seek(t, false);
+function egaliser() {
+  const B = document.getElementById('bilan'), C = document.getElementById('cr');
+  const h = Math.max(B.offsetHeight, C.offsetHeight);
+  B.style.height = h + 'px'; C.style.height = h + 'px';
+}
+document.fonts.ready.then(() => { egaliser(); window.PRET = true; });
+</script>
+<!--__APERCU__-->
+</body></html>

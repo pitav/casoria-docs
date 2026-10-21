@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<title>Facturé n'est pas encaissé — vidéo d'ouverture</title>
+<style>
+/*__FONTS__*/
+:root{
+  --s50:#f8fafc;--s100:#f1f5f9;--s200:#e2e8f0;--s300:#cbd5e1;--s400:#94a3b8;
+  --s500:#64748b;--s600:#475569;--s700:#334155;--s800:#1e293b;--s900:#0f172a;
+  /* la couleur ne sert qu'à souligner */
+  --y50:#fefce8;--y100:#fef9c3;--y400:#facc15;--y500:#eab308;--y700:#a16207;
+  --r50:#fef2f2;--r600:#dc2626;--r700:#b91c1c;
+  --g50:#f0fdf4;--g700:#15803d;
+  /* primary = le bleu de Casoria */
+  --p50:#f1f7fe;--p100:#e2edfc;--p200:#bfdbf8;--p600:#1063b9;--p700:#0e4f97;--p900:#133a67;
+  --pu600:#9333ea;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#459ceb}
+:root{--pu50:#faf5ff}
+body{font-family:Poppins,sans-serif;color:var(--s900);-webkit-font-smoothing:antialiased}
+#stage{position:relative;width:1920px;height:1080px;background:linear-gradient(to right,#459ceb,#c084fc);overflow:hidden}
+#scene{left:0;top:90px;width:1920px;height:990px}
+/* en-tête permanent : un panneau posé sur le fond, donc blanc */
+#entete{left:0;top:0;width:1920px;height:90px;background:transparent;border-bottom:1px solid #ffffff95;display:flex;align-items:center;gap:30px;padding:0 60px}
+#entete .lg{width:190px;flex:none}#entete .lg svg{width:100%;height:auto;display:block}
+#entete .sep{width:2px;height:44px;background:var(--s200)}
+#entete .mod{font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+#entete .chap{font-size:28px;font-weight:600;color:var(--s800);line-height:1.15}
+.abs{position:absolute}
+.mt{font-variant-numeric:tabular-nums;white-space:nowrap}
+.serif{font-family:Poppins,sans-serif}
+
+/* ouverture / fin */
+#logo{left:50%;top:430px;width:620px;transform:translateX(-50%)}
+#logo svg{width:100%;height:auto;display:block}
+#titre{left:0;right:0;top:640px;text-align:center;font-size:58px;font-weight:600;color:var(--s800)}
+#titre small{display:block;margin-bottom:14px;font-size:22px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+
+/* repère de temps */
+#quand span{position:absolute;left:0;right:0}
+#quand{height:40px;left:0;right:0;top:64px;text-align:center;font-size:26px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--p900)}
+
+/* frise de trente jours */
+#frise{left:300px;top:968px;width:1320px;height:60px}
+#frise .rail{position:absolute;left:0;right:0;top:14px;height:3px;background:var(--p700);border-radius:2px}
+#frise .tick{position:absolute;top:8px;width:2px;height:15px;background:var(--s300)}
+#frise .bout{position:absolute;white-space:nowrap;top:30px;font-size:20px;font-weight:600;color:var(--p900);transform:translateX(-50%)}
+#repere{position:absolute;left:0;top:3px;width:25px;height:25px;margin-left:-12.5px;border-radius:50%;background:var(--p600);box-shadow:0 0 0 5px #fff}
+
+/* acteurs : des rôles, pas des personnes */
+.acteur{width:240px;text-align:center}
+.acteur .tuile{width:210px;height:210px;margin:0 auto;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.acteur .tuile svg{width:84px;height:84px;color:var(--p600)}
+#a-cli .tuile svg{color:var(--pu600)}
+.acteur p{margin-top:12px;font-size:26px;font-weight:600;color:var(--s700)}
+.acteur.eteint .tuile{background:#fff} .acteur.eteint .tuile svg{color:var(--s300)} .acteur.eteint p{color:var(--s300)}
+#colis{width:64px;height:64px;margin-top:6px;color:var(--p600)}
+#colis svg{width:100%;height:100%}
+
+/* facture */
+.facture{width:330px;background:var(--y100);padding:30px 24px 30px;color:var(--s700);clip-path:polygon(0 8px,10% 0,20% 8px,30% 0,40% 8px,50% 0,60% 8px,70% 0,80% 8px,90% 0,100% 8px,100% calc(100% - 8px),90% 100%,80% calc(100% - 8px),70% 100%,60% calc(100% - 8px),50% 100%,40% calc(100% - 8px),30% 100%,20% calc(100% - 8px),10% 100%,0 calc(100% - 8px))}
+.facture .haut{display:flex;justify-content:space-between;align-items:baseline}
+.facture .emet{font-size:24px;font-weight:700;color:var(--s800)}
+.facture .type{font-size:16px;font-weight:800;letter-spacing:.12em;color:var(--s500)}
+.facture .dest{margin-top:10px;font-size:20px;color:var(--s600)}
+.facture .fant{display:block;height:8px;border-radius:4px;background:var(--y400);margin-top:12px}
+.facture .tot{margin-top:18px;padding-top:12px;border-top:2px solid var(--y400);text-align:right;font-size:34px;font-weight:800;color:var(--s900)}
+.facture .ech{margin-top:4px;text-align:right;font-size:20px;color:var(--s600)}
+
+/* compte en banque, avant d'entrer au Bilan */
+#banque{width:330px;border-radius:18px;background:#fff;padding:18px 22px;display:flex;align-items:center;gap:18px}
+#banque svg{width:52px;height:52px;color:var(--p600);flex:none}
+#banque .lib{font-size:20px;color:var(--s500)}
+#banque .val{font-size:36px;font-weight:800;color:var(--s900)}
+
+/* les deux documents, comme dans les illustrations du module */
+.doc{width:660px;height:600px;border-radius:24px;background:#fff;padding:26px 26px 28px;display:flex;flex-direction:column}
+.doc-t{font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--s500)}
+.cols{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1}
+.col{position:relative;border-radius:14px;background:var(--s50);padding:16px 14px}
+.col-t{font-size:20px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s400)}
+.col i{display:block;height:8px;border-radius:4px;background:var(--s200);margin-top:18px}
+.col i+i{width:70%}
+.ligne{margin-top:14px;border-radius:12px;padding:12px 14px;background:#fff;border:3px solid transparent}
+.ligne .lib{font-size:22px;line-height:1.25;color:var(--s700)}
+.ligne .val{margin-top:4px;font-size:36px;font-weight:800;color:var(--s900)}
+.ligne.vide{border-style:dashed;border-color:var(--s300)}
+.ligne .halo{position:absolute;inset:-3px;border-radius:12px;border:3px solid var(--y500);background:var(--y50);z-index:-1;opacity:0}
+.ligne{position:relative;z-index:0}
+.etiq{margin-top:10px;text-align:center;font-size:20px;font-weight:700}
+.etiq.contre{color:var(--r700)} .etiq.pour{color:var(--g700)}
+.col{display:flex;flex-direction:column}
+.tot-col{margin-top:auto;padding-top:12px;border-top:2px solid var(--s200);display:flex;justify-content:space-between;align-items:baseline}
+.tot-col span{font-size:20px;font-weight:600;color:var(--s500)}
+.tot-col b{font-size:28px;font-weight:800;color:var(--s900)}
+.note-doc{margin-top:14px;text-align:center;font-size:22px;font-weight:600;color:var(--s500)}
+
+.fleche{height:4px;background:#fff}
+.fleche::after{content:"";position:absolute;top:-8px;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.fleche.g::after{left:-4px;border-right:14px solid #fff}
+.fleche.d::after{right:-4px;border-left:14px solid #fff}
+
+/* deux entreprises identiques */
+.jumelle{width:560px;text-align:center}
+.jumelle .tuile{width:300px;height:210px;margin:0 auto;border-radius:22px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.jumelle .tuile svg{width:68px;height:68px;color:var(--p600)}
+.jumelle h3{margin-top:10px;font-size:28px;font-weight:600;color:var(--s700)}
+.jumelle .quand-paie{margin-top:4px;font-size:22px;color:var(--s500)}
+.mini{position:relative;margin:26px auto 0;width:420px;background:#fff;border-radius:20px;padding:18px 22px;text-align:left}
+.mini .doc-t{font-size:20px}
+.mini .ligne{margin-top:12px}
+.mini .val.zero{color:var(--s400)}
+#barre{left:10px;top:62%;width:0;height:6px;background:var(--r600);border-radius:3px;transform:rotate(-8deg);transform-origin:left center}
+#siattend{left:0;right:0;top:880px;text-align:center;font-size:28px;font-weight:600;color:#fff}
+
+/* refrain et question */
+.phrase{left:160px;right:160px;text-align:center;font-family:Poppins,sans-serif;color:#fff;font-weight:500}
+#question{top:800px;font-size:46px}
+#pourquoi{top:440px;font-size:58px}
+#refrain{top:470px;font-size:76px;line-height:1.2;text-wrap:balance}
+
+/* le premier soir */
+.face{width:560px;background:#fff;border-radius:24px;padding:34px 30px;text-align:center}
+.face .doc-t{font-size:24px}
+.face .verbe{margin-top:22px;font-size:30px;color:var(--s600)}
+.face .val{margin-top:4px;font-size:84px;font-weight:800;color:var(--s900)}
+
+/* à retenir */
+#retenir-t{left:0;right:0;top:150px;text-align:center;font-size:26px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--p900)}
+.carte{left:310px;width:1300px;background:#fff;border-radius:22px;padding:30px 40px 30px 120px;font-size:38px;line-height:1.35;color:var(--s700)}
+.carte b{font-weight:700;color:var(--s900)}
+.carte .n{position:absolute;left:36px;top:28px;width:56px;height:56px;border-radius:50%;background:var(--p600);color:#fff;font-size:28px;font-weight:700;display:flex;align-items:center;justify-content:center}
+</style></head>
+<body><div id="stage">
+
+  <div id="logo" class="abs">/*__LOGO__*/</div>
+  <p id="titre" class="abs"><small>Comprendre la comptabilité</small>Facturé n'est pas encaissé</p>
+
+  <div id="entete" class="abs"><div class="lg">/*__LOGO__*/</div><span class="sep"></span>
+    <div><p class="mod">Comprendre la comptabilité</p><p class="chap">Facturé n'est pas encaissé</p></div></div>
+
+  <div id="frise" class="abs">
+    <span class="rail"></span>
+    <span class="bout" style="left:0">Jour 1</span>
+    <span class="bout" style="left:100%">Jour 30</span>
+    <span id="repere"></span>
+  </div>
+
+  <div id="scene" class="abs">
+  <p id="quand" class="abs"><span id="q1">Jour 1</span><span id="q30">Jour 30</span><span id="qsoir">Jour 1 au soir</span></p>
+
+  <!-- plan 1 -->
+  <div id="a-four" class="abs acteur eteint" style="left:300px;top:200px"><div class="tuile">/*__I:warehouse__*/<p>Fournisseur</p></div></div>
+  <div id="a-ent" class="abs acteur" style="left:840px;top:200px"><div class="tuile">/*__I:domain__*/<p>Entreprise</p></div></div>
+  <div id="a-cli" class="abs acteur" style="left:1380px;top:200px"><div class="tuile">/*__I:office-building-outline__*/<p>Client</p></div></div>
+  <div id="colis" class="abs" style="left:928px;top:250px">/*__I:package-variant-closed__*/</div>
+
+  <div id="facture1" class="abs facture" style="left:560px;top:450px">
+    <div class="haut"><span class="emet">Entreprise</span><span class="type">FACTURE</span></div>
+    <p class="dest">pour : Client</p>
+    <span class="fant" style="width:90%"></span><span class="fant" style="width:62%"></span>
+    <p class="tot mt">10&nbsp;000&nbsp;€</p>
+    <p class="ech">à payer sous 30&nbsp;jours</p>
+  </div>
+  <div id="banque" class="abs" style="left:1030px;top:520px">/*__I:bank-outline__*/<div><p class="lib">Compte en banque</p><p class="val mt">0&nbsp;€</p></div></div>
+  <p id="question" class="abs phrase">Ce jour-là, a-t-elle gagné quelque chose&nbsp;?</p>
+
+  <!-- documents -->
+  <div id="cr" class="abs doc" style="left:80px;top:150px">
+    <p class="doc-t">Compte de Résultat</p>
+    <div class="cols">
+      <div class="col"><p class="col-t">Charges</p>
+        <div id="l-achats" class="ligne"><p class="lib">Achats</p><p class="val mt">4&nbsp;000</p></div>
+        <i></i><i></i><div class="tot-col"><span>Total</span><b id="tt-ch" class="mt">0</b></div></div>
+      <div class="col"><p class="col-t">Produits</p>
+        <div id="l-ventes" class="ligne"><p class="lib">Ventes</p><p class="val mt">0</p></div>
+        <i></i><i></i><div class="tot-col"><span>Total</span><b id="tt-pr" class="mt">0</b></div></div>
+    </div>
+    <p id="rien-cr" class="note-doc">aucune ligne nouvelle</p>
+  </div>
+
+  <div id="bilan" class="abs doc" style="left:1180px;top:150px">
+    <p class="doc-t">Bilan</p>
+    <div class="cols">
+      <div class="col"><p class="col-t">Actif</p>
+        <div id="l-creances" class="ligne"><span class="halo"></span><p class="lib">Créances clients</p><p class="val mt">10&nbsp;000</p></div>
+        <p id="t-contre" class="etiq contre">joue contre l'entreprise</p>
+        <div id="l-banque" class="ligne vide"><p class="lib">Banque</p><p class="val mt">0</p></div>
+        <div class="tot-col"><span>Total</span><b id="tt-ac" class="mt">0</b></div>
+      </div>
+      <div class="col"><p class="col-t">Passif</p>
+        <div id="l-dettes" class="ligne"><span class="halo"></span><p class="lib">Dettes fournisseurs</p><p class="val mt">4&nbsp;000</p></div>
+        <p id="t-pour" class="etiq pour">joue en sa faveur</p>
+        <i></i><i></i><div class="tot-col"><span>Total</span><b id="tt-pa" class="mt">0</b></div></div>
+    </div>
+  </div>
+
+  <span id="fl-g" class="abs fleche g" style="left:745px;top:505px;width:44px"></span>
+  <span id="fl-d" class="abs fleche d" style="left:1131px;top:505px;width:44px"></span>
+
+  <div id="facture2" class="abs facture" style="left:795px;top:380px">
+    <div class="haut"><span class="emet">Fournisseur</span><span class="type">FACTURE</span></div>
+    <p class="dest">pour : Entreprise</p>
+    <span class="fant" style="width:90%"></span><span class="fant" style="width:62%"></span>
+    <p class="tot mt">4&nbsp;000&nbsp;€</p>
+    <p class="ech">à payer sous 30&nbsp;jours</p>
+  </div>
+
+  <!-- deux entreprises -->
+  <div id="jum-a" class="abs jumelle" style="left:300px;top:150px">
+    <div class="tuile">/*__I:domain__*/<h3>Entreprise A</h3><p class="quand-paie">payée tout de suite</p></div>
+    <div class="mini"><p class="doc-t">Compte de Résultat</p><div class="ligne"><p class="lib">Ventes</p><p class="val mt">10&nbsp;000</p></div></div>
+  </div>
+  <div id="jum-b" class="abs jumelle" style="left:1060px;top:150px">
+    <div class="tuile">/*__I:domain__*/<h3>Entreprise B</h3><p class="quand-paie">payée dans 30&nbsp;jours</p></div>
+    <div class="mini"><p class="doc-t">Compte de Résultat</p><div class="ligne"><p class="lib">Ventes</p><p id="v-b" class="val mt">10&nbsp;000</p></div>
+      <span id="barre" class="abs"></span></div>
+  </div>
+  <p id="pourquoi" class="abs phrase">Pourquoi ne pas attendre l'argent&nbsp;?</p>
+  <p id="siattend" class="abs">Si l'on attendait l'argent…</p>
+
+  <!-- le premier soir -->
+  <div id="f-gagne" class="abs face" style="left:300px;top:330px"><p class="doc-t">Compte de Résultat</p><p class="verbe">gagné</p><p class="val mt">10&nbsp;000</p></div>
+  <div id="f-recu" class="abs face" style="left:1060px;top:330px"><p class="doc-t">Compte en banque</p><p class="verbe">reçu</p><p class="val mt">0&nbsp;€</p></div>
+  <p id="refrain" class="abs phrase">Le résultat n'est pas la trésorerie.</p>
+
+  <!-- à retenir -->
+  <p id="retenir-t" class="abs">À retenir</p>
+  <div id="c1" class="abs carte" style="top:260px"><span class="n">1</span>Une vente compte <b>dès la facture</b>.</div>
+  <div id="c2" class="abs carte" style="top:430px"><span class="n">2</span>L'attente porte un nom&nbsp;: <b>créance client</b> à l'Actif, <b>dette fournisseur</b> au Passif.</div>
+  <div id="c3" class="abs carte" style="top:650px"><span class="n">3</span>Le jour du règlement, <b>seul le Bilan bouge</b>.</div>
+</div>
+</div>
+
+<script>/*__GSAP__*/</script>
+<script>
+const VOIX = /*__VOIX__*/;
+const S = Object.fromEntries(VOIX.segments.map(s => [s.id, s]));
+/* Instant où la voix prononce `mot` dans le segment `id`.
+   Le début de chaque phrase est MESURÉ dans l'enregistrement (pauses de la voix,
+   champ `phrases`) ; à l'intérieur d'une phrase, proportion des caractères. */
+function at(id, mot, apres = 0) {
+  const s = S[id], i = s.texte.indexOf(mot) + (apres ? mot.length : 0);
+  if (i < (apres ? mot.length : 0)) throw new Error('introuvable : ' + mot + ' dans ' + id);
+  const P = s.phrases; let k = 0;
+  while (k + 1 < P.length && P[k + 1].i <= i) k++;
+  const i1 = k + 1 < P.length ? P[k + 1].i : s.texte.length;
+  const t1 = k + 1 < P.length ? P[k + 1].t : s.duree;
+  return s.debut + P[k].t + (t1 - P[k].t) * (i - P[k].i) / (i1 - P[k].i);
+}
+/* pas de « € » dans le Bilan ni dans le Compte de Résultat */
+const nombre = n => Math.round(n).toLocaleString('fr-FR').replace(/ |\s/g, ' ');
+const euros = n => Math.round(n).toLocaleString('fr-FR').replace(/ |\s/g, ' ') + ' €';
+function compte(tl, el, de, a, t, d = .3) {
+  const o = { v: de };
+  tl.fromTo(o, { v: de }, { v: a, duration: d, ease: 'power1.inOut', immediateRender: false,
+    onUpdate: () => { el.textContent = el.closest('#cr, #bilan, .mini, .face') && !el.closest('#f-recu') ? nombre(o.v) : euros(o.v); } }, t);
+}
+const $ = s => document.querySelector(s);
+const E = 'power2.out', D = 0.5;
+const tl = gsap.timeline({ paused: true });
+window.tl = tl; window.DUREE = VOIX.duree_totale;
+
+/* état initial : tout caché sauf le fond */
+gsap.set(['#scene > *', '#logo', '#titre', '#entete', '#frise'], { autoAlpha: 0 });
+gsap.set(['#q30', '#qsoir', '#l-ventes', '#l-achats', '#l-creances', '#l-banque', '#l-dettes', '#t-contre', '#t-pour', '#rien-cr', '#barre'], { autoAlpha: 0 });
+
+/* ── Plan 0 · ouverture ─────────────────────────────── */
+const sym = '#logo .lg-sym', mot = '#logo .lg-mot';
+tl.set('#logo', { autoAlpha: 1 }, 0)
+  .fromTo(sym, { opacity: 0, scale: .6, rotation: -90, transformOrigin: '50% 50%' }, { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: 'power3.out' }, .3)
+  .fromTo(mot, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: .9, ease: E }, .9)
+  .to('#logo', { top: 330, duration: .8, ease: 'power2.inOut' }, 2.2)
+  .fromTo('#titre', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .8, ease: E }, 2.6)
+  .to(['#logo', '#titre'], { autoAlpha: 0, duration: .6 }, 5.2)
+  .fromTo('#entete', { autoAlpha: 0, y: -20 }, { autoAlpha: 1, y: 0, duration: .6, ease: E }, 5.4);
+
+/* ── Plan 1 · la question ───────────────────────────── */
+const p1 = 'p1-1';
+tl.fromTo('#a-ent', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, 6.0)
+  .fromTo('#a-cli', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p1, 'à un client') - .3)
+  .fromTo('#a-four', { autoAlpha: 0 }, { autoAlpha: 1, duration: D }, at(p1, 'à un client') - .1)
+  .fromTo('#frise', { autoAlpha: 0 }, { autoAlpha: 1, duration: D }, 6.4)
+  .fromTo('#quand', { autoAlpha: 0 }, { autoAlpha: 1, duration: D }, 6.4)
+  .fromTo('#colis', { autoAlpha: 0, x: 0 }, { autoAlpha: 1, duration: .3 }, at(p1, 'livre'))
+  .to('#colis', { x: 540, duration: 1.4, ease: 'power1.inOut' }, at(p1, 'livre') + .3)
+  .to('#colis', { autoAlpha: 0, duration: .3 }, at(p1, 'livre') + 1.7)
+  .fromTo('#facture1', { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p1, 'Elle envoie'))
+  .fromTo('#banque', { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p1, 'Sur le compte'))
+  .fromTo('#question', { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: .7, ease: E }, at(p1, 'Alors'));
+
+/* ── Plan 2 · la vente compte dès la facture ────────── */
+const t2 = S['p2-1'].debut - .6;
+tl.to(['#a-ent', '#a-cli', '#a-four', '#question'], { autoAlpha: 0, duration: .5 }, t2)
+  .to('#facture1', { left: 795, top: 380, duration: .9, ease: 'power2.inOut' }, t2 + .2)
+  .to('#banque', { left: 795, top: 720, duration: .9, ease: 'power2.inOut' }, t2 + .2)
+  .fromTo('#cr', { autoAlpha: 0, x: -40 }, { autoAlpha: 1, x: 0, duration: .7, ease: E }, at('p2-1', 'Le Compte de Résultat'))
+  .fromTo('#fl-g', { autoAlpha: 0, scaleX: 0, transformOrigin: 'right center' }, { autoAlpha: 1, scaleX: 1, duration: .4 }, 40.0 - .3)
+  .fromTo('#l-ventes', { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .3, ease: E }, 40.0 - .1);
+/* la vente et le Total des Produits passent à 10 000 sur « La vente » */
+const tV = 40.0; /* Pascal : 0:40 */
+compte(tl, $('#l-ventes .val'), 0, 10000, tV);
+compte(tl, $('#tt-pr'), 0, 10000, tV);
+
+/* deux entreprises identiques */
+const t2b = S['p2-2'].debut;
+tl.to(['#cr', '#facture1', '#banque', '#fl-g', '#frise', '#quand'], { autoAlpha: 0, duration: .5 }, t2b - .3)
+  /* Pascal : 0:43, le titre comble le trou, puis monte au-dessus des deux entreprises */
+  .fromTo('#pourquoi', { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: .7, ease: E }, 43.0)
+  .to('#pourquoi', { top: 30, fontSize: 44, duration: .8, ease: 'power2.inOut' }, at('p2-2', 'Imaginez') - .6)
+  .fromTo('#jum-a', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at('p2-2', 'Imaginez'))
+  .fromTo('#jum-b', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at('p2-2', 'Imaginez') + .3)
+  .fromTo('#siattend', { autoAlpha: 0 }, { autoAlpha: 1, duration: D }, at('p2-2', 'Si l\'on attendait'));
+compte(tl, $('#v-b'), 10000, 0, at('p2-2', 'Si l\'on attendait') + .4, .6);
+tl.to('#v-b', { color: '#94a3b8', duration: .4 }, at('p2-2', 'Si l\'on attendait') + .4)
+  .to('#barre', { autoAlpha: 1, width: 400, duration: .6, ease: 'power2.in' }, at('p2-2', 'Le résultat dépendrait'))
+  .to(['#barre', '#siattend'], { autoAlpha: 0, duration: .4 }, S['p2-2'].fin - 1.0)
+  .to('#v-b', { color: '#0f172a', duration: .3 }, S['p2-2'].fin - .5);
+compte(tl, $('#v-b'), 0, 10000, S['p2-2'].fin - .5, .8);
+
+/* ── Plan 3 · la créance client ─────────────────────── */
+const t3 = S['p3-1'].debut;
+tl.to(['#jum-a', '#jum-b', '#pourquoi'], { autoAlpha: 0, duration: .5 }, t3 - .8)
+  .to(['#cr', '#facture1', '#banque', '#fl-g', '#frise', '#quand'], { autoAlpha: 1, duration: .6 }, t3 - .3)
+  .fromTo('#bilan', { autoAlpha: 0, x: 40 }, { autoAlpha: 1, x: 0, duration: .7, ease: E }, at('p3-1', 'Elle se range') - .6)
+  .fromTo('#fl-d', { autoAlpha: 0, scaleX: 0, transformOrigin: 'left center' }, { autoAlpha: 1, scaleX: 1, duration: .5 }, at('p3-1', 'Elle se range'))
+  .fromTo('#l-creances', { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .3, ease: E }, at('p3-1', 'Elle se range') - .1)
+  .to('#l-creances .halo', { opacity: 1, duration: .5 }, at('p3-1', 'Elle se range') + .6)
+  /* le compte en banque rejoint sa place au Bilan */
+  .to('#banque', { left: 1215, top: 520, scale: .8, autoAlpha: 0, duration: .9, ease: 'power2.inOut' }, at('p3-1', 'avec ce que l\'entreprise détient'))
+  .fromTo('#l-banque', { autoAlpha: 0 }, { autoAlpha: 1, duration: .5 }, at('p3-1', 'avec ce que l\'entreprise détient') + .6);
+compte(tl, $('#tt-ac'), 0, 10000, at('p3-1', 'Elle se range'));
+
+/* ── Plan 4 · la dette fournisseur ──────────────────── */
+const p4 = 'p4-1';
+tl.to('#facture1', { y: -120, autoAlpha: 0, duration: .6, ease: 'power2.in' }, at(p4, 'L\'entreprise achète') - .4)
+  .fromTo('#facture2', { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: .6, ease: E }, at(p4, 'L\'entreprise achète'))
+  .fromTo('#l-achats', { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .3, ease: E }, 93.0 - .1)
+  .fromTo('#l-dettes', { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .3, ease: E }, at(p4, 'Elle se range au Passif') - .1)
+  .to('#l-dettes .halo', { opacity: 1, duration: .5 }, at(p4, 'Elle se range au Passif') + .3)
+  .fromTo('#t-contre', { autoAlpha: 0, y: -6 }, { autoAlpha: 1, y: 0, duration: .5 }, at('p4-2', 'Le délai accordé'))
+  .fromTo('#t-pour', { autoAlpha: 0, y: -6 }, { autoAlpha: 1, y: 0, duration: .5 }, at('p4-2', 'Celui qu\'elle obtient'));
+/* Pascal : 1:33, Achats et Total des Charges ensemble */
+compte(tl, $('#tt-ch'), 0, 4000, 93.0);
+compte(tl, $('#tt-pa'), 0, 4000, at(p4, 'Elle se range au Passif'));
+
+/* ── Plan 5 · le jour du règlement ──────────────────── */
+const p5 = 'p5-1';
+tl.to(['#facture2', '#fl-g', '#fl-d', '#t-contre', '#t-pour'], { autoAlpha: 0, duration: .5 }, S[p5].debut - .6)
+  .to('#repere', { left: 1320, duration: 1.6, ease: 'power2.inOut' }, S[p5].debut)
+  .to('#q1', { autoAlpha: 0, duration: .3 }, S[p5].debut + .2)
+  .to('#q30', { autoAlpha: 1, duration: .3 }, S[p5].debut + .5)
+  .to('#l-creances .halo', { opacity: 0, duration: .6 }, 127.0)
+  
+  .set('#l-banque', { borderColor: 'transparent' }, 127.0);
+/* « tombe à zéro » puis « monte de dix mille euros » : chacun sur ses mots */
+/* Pascal : 2:07, la créance repasse à 0 et la banque à 10 000 ensemble */
+compte(tl, $('#l-creances .val'), 10000, 0, 127.0, .6);
+compte(tl, $('#l-banque .val'), 0, 10000, 127.0, .6);
+/* le même jour, l'entreprise règle son fournisseur : encore le Bilan seul */
+const tf = S['p5-2'].debut + .2;
+tl.to('#l-dettes .halo', { opacity: 0, duration: .6 }, tf);
+compte(tl, $('#l-dettes .val'), 4000, 0, tf, .6);
+compte(tl, $('#l-banque .val'), 10000, 6000, tf, .6);
+compte(tl, $('#tt-pa'), 4000, 0, tf, .6);
+compte(tl, $('#tt-ac'), 10000, 6000, tf, .6);
+tl.to('#cr', { opacity: .4, duration: .6 }, S['p5-2'].debut)
+  .fromTo('#rien-cr', { autoAlpha: 0 }, { autoAlpha: 1, duration: .5 }, S['p5-2'].debut + .3);
+
+/* ── Plan 6 · le refrain ────────────────────────────── */
+const p6 = 'p6-1';
+tl.to(['#cr', '#bilan', '#rien-cr'], { autoAlpha: 0, duration: .6 }, S[p6].debut - .7)
+  .to('#repere', { left: 0, duration: 1.2, ease: 'power2.inOut' }, S[p6].debut - .4)
+  .to('#q30', { autoAlpha: 0, duration: .3 }, S[p6].debut - .4)
+  .to('#qsoir', { autoAlpha: 1, duration: .3 }, S[p6].debut)
+  .fromTo('#f-gagne', { autoAlpha: 0, x: -30 }, { autoAlpha: 1, x: 0, duration: D, ease: E }, at(p6, 'L\'entreprise avait gagné'))
+  .fromTo('#f-recu', { autoAlpha: 0, x: 30 }, { autoAlpha: 1, x: 0, duration: D, ease: E }, at(p6, 'et n\'en avait pas reçu'))
+  .to(['#f-gagne', '#f-recu', '#quand', '#frise'], { autoAlpha: 0, duration: .5 }, at(p6, 'Le résultat n\'est pas') - .5)
+  .fromTo('#refrain', { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: .8, ease: E }, at(p6, 'Le résultat n\'est pas'));
+
+/* ── Plan 7 · à retenir ─────────────────────────────── */
+const p7 = 'p7-1';
+tl.to('#refrain', { autoAlpha: 0, duration: .5 }, S[p7].debut - .6)
+  .fromTo('#retenir-t', { autoAlpha: 0 }, { autoAlpha: 1, duration: D }, S[p7].debut)
+  .fromTo('#c1', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p7, 'Une vente compte'))
+  .fromTo('#c2', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p7, 'L\'attente'))
+  .fromTo('#c3', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p7, 'Et le jour du règlement'));
+
+/* ── Plan 8 · fin ───────────────────────────────────── */
+const t8 = S[p7].fin + 1.0;
+tl.to(['#retenir-t', '#c1', '#c2', '#c3', '#entete'], { autoAlpha: 0, duration: .6 }, t8 - .6)
+  .set('#logo', { top: 430 }, t8 - .1)
+  .to('#logo', { autoAlpha: 1, duration: .6 }, t8)
+  .to(sym, { opacity: 1, rotation: 0, scale: 1, duration: .01 }, t8)
+  .to(mot, { opacity: 1, x: 0, duration: .01 }, t8)
+  .to('#logo', { autoAlpha: 1, duration: .1 }, VOIX.duree_totale - .1);
+
+/* aperçu dans un navigateur : lecture synchronisée avec l'audio s'il est présent */
+window.seek = t => tl.seek(t, false);
+document.fonts.ready.then(() => { window.PRET = true; });
+</script>
+<!--__APERCU__-->
+</body></html>

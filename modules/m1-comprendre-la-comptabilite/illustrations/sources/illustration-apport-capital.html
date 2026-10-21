@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<!-- Icônes : Material Design Icons (mdi:bank, mdi:account-tie, mdi:account-tie-woman),
+     licence Apache 2.0, via icones.js.org / @iconify-json/mdi. -->
+<style>
+:root{
+  --g50:#f8fafc; --g100:#f1f5f9; --g200:#e2e8f0; --g300:#cbd5e1; --g400:#94a3b8;
+  --g500:#64748b; --g600:#475569; --g700:#334155; --g800:#1e293b; --g900:#0f172a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,"Segoe UI",sans-serif;background:#fff;color:var(--g900)}
+.img{width:100%;max-width:720px;padding:24px 24px 22px;background:#fff}
+
+/* une seule opération, en tête des deux colonnes */
+.op{text-align:center;font-size:.63rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--g500)}
+
+/* le grand journal réduit à son T : deux colonnes, un trait au milieu */
+.journal{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr auto;
+  border-top:2px solid var(--g800)}
+.col-t{padding:9px 0 0;text-align:center}
+.col-t b{display:block;font-size:.95rem;font-weight:800;color:var(--g900)}
+.col-t span{display:block;font-size:.72rem;color:var(--g500)}
+.g{grid-column:1;border-right:2px solid var(--g800)}
+.d{grid-column:2}
+.corps{grid-row:2;display:flex;align-items:center;justify-content:center;gap:34px;padding:18px 10px 16px}
+.pied{grid-row:3;padding:10px 0 4px;text-align:center;border-top:1.5px solid var(--g200);
+  font-size:1.35rem;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* les figures : une icône, un nom, parfois une part */
+.fig{display:flex;flex-direction:column;align-items:center;text-align:center}
+.fig svg{display:block;width:64px;height:64px;color:var(--g700)}
+.fig .nom{margin-top:3px;font-size:.76rem;font-weight:600;line-height:1.3;color:var(--g800)}
+.fig .part{margin-top:4px;font-size:.86rem;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--g600)}
+.banque svg{width:60px;height:60px}
+
+/* ── En étroit : les deux colonnes restent côte à côte ──────────────
+   C'est le sujet : un virement, deux colonnes. On réduit, on n'empile pas. */
+@media (max-width:640px){
+  .img{padding:18px 12px 16px}
+  .col-t b{font-size:.85rem}
+  .col-t span{font-size:.64rem}
+  .corps{gap:14px;padding:14px 4px 12px}
+  .fig svg{width:44px;height:44px}
+  .banque svg{width:44px;height:44px}
+  .fig .nom{font-size:.64rem}
+  .fig .part{font-size:.68rem}
+  .pied{font-size:1.05rem}
+}
+</style></head><body>
+<div class="img" id="img">
+  <p class="op">Apport en capital · 5&nbsp;janvier</p>
+
+  <div class="journal">
+    <div class="col-t g"><b>Débit</b><span>où va la valeur</span></div>
+    <div class="col-t d"><b>Crédit</b><span>d’où elle vient</span></div>
+
+    <div class="corps g">
+      <div class="fig banque">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11.5 1L2 6v2h19V6m-5 4v7h3v-7M2 22h19v-3H2m8-9v7h3v-7m-9 0v7h3v-7z"/></svg>
+        <p class="nom">Le compte en banque<br>de Latitude Café</p>
+      </div>
+    </div>
+
+    <div class="corps d">
+      <div class="fig">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3c2.21 0 4 1.79 4 4s-1.79 4-4 4s-4-1.79-4-4s1.79-4 4-4m4 10.54c0 1.06-.28 3.53-2.19 6.29L13 15l.94-1.88c-.62-.07-1.27-.12-1.94-.12s-1.32.05-1.94.12L11 15l-.81 4.83C8.28 17.07 8 14.6 8 13.54c-2.39.7-4 1.96-4 3.46v4h16v-4c0-1.5-1.6-2.76-4-3.46"/></svg>
+        <p class="nom">Thomas<br>Vasseur</p>
+        <p class="part">15&nbsp;000&nbsp;€</p>
+      </div>
+      <div class="fig">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11.94 3A3.993 3.993 0 0 0 8 7c-.06 1.64-.19 3.47-.97 4.59C9.71 13.22 12 13 12 13s2.29.22 4.97-1.41C16.12 10.22 15.94 8.54 16 7c0-2.21-1.79-4-4-4zM8.86 13.32C6 13.93 4 15.35 4 17v4h8l-3-4H6.5m5.5 4l1.78-7.19S13 14 12 14s-1.78-.19-1.78-.19M12 21h8v-4c0-1.65-2-3.07-4.86-3.68L17.5 17H15Z"/></svg>
+        <p class="nom">Claire<br>Berthier</p>
+        <p class="part">15&nbsp;000&nbsp;€</p>
+      </div>
+    </div>
+
+    <p class="pied g">30&nbsp;000&nbsp;€</p>
+    <p class="pied d">30&nbsp;000&nbsp;€</p>
+  </div>
+</div>
+</body></html>

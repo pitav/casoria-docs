@@ -1,0 +1,389 @@
+<p class="kicker">Comprendre la comptabilité sans être comptable — composant du Chapitre 5</p>
+<h1>&lt;CalculetteTva /&gt;</h1>
+<p class="chapo">Fiche v2, 15 septembre 2026. Sources&nbsp;: déroulé de module v27, sections 5 et 7, fiche du
+Chapitre 5 et son bloc d'arbitrages, le Chapitre 5 livré, et <strong>le système d'activité de
+l'application</strong> — <code>activite.css</code> et le <code>&lt;TriActifPassif /&gt;</code> refait, qui
+abandonnent le sable pour l'amber de Tailwind. Cette fiche dit ce que le composant doit obtenir
+et comment il se comporte&nbsp;; elle ne dit pas comment il s'écrit. <strong>La consigne, les trois libellés,
+les deux phrases de retour et la phrase de clôture sont du texte affiché à l'apprenant</strong>&nbsp;: ils
+relèvent de la charte et se relisent comme du corps de chapitre. Elle applique les trois règles de composant
+du 12 septembre 2026. Ce qui reste à trancher est rassemblé à la dernière section.</p>
+<p class="pied">Casoria — &lt;CalculetteTva /&gt;, fiche v2</p>
+
+<h2 class="nu">1 — Ce que le composant doit obtenir</h2>
+<p>Le déroulé donne la fonction en une ligne, deux fois dans les mêmes mots&nbsp;: «&nbsp;collectée –
+déductible = à décaisser, sur les chiffres du trimestre&nbsp;», et la section 7 ajoute ce qui compte,
+«&nbsp;prépare l'écriture de compensation&nbsp;». Le composant précède de trois paragraphes le bloc que la
+fiche du chapitre appelle le geste central. Ce qu'il doit obtenir est donc ce que ce bloc va acter.</p>
+<ul>
+<li><strong>L'entreprise ne verse pas ce qu'elle a collecté.</strong> C'est le malentendu du chapitre, et
+c'est la seule chose que l'apprenant doit avoir faite de sa main avant de lire la phrase qui la nomme.</li>
+<li><strong>Chacun des deux comptes additionne les montants du trimestre de son côté.</strong> Le texte
+l'écrit une section plus haut&nbsp;; ici, l'apprenant le fait, et les deux sous-totaux se forment sous ses
+yeux.</li>
+<li><strong>Ce qui reste est petit devant les deux montants qui le produisent.</strong> 1&nbsp;200&nbsp;€
+contre 7&nbsp;800&nbsp;€ et 6&nbsp;600&nbsp;€&nbsp;: c'est ce qui rend supportable qu'une seule ligne
+apparaisse au Bilan quand deux comptes ont travaillé.</li>
+</ul>
+<p class="declaration">Les deux nombres sont connus. C'est l'opération qui ne l'est pas.</p>
+<p>C'est le parti pris de la fiche, et il est le même que celui du <code>&lt;EcritureDragDrop /&gt;</code>&nbsp;:
+rien à deviner, tout à voir. Le texte vient de faire lire les deux totaux au journal, 7&nbsp;800&nbsp;€ au
+compte 4457 et 6&nbsp;600&nbsp;€ au compte 4456. L'activité ne les redemande pas&nbsp;: elle demande de
+quel côté chaque taxe du trimestre compte, et c'est la machine qui additionne et qui retranche.</p>
+
+<h2>2 — Sa place dans le chapitre</h2>
+<p>Dans la section «&nbsp;Deux comptes au journal ne laissent qu'une seule ligne au Bilan&nbsp;», juste après
+la phrase «&nbsp;Elle verse la différence&nbsp;» et avant le paragraphe qui nomme la TVA à décaisser. C'est
+l'emplacement que porte le chapitre livré, et il n'y en a pas d'autre&nbsp;: un paragraphe plus bas, le texte
+a donné le terme et les 1&nbsp;200&nbsp;€, et la calculette n'aurait plus rien à produire. L'activité
+prépare, le bloc acte.</p>
+<div class="note"><span class="t">Le composant ne dit pas «&nbsp;TVA à décaisser&nbsp;»</span>
+<p>Le terme, le compte 4455 et la ligne au Bilan arrivent <strong>après</strong> le composant. Sa ligne de
+résultat s'appelle donc «&nbsp;ce qu'elle doit remettre à l'État&nbsp;», avec les mots que le chapitre a
+déjà donnés à sa première section. <strong>Le composant produit le nombre, le texte le nomme</strong>&nbsp;:
+c'est le même partage qu'entre l'activité et le bloc. La légende du bloc <code>.composant</code>, dans le
+chapitre, écrit bien «&nbsp;à décaisser&nbsp;» — c'est une ligne de fabrication, lue par l'intégration,
+jamais par l'apprenant.</p></div>
+
+<h2>3 — L'écran dont le composant dispose</h2>
+<p class="declaration">Un composant ne dispose pas de l'écran. Il dispose de la moitié droite.</p>
+<p>Le dispositif partage la page en deux dans le sens de la hauteur, le texte à gauche, le Bilan et le Compte
+de Résultat à droite, et c'est dans cette colonne de droite que les composants s'affichent. <strong>La largeur
+utile est de l'ordre de 700&nbsp;px</strong>, et la hauteur compte autant, puisque le lecteur ne doit pas
+avoir à défiler pour voir ce qu'il manipule. La maquette de la section suivante est donc faite à
+720&nbsp;px.</p>
+<p>Ce que la règle impose ici, et c'est elle qui a donné la forme du composant.</p>
+<ul>
+<li><strong>Une soustraction se pose, elle ne s'aligne pas.</strong> Deux zones côte à côte auraient demandé
+une phrase pour dire laquelle se retranche de l'autre. Empilées, avec leurs signes dans une gouttière et le
+résultat en troisième rang, elles n'en demandent aucune&nbsp;: c'est une opération posée, et tout le monde
+en a fait.</li>
+<li><strong>Trois lignes tiennent, un tableau de journal ne tient pas.</strong> Les lignes de taxe du
+trimestre arrivent sous leur opération et leur montant, deux éléments, et non sous les quatre colonnes du
+journal qui ne passeraient pas dans cette largeur.</li>
+<li><strong>Un état se montre avant de se dire.</strong> Une zone vide porte un sous-total à 0,00 et se voit
+vide&nbsp;; aucune mention n'est ajoutée pour l'écrire.</li>
+</ul>
+
+<h2>4 — Anatomie de l'écran</h2>
+<p>De haut en bas, trois bandes. Les lignes du trimestre dans le panneau d'activité, la calculette en
+dessous, et le résultat en troisième rang de l'opération. <strong>Toutes les surfaces sont celles de
+<code>activite.css</code></strong>&nbsp;: le composant n'invente ni une couleur ni une forme.</p>
+<table>
+<thead><tr><th style="width:26%">Élément d'écran</th><th>Contenu et rôle</th></tr></thead>
+<tbody>
+<tr><td class="cle">Consigne et régime</td><td>Les deux emplacements de
+<code>&lt;M1ActiviteSection&gt;</code>. Propositions&nbsp;: «&nbsp;Placez chaque ligne de taxe du côté où
+elle compte&nbsp;», puis «&nbsp;Rien n'est chronométré ou noté. Une ligne mal placée reste à sa
+place.&nbsp;»</td></tr>
+<tr><td class="cle">Le panneau des lignes</td><td>Un <code>.bg-activite</code> pleine largeur,
+<strong>collé en haut</strong> comme la réserve du <code>&lt;TriActifPassif /&gt;</code>, avec son titre et
+son compteur «&nbsp;1 placée sur 3&nbsp;». Les lignes qui restent à placer, une à trois, chacune sous
+<strong>le nom de son opération et son montant</strong>. Ni numéro de compte, ni sens, ni colonne.</td></tr>
+<tr><td class="cle">Le retour</td><td>Une ligne réservée sous le panneau, vide tant qu'aucun dépôt n'a été
+refusé. Les deux phrases sont à la section 7.</td></tr>
+<tr><td class="cle">Les deux zones</td><td>Des <code>.zone-depot</code> <strong>empilées</strong>, chacune
+sur toute la largeur, avec son signe — <strong>+</strong> puis <strong>−</strong> — dans une gouttière à
+gauche. Chacune porte son nom, son numéro de compte à droite, et la question à laquelle elle
+répond.</td></tr>
+<tr><td class="cle">Une ligne posée</td><td>Un <code>.item-place</code>, avec son opération et son montant.
+Deux éléments, pas un de plus. Un appui la reprend.</td></tr>
+<tr><td class="cle">«&nbsp;Placer ici&nbsp;»</td><td>Dans chaque zone tant qu'une ligne est saisie. C'est le
+geste en deux appuis, et c'est le chemin du clavier.</td></tr>
+<tr><td class="cle">Les deux sous-totaux</td><td>Au pied de chaque zone, sur un filet. C'est là que se lit
+l'addition du trimestre, et c'est le seul endroit où les 7&nbsp;800&nbsp;€ et les 6&nbsp;600&nbsp;€ se
+forment plutôt que de s'afficher.</td></tr>
+<tr><td class="cle">La zone de résultat</td><td>Troisième rang, avec son signe <strong>=</strong>. Une
+<code>.zone-resultat</code>, <strong>nue jusqu'au troisième dépôt</strong> puis remplie&nbsp;: elle porte
+alors «&nbsp;ce qu'elle doit remettre à l'État&nbsp;», la soustraction écrite en petit, et le montant en
+grand. Section 6.</td></tr>
+<tr><td class="cle">La phrase de clôture</td><td>Un <code>.panneau-final</code> qui prend la place du
+panneau des lignes. Proposition&nbsp;: «&nbsp;Sur les 7&nbsp;800&nbsp;€ de taxe facturés à ses clients,
+Latitude Café en avait déjà payé 6&nbsp;600&nbsp;€ à ses fournisseurs. Il en reste 1&nbsp;200&nbsp;€ pour
+l'État.&nbsp;»</td></tr>
+<tr><td class="cle">Tout reprendre</td><td>Un <code>&lt;UButton&gt;</code> neutre au pied, comme au
+<code>&lt;TriActifPassif /&gt;</code>. Rien ne se rejoue de soi-même.</td></tr>
+</tbody>
+</table>
+<p><img src="calculette-tva-a.png" alt="Maquette du composant, un glisser en cours" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">Premier état, à 720&nbsp;px. Une ligne est posée, une deuxième est saisie — elle passe au
+blanc cerclé d'amber — et la zone de gauche est survolée&nbsp;: son trait passe du pointillé au plein.
+«&nbsp;Placer ici&nbsp;» s'ouvre dans les deux zones, et la zone de résultat est encore nue.</p>
+<p><img src="calculette-tva-b.png" alt="Maquette du composant, les trois lignes placées" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">Second état, les trois lignes placées. Les deux sous-totaux portent les nombres que le
+texte a fait lire au journal, la soustraction est écrite sous le nom du résultat, et la phrase de clôture a
+remplacé le panneau des lignes. Le paragraphe du chapitre reprend juste en dessous et nomme les
+1&nbsp;200&nbsp;€.</p>
+<p><img src="calculette-tva-c.png" alt="Maquette du composant, un dépôt refusé" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">Le retour d'un dépôt refusé, en tête du composant. <strong>La classe de l'application met
+cette phrase en rouge</strong> (<code>text-error-500</code>), ce qui entre en tension avec la section 8 —
+point 7 de la dernière section.</p>
+
+<h2>5 — La matière, et la règle qui la choisit</h2>
+<p class="declaration">Une activité n'emploie que des notions du chapitre présent et du chapitre précédent.
+Et de son chapitre, seulement ce qu'il a déjà dit au point où elle se place.</p>
+<p>Le composant arrive tard dans un chapitre qui a beaucoup donné, et la règle ne lui retranche rien de ce
+dont il a besoin. Tout son travail consiste à écarter ce que le chapitre se réserve pour les trois
+paragraphes qui le suivent.</p>
+<table>
+<thead><tr><th style="width:34%">Ce que l'apprenant place</th><th class="num" style="width:18%;padding-right:16px">Montant</th><th>Zone</th></tr></thead>
+<tbody>
+<tr><td>Ventes aux professionnels · T1</td><td class="num" style="padding-right:16px">6&nbsp;000,00</td><td>TVA collectée · 4457</td></tr>
+<tr><td>Ventes au comptoir · T1</td><td class="num" style="padding-right:16px">1&nbsp;800,00</td><td>TVA collectée · 4457</td></tr>
+<tr><td>Achats et charges externes · T1</td><td class="num" style="padding-right:16px">6&nbsp;600,00</td><td>TVA déductible · 4456</td></tr>
+<tr class="total"><td>Ce qu'elle doit remettre à l'État</td><td class="num" style="padding-right:16px">1&nbsp;200,00</td><td>7&nbsp;800,00 − 6&nbsp;600,00</td></tr>
+</tbody>
+</table>
+<p>Les trois lignes sont celles du trimestre, et l'apprenant vient de les voir passer&nbsp;: la première est
+la troisième ligne du bloc qu'il a saisi de sa main, les deux autres sont dans le panneau qui l'a suivi.
+<strong>Les trois montants sont exactement ceux du journal du module</strong>, et le compte 4457 y porte bien
+deux lignes quand le 4456 n'en porte qu'une.</p>
+<div class="note"><span class="t">La ligne ne porte pas son compte, et c'est ce qui fait l'activité</span>
+<p>Au <code>&lt;EcritureDragDrop /&gt;</code>, la ligne portait son numéro de compte parce que la décision
+demandée était la colonne. <strong>Ici, la décision demandée est le compte&nbsp;: la ligne ne peut donc pas
+le porter.</strong> Elle porte l'opération, comme la colonne de libellé du journal, et l'apprenant décide en
+partant d'elle — une vente facture la taxe, un achat la paie. C'est la question du chapitre, et c'est la
+seule qu'il ait à trancher.</p></div>
+<h3>Ce que la règle écarte, et pourquoi</h3>
+<table>
+<thead><tr><th style="width:34%">Écarté</th><th>Motif</th></tr></thead>
+<tbody>
+<tr><td class="cle">Le terme «&nbsp;TVA à décaisser&nbsp;», le compte 4455, la ligne au Passif</td><td>Trois
+paragraphes plus bas. Voir la section 2&nbsp;: le composant produit le nombre, le texte le nomme.</td></tr>
+<tr><td class="cle">Le crédit de TVA, quand l'État doit la différence</td><td>Plus bas dans la même section du
+chapitre. <strong>La calculette ne se renverse pas</strong>&nbsp;: aucun jeu de chiffres du module ne donne
+une déductible supérieure à la collectée, et la section 3 du déroulé verrouille les montants.</td></tr>
+<tr><td class="cle">L'écriture de solde, ses trois lignes et ses deux sens</td><td>C'est le bloc qui suit.
+Le composant ne montre aucune écriture, aucun débit, aucun crédit — même frontière qu'au
+<code>&lt;FriseEncaissement /&gt;</code>.</td></tr>
+<tr><td class="cle">Le taux de 20&nbsp;%, le hors taxes et le toutes taxes comprises</td><td>Acquis à la
+première section du chapitre, donc licites. Écartés tout de même&nbsp;: refaire le calcul de la taxe ferait
+de la calculette un exercice d'arithmétique et prendrait à la première section ce qu'elle enseigne. Les trois
+montants arrivent calculés, comme au journal.</td></tr>
+<tr><td class="cle">La reprise des six opérations des Chapitres 3 et 4</td><td>Elle est bien dans le
+trimestre, mais aucune de ses six lignes ne porte de taxe&nbsp;: il n'y a rien à y placer. Les
+270&nbsp;€ et les 1&nbsp;450&nbsp;€ n'apparaissent pas.</td></tr>
+<tr><td class="cle">L'exigibilité, la règle des services, le crédit de TVA</td><td>Les trois paragraphes qui
+suivent immédiatement le composant. Hors matière au point où il se place, et le composant ne les
+annonce pas.</td></tr>
+<tr><td class="cle">La déclaration, la date du versement, le Trésor public comme destinataire</td><td>Le mot
+est dans l'ouverture du chapitre et reste disponible, mais le versement lui-même n'est pas du module. La ligne
+de résultat dit «&nbsp;remettre à l'État&nbsp;», et rien du calendrier.</td></tr>
+<tr><td class="cle">Le décalage entre le résultat et la trésorerie</td><td>Chapitre 4, donc licite. Ce n'est
+pas la question de la calculette, et la section suivante du chapitre le reprend elle-même, mieux qu'une
+activité ne le ferait.</td></tr>
+</tbody>
+</table>
+<div class="note"><span class="t">Le risque connu de cette matière</span>
+<p>Les deux zones ne reçoivent pas le même nombre de lignes, et la collectée est la plus grande des deux.
+Un apprenant peut en repartir avec deux règles fausses&nbsp;: que la taxe facturée l'emporte toujours, et que
+l'entreprise reverse quelque chose à chaque trimestre. <strong>La protection est textuelle</strong>&nbsp;: la
+phrase de clôture parle des 7&nbsp;800&nbsp;€ et des 6&nbsp;600&nbsp;€ de ce trimestre, jamais d'une règle, et
+le chapitre ouvre le crédit de TVA deux paragraphes plus bas. L'événement d'intégration dira si la troisième
+ligne, celle des achats, se place du premier coup&nbsp;; c'est le chiffre à regarder aux tests
+utilisateurs.</p></div>
+
+<h2>6 — Ce qui se passe, geste par geste</h2>
+<table>
+<thead><tr><th style="width:26%">Situation</th><th>Réponse du composant</th></tr></thead>
+<tbody>
+<tr><td class="cle">Le geste</td><td>Un glisser-déposer à la souris, ou deux appuis — la ligne, puis
+«&nbsp;Placer ici&nbsp;» — au doigt comme au clavier. Le même geste qu'aux deux composants de
+glisser-déposer du module, et le même code.</td></tr>
+<tr><td class="cle">Dépôt juste</td><td>La ligne s'inscrit dans la zone et le sous-total s'incrémente. Pas
+de félicitation&nbsp;: le sous-total qui bouge est la réponse.</td></tr>
+<tr><td class="cle">Dépôt faux</td><td>La ligne reste à sa place, dans le panneau, et une phrase d'une ligne
+s'affiche au-dessus des zones. Pas de croix, pas de comptage des erreurs.</td></tr>
+<tr><td class="cle">Une ou deux lignes placées</td><td><strong>La zone de résultat reste nue.</strong> Les
+deux sous-totaux, eux, sont affichés en permanence.</td></tr>
+<tr><td class="cle">Les trois lignes placées</td><td>La zone de résultat se remplit, avec sa soustraction
+écrite, et la phrase de clôture remplace le panneau des lignes. Le texte du chapitre reprend juste en
+dessous.</td></tr>
+<tr><td class="cle">Reprendre une ligne</td><td>Une ligne posée se reprend d'un appui, y compris après la
+fin. La zone de résultat redevient nue, et le sous-total revient en arrière.</td></tr>
+<tr><td class="cle">Quitter et revenir</td><td>L'état est conservé. L'apprenant retrouve le composant tel
+qu'il l'a laissé, et la reprise de séance ne le rejoue pas.</td></tr>
+</tbody>
+</table>
+<div class="note"><span class="t">La calculette n'affiche jamais un résultat partiel</span>
+<p>C'est la seule règle de comportement propre à ce composant, et elle le distingue du
+<code>&lt;EcritureDragDrop /&gt;</code>, dont les deux totaux sont affichés en permanence. Là-bas, une paire
+de totaux inégaux est un état vrai, qui se lit&nbsp;: l'écriture est inachevée. <strong>Ici, une différence
+partielle serait un nombre faux présenté comme la somme due à l'État</strong> — 6&nbsp;000&nbsp;€ après un
+seul dépôt, quand la réponse est 1&nbsp;200&nbsp;€. Les sous-totaux se montrent parce qu'ils sont vrais à
+chaque instant&nbsp;; le résultat attend d'être vrai. <strong>Les deux états que
+<code>activite.css</code> donne déjà à la zone de résultat, nue et remplie, disent exactement
+cela</strong>&nbsp;: la nue est l'attente, et elle ne porte aucun chiffre.</p></div>
+
+<h2>7 — Les phrases de retour</h2>
+<p>Deux phrases couvrent les trois dépôts faux possibles, parce que chacune porte sur la question à laquelle
+une zone répond, jamais sur la ligne déposée ni sur son montant. Ce sont les deux questions que les zones
+portent déjà sous leur nom, à l'écran&nbsp;: l'apprenant lit une phrase faite des mots qu'il a sous les
+yeux.</p>
+<table>
+<thead><tr><th style="width:30%">La zone mal choisie</th><th>Ce qui s'affiche</th></tr></thead>
+<tbody>
+<tr><td class="cle">La TVA déductible, pour une taxe facturée</td><td>«&nbsp;Cette taxe n'a pas été payée à un
+fournisseur. Elle a été facturée à un client.&nbsp;»</td></tr>
+<tr><td class="cle">La TVA collectée, pour une taxe payée</td><td>«&nbsp;Cette taxe n'a pas été facturée à un
+client. Elle a été payée à un fournisseur.&nbsp;»</td></tr>
+</tbody>
+</table>
+<p class="legende">Aucune des deux ne nomme un compte, une opération ni un montant&nbsp;: elles valent aux
+trois lignes et dans les deux sens de l'erreur. C'est ce qui empêche l'apprenant d'en tirer qu'une opération
+appartient à un compte, quand ce qui décide est le sens de la taxe.</p>
+
+<h2>8 — Ce que le composant ne fait pas</h2>
+<ul>
+<li><strong>Aucun score, aucun chronomètre, aucun échec possible.</strong> Les quiz évaluent, les activités
+enseignent.</li>
+<li><strong>Aucune écriture, aucun journal, aucun débit ni crédit.</strong> C'est la frontière avec le bloc
+qui suit, et elle ne se franchit pas. Les deux zones portent des numéros de compte, jamais des colonnes.</li>
+<li><strong>Aucune trace dans le Bilan, le Compte de Résultat ou le grand journal du module.</strong> La ligne
+4455 du Bilan naît du bloc, trois paragraphes plus bas, et de lui seul.</li>
+<li><strong>Aucun montant à saisir, aucun calcul à faire de tête.</strong> L'apprenant décide d'un compte,
+jamais d'un chiffre&nbsp;; la machine additionne et retranche.</li>
+<li><strong>Aucun curseur, aucun réglage, aucune simulation.</strong> Les montants du trimestre sont ceux de
+la section 3 du déroulé, et ils ne se touchent pas. Le module a ses composants à curseur, ce n'en est pas
+un.</li>
+<li><strong>Rien sur le crédit de TVA, rien sur l'exigibilité.</strong> Si un libellé a besoin d'un mot que le
+chapitre n'a pas encore donné au-dessus du composant, c'est le libellé qu'il faut changer.</li>
+</ul>
+
+<h2>9 — Palette, empilement, téléphone, clavier</h2>
+<p class="declaration">Le composant ne choisit aucune couleur. Il ne choisit que des classes.</p>
+<p>La palette du module est passée de la teinte sable à <strong>l'amber de Tailwind</strong>, et les couleurs
+vivent désormais dans <code>activite.css</code>, sous le sélecteur <code>.activite</code>. Le partage tient
+en trois familles, et il reprend exactement celui de la règle 2&nbsp;: <strong>l'amber porte ce que
+l'apprenant reçoit, le slate ce qu'il construit, et le lime marque ce qui est acquis</strong> — une ligne
+posée, la phrase de clôture. Aucune valeur en dur n'entre dans le composant.</p>
+<table>
+<thead><tr><th style="width:34%">Rôle</th><th>Classe, et ce qu'elle porte</th></tr></thead>
+<tbody>
+<tr><td class="cle">Consigne</td><td><code>h2.titre-activite</code> — amber 600, donné par
+<code>&lt;M1ActiviteSection&gt;</code></td></tr>
+<tr><td class="cle">Panneau des lignes du trimestre</td><td><code>.bg-activite</code> — fond amber 50, filet
+amber 200&nbsp;; son titre en <code>.titre-panneau.color-activite</code>, son compteur en
+<code>.places</code></td></tr>
+<tr><td class="cle">Une ligne à placer</td><td><code>.btn-drag.btn-drag-color</code> — fond amber 600, texte
+blanc&nbsp;; saisie, <code>.btn-drag-selected</code> la passe au blanc cerclé d'amber 500</td></tr>
+<tr><td class="cle">Une zone</td><td><code>.zone-depot.zone-depot-nue</code> — trait pointillé slate 300 sur
+blanc&nbsp;; survolée, <code>.zone-depot-hover</code> la passe au trait plein slate 600</td></tr>
+<tr><td class="cle">Nom de zone, question</td><td><code>.titre-panneau.color-neutral</code> et slate 500. Le
+numéro de compte est à droite du nom, comme le compteur du
+<code>&lt;TriActifPassif /&gt;</code></td></tr>
+<tr><td class="cle">Une ligne posée</td><td><code>.item-place</code> — fond slate 50, filet slate 200,
+<strong>liseré lime 500 à gauche</strong></td></tr>
+<tr><td class="cle">«&nbsp;Placer ici&nbsp;»</td><td><code>.btn-placer-ici</code> — pointillé lime 400 sur
+fond lime 50. <strong>Classe neuve</strong>&nbsp;: elle remplace les trois couleurs en dur du
+<code>&lt;TriActifPassif /&gt;</code>, restes de l'ancienne palette, et la cible d'un dépôt se dit
+désormais dans la teinte de ce qui est posé</td></tr>
+<tr><td class="cle">Zone de résultat</td><td><code>.zone-resultat</code>, <code>-nue</code> puis
+<code>-remplie</code> — les deux états existaient déjà dans la feuille et disent l'attente sans un
+mot</td></tr>
+<tr><td class="cle">Signes, sous-totaux, montants</td><td><code>.signe-operation</code>,
+<code>.sous-total</code>, <code>.somme</code>, <code>.somme-resultat</code>,
+<code>.somme-attente</code>. <strong>Classes neuves</strong>, proposées à la feuille sous un commentaire
+<code>/* CalculetteTva */</code>, comme <code>.clip-path-releve</code> l'est pour le
+<code>&lt;EcritureDragDrop /&gt;</code></td></tr>
+<tr><td class="cle">Phrase de clôture</td><td><code>.panneau-final</code> — fond lime 50, filet lime 300,
+texte lime 700</td></tr>
+<tr><td class="cle">Phrase de retour</td><td><code>text-error-500</code>, la classe du
+<code>&lt;TriActifPassif /&gt;</code> refait. Voir la réserve de la section 11</td></tr>
+</tbody>
+</table>
+<p class="legende">La zone visée se marque d'abord par son trait, qui passe du pointillé au plein, et
+seulement ensuite par sa couleur&nbsp;: c'est la clause de la règle 2, et <code>activite.css</code> la tient
+déjà — <code>.zone-depot-nue</code> est <em>dashed</em>, <code>.zone-depot-hover</code> est
+<em>solid</em>.</p>
+<p><strong>L'empilement ne coûte rien à ce composant.</strong> La calculette est déjà verticale&nbsp;: en
+étroit, les trois lignes du panneau et les deux zones gardent leur ordre, et seuls les libellés se
+raccourcissent. C'est le premier des quatre qui ne perd rien sous 480&nbsp;px, et il le doit à la
+soustraction posée. La gouttière des signes fait 1,75&nbsp;rem et ne se réduit pas&nbsp;: elle est la seule
+chose qui dise l'opération.</p>
+<p>Au clavier, la tabulation parcourt les lignes du panneau puis, pour chacune, les deux boutons
+«&nbsp;Placer ici&nbsp;». Le retour d'un dépôt refusé est annoncé par une région dédiée, rendue en
+permanence pour qu'un lecteur d'écran la voie apparaître, et <strong>le résultat l'est aussi&nbsp;: c'est le
+seul nombre du composant qui apparaisse sans qu'un geste le précède immédiatement.</strong></p>
+
+<h2>10 — Ce que l'intégration attend</h2>
+<table>
+<thead><tr><th style="width:22%">Point</th><th>Décision</th></tr></thead>
+<tbody>
+<tr><td class="cle">Contenu</td><td>Les trois lignes, les deux zones, la consigne, les deux phrases et la
+clôture vivent dans le composant, pas dans le texte du chapitre. Le <code>.corps.html</code> livré ne porte
+que <code>&lt;CalculetteTva /&gt;</code>, sans attribut.</td></tr>
+<tr><td class="cle">Les montants</td><td>Les trois sont ceux du journal du module — 6&nbsp;000&nbsp;€,
+1&nbsp;800&nbsp;€ et 6&nbsp;600&nbsp;€ — et les deux sous-totaux comme le résultat s'en déduisent.
+<strong>Aucun n'est écrit en dur dans une chaîne&nbsp;; la phrase de clôture elle-même les
+interpole.</strong> Un montant du scénario qui bougerait n'a qu'un seul endroit à changer.</td></tr>
+<tr><td class="cle">La feuille de style</td><td>Le composant ajoute six classes à <code>activite.css</code>,
+sous un commentaire <code>/* CalculetteTva */</code>&nbsp;: <code>.rang-operation</code>,
+<code>.signe-operation</code>, <code>.sous-total</code>, <code>.sous-total-libelle</code>,
+<code>.somme</code> et ses deux variantes. <strong>Il en propose une septième, commune</strong>&nbsp;:
+<code>.btn-placer-ici</code>, qui retire au <code>&lt;TriActifPassif /&gt;</code> ses trois couleurs en
+dur.</td></tr>
+<tr><td class="cle">Largeur</td><td>Le composant se dessine pour la colonne de droite, autour de
+700&nbsp;px. Il doit tenir sans défilement interne à cette largeur.</td></tr>
+<tr><td class="cle">État</td><td>Conservé sous la même clé que la progression de l'apprenant. La zone où
+chaque ligne est posée suffit&nbsp;: l'état entier, résultat compris, s'en déduit.</td></tr>
+<tr><td class="cle">Événements</td><td>Un événement par dépôt, juste ou faux, avec la ligne et la zone. Le
+chiffre à surveiller est la part des apprenants qui placent la ligne des achats du premier coup&nbsp;: c'est
+la mesure du malentendu que le chapitre vient prendre.</td></tr>
+<tr><td class="cle">Parenté</td><td>Troisième composant à lignes et zones de dépôt, après le
+<code>&lt;TriActifPassif /&gt;</code> et le <code>&lt;EcritureDragDrop /&gt;</code>, et il en reprend le
+code presque au mot — <code>placements</code>, <code>selection</code>, <code>survol</code>,
+<code>message</code>, et les mêmes cinq fonctions. <strong>Le moteur commun existe désormais en fait, avant
+d'exister en code&nbsp;;</strong> c'est à la quatrième occurrence qu'il faudra décider de
+l'extraire.</td></tr>
+</tbody>
+</table>
+
+<h2>11 — Ce qui reste à trancher</h2>
+<ol>
+<li><strong>La consigne, le régime, les trois libellés d'opération, les deux phrases de retour et la
+clôture.</strong> C'est du texte affiché&nbsp;: il se relit comme du corps, avec la relecture profane.</li>
+<li><strong>Trois lignes ou quatre.</strong> Les 6&nbsp;600&nbsp;€ de taxe déductible se scindent
+exactement en 5&nbsp;000&nbsp;€ sur les achats de café vert et 1&nbsp;600&nbsp;€ sur les charges externes.
+Quatre lignes donneraient deux additions symétriques et supprimeraient le risque de la section 5. Le coût est
+réel&nbsp;: <strong>ces deux montants ne figurent dans aucune ligne du journal du module</strong>, qui ne
+porte qu'une ligne de 4456 pour le trimestre, et un apprenant qui filtre le compte ne les y retrouverait
+pas.</li>
+<li><strong>Le résultat caché jusqu'au troisième dépôt.</strong> La fiche le retient et la section 6 en donne
+le motif. L'autre voie est de l'afficher en permanence, comme les totaux du
+<code>&lt;EcritureDragDrop /&gt;</code>.</li>
+<li><strong>Le mot du résultat.</strong> «&nbsp;Ce qu'elle doit remettre à l'État&nbsp;» dans cette fiche.
+L'autre voie est de nommer la TVA à décaisser dans le composant, ce qui prend au chapitre son terme et sa
+définition.</li>
+<li><strong>Le nom du composant.</strong> <code>&lt;CalculetteTva /&gt;</code> annonce un clavier de
+chiffres, quand rien ne se saisit&nbsp;; et «&nbsp;calculette&nbsp;» désigne l'outil, pas ce qu'on obtient. La
+table de nommage du déroulé fait foi et rien ne se renomme en cours de route&nbsp;; si le nom doit changer,
+c'est la table de la section 5 du déroulé qui change d'abord. Proposition à y porter&nbsp;:
+<code>&lt;SoldeDeTva /&gt;</code>, qui est le libellé de l'écriture qu'elle prépare. Le nom affiché au
+catalogue des activités, section 7, peut rester «&nbsp;Calculette TVA&nbsp;».</li>
+<li><strong>Le compteur «&nbsp;1 placée sur 3&nbsp;».</strong> Repris du <code>&lt;TriActifPassif /&gt;</code>,
+qui en compte huit. Sur trois dépôts, il est peut-être plus bruyant qu'utile.</li>
+<li><strong>Le rouge de la phrase de retour.</strong> <code>text-error-500</code> vient du
+<code>&lt;TriActifPassif /&gt;</code> refait, et cette fiche l'a suivi par cohérence. Mais les activités du
+module tiennent qu'un dépôt faux n'est pas une faute — ni croix, ni comptage, sections 6 et 8 — et une
+phrase qui explique <em>pourquoi</em> une ligne va ailleurs n'est pas un message d'erreur&nbsp;: c'est l'enseignement du chapitre, dit au moment où il porte.
+<strong>La réserve vaut pour les quatre composants à la fois</strong>, et elle se tranche une fois. L'autre
+voie est une teinte d'attention plutôt que d'erreur — l'amber de l'activité, qui est déjà la couleur de ce
+que l'apprenant reçoit.</li>
+<li><strong>La gouttière des signes à 1,75&nbsp;rem.</strong> Elle porte <code>+</code>,
+<code>−</code> et <code>=</code>, et c'est ce qui fait lire l'écran comme une opération posée. Si elle
+tombe en étroit, il ne reste que trois boîtes empilées.</li>
+</ol>
+
+<p class="fin">Fiche v2, 15 septembre 2026. <strong>Changement depuis la v1</strong>&nbsp;: le module a
+quitté la teinte sable pour l'amber de Tailwind, et les couleurs ont quitté les composants pour
+<code>activite.css</code>. Le composant est donc refait sur les classes de la feuille — panneau d'activité,
+zones de dépôt, lignes posées en lime, panneau final — et sur la charpente du
+<code>&lt;TriActifPassif /&gt;</code> refait&nbsp;: <code>&lt;M1ActiviteSection&gt;</code> et ses deux
+emplacements, le panneau collé en haut, le geste en deux appuis par «&nbsp;Placer ici&nbsp;», le
+<code>&lt;UButton&gt;</code> de reprise. <strong>Deux gains n'étaient pas prévus</strong>&nbsp;: la feuille
+portait déjà <code>.zone-resultat-nue</code> et <code>.zone-resultat-remplie</code>, qui disent l'attente du
+résultat sans une phrase&nbsp;; et le liseré lime d'une ligne posée donne au composant la marque d'acquis
+qu'il n'avait pas. <strong>Ce que la fiche garde de la v1, sans rien y changer</strong>&nbsp;: la matière,
+le partage entre le nombre et son nom, et sa règle propre — un résultat ne s'affiche pas tant qu'il est
+faux, là où un total, lui, se montre toujours.</p>

@@ -1,0 +1,473 @@
+{
+ "voix": "voice_dur676prxpls",
+ "modele": "gemini-3.8-flash-tts",
+ "duree_totale": 210.68,
+ "segments": [
+  {
+   "id": "p1-1",
+   "plan": 1,
+   "texte": "Par exemple, une entreprise termine son année sur dix-sept mille euros de bénéfice. Elle voudrait une machine à trente mille euros.",
+   "fichier": "p1-1.mp3",
+   "duree": 9.22,
+   "fidelite": 0.732,
+   "essais": 1,
+   "transcription": "Par exemple, une entreprise termine son année sur 17 000 € de bénéfice. Elle voudrait une machine à 30 000 €.",
+   "debut": 6.0,
+   "fin": 15.22,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.2
+    },
+    {
+     "i": 84,
+     "t": 6.248
+    }
+   ]
+  },
+  {
+   "id": "p1-2",
+   "plan": 1,
+   "texte": "Son compte en banque, lui, affiche dix mille euros. Peut-elle se le permettre ?",
+   "fichier": "p1-2.mp3",
+   "duree": 5.54,
+   "fidelite": 0.857,
+   "essais": 1,
+   "transcription": "Son compte en banque, lui, affiche 10 000 euros. Peut-elle se le permettre ?",
+   "debut": 16.02,
+   "fin": 21.56,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.276
+    },
+    {
+     "i": 52,
+     "t": 4.146
+    }
+   ]
+  },
+  {
+   "id": "p2-1",
+   "plan": 2,
+   "texte": "Elle ne le peut pas : le compte en banque passerait à moins vingt mille euros.",
+   "fichier": "p2-1.mp3",
+   "duree": 4.7,
+   "fidelite": 0.828,
+   "essais": 1,
+   "transcription": "Elle ne le peut pas. Le compte en banque passerait à - 20 000 euros.",
+   "debut": 22.96,
+   "fin": 27.66,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.296
+    },
+    {
+     "i": 22,
+     "t": 1.859
+    }
+   ]
+  },
+  {
+   "id": "p2-2",
+   "plan": 2,
+   "texte": "Et ces dix mille euros sont moins disponibles qu'ils n'en ont l'air. Au Passif, deux mille euros de TVA à décaisser et trois mille euros d'impôt sur les sociétés partiront dans les mois qui suivent.",
+   "fichier": "p2-2.mp3",
+   "duree": 11.57,
+   "fidelite": 0.8,
+   "essais": 1,
+   "transcription": "Et ces 10 000 € sont moins disponibles qu'ils n'en ont l'air. Au passif, 2 000 € de TVA à décaisser et 3 000 € d'impôt sur les sociétés partiront dans les mois qui suivent.",
+   "debut": 28.46,
+   "fin": 40.03,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.295
+    },
+    {
+     "i": 69,
+     "t": 4.0
+    }
+   ]
+  },
+  {
+   "id": "p3-1",
+   "plan": 3,
+   "texte": "Le bénéfice dit ce que l'activité a gagné en douze mois. La trésorerie dit ce qu'il y a sur le compte en banque au trente et un décembre.",
+   "fichier": "p3-1.mp3",
+   "duree": 9.41,
+   "fidelite": 0.917,
+   "essais": 1,
+   "transcription": "(coupé : 1re phrase retirée)",
+   "debut": 41.43,
+   "fin": 50.84,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.221
+    },
+    {
+     "i": 57,
+     "t": 4.731
+    }
+   ]
+  },
+  {
+   "id": "p3-2",
+   "plan": 3,
+   "texte": "Trois chiffres aident à comprendre ce qui se passe : le besoin en fonds de roulement, la marge nette et l'autonomie financière.",
+   "fichier": "p3-2.mp3",
+   "duree": 8.9,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Trois chiffres aident à comprendre ce qui se passe : le besoin en fonds de roulement, la marge nette et l'autonomie financière.",
+   "debut": 51.64,
+   "fin": 60.54,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.236
+    },
+    {
+     "i": 53,
+     "t": 3.434
+    }
+   ]
+  },
+  {
+   "id": "p4-1",
+   "plan": 4,
+   "texte": "Premier chiffre : le besoin en fonds de roulement. Où l'argent est-il passé ? La réponse est au Bilan.",
+   "fichier": "p4-1.mp3",
+   "duree": 7.78,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Premier chiffre : le besoin en fonds de roulement. Où l'argent est-il passé ? La réponse est au bilan.",
+   "debut": 61.94,
+   "fin": 69.72,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.322
+    },
+    {
+     "i": 18,
+     "t": 1.401
+    },
+    {
+     "i": 51,
+     "t": 4.03
+    },
+    {
+     "i": 78,
+     "t": 6.12
+    }
+   ]
+  },
+  {
+   "id": "p4-2",
+   "plan": 4,
+   "texte": "Le stock vaut vingt mille euros : acheté, pas encore vendu. Les créances clients valent quarante mille euros : facturées, pas encore payées.",
+   "fichier": "p4-2.mp3",
+   "duree": 10.54,
+   "fidelite": 0.75,
+   "essais": 1,
+   "transcription": "Le stock vaut 20 000 €, acheté, pas encore vendu. Les créances clients valent 40 000 €, facturées, pas encore payées.",
+   "debut": 70.52,
+   "fin": 81.06,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.234
+    },
+    {
+     "i": 34,
+     "t": 2.554
+    },
+    {
+     "i": 60,
+     "t": 4.927
+    },
+    {
+     "i": 111,
+     "t": 8.345
+    }
+   ]
+  },
+  {
+   "id": "p4-3",
+   "plan": 4,
+   "texte": "Au Passif, les dettes fournisseurs jouent en sens inverse : dix mille euros reçus, pas encore réglés.",
+   "fichier": "p4-3.mp3",
+   "duree": 7.54,
+   "fidelite": 0.875,
+   "essais": 1,
+   "transcription": "Au passif, les dettes fournisseurs jouent en sens inverse. 10 000 euros reçus, pas encore réglés.",
+   "debut": 81.86,
+   "fin": 89.4,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.277
+    },
+    {
+     "i": 60,
+     "t": 4.588
+    }
+   ]
+  },
+  {
+   "id": "p5-1",
+   "plan": 5,
+   "texte": "Ce que l'activité retient ainsi s'appelle le besoin en fonds de roulement, le BFR. Le stock, plus les créances clients, moins les dettes fournisseurs : cinquante mille euros.",
+   "fichier": "p5-1.mp3",
+   "duree": 13.54,
+   "fidelite": 0.912,
+   "essais": 1,
+   "transcription": "Ce que l'activité retient ainsi s'appelle le besoin en fonds de roulement, le BFR. Le stock plus les créances clients moins les dettes fournisseurs, 50 000 €.",
+   "debut": 90.8,
+   "fin": 104.34,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.354
+    },
+    {
+     "i": 83,
+     "t": 7.231
+    },
+    {
+     "i": 152,
+     "t": 12.152
+    }
+   ]
+  },
+  {
+   "id": "p5-2",
+   "plan": 5,
+   "texte": "Ces cinquante mille euros, l'entreprise ne les a pas perdus. Elle les a rangés dans son stock, et dans les factures que ses clients n'ont pas encore payées.",
+   "fichier": "p5-2.mp3",
+   "duree": 9.1,
+   "fidelite": 0.933,
+   "essais": 1,
+   "transcription": "Ces 50 000 euros, l'entreprise ne les a pas perdus. Elle les a rangés dans son stock et dans les factures que ses clients n'ont pas encore payées.",
+   "debut": 105.14,
+   "fin": 114.24,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.266
+    },
+    {
+     "i": 61,
+     "t": 4.321
+    }
+   ]
+  },
+  {
+   "id": "p6-0",
+   "plan": 6,
+   "texte": "Deuxième chiffre : la marge nette.",
+   "fichier": "p6-0.mp3",
+   "duree": 2.93,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Deuxième chiffre, la marge nette.",
+   "debut": 115.64,
+   "fin": 118.57,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.278
+    },
+    {
+     "i": 19,
+     "t": 1.607
+    }
+   ]
+  },
+  {
+   "id": "p6-1",
+   "plan": 6,
+   "texte": "Mais cinquante mille euros ne disent pas la même chose pour une boutique et pour une usine. Un ratio divise un chiffre par un autre, et donne un pourcentage, qui se compare d'une entreprise à l'autre.",
+   "fichier": "p6-1.mp3",
+   "duree": 13.54,
+   "fidelite": 0.947,
+   "essais": 1,
+   "transcription": "(reprise usine)",
+   "debut": 119.37,
+   "fin": 132.91,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.307
+    },
+    {
+     "i": 92,
+     "t": 6.254
+    }
+   ]
+  },
+  {
+   "id": "p7-1",
+   "plan": 7,
+   "texte": "La marge nette dit ce qui reste à l'entreprise sur ce qu'elle a vendu. Dix-sept mille euros de bénéfice sur cent soixante-dix mille euros de ventes : dix pour cent. Dix euros gardés sur cent euros vendus.",
+   "fichier": "p7-1.mp3",
+   "duree": 14.62,
+   "fidelite": 0.648,
+   "essais": 1,
+   "transcription": "La marge nette dit ce qui reste à l'entreprise sur ce qu'elle a vendu. 17 000 € de bénéfice sur 170 000 € de vente, 10 %. 10 € gardés sur 100 € vendus.",
+   "debut": 134.31,
+   "fin": 148.93,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.3
+    },
+    {
+     "i": 71,
+     "t": 5.471
+    },
+    {
+     "i": 150,
+     "t": 10.111
+    },
+    {
+     "i": 165,
+     "t": 11.756
+    }
+   ]
+  },
+  {
+   "id": "p8-1",
+   "plan": 8,
+   "texte": "Troisième chiffre : l'autonomie financière. Elle dit quelle part du Bilan est financée par les associés et par le bénéfice : les capitaux propres. Ici, trente-sept mille euros sur cent mille, soit trente-sept pour cent.",
+   "fichier": "p8-1.mp3",
+   "duree": 14.69,
+   "fidelite": 0.776,
+   "essais": 1,
+   "transcription": "Troisième chiffre, l'autonomie financière. Elle dit quelle part du bilan est financée par les associés et par le bénéfice. Les capitaux propres. Ici, 37 000 € sur 100 000, soit 37 %.",
+   "debut": 150.33,
+   "fin": 165.02,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.0
+    },
+    {
+     "i": 20,
+     "t": 1.482
+    },
+    {
+     "i": 44,
+     "t": 3.493
+    },
+    {
+     "i": 125,
+     "t": 8.644
+    },
+    {
+     "i": 147,
+     "t": 10.249
+    }
+   ]
+  },
+  {
+   "id": "p8-2",
+   "plan": 8,
+   "texte": "Plus elle est basse, plus l'entreprise dépend de ceux à qui elle doit de l'argent. Une banque la regarde avant de prêter.",
+   "fichier": "p8-2.mp3",
+   "duree": 6.7,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Plus elle est basse, plus l'entreprise dépend de ceux à qui elle doit de l'argent. Une banque la regarde avant de prêter.",
+   "debut": 165.82,
+   "fin": 172.52,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.335
+    },
+    {
+     "i": 83,
+     "t": 4.845
+    }
+   ]
+  },
+  {
+   "id": "p9-1",
+   "plan": 9,
+   "texte": "Un ratio ne dit rien tout seul. Il prend son sens comparé à d'autres entreprises de la même taille, et à l'année suivante.",
+   "fichier": "p9-1.mp3",
+   "duree": 8.45,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Un ratio ne dit rien tout seul. Il prend son sens comparé à d'autres entreprises de la même taille et à l'année suivante.",
+   "debut": 173.92,
+   "fin": 182.37,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.216
+    },
+    {
+     "i": 32,
+     "t": 2.749
+    }
+   ]
+  },
+  {
+   "id": "p10-1",
+   "plan": 10,
+   "texte": "Le bénéfice de l'année n'est pas l'argent disponible.",
+   "fichier": "p10-1.mp3",
+   "duree": 4.01,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Le bénéfice de l'année n'est pas l'argent disponible.",
+   "debut": 183.77,
+   "fin": 187.78,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.235
+    }
+   ]
+  },
+  {
+   "id": "p11-1",
+   "plan": 11,
+   "texte": "À retenir. Le bénéfice de l'année n'est pas l'argent disponible. Le besoin en fonds de roulement dit où l'argent est passé. Enfin, deux ratios situent l'entreprise : la marge nette et l'autonomie financière.",
+   "fichier": "p11-1.mp3",
+   "duree": 15.5,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "À retenir : le bénéfice de l'année n'est pas l'argent disponible. Le besoin en fonds de roulement dit où l'argent est passé. Enfin, deux ratios situent l'entreprise : la marge nette et l'autonomie financière.",
+   "debut": 189.18,
+   "fin": 204.68,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.244
+    },
+    {
+     "i": 11,
+     "t": 1.172
+    },
+    {
+     "i": 65,
+     "t": 5.667
+    },
+    {
+     "i": 124,
+     "t": 9.835
+    },
+    {
+     "i": 166,
+     "t": 12.738
+    }
+   ]
+  }
+ ]
+}

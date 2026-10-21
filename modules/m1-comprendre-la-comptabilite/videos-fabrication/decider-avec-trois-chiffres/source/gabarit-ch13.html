@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<title>Décider avec trois chiffres — vidéo d'ouverture</title>
+<style>
+/*__FONTS__*/
+:root{
+  --s50:#f8fafc;--s100:#f1f5f9;--s200:#e2e8f0;--s300:#cbd5e1;--s400:#94a3b8;
+  --s500:#64748b;--s600:#475569;--s700:#334155;--s800:#1e293b;--s900:#0f172a;
+  --p50:#f1f7fe;--p100:#e2edfc;--p200:#bfdbf8;--p600:#1063b9;--p700:#0e4f97;--p900:#133a67;
+  --y50:#fefce8;--y100:#fef9c3;--y400:#facc15;--y500:#eab308;--y700:#a16207;--pu600:#9333ea;--rouge:#dc2626;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#459ceb}
+body{font-family:Poppins,sans-serif;color:var(--s900);-webkit-font-smoothing:antialiased}
+#stage{position:relative;width:1920px;height:1080px;background:linear-gradient(to right,#459ceb,#c084fc);overflow:hidden}
+#scene{left:0;top:90px;width:1920px;height:990px}
+#entete{left:0;top:0;width:1920px;height:90px;background:transparent;border-bottom:1px solid #ffffff95;display:flex;align-items:center;gap:30px;padding:0 60px}
+#entete .lg{width:190px;flex:none}#entete .lg svg{width:100%;height:auto;display:block}
+#entete .sep{width:2px;height:44px;background:var(--s200)}
+#entete .mod{font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+#entete .chap{font-size:28px;font-weight:600;color:var(--s800);line-height:1.15}
+.abs{position:absolute}
+.mt{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+#logo{left:50%;top:430px;width:620px;transform:translateX(-50%)}
+#logo svg{width:100%;height:auto;display:block}
+#titre{left:0;right:0;top:640px;text-align:center;font-size:58px;font-weight:600;color:var(--s800)}
+#titre small{display:block;margin-bottom:14px;font-size:22px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+
+/* pastilles, textes sur le fond */
+.pill{position:absolute;white-space:nowrap;background:#fff;color:var(--s800);font-size:24px;font-weight:600;padding:8px 20px;border-radius:999px}
+.pill.p{background:var(--p600);color:#fff}
+.pc{transform:translateX(-50%)}
+.phrase{left:120px;right:120px;text-align:center;font-family:Poppins,sans-serif;color:#fff;font-weight:500}
+.phrase span{display:block}
+.op{font-size:64px;font-weight:700;color:#fff;line-height:1}
+
+/* cartes de calcul */
+.carte-t{width:380px;border-radius:22px;background:#fff;padding:22px 26px;text-align:center}
+.carte-t .lib{font-size:22px;font-weight:600;color:var(--s500)}
+.carte-t .val{margin-top:6px;font-size:52px;font-weight:800;color:var(--s900)}
+.carte-t.dec{box-shadow:0 0 0 4px var(--y500)}
+.carte-t.neg .val{color:var(--rouge)}
+.carte-m{width:520px;border-radius:24px;background:#fff;padding:28px 34px;text-align:center}
+.carte-m .mo{display:flex;align-items:center;justify-content:center;gap:12px;font-size:24px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--p700)}
+.carte-m .mo svg{width:40px;height:40px;color:var(--p600)}
+.carte-m .lib{margin-top:18px;font-size:24px;font-weight:600;color:var(--s500)}
+.carte-m .val{margin-top:4px;font-size:60px;font-weight:800;color:var(--s900)}
+.carte-m .dst{margin-top:8px;font-size:24px;line-height:1.35;color:var(--s600)}
+.tuile-a{width:240px;text-align:center}
+.tuile-a .tuile{width:220px;height:170px;margin:0 auto;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.tuile-a .tuile svg{width:70px;height:70px;color:var(--p600)}
+.tuile-a .tuile p{margin-top:10px;font-size:26px;font-weight:600;color:var(--s700)}
+
+/* Bilan */
+.doc{border-radius:24px;background:#fff;padding:24px 26px 26px;display:flex;flex-direction:column}
+.doc-t{font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--s500)}
+.cols{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1}
+.col{position:relative;border-radius:14px;background:var(--s50);padding:14px 14px;display:flex;flex-direction:column}
+.col-t{font-size:20px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s400)}
+.ligne{position:relative;z-index:0;margin-top:8px;border-radius:12px;padding:8px 16px;background:#fff;display:flex;align-items:baseline;gap:16px}
+.ligne .lib{flex:1;font-size:22px;color:var(--s700)}
+.ligne .tag{font-size:19px;font-weight:600;color:var(--pu600);opacity:0}
+.ligne .val{font-size:28px;font-weight:800;color:var(--s900)}
+.halo{position:absolute;inset:0;border-radius:12px;border:3px solid var(--y500);background:var(--y50);z-index:-1;opacity:0}
+.tot-col{margin-top:auto;padding-top:12px;border-top:2px solid var(--s200);display:flex;justify-content:space-between;align-items:baseline}
+.tot-col span{font-size:20px;font-weight:600;color:var(--s500)}
+.tot-col b{font-size:30px;font-weight:800;color:var(--s900)}
+#bilan{left:100px;top:180px;width:1220px}
+.cote{left:1620px}
+
+/* plan 1 */
+#q1{top:640px;font-size:52px}
+/* plan 5 */
+#decl{top:600px;font-size:46px;line-height:1.35}
+#decl span+span{margin-top:10px}
+/* plan 6 */
+#rat{left:960px;top:580px;display:flex;align-items:center;gap:22px;transform:translateX(-50%)}
+#rat .pill{position:relative}
+#rat .o{font-size:44px;font-weight:700;color:#fff}
+/* plan 7 : dix sur cent */
+#dix{left:410px;top:620px;width:1100px;height:190px}
+#dix .b{position:absolute;top:60px;width:102px;height:70px;border-radius:10px;background:#fff}
+#dix .b.g{background:var(--p600)}
+#dix .brace{position:absolute;top:22px;left:0;width:1100px;height:22px;border:3px solid #fff;border-bottom:0;border-radius:8px 8px 0 0}
+#dix .brace span,#dix .lb{position:absolute;white-space:nowrap;font-size:26px;font-weight:600;color:#fff}
+#dix .brace span{left:50%;top:-44px;transform:translateX(-50%)}
+#dix .lb{left:51px;top:146px;transform:translateX(-50%)}
+/* plan 8 : la barre du Passif */
+#parts{left:210px;top:180px;width:1500px;height:430px;border-radius:24px;background:#fff;padding:26px 30px}
+#parts .seg{position:absolute;top:170px;height:130px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:22px;font-weight:600;line-height:1.25;text-align:center}
+#parts .seg b{font-size:30px;font-weight:800}
+#s-cap{left:50px;width:277px;background:var(--p600);color:#fff}
+#s-res{left:335px;width:235px;background:var(--p700);color:#fff}
+#s-det{left:578px;width:872px;background:var(--s200);color:var(--s700)}
+#parts .brace{position:absolute;height:22px;border:3px solid var(--s400);text-align:center}
+#parts .brace span{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:24px;font-weight:700;color:var(--s700)}
+#br-tot{top:118px;left:50px;width:1400px;border-bottom:0;border-radius:8px 8px 0 0}
+#br-tot span{top:-40px}
+#br-cp{top:320px;left:50px;width:520px;border-top:0;border-radius:0 0 8px 8px;border-color:var(--p600)!important}
+#br-cp span{top:28px;color:var(--p700)!important}
+/* plan 9 */
+.cmp{font-size:28px;padding:12px 26px}
+.cmp svg{width:30px;height:30px;vertical-align:-6px;margin-right:10px;color:var(--p600)}
+
+/* les trois chiffres */
+.chif{left:960px;top:50px;transform:translateX(-50%);display:flex;align-items:center;gap:14px;white-space:nowrap;background:var(--p600);color:#fff;font-size:26px;font-weight:600;padding:8px 26px 8px 10px;border-radius:999px}
+.chif i{font-style:normal;width:40px;height:40px;border-radius:50%;background:#fff;color:var(--p700);font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center}
+#trois{left:0;top:600px;width:1920px;height:160px}
+.tc{position:absolute;top:0;width:470px;height:120px;border-radius:22px;background:#fff;display:flex;align-items:center;gap:20px;padding:0 28px;font-size:28px;font-weight:600;line-height:1.25;color:var(--s800)}
+.tc i{font-style:normal;flex:none;width:56px;height:56px;border-radius:50%;background:var(--p600);color:#fff;font-size:28px;font-weight:700;display:flex;align-items:center;justify-content:center}
+/* refrain, à retenir */
+#refrain{top:390px;font-size:66px;line-height:1.3;text-wrap:balance}
+#retenir-t{left:0;right:0;top:110px;text-align:center;font-size:26px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--p900)}
+.carte{left:260px;width:1400px;background:#fff;border-radius:22px;padding:28px 40px 28px 120px;font-size:34px;line-height:1.35;color:var(--s700)}
+.carte b{font-weight:700;color:var(--s900)}
+.carte .n{position:absolute;left:36px;top:30px;width:56px;height:56px;border-radius:50%;background:var(--p600);color:#fff;font-size:28px;font-weight:700;display:flex;align-items:center;justify-content:center}
+</style></head>
+<body><div id="stage">
+  <div id="logo" class="abs">/*__LOGO__*/</div>
+  <p id="titre" class="abs"><small>Comprendre la comptabilité</small>Décider avec trois chiffres</p>
+  <div id="entete" class="abs"><div class="lg">/*__LOGO__*/</div><span class="sep"></span>
+    <div><p class="mod">Comprendre la comptabilité</p><p class="chap">Décider avec trois chiffres</p></div></div>
+
+  <div id="scene" class="abs">
+  <!-- plan 1 -->
+  <div id="m1-ben" class="abs carte-m" style="left:130px;top:150px"><p class="mo">/*__I:file-chart-outline__*/Compte de Résultat</p><p class="lib">Bénéfice de l'année</p><p class="val mt">17&nbsp;000&nbsp;€</p></div>
+  <div id="m1-mac" class="abs carte-m" style="left:700px;top:150px"><p class="mo">/*__I:robot-industrial__*/Projet</p><p class="lib">Une machine</p><p class="val mt">30&nbsp;000&nbsp;€</p></div>
+  <div id="m1-bq" class="abs carte-m" style="left:1270px;top:150px"><p class="mo">/*__I:bank__*/Compte en banque</p><p class="lib">Ce qu'il affiche</p><p class="val mt">10&nbsp;000&nbsp;€</p></div>
+  <p id="q1" class="abs phrase">Peut-elle se le permettre&nbsp;?</p>
+
+  <!-- plan 2 : le calcul -->
+  <div id="c-bq" class="abs carte-t" style="left:180px;top:250px"><p class="lib">Compte en banque</p><p class="val mt">10&nbsp;000&nbsp;€</p></div>
+  <p id="o-moins" class="abs op" style="left:603px;top:275px">−</p>
+  <div id="c-ma" class="abs carte-t" style="left:770px;top:250px"><p class="lib">Machine</p><p class="val mt">30&nbsp;000&nbsp;€</p></div>
+  <p id="o-eg" class="abs op" style="left:1195px;top:275px">=</p>
+  <div id="c-neg" class="abs carte-t neg" style="left:1360px;top:250px"><p class="lib">Compte en banque</p><p class="val mt">−20&nbsp;000&nbsp;€</p></div>
+  <span id="p-non" class="abs pill pc" style="left:960px;top:560px">impossible</span>
+
+  <!-- Bilan (plans 2 et 4) -->
+  <div id="bilan" class="abs doc">
+    <p class="doc-t">Bilan au 31 décembre</p>
+    <div class="cols">
+      <div class="col"><p class="col-t">Actif</p>
+        <div class="ligne"><p class="lib">Immobilisations corporelles</p><p class="val mt">30&nbsp;000</p></div>
+        <div id="l-st" class="ligne"><span class="halo"></span><p class="lib">Stocks</p><span class="tag">pas encore vendus</span><p class="val mt">20&nbsp;000</p></div>
+        <div id="l-cc" class="ligne"><span class="halo"></span><p class="lib">Créances clients</p><span class="tag">pas encore payées</span><p class="val mt">40&nbsp;000</p></div>
+        <div id="l-bq" class="ligne"><span class="halo"></span><p class="lib">Banque</p><p class="val mt">10&nbsp;000</p></div>
+        <div class="tot-col"><span>Total</span><b class="mt">100&nbsp;000</b></div></div>
+      <div class="col"><p class="col-t">Passif</p>
+        <div class="ligne"><p class="lib">Capital social</p><p class="val mt">20&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">Résultat de l'exercice</p><p class="val mt">17&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">Emprunt bancaire</p><p class="val mt">48&nbsp;000</p></div>
+        <div id="l-df" class="ligne"><span class="halo"></span><p class="lib">Dettes fournisseurs</p><span class="tag">pas encore réglées</span><p class="val mt">10&nbsp;000</p></div>
+        <div id="l-tva" class="ligne"><span class="halo"></span><p class="lib">État — TVA à décaisser</p><p class="val mt">2&nbsp;000</p></div>
+        <div id="l-is" class="ligne"><span class="halo"></span><p class="lib">État — IS à payer</p><p class="val mt">3&nbsp;000</p></div>
+        <div class="tot-col"><span>Total</span><b class="mt">100&nbsp;000</b></div></div>
+    </div>
+  </div>
+  <span id="p-dispo" class="abs pill cote pc" style="top:260px">moins disponibles</span>
+  <span id="p-etat" class="abs pill p cote pc" style="top:360px">5&nbsp;000&nbsp;€ promis à l'État</span>
+  <span id="p-mois" class="abs pill cote pc" style="top:440px">dans les mois qui suivent</span>
+  <span id="p-ou" class="abs pill p cote pc" style="top:260px">Où est l'argent&nbsp;?</span>
+  <span id="p-inv" class="abs pill cote pc" style="top:360px">en sens inverse</span>
+
+  <!-- plan 3 -->
+  <div id="m3-ben" class="abs carte-m" style="left:300px;top:170px"><p class="mo">/*__I:file-chart-outline__*/Compte de Résultat</p><p class="lib">Bénéfice</p><p class="val mt">17&nbsp;000&nbsp;€</p><p class="dst">gagné en douze mois</p></div>
+  <p id="o-diff" class="abs op" style="left:938px;top:290px">≠</p>
+  <div id="m3-tre" class="abs carte-m" style="left:1100px;top:170px"><p class="mo">/*__I:scale-balance__*/Bilan</p><p class="lib">Trésorerie</p><p class="val mt">10&nbsp;000&nbsp;€</p><p class="dst">sur le compte en banque au 31&nbsp;décembre</p></div>
+
+  <div id="trois" class="abs">
+    <div id="t1" class="tc" style="left:195px"><i>1</i>Le besoin en fonds de roulement</div>
+    <div id="t2" class="tc" style="left:725px"><i>2</i>La marge nette</div>
+    <div id="t3" class="tc" style="left:1255px"><i>3</i>L'autonomie financière</div>
+  </div>
+  <p id="ch1" class="abs chif"><i>1</i>Premier chiffre&nbsp;: le besoin en fonds de roulement</p>
+  <p id="ch2" class="abs chif"><i>2</i>Deuxième chiffre&nbsp;: la marge nette</p>
+  <p id="ch3" class="abs chif"><i>3</i>Troisième chiffre&nbsp;: l'autonomie financière</p>
+
+  <!-- plan 5 : le BFR -->
+  <span id="k-bfr" class="abs pill p pc" style="left:960px;top:180px">le besoin en fonds de roulement (BFR)</span>
+  <div id="f-st" class="abs carte-t" style="left:160px;top:300px;width:350px"><span class="halo" style="border-radius:22px"></span><p class="lib">Stocks</p><p class="val mt">20&nbsp;000&nbsp;€</p></div>
+  <p id="o-p" class="abs op" style="left:531px;top:290px">+</p>
+  <div id="f-cc" class="abs carte-t" style="left:590px;top:300px;width:350px"><span class="halo" style="border-radius:22px"></span><p class="lib">Créances clients</p><p class="val mt">40&nbsp;000&nbsp;€</p></div>
+  <p id="o-m" class="abs op" style="left:964px;top:290px">−</p>
+  <div id="f-df" class="abs carte-t" style="left:1020px;top:300px;width:350px"><p class="lib">Dettes fournisseurs</p><p class="val mt">10&nbsp;000&nbsp;€</p></div>
+  <p id="o-e" class="abs op" style="left:1391px;top:290px">=</p>
+  <div id="f-bfr" class="abs carte-t dec" style="left:1450px;top:300px;width:310px"><p class="lib">BFR</p><p class="val mt">50&nbsp;000&nbsp;€</p></div>
+  <p id="decl" class="abs phrase"><span id="d1">Pas perdus.</span><span id="d2">Rangés dans le stock et dans les factures clients.</span></p>
+
+  <!-- plan 6 : ratio -->
+  <div id="t-bout" class="abs tuile-a" style="left:500px;top:180px"><div class="tuile">/*__I:store__*/<p>Boutique</p></div></div>
+  <div id="t-usi" class="abs tuile-a" style="left:1180px;top:180px"><div class="tuile">/*__I:factory__*/<p>Usine</p></div></div>
+  <span id="b-bout" class="abs pill pc" style="left:620px;top:400px">BFR&nbsp;: 50&nbsp;000&nbsp;€</span>
+  <span id="b-usi" class="abs pill pc" style="left:1300px;top:400px">BFR&nbsp;: 50&nbsp;000&nbsp;€</span>
+  <span id="b-pas" class="abs pill p pc" style="left:960px;top:270px">pas la même chose</span>
+  <div id="rat" class="abs"><span id="r1" class="pill">un chiffre</span><span id="r2" class="o">÷</span><span id="r3" class="pill">un autre</span><span id="r4" class="o">=</span><span id="r5" class="pill p">un pourcentage</span></div>
+  <span id="k-rat" class="abs pill p pc" style="left:960px;top:490px">un ratio</span>
+  <span id="r-cmp" class="abs pill pc" style="left:960px;top:710px">qui se compare d'une entreprise à l'autre</span>
+
+  <!-- plan 7 : marge nette -->
+  <div id="n-ben" class="abs carte-t" style="left:180px;top:250px"><p class="lib">Bénéfice</p><p class="val mt">17&nbsp;000&nbsp;€</p></div>
+  <p id="o-div" class="abs op" style="left:603px;top:275px">÷</p>
+  <div id="n-ven" class="abs carte-t" style="left:770px;top:250px"><p class="lib">Ventes</p><p class="val mt">170&nbsp;000&nbsp;€</p></div>
+  <p id="o-eg2" class="abs op" style="left:1195px;top:275px">=</p>
+  <div id="n-mn" class="abs carte-t dec" style="left:1360px;top:250px"><p class="lib">Marge nette</p><p class="val mt">10&nbsp;%</p></div>
+  <div id="dix" class="abs">
+    <div class="brace"><span>100&nbsp;€ vendus</span></div>
+    <span class="b g" style="left:0"></span><span class="b" style="left:111px"></span><span class="b" style="left:222px"></span><span class="b" style="left:333px"></span><span class="b" style="left:444px"></span><span class="b" style="left:555px"></span><span class="b" style="left:666px"></span><span class="b" style="left:777px"></span><span class="b" style="left:888px"></span><span class="b" style="left:999px"></span>
+    <span class="lb">10&nbsp;€ gardés</span>
+  </div>
+
+  <!-- plan 8 : autonomie financière -->
+  <div id="parts" class="abs">
+    <p class="doc-t">Passif · d'où vient ce que l'entreprise détient</p>
+    <div id="br-tot" class="brace"><span>Total du Bilan · 100&nbsp;000&nbsp;€</span></div>
+    <div id="s-cap" class="seg"><span>Capital social</span><b class="mt">20&nbsp;000&nbsp;€</b></div>
+    <div id="s-res" class="seg"><span>Bénéfice</span><b class="mt">17&nbsp;000&nbsp;€</b></div>
+    <div id="s-det" class="seg"><span>À rembourser</span><b class="mt">63&nbsp;000&nbsp;€</b></div>
+    <div id="br-cp" class="brace"><span>Capitaux propres · 37&nbsp;000&nbsp;€</span></div>
+  </div>
+  <div id="a-af" class="abs carte-t dec" style="left:470px;top:660px"><p class="lib">Autonomie financière</p><p class="val mt">37&nbsp;%</p></div>
+  <div id="t-bk" class="abs tuile-a" style="left:1210px;top:650px"><div class="tuile">/*__I:bank__*/<p>Banque</p></div></div>
+  <span id="p-pret" class="abs pill pc" style="left:1330px;top:860px">la regarde avant de prêter</span>
+
+  <!-- plan 9 : comparer -->
+  <span id="k-seul" class="abs pill p pc" style="left:960px;top:110px">un ratio ne dit rien tout seul</span>
+  <div id="v-mn" class="abs carte-t" style="left:500px;top:220px"><p class="lib">Marge nette</p><p class="val mt">10&nbsp;%</p></div>
+  <div id="v-af" class="abs carte-t" style="left:1040px;top:220px"><p class="lib">Autonomie financière</p><p class="val mt">37&nbsp;%</p></div>
+  <span id="cmp1" class="abs pill cmp pc" style="left:960px;top:500px">/*__I:domain__*/comparé à d'autres entreprises de la même taille</span>
+  <span id="cmp2" class="abs pill cmp pc" style="left:960px;top:600px">/*__I:calendar-arrow-right__*/comparé à l'année suivante</span>
+
+  <p id="refrain" class="abs phrase">Le bénéfice de l'année n'est pas l'argent disponible.</p>
+  <p id="retenir-t" class="abs">À retenir</p>
+  <div id="c1" class="abs carte" style="top:170px"><span class="n">1</span>Le <b>bénéfice</b> de l'année n'est pas l'<b>argent disponible</b>&nbsp;: une part de la trésorerie est déjà promise à l'État.</div>
+  <div id="c2" class="abs carte" style="top:390px"><span class="n">2</span>Le <b>besoin en fonds de roulement</b> dit où l'argent est passé&nbsp;: <b>stock</b> plus <b>créances clients</b>, moins <b>dettes fournisseurs</b>.</div>
+  <div id="c3" class="abs carte" style="top:610px"><span class="n">3</span>Deux <b>ratios</b> situent l'entreprise&nbsp;: la <b>marge nette</b>, ce qu'elle garde sur ce qu'elle vend, et l'<b>autonomie financière</b>, la part de son Bilan financée par ses associés et par son bénéfice.</div>
+  </div>
+</div>
+<script>/*__GSAP__*/</script>
+<script>
+const VOIX = /*__VOIX__*/;
+const S = Object.fromEntries(VOIX.segments.map(s => [s.id, s]));
+function at(id, mot, apres = 0) {
+  const s = S[id], i = s.texte.indexOf(mot) + (apres ? mot.length : 0);
+  if (i < (apres ? mot.length : 0)) throw new Error('introuvable : ' + mot + ' dans ' + id);
+  const P = s.phrases; let k = 0;
+  while (k + 1 < P.length && P[k + 1].i <= i) k++;
+  const i1 = k + 1 < P.length ? P[k + 1].i : s.texte.length;
+  const t1 = k + 1 < P.length ? P[k + 1].t : s.duree;
+  return s.debut + P[k].t + (t1 - P[k].t) * (i - P[k].i) / (i1 - P[k].i);
+}
+const E = 'power2.out', D = 0.5;
+const tl = gsap.timeline({ paused: true });
+window.tl = tl; window.DUREE = VOIX.duree_totale;
+
+gsap.set(['#scene > *', '#logo', '#titre', '#entete'], { autoAlpha: 0 });
+
+/* ── Plan 0 · ouverture ─────────────────────────────── */
+const sym = '#logo .lg-sym', mot = '#logo .lg-mot';
+tl.set('#logo', { autoAlpha: 1 }, 0)
+  .fromTo(sym, { opacity: 0, scale: .6, rotation: -90, transformOrigin: '50% 50%' }, { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: 'power3.out' }, .3)
+  .fromTo(mot, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: .9, ease: E }, .9)
+  .to('#logo', { top: 330, duration: .8, ease: 'power2.inOut' }, 2.2)
+  .fromTo('#titre', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .8, ease: E }, 2.6)
+  .to(['#logo', '#titre'], { autoAlpha: 0, duration: .6 }, 5.0)
+  .fromTo('#entete', { autoAlpha: 0, y: -20 }, { autoAlpha: 1, y: 0, duration: .6, ease: E }, 5.3);
+
+const pin = (el, t) => tl.fromTo(el, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .5, ease: E, immediateRender: false }, t);
+const ent = (el, t, y = 30) => tl.fromTo(el, { autoAlpha: 0, y }, { autoAlpha: 1, y: 0, duration: .6, ease: E, immediateRender: false }, t);
+const out = (els, t) => tl.to(els, { autoAlpha: 0, duration: .5 }, t);
+const halo = (el, t, v = 1) => tl.to(el + ' .halo', { opacity: v, duration: .4 }, t);
+const tag = (el, t) => { halo(el, t); tl.to(el + ' .tag', { opacity: 1, duration: .4 }, t + .2); };
+const span = (el, t) => tl.fromTo(el, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .6, ease: E, immediateRender: false }, t);
+gsap.set(['#d1', '#d2', '#r1', '#r2', '#r3', '#r4', '#r5', '#br-cp', '#s-cap', '#s-res', '#s-det'], { autoAlpha: 0 });
+gsap.set('#dix .b, #dix .brace, #dix .lb', { autoAlpha: 0 });
+gsap.set(['#t1', '#t2', '#t3'], { autoAlpha: 0 });
+gsap.set('#parts .dst, #m3-ben .dst, #m3-tre .dst', { autoAlpha: 0 });
+
+/* ── Plan 1 · la question ───────────────────────────── */
+const p11 = 'p1-1', p12 = 'p1-2';
+ent('#m1-ben', 6.0, 20);
+ent('#m1-mac', at(p11, 'une machine'), 20);
+ent('#m1-bq', at(p12, 'Son compte'), 20);
+span('#q1', at(p12, 'Peut-elle'));
+
+/* ── Plan 2 · le calcul, puis l'État ────────────────── */
+const p21 = 'p2-1', p22 = 'p2-2', t2 = S[p21].debut;
+out(['#m1-ben', '#m1-mac', '#m1-bq', '#q1'], t2 - .8);
+ent('#c-bq', t2 - .4, 20); ent('#o-moins', t2 - .3, 0); ent('#c-ma', t2 - .2, 20);
+const tneg = at(p21, 'passerait');
+ent('#o-eg', tneg - .2, 0); ent('#c-neg', tneg, 20);
+pin('#p-non', at(p21, 'moins vingt'));
+const t22 = S[p22].debut;
+out(['#c-bq', '#o-moins', '#c-ma', '#o-eg', '#c-neg', '#p-non'], t22 - .7);
+ent('#bilan', t22 - .3);
+halo('#l-bq', at(p22, 'ces dix mille') + .2); pin('#p-dispo', at(p22, 'moins disponibles'));
+halo('#l-tva', at(p22, 'deux mille euros de TVA'));
+halo('#l-is', at(p22, "trois mille euros d'impôt"));
+pin('#p-etat', at(p22, 'partiront'));
+pin('#p-mois', at(p22, 'dans les mois'));
+
+/* ── Plan 3 · deux montants, deux choses ────────────── */
+const p3 = 'p3-1', t3 = S[p3].debut;
+out(['#bilan', '#p-dispo', '#p-etat', '#p-mois'], t3 - .8);
+['#l-bq', '#l-tva', '#l-is'].forEach(el => halo(el, t3 - .3, 0));
+ent('#m3-ben', t3 - .4, 20); ent('#m3-tre', t3 - .2, 20); ent('#o-diff', t3 + .2, 0);
+tl.to('#m3-ben .dst', { autoAlpha: 1, duration: .4 }, at(p3, "ce que l'activité"));
+tl.to('#m3-tre .dst', { autoAlpha: 1, duration: .4 }, at(p3, "ce qu'il y a"));
+const p32 = 'p3-2';
+tl.set('#trois', { autoAlpha: 1 }, S[p32].debut - .1);
+ent('#t1', at(p32, 'le besoin'), 20); ent('#t2', at(p32, 'la marge'), 20); ent('#t3', at(p32, "l'autonomie"), 20);
+
+/* ── Plan 4 · où est l'argent ───────────────────────── */
+const p41 = 'p4-1', p42 = 'p4-2', p43 = 'p4-3', t4 = S[p41].debut;
+out(['#m3-ben', '#m3-tre', '#o-diff', '#trois'], t4 - .8);
+pin('#ch1', t4 - .3);
+pin('#p-ou', at(p41, "Où l'argent"));
+ent('#bilan', t4 - .2);
+tag('#l-st', at(p42, 'Le stock'));
+tag('#l-cc', at(p42, 'Les créances'));
+tag('#l-df', at(p43, 'les dettes fournisseurs'));
+pin('#p-inv', at(p43, 'en sens inverse'));
+
+/* ── Plan 5 · le besoin en fonds de roulement ───────── */
+const p51 = 'p5-1', p52 = 'p5-2', t5 = S[p51].debut;
+out(['#bilan', '#p-ou', '#p-inv'], t5 - .8);
+pin('#k-bfr', t5 - .3);
+ent('#f-st', at(p51, 'Le stock,'), 20);
+ent('#o-p', at(p51, 'plus les'), 0); ent('#f-cc', at(p51, 'plus les') + .1, 20);
+ent('#o-m', at(p51, 'moins les'), 0); ent('#f-df', at(p51, 'moins les') + .1, 20);
+const tbfr = at(p51, 'cinquante mille');
+ent('#o-e', tbfr - .2, 0); ent('#f-bfr', tbfr, 20);
+tl.set('#decl', { autoAlpha: 1 }, S[p52].debut - .2);
+span('#d1', at(p52, 'ne les a pas perdus'));
+span('#d2', at(p52, 'Elle les a rangés'));
+halo('#f-st', at(p52, 'dans son stock'));
+halo('#f-cc', at(p52, 'dans les factures'));
+
+/* ── Plan 6 · un ratio ──────────────────────────────── */
+const t60 = S['p6-0'].debut;
+out(['#k-bfr', '#f-st', '#o-p', '#f-cc', '#o-m', '#f-df', '#o-e', '#f-bfr', '#decl', '#ch1'], t60 - .8);
+['#f-st', '#f-cc'].forEach(el => halo(el, t60 - .3, 0));
+tl.set('#trois', { top: 400 }, t60 - .5)
+  .to('#trois', { autoAlpha: 1, duration: .5 }, t60 - .4)
+  .to(['#t1', '#t3'], { opacity: .45, duration: .4 }, t60 - .4)
+  .to('#t2', { boxShadow: '0 0 0 5px #eab308', duration: .4 }, t60);
+pin('#ch2', t60);
+const p6 = 'p6-1', t6 = S[p6].debut;
+out('#trois', t6 - .7);
+ent('#t-bout', t6 - .2, 20); pin('#b-bout', t6 + .1);
+ent('#t-usi', at(p6, 'une usine'), 20); pin('#b-usi', at(p6, 'une usine') + .2);
+pin('#b-pas', at(p6, 'ne disent pas'));
+pin('#k-rat', at(p6, 'Un ratio'));
+tl.set('#rat', { autoAlpha: 1 }, at(p6, 'Un ratio') - .1);
+pin('#r1', at(p6, 'un chiffre')); pin(['#r2', '#r3'], at(p6, 'par un autre'));
+pin(['#r4', '#r5'], at(p6, 'un pourcentage'));
+pin('#r-cmp', at(p6, 'qui se compare'));
+
+/* ── Plan 7 · la marge nette ────────────────────────── */
+const p7 = 'p7-1', t7 = S[p7].debut;
+out(['#t-bout', '#t-usi', '#b-bout', '#b-usi', '#b-pas', '#k-rat', '#rat', '#r-cmp'], t7 - .8);
+ent('#n-ben', at(p7, 'Dix-sept mille'), 20);
+ent('#o-div', at(p7, 'sur cent soixante') - .1, 0); ent('#n-ven', at(p7, 'sur cent soixante'), 20);
+const tdix = at(p7, 'dix pour cent');
+ent('#o-eg2', tdix - .2, 0); ent('#n-mn', tdix, 20);
+tl.set('#dix', { autoAlpha: 1 }, at(p7, 'Dix euros') - .1);
+tl.to('#dix .b', { autoAlpha: 1, duration: .3, stagger: .05 }, at(p7, 'Dix euros'));
+tl.to('#dix .brace', { autoAlpha: 1, duration: .4 }, at(p7, 'sur cent euros'));
+tl.to('#dix .lb', { autoAlpha: 1, duration: .4 }, at(p7, 'gardés'));
+
+/* ── Plan 8 · l'autonomie financière ────────────────── */
+const p81 = 'p8-1', p82 = 'p8-2', t8 = S[p81].debut;
+out(['#ch2', '#n-ben', '#o-div', '#n-ven', '#o-eg2', '#n-mn', '#dix'], t8 - .8);
+pin('#ch3', t8 - .4); ent('#parts', t8 - .3);
+tl.to('#s-det', { autoAlpha: 1, duration: .4 }, t8);
+tl.to('#s-cap', { autoAlpha: 1, duration: .4 }, at(p81, 'les associés'));
+tl.to('#s-res', { autoAlpha: 1, duration: .4 }, at(p81, 'par le bénéfice'));
+tl.to('#br-cp', { autoAlpha: 1, duration: .4 }, at(p81, 'les capitaux propres'));
+ent('#a-af', at(p81, 'soit trente-sept'), 20);
+tl.to('#s-det', { boxShadow: '0 0 0 4px #eab308', backgroundColor: '#fefce8', duration: .4 }, at(p82, 'dépend'));
+ent('#t-bk', at(p82, 'Une banque'), 20); pin('#p-pret', at(p82, 'avant de prêter'));
+
+/* ── Plan 9 · comparer ──────────────────────────────── */
+const p9 = 'p9-1', t9 = S[p9].debut;
+out(['#ch3', '#parts', '#a-af', '#t-bk', '#p-pret'], t9 - .8);
+pin('#k-seul', t9 - .3);
+ent('#v-mn', t9 - .2, 20); ent('#v-af', t9, 20);
+pin('#cmp1', at(p9, "d'autres entreprises"));
+pin('#cmp2', at(p9, "l'année suivante"));
+
+/* ── Plan 10 · le refrain ───────────────────────────── */
+const p10 = 'p10-1';
+out(['#k-seul', '#v-mn', '#v-af', '#cmp1', '#cmp2'], S[p10].debut - .9);
+tl.fromTo('#refrain', { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: .8, ease: E }, S[p10].debut - .3);
+
+/* ── Plan 11 · à retenir ────────────────────────────── */
+const p11r = 'p11-1';
+tl.to('#refrain', { autoAlpha: 0, duration: .5 }, S[p11r].debut - .6)
+  .fromTo('#retenir-t', { autoAlpha: 0 }, { autoAlpha: 1, duration: D }, S[p11r].debut - .1)
+  .fromTo('#c1', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p11r, 'Le bénéfice'))
+  .fromTo('#c2', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p11r, 'Le besoin'))
+  .fromTo('#c3', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p11r, 'Enfin'));
+
+/* ── fin ────────────────────────────────────────────── */
+const tf = VOIX.jingle_fin;
+tl.to(['#retenir-t', '#c1', '#c2', '#c3', '#entete'], { autoAlpha: 0, duration: .6 }, tf - .6)
+  .set('#logo', { top: 430 }, tf - .1)
+  .to('#logo', { autoAlpha: 1, duration: .6 }, tf)
+  .to(sym, { opacity: 1, rotation: 0, scale: 1, duration: .01 }, tf)
+  .to(mot, { opacity: 1, x: 0, duration: .01 }, tf)
+  .to('#logo', { autoAlpha: 1, duration: .1 }, VOIX.duree_totale - .1);
+
+window.seek = t => tl.seek(t, false);
+/* opérateurs centrés entre leurs deux panneaux, panneaux du plan 3 à la même hauteur */
+function caler() {
+  const r = el => document.querySelector(el);
+  [['#o-moins','#c-bq','#c-ma'],['#o-eg','#c-ma','#c-neg'],['#o-diff','#m3-ben','#m3-tre'],
+   ['#o-p','#f-st','#f-cc'],['#o-m','#f-cc','#f-df'],['#o-e','#f-df','#f-bfr'],
+   ['#o-div','#n-ben','#n-ven'],['#o-eg2','#n-ven','#n-mn']].forEach(([o, a, b]) => {
+    const O = r(o), A = r(a), B = r(b);
+    const cx = (A.offsetLeft + A.offsetWidth + B.offsetLeft) / 2;
+    const cy = A.offsetTop + A.offsetHeight / 2;
+    O.style.left = (cx - O.offsetWidth / 2) + 'px';
+    O.style.top = (cy - O.offsetHeight / 2) + 'px';
+  });
+  const h = Math.max(r('#m3-ben').offsetHeight, r('#m3-tre').offsetHeight);
+  ['#m3-ben', '#m3-tre'].forEach(el => { r(el).style.height = h + 'px'; });
+  const c = r('#o-diff'); c.style.top = (r('#m3-ben').offsetTop + h / 2 - c.offsetHeight / 2) + 'px';
+}
+document.fonts.ready.then(() => { caler(); window.PRET = true; });
+</script>
+<!--__APERCU__-->
+</body></html>

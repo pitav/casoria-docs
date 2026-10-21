@@ -1,0 +1,189 @@
+<p class="kicker">Comprendre la comptabilité sans être comptable — composant du Chapitre 12</p>
+<h1>&lt;SimulateurBfr /&gt;</h1>
+<p class="chapo">Fiche v1, 16 septembre 2026, demandée «&nbsp;le plus simple et compréhensible possible&nbsp;».
+<strong>Les trois lignes du besoin en fonds de roulement deviennent trois curseurs, et le compte en banque
+les suit.</strong> L'apprenant cherche un réglage qui paie la machine sans toucher à l'argent dû à l'État.
+Pas de verdict, pas de validation, un seul endroit où l'état s'écrit. Sources&nbsp;: déroulé v27 (sections 5,
+7, tableau des ratios et fiche du Chapitre 12), le Chapitre 12 livré, le Bilan du 31 décembre et le
+<code>&lt;TrouveErreurBilan /&gt;</code> pour le style. <strong>La consigne, la question et les deux textes
+d'état sont du texte affiché</strong>&nbsp;: ils se relisent comme du corps.</p>
+<p class="pied">Casoria — &lt;SimulateurBfr /&gt;, fiche v1</p>
+
+<h2 class="nu">1 — Ce que le composant fait faire</h2>
+<p>Le déroulé donne la forme, «&nbsp;What If&nbsp;? [JDC 5]&nbsp;», et la question, «&nbsp;de combien faudrait-il réduire
+l'encours client, ou le stock, pour financer la machine&nbsp;?&nbsp;». L'objectif du chapitre est de mettre
+l'apprenant face à l'écart entre bénéfice et argent disponible.</p>
+<p><strong>Le test de la règle 0 passe.</strong> Le paragraphe qui suit le composant nomme les trois leviers
+— vendre le stock plus vite, être payé plus tôt, régler le fournisseur plus tard — mais aucune phrase du
+chapitre ne dit <em>de combien</em>. Chercher ce montant, le texte ne peut pas le faire à la place de
+l'apprenant. Et ce qu'il trouve en cherchant n'est écrit nulle part&nbsp;: <strong>le stock seul ne suffit
+jamais, les fournisseurs seuls non plus, même les deux ensemble non plus. Seuls les clients pèsent
+assez.</strong> C'est la proportion que l'illustration du chapitre montrera ensuite, 63&nbsp;000&nbsp;€ de créances
+contre 17&nbsp;310&nbsp;€ de trésorerie, trouvée ici par la main avant d'être vue.</p>
+<p class="declaration">Le texte nomme les trois leviers. Le composant fait chercher combien il faut en
+tirer.</p>
+
+<h2>2 — Sa place</h2>
+<p>Là où le chapitre livré porte déjà le bloc <code>.composant</code>&nbsp;: juste après la déclaration sur les
+69&nbsp;000&nbsp;€, avant le paragraphe «&nbsp;Trois manières de réduire ce besoin existent&nbsp;». L'ordre est le bon. Le
+composant prépare, le paragraphe nomme ce que l'apprenant vient de faire. Rien dans le composant ne
+suppose ce paragraphe&nbsp;: les curseurs portent les noms des trois lignes, pas les trois leviers.</p>
+<p><strong>Le composant occupe la moitié droite, à la place du Bilan.</strong> Il n'en garde que ce dont il
+a besoin, les trois lignes du calcul et le compte en banque.</p>
+<p><strong>Une chose à aligner.</strong> La légende du bloc dans le chapitre (ligne 39) et le déroulé
+(lignes 711 et 887) parlent d'un «&nbsp;délai accordé par le fournisseur&nbsp;». Le curseur porte un montant, les
+dettes fournisseurs, pour la raison donnée en section 4. Proposition pour la légende&nbsp;: «&nbsp;Trois curseurs
+(stock, créances clients, dettes fournisseurs) pour chercher ce qui financerait la machine&nbsp;».</p>
+
+<h2>3 — L'écran</h2>
+<p>De haut en bas&nbsp;: la consigne et le régime (créneaux <code>#activite</code> et <code>#info</code>), le
+panneau amber avec la question, les trois curseurs posés comme le calcul du chapitre et le besoin au pied&nbsp;;
+puis l'état, juste dessous&nbsp;; puis le compte en banque en slate&nbsp;; enfin «&nbsp;Tout reprendre&nbsp;».</p>
+<p><img src="simulateur-bfr-a.png" alt="Premier écran" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">Premier écran, à 720&nbsp;px. Les trois curseurs sont au milieu, sur leur repère. Il manque
+35&nbsp;090&nbsp;€.</p>
+<p><img src="simulateur-bfr-b.png" alt="Deux curseurs déplacés, il manque encore 7 090 €" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">Deux curseurs déplacés. Chaque ligne garde sa valeur de départ à côté de la nouvelle, le
+besoin aussi. Le compte en banque passe au trait plein dès qu'une ligne a bougé.</p>
+<p><img src="simulateur-bfr-c.png" alt="La machine passe" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">La machine passe. Stock vidé, fournisseurs payés deux fois plus tard, et il faut encore
+faire rentrer 12&nbsp;000&nbsp;€ de factures clients. Le panneau d'état passe au lime.</p>
+<table class="serree"><tbody><tr>
+<td style="width:50%;vertical-align:top"><img src="simulateur-bfr-c-mobile.png" alt="La machine passe, à 375 px" style="width:100%;border:1px solid #d8dce4"></td>
+<td style="width:50%;vertical-align:top"><img src="simulateur-bfr-d-mobile.png" alt="Le besoin monte, à 375 px" style="width:100%;border:1px solid #d8dce4"></td>
+</tr></tbody></table>
+<p class="legende">À 375&nbsp;px. À gauche, le même réglage. À droite, un réglage qui aggrave&nbsp;: la ligne
+change de nom, «&nbsp;Hausse du besoin&nbsp;», et il manque 50&nbsp;090&nbsp;€. Le besoin prend son sigle, BFR, que le
+chapitre vient de donner.</p>
+
+<h2>4 — La matière</h2>
+<h3>Ce qui est affiché</h3>
+<table class="serree">
+<thead><tr><th>Élément</th><th class="num">Montant</th><th style="padding-left:18px">Où le chapitre le donne</th></tr></thead>
+<tbody>
+<tr><td>355 Stock de café torréfié</td><td class="num">15&nbsp;000&nbsp;€</td><td style="padding-left:18px">2e sous-titre, avant le composant</td></tr>
+<tr><td>411 Créances clients</td><td class="num">63&nbsp;000&nbsp;€</td><td style="padding-left:18px">idem</td></tr>
+<tr><td>401 Dettes fournisseurs</td><td class="num">9&nbsp;000&nbsp;€</td><td style="padding-left:18px">idem</td></tr>
+<tr><td>Besoin en fonds de roulement</td><td class="num">69&nbsp;000&nbsp;€</td><td style="padding-left:18px">idem, et la déclaration</td></tr>
+<tr><td>512 Trésorerie au 31 décembre</td><td class="num">17&nbsp;310&nbsp;€</td><td style="padding-left:18px">accroche et 1er sous-titre</td></tr>
+<tr><td>La machine à torréfier, TTC</td><td class="num">43&nbsp;200&nbsp;€</td><td style="padding-left:18px">accroche</td></tr>
+<tr><td>Dû à l'État (4&nbsp;400&nbsp;€ de TVA + 4&nbsp;800&nbsp;€ d'impôt)</td><td class="num">9&nbsp;200&nbsp;€</td><td style="padding-left:18px">1er sous-titre</td></tr>
+<tr class="total"><td>Ce qui reste au départ</td><td class="num">−&nbsp;35&nbsp;090&nbsp;€</td><td style="padding-left:18px"><strong>nombre neuf</strong>, voir section 7</td></tr>
+</tbody></table>
+<p>Les montants sont ceux du Bilan du 31 décembre (déroulé, tableau des ratios), les intitulés sont ceux
+d'une ligne du module. Le calcul du composant tient en deux lignes&nbsp;: le compte reçoit ce que le besoin a
+perdu (69&nbsp;000&nbsp;€ moins le besoin réglé), puis paie la machine et l'État.</p>
+
+<h3>Ce que l'apprenant peut trouver</h3>
+<p>Chaque curseur va de zéro au double de sa valeur, par pas de 1&nbsp;000&nbsp;€. La machine passe dès que le besoin
+descend à 33&nbsp;000&nbsp;€ ou moins, et il reste alors 910&nbsp;€. Vérifié par script sur les 74&nbsp;803 réglages
+possibles, dont 16&nbsp;492 font passer la machine.</p>
+<table class="serree">
+<thead><tr><th>Réglage</th><th class="num">Ce qui reste</th></tr></thead>
+<tbody>
+<tr><td>Le stock seul, vidé</td><td class="num">−&nbsp;20&nbsp;090&nbsp;€</td></tr>
+<tr><td>Les fournisseurs seuls, au double</td><td class="num">−&nbsp;26&nbsp;090&nbsp;€</td></tr>
+<tr><td>Les deux ensemble</td><td class="num">−&nbsp;11&nbsp;090&nbsp;€</td></tr>
+<tr><td>Les clients seuls, de 63&nbsp;000&nbsp;€ à 27&nbsp;000&nbsp;€</td><td class="num">910&nbsp;€</td></tr>
+<tr><td>Stock vidé, fournisseurs au double, clients à 51&nbsp;000&nbsp;€</td><td class="num">910&nbsp;€</td></tr>
+</tbody></table>
+
+<h3>Ce qui est écarté, et pourquoi</h3>
+<ul>
+<li><strong>Un délai en jours pour le fournisseur.</strong> Il faudrait convertir des jours en euros, donc
+un montant d'achats par jour que le module ne donne pas. Le nombre de jours de vente que représente un
+stock est même une entrée du registre (12.1), hors du chapitre. Un montant se lit sans rien savoir de
+plus.</li>
+<li><strong>Les quatre autres lignes du besoin</strong> — dettes sociales, TVA, charges et produits
+constatés d'avance. Le chapitre les laisse de côté en une phrase, et l'entrée 12.2 les porte.</li>
+<li><strong>Un emprunt ou une avance de la banque.</strong> Entrée 12.4, en module ultérieur, et c'est une
+autre manière de financer la machine que celle que le composant fait chercher.</li>
+<li><strong>Le fonds de roulement et la trésorerie nette.</strong> Entrée 12.3, notion non traitée.</li>
+<li><strong>La TVA récupérable sur la machine.</strong> Le corps raisonne sur 43&nbsp;200&nbsp;€ TTC, le composant
+aussi.</li>
+</ul>
+
+<h2>5 — Geste par geste</h2>
+<ul>
+<li><strong>Un curseur bouge</strong> → sa ligne affiche l'ancienne valeur à côté de la nouvelle, le besoin
+aussi, et le compte en banque se recalcule. Les nombres changent d'un cran à l'autre, ils ne défilent
+pas&nbsp;: chaque nombre affiché est vrai pour la position du curseur.</li>
+<li><strong>Le curseur des fournisseurs joue à l'envers</strong>&nbsp;: le monter fait baisser le besoin. Le
+signe «&nbsp;−&nbsp;» de sa gouttière le prépare sans le dire.</li>
+<li><strong>Un repère sous chaque piste</strong> marque le point de départ. Il tombe toujours au milieu,
+puisque chaque curseur va jusqu'au double.</li>
+<li><strong>L'état</strong> → toujours affiché, juste sous les curseurs, hauteur réservée. Il ne se démonte
+jamais, il change de mot et de teinte. <strong>Ce n'est pas un verdict</strong>&nbsp;: la question a des
+milliers de bonnes réponses, et la règle du 15 septembre réserve le verdict aux questions à réponse
+unique.</li>
+<li><strong>Tout reprendre</strong> → les trois curseurs reviennent au milieu. Le bouton est toujours à sa
+place, invisible tant que rien n'a bougé.</li>
+<li><strong>Mesure</strong> → le premier réglage qui fait passer la machine part à l'événement
+<code>premiere-reussite</code>, avec les trois valeurs et le besoin. Rien d'autre n'est compté. Le chiffre
+à regarder aux tests&nbsp;: combien d'apprenants passent par les clients seuls, et combien vident d'abord le
+stock.</li>
+</ul>
+
+<h3>Les textes affichés</h3>
+<table class="serree">
+<thead><tr><th>Où</th><th>Texte</th></tr></thead>
+<tbody>
+<tr><td>Consigne</td><td>Faites bouger les trois lignes du besoin en fonds de roulement. Le compte en banque suit.</td></tr>
+<tr><td>Régime</td><td>Rien n'est noté. Plusieurs réglages conviennent.</td></tr>
+<tr><td>Question</td><td>La machine coûte 43&nbsp;200&nbsp;€. Jusqu'où faudrait-il faire bouger ces trois lignes pour la payer sans toucher à l'argent dû à l'État&nbsp;?</td></tr>
+<tr><td>État, pas encore</td><td><strong>Il manque 35&nbsp;090&nbsp;€</strong><br>Avec ce réglage, le compte en banque ne suffit pas à payer à la fois la machine et l'État.</td></tr>
+<tr><td>État, atteint</td><td><strong>La machine passe</strong><br>Il reste 910&nbsp;€ une fois l'État payé. Le besoin en fonds de roulement est descendu de 69&nbsp;000&nbsp;€ à 33&nbsp;000&nbsp;€, et ces 36&nbsp;000&nbsp;€ sont revenus sur le compte en banque.</td></tr>
+<tr><td>Mentions des lignes</td><td>du café acheté, payé et torréfié, pas encore vendu · des ventes livrées et facturées, pas encore payées · des marchandises reçues, pas encore réglées (les mots du chapitre)</td></tr>
+<tr><td>Compte en banque</td><td>512 Trésorerie · au 31 décembre / Baisse (ou Hausse) du besoin en fonds de roulement · ce que les trois lignes rendent (ou prennent) au compte / La machine à torréfier · prix TTC / Dû à l'État · TVA et impôt sur les sociétés / Ce qui reste</td></tr>
+</tbody></table>
+<p>La seconde moitié de l'état atteint est la même pour tous les réglages, aux nombres près&nbsp;: c'est elle,
+la réponse à la question. Le montant manquant est dans le titre de l'état, parce qu'il est ce que
+l'apprenant cherche à faire descendre.</p>
+
+<h2>6 — Palette, étroit, clavier</h2>
+<ul>
+<li><strong>Amber</strong> pour la question et les curseurs. <strong>Slate</strong> pour le compte en
+banque. <strong>Lime</strong> quand la machine passe. Aucune information par la couleur seule&nbsp;: l'état est
+écrit, avec son montant.</li>
+<li><strong>Trois classes ajoutées</strong>, dans <code>ajout-activite-simulateur-bfr.css</code>, à coller à
+la fin du bloc <code>.activite</code>&nbsp;: <code>.curseur-activite</code> (le curseur natif teinté par
+<code>accent-color</code>, rien à redessiner), <code>.repere-depart</code> et
+<code>.panneau-final-attente</code> (contour amber sur fond blanc, pour un état qui n'est ni faux ni
+«&nbsp;presque&nbsp;»). Le reste vient de la feuille&nbsp;: <code>.rang-operation</code>, <code>.signe-operation</code>,
+<code>.sous-total</code>, <code>.valeur-avant</code>, <code>.ligne-doc</code>, <code>.total-doc</code>,
+<code>.panneau-final</code>.</li>
+<li><strong>Sous 640&nbsp;px</strong>, rien ne s'empile, tout est déjà en colonne. Le libellé du besoin devient
+«&nbsp;BFR&nbsp;», le panneau d'état réserve un peu plus de hauteur.</li>
+<li><strong>Clavier</strong>&nbsp;: les flèches déplacent un curseur de 1&nbsp;000&nbsp;€, Origine et Fin le mettent aux
+bornes. <strong>Lecteur d'écran</strong>&nbsp;: chaque cran annonce la valeur et l'état («&nbsp;45&nbsp;000&nbsp;€. Il manque
+7&nbsp;090&nbsp;€.&nbsp;»)&nbsp;; la région d'annonce ne parle que quand l'état bascule, sinon elle bavarderait à chaque
+cran.</li>
+</ul>
+
+<h2>7 — Points de vigilance, à trancher</h2>
+<ol>
+<li><strong>Les 9&nbsp;200&nbsp;€ de l'État sont mis de côté</strong>, ce qui fait un nombre neuf, 35&nbsp;090&nbsp;€ au
+départ, là où le corps écrit 25&nbsp;890&nbsp;€. C'est la lecture fidèle du 1er sous-titre («&nbsp;l'entreprise ne peut
+rien en faire d'autre&nbsp;»). L'autre voie&nbsp;: seuil à zéro sans l'État, la machine passerait dès 43&nbsp;000&nbsp;€ de
+besoin — et le composant contredirait le paragraphe qui vient d'écarter ces 9&nbsp;200&nbsp;€.</li>
+<li><strong>Le stock rend au compte sa valeur au coût.</strong> C'est le raisonnement du chapitre, de
+l'argent avancé qui revient. Vendre ce café rapporterait en réalité davantage, avec un bénéfice et de la
+TVA. Le composant ne dit jamais «&nbsp;vendre&nbsp;», seulement que la ligne baisse. Tenu pour suffisant.</li>
+<li><strong>Les bornes, de zéro au double.</strong> Arbitraires mais uniformes, et c'est ce qui met le
+point de départ au milieu. Elles permettent d'aggraver le besoin, ce qui montre le mécanisme dans l'autre
+sens.</li>
+<li><strong>Un montant et non un délai</strong> pour le fournisseur — et la légende du chapitre (ligne 39)
+ainsi que le déroulé (lignes 711 et 887) à aligner. À grouper avec les lignes des Chapitres 7, 9 et
+10.</li>
+<li><strong>Sommes entières</strong>, sans centimes, comme le chapitre&nbsp;; les autres composants en portent
+deux décimales dans leurs documents.</li>
+<li><strong>La hauteur</strong>, environ 870&nbsp;px à 720&nbsp;px de large. Le compte en banque pourrait se replier
+en sa seule ligne «&nbsp;Ce qui reste&nbsp;» si l'écran l'exige, mais c'est lui qui montre d'où vient le montant de
+l'état.</li>
+<li><strong>Les textes affichés</strong> de la section 5.</li>
+<li><strong>Le nom.</strong> <code>&lt;SimulateurBfr /&gt;</code> est gardé, le sigle est donné par le
+chapitre avant le composant.</li>
+</ol>
+<p>Maquettes rendues depuis le vrai <code>.vue</code> (Vue global, Tailwind&nbsp;4 CLI, <code>activite.css</code>
+avec le bloc ajouté, créneaux de <code>M1ActiviteSection</code> et <code>UButton</code> simulés). Le style
+de ces deux-là est une approximation.</p>

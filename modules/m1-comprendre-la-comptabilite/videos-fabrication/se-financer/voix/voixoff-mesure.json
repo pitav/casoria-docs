@@ -1,0 +1,349 @@
+{
+ "voix": "voice_dur676prxpls",
+ "modele": "gemini-3.8-flash-tts",
+ "duree_totale": 176.51,
+ "segments": [
+  {
+   "id": "p1-1",
+   "plan": 1,
+   "texte": "Par exemple, une entreprise doit s'équiper pour trente mille euros. L'argent de son compte est déjà promis à ses fournisseurs. Où trouver cette somme, et que coûtera vraiment ce choix ?",
+   "fichier": "p1-1.mp3",
+   "duree": 11.57,
+   "fidelite": 0.921,
+   "essais": 3,
+   "transcription": "Par exemple, une entreprise doit s'équiper pour 30 000 €. L'argent de son compte est déjà promis à ses fournisseurs. Où trouver cette somme et que coûtera vraiment ce choix ?",
+   "debut": 6.0,
+   "fin": 17.57,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.286
+    },
+    {
+     "i": 68,
+     "t": 4.391
+    },
+    {
+     "i": 127,
+     "t": 8.02
+    }
+   ]
+  },
+  {
+   "id": "p2-1",
+   "plan": 2,
+   "texte": "Une entreprise ne peut puiser qu'à trois endroits : la trésorerie qu'elle a produite, l'argent que ses associés acceptent de mettre, et l'argent qu'un tiers accepte de prêter.",
+   "fichier": "p2-1.mp3",
+   "duree": 12.7,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Une entreprise ne peut puiser qu'à trois endroits : la trésorerie qu'elle a produite, l'argent que ses associés acceptent de mettre, et l'argent qu'un tiers accepte de prêter.",
+   "debut": 18.97,
+   "fin": 31.67,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.268
+    },
+    {
+     "i": 52,
+     "t": 4.086
+    }
+   ]
+  },
+  {
+   "id": "p2-2",
+   "plan": 2,
+   "texte": "Un associé peut prêter à sa propre société : c'est le compte courant d'associé. Il est souple, mais limité à ce que l'associé possède. Un emprunt bancaire coûte plus cher, et ses échéances de remboursement sont fixes. En échange, il apporte une somme que les associés n'ont pas.",
+   "fichier": "p2-2.mp3",
+   "duree": 16.97,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Un associé peut prêter à sa propre société. C'est le compte courant d'associé. Il est souple, mais limité à ce que l'associé possède. Un emprunt bancaire coûte plus cher et ses échéances de remboursement sont fixes. En échange, il apporte une somme que les associés n'ont pas.",
+   "debut": 32.47,
+   "fin": 49.44,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.281
+    },
+    {
+     "i": 45,
+     "t": 3.159
+    },
+    {
+     "i": 80,
+     "t": 5.246
+    },
+    {
+     "i": 135,
+     "t": 7.521
+    },
+    {
+     "i": 218,
+     "t": 13.872
+    }
+   ]
+  },
+  {
+   "id": "p3-1",
+   "plan": 3,
+   "texte": "La banque prête trente mille euros et les vire sur le compte. Au grand journal, au débit, où va la valeur : la Banque. Au crédit, d'où elle vient : l'Emprunt bancaire.",
+   "fichier": "p3-1.mp3",
+   "duree": 13.13,
+   "fidelite": 0.938,
+   "essais": 3,
+   "transcription": "La banque prête 30 000 euros et les vire sur le compte. Au grand journal, au débit, où va la valeur ? La banque. Au crédit, d'où elle vient ? L'emprunt bancaire.",
+   "debut": 50.84,
+   "fin": 63.97,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.254
+    },
+    {
+     "i": 62,
+     "t": 4.783
+    },
+    {
+     "i": 108,
+     "t": 8.569
+    },
+    {
+     "i": 119,
+     "t": 9.674
+    },
+    {
+     "i": 148,
+     "t": 11.893
+    }
+   ]
+  },
+  {
+   "id": "p3-2",
+   "plan": 3,
+   "texte": "Au Bilan, le compte en banque passe de dix mille à quarante mille euros. Au Passif, une ligne apparaît, Emprunt bancaire, pour la même somme.",
+   "fichier": "p3-2.mp3",
+   "duree": 9.98,
+   "fidelite": 0.816,
+   "essais": 3,
+   "transcription": "Au bilan, le compte en banque passe de 10 000 à 40 000 €. Au passif, une ligne apparaît : emprunt bancaire pour la même somme.",
+   "debut": 64.77,
+   "fin": 74.75,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.325
+    },
+    {
+     "i": 73,
+     "t": 5.063
+    }
+   ]
+  },
+  {
+   "id": "p3-3",
+   "plan": 3,
+   "texte": "L'entreprise ne s'est pas enrichie. Elle a reçu de l'argent, et elle le doit.",
+   "fichier": "p3-3.mp3",
+   "duree": 6.53,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "L'entreprise ne s'est pas enrichie. Elle a reçu de l'argent et elle le doit.",
+   "debut": 75.55,
+   "fin": 82.08,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.284
+    },
+    {
+     "i": 36,
+     "t": 2.94
+    }
+   ]
+  },
+  {
+   "id": "p4-1",
+   "plan": 4,
+   "texte": "Chaque mois, la banque prélève une mensualité, par exemple six cents euros. Elle contient deux choses de nature différente.",
+   "fichier": "p4-1.mp3",
+   "duree": 8.9,
+   "fidelite": 0.889,
+   "essais": 3,
+   "transcription": "Chaque mois, la banque prélève une mensualité. Par exemple, 600 €. Elle contient deux choses de nature différente.",
+   "debut": 83.48,
+   "fin": 92.38,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.294
+    },
+    {
+     "i": 76,
+     "t": 6.107
+    }
+   ]
+  },
+  {
+   "id": "p4-2",
+   "plan": 4,
+   "texte": "Cinq cents euros remboursent le capital. C'est une restitution : l'entreprise rend une somme qu'elle avait reçue, et rien n'a été consommé.",
+   "fichier": "p4-2.mp3",
+   "duree": 8.78,
+   "fidelite": 0.875,
+   "essais": 3,
+   "transcription": "500 € rembourse le capital. C'est une restitution. L'entreprise rend une somme qu'elle avait reçue, et rien n'a été consommé.",
+   "debut": 93.18,
+   "fin": 101.96,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.276
+    },
+    {
+     "i": 41,
+     "t": 3.127
+    },
+    {
+     "i": 65,
+     "t": 4.959
+    }
+   ]
+  },
+  {
+   "id": "p4-3",
+   "plan": 4,
+   "texte": "Cent euros sont des intérêts, le prix du prêt. L'entreprise a consommé un service : disposer d'une somme qui n'est pas la sienne. C'est une charge.",
+   "fichier": "p4-3.mp3",
+   "duree": 10.01,
+   "fidelite": 0.966,
+   "essais": 1,
+   "transcription": "100 euros sont des intérêts, le prix du prêt. L'entreprise a consommé un service : disposer d'une somme qui n'est pas la sienne. C'est une charge.",
+   "debut": 102.76,
+   "fin": 112.77,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.242
+    },
+    {
+     "i": 47,
+     "t": 3.555
+    },
+    {
+     "i": 84,
+     "t": 6.182
+    },
+    {
+     "i": 130,
+     "t": 8.796
+    }
+   ]
+  },
+  {
+   "id": "p5-1",
+   "plan": 5,
+   "texte": "Au Bilan, le compte en banque baisse de six cents euros, et la dette de cinq cents. Au Compte de Résultat, seuls les cent euros d'intérêts apparaissent, du côté des charges.",
+   "fichier": "p5-1.mp3",
+   "duree": 11.33,
+   "fidelite": 0.871,
+   "essais": 3,
+   "transcription": "Au bilan, le compte en banque baisse de 600 euros et la dette de 500. Au compte de résultat, seuls les 100 euros d'intérêts apparaissent, du côté des charges.",
+   "debut": 114.17,
+   "fin": 125.5,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.348
+    },
+    {
+     "i": 84,
+     "t": 6.161
+    }
+   ]
+  },
+  {
+   "id": "p5-2",
+   "plan": 5,
+   "texte": "Le compte en banque et le résultat ne bougent pas ensemble. Sur six cents euros sortis, cent seulement pèsent sur le résultat. Le reste a changé de place sans rien coûter.",
+   "fichier": "p5-2.mp3",
+   "duree": 14.33,
+   "fidelite": 0.9,
+   "essais": 3,
+   "transcription": "Le compte en banque et le résultat ne bougent pas ensemble. Sur 600 € sortis, 100 seulement pèsent sur le résultat. Le reste a changé de place sans rien coûter.",
+   "debut": 126.3,
+   "fin": 140.63,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.306
+    },
+    {
+     "i": 60,
+     "t": 5.076
+    },
+    {
+     "i": 127,
+     "t": 10.954
+    }
+   ]
+  },
+  {
+   "id": "p6-1",
+   "plan": 6,
+   "texte": "Rembourser une dette n'appauvrit pas une entreprise.",
+   "fichier": "p6-1.mp3",
+   "duree": 3.82,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Rembourser une dette n'appauvrit pas une entreprise.",
+   "debut": 142.03,
+   "fin": 145.85,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.268
+    }
+   ]
+  },
+  {
+   "id": "p7-1",
+   "plan": 7,
+   "texte": "À retenir. Recevoir un emprunt n'enrichit personne : la trésorerie et la dette augmentent du même montant. Une mensualité se partage : le capital réduit la dette et reste au Bilan, les intérêts passent au Compte de Résultat. Enfin, emprunter à une banque ou à un associé n'engage pas de la même manière.",
+   "fichier": "p7-1.mp3",
+   "duree": 23.26,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "À retenir. Recevoir un emprunt n'enrichit personne. La trésorerie et la dette augmentent du même montant. Une mensualité se partage. Le capital réduit la dette et reste au bilan, les intérêts passent au compte de résultat. Enfin, emprunter à une banque ou à un associé n'engage pas de la même manière.",
+   "debut": 147.25,
+   "fin": 170.51,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.281
+    },
+    {
+     "i": 11,
+     "t": 1.696
+    },
+    {
+     "i": 53,
+     "t": 4.784
+    },
+    {
+     "i": 107,
+     "t": 8.368
+    },
+    {
+     "i": 135,
+     "t": 10.952
+    },
+    {
+     "i": 225,
+     "t": 17.777
+    }
+   ]
+  }
+ ]
+}

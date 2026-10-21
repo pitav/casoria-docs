@@ -1,0 +1,97 @@
+[
+ {
+  "id": "p1-1",
+  "plan": 1,
+  "texte": "Par exemple, une entreprise termine son année sur dix-sept mille euros de bénéfice. Elle voudrait une machine à trente mille euros."
+ },
+ {
+  "id": "p1-2",
+  "plan": 1,
+  "texte": "Son compte en banque, lui, affiche dix mille euros. Peut-elle se le permettre ?"
+ },
+ {
+  "id": "p2-1",
+  "plan": 2,
+  "texte": "Elle ne le peut pas : le compte en banque passerait à moins vingt mille euros."
+ },
+ {
+  "id": "p2-2",
+  "plan": 2,
+  "texte": "Et ces dix mille euros sont moins disponibles qu'ils n'en ont l'air. Au Passif, deux mille euros de TVA à décaisser et trois mille euros d'impôt sur les sociétés partiront dans les mois qui suivent."
+ },
+ {
+  "id": "p3-1",
+  "plan": 3,
+  "texte": "Le bénéfice dit ce que l'activité a gagné en douze mois. La trésorerie dit ce qu'il y a sur le compte en banque au trente et un décembre."
+ },
+ {
+  "id": "p3-2",
+  "plan": 3,
+  "texte": "Trois chiffres aident à comprendre ce qui se passe : le besoin en fonds de roulement, la marge nette et l'autonomie financière."
+ },
+ {
+  "id": "p4-1",
+  "plan": 4,
+  "texte": "Premier chiffre : le besoin en fonds de roulement. Où l'argent est-il passé ? La réponse est au Bilan."
+ },
+ {
+  "id": "p4-2",
+  "plan": 4,
+  "texte": "Le stock vaut vingt mille euros : acheté, pas encore vendu. Les créances clients valent quarante mille euros : facturées, pas encore payées."
+ },
+ {
+  "id": "p4-3",
+  "plan": 4,
+  "texte": "Au Passif, les dettes fournisseurs jouent en sens inverse : dix mille euros reçus, pas encore réglés."
+ },
+ {
+  "id": "p5-1",
+  "plan": 5,
+  "texte": "Ce que l'activité retient ainsi s'appelle le besoin en fonds de roulement, le BFR. Le stock, plus les créances clients, moins les dettes fournisseurs : cinquante mille euros."
+ },
+ {
+  "id": "p5-2",
+  "plan": 5,
+  "texte": "Ces cinquante mille euros, l'entreprise ne les a pas perdus. Elle les a rangés dans son stock, et dans les factures que ses clients n'ont pas encore payées."
+ },
+ {
+  "id": "p6-0",
+  "plan": 6,
+  "texte": "Deuxième chiffre : la marge nette."
+ },
+ {
+  "id": "p6-1",
+  "plan": 6,
+  "texte": "Mais cinquante mille euros ne disent pas la même chose pour une boutique et pour une usine. Un ratio divise un chiffre par un autre, et donne un pourcentage, qui se compare d'une entreprise à l'autre."
+ },
+ {
+  "id": "p7-1",
+  "plan": 7,
+  "texte": "La marge nette dit ce qui reste à l'entreprise sur ce qu'elle a vendu. Dix-sept mille euros de bénéfice sur cent soixante-dix mille euros de ventes : dix pour cent. Dix euros gardés sur cent euros vendus."
+ },
+ {
+  "id": "p8-1",
+  "plan": 8,
+  "texte": "Troisième chiffre : l'autonomie financière. Elle dit quelle part du Bilan est financée par les associés et par le bénéfice : les capitaux propres. Ici, trente-sept mille euros sur cent mille, soit trente-sept pour cent."
+ },
+ {
+  "id": "p8-2",
+  "plan": 8,
+  "texte": "Plus elle est basse, plus l'entreprise dépend de ceux à qui elle doit de l'argent. Une banque la regarde avant de prêter."
+ },
+ {
+  "id": "p9-1",
+  "plan": 9,
+  "texte": "Un ratio ne dit rien tout seul. Il prend son sens comparé à d'autres entreprises de la même taille, et à l'année suivante."
+ },
+ {
+  "id": "p10-1",
+  "plan": 10,
+  "texte": "Le bénéfice de l'année n'est pas l'argent disponible."
+ },
+ {
+  "id": "p11-1",
+  "plan": 11,
+  "texte": "À retenir. Le bénéfice de l'année n'est pas l'argent disponible. Le besoin en fonds de roulement dit où l'argent est passé. Enfin, deux ratios situent l'entreprise : la marge nette et l'autonomie financière."
+ }
+]

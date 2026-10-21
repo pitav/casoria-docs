@@ -1,0 +1,77 @@
+[
+{
+"id": "p1-1",
+"plan": 1,
+"texte": "Le trente et un décembre, l'année d'une entreprise s'achève. Trois faits restent à ranger : un client réclame, une assurance a été payée d'avance, un contrat a été encaissé d'avance. À quelle année appartiennent-ils ?"
+},
+{
+"id": "p2-1",
+"plan": 2,
+"texte": "Une charge ou un produit se rattache à la période qu'il concerne, et non à celle où l'argent a bougé. C'est le rattachement à la période."
+},
+{
+"id": "p2-2",
+"plan": 2,
+"texte": "Avant de figer ses comptes, l'entreprise passe donc des écritures qui ne constatent aucun échange. Elles ajustent ce que les comptes disent de l'année : c'est la clôture."
+},
+{
+"id": "p3-1",
+"plan": 3,
+"texte": "Par exemple, un client conteste une livraison. Rien n'est tranché, rien n'a été versé, et l'entreprise estime à trois mille euros ce que l'affaire lui coûtera."
+},
+{
+"id": "p3-2",
+"plan": 3,
+"texte": "La comptabilité n'attend pas la certitude. Dès qu'une perte est probable et peut être estimée, elle s'inscrit en charge sur l'année où le risque est né. C'est une provision."
+},
+{
+"id": "p4-1",
+"plan": 4,
+"texte": "Une entreprise anticipe une perte probable, jamais un gain espéré. C'est le principe de prudence."
+},
+{
+"id": "p5-1",
+"plan": 5,
+"texte": "Au Compte de Résultat, une ligne apparaît, Dotation aux provisions, pour trois mille euros. Les charges montent d'autant, et le résultat de l'année baisse."
+},
+{
+"id": "p5-2",
+"plan": 5,
+"texte": "Au Bilan, le compte en banque ne bouge pas. Au Passif, une ligne apparaît, Provisions pour risques. L'argent partira peut-être l'an prochain, peut-être jamais."
+},
+{
+"id": "p6-1",
+"plan": 6,
+"texte": "Autre exemple. Le premier octobre, l'entreprise paie mille deux cents euros pour douze mois d'assurance. Trois mois concernent l'année qui s'achève, les neuf autres l'année suivante."
+},
+{
+"id": "p6-2",
+"plan": 6,
+"texte": "Ces neuf cents euros quittent les charges et rejoignent l'Actif du Bilan. Ce sont des charges constatées d'avance : l'entreprise détient encore neuf mois de couverture."
+},
+{
+"id": "p7-1",
+"plan": 7,
+"texte": "Le premier novembre, un client paie d'avance douze mois de livraisons, mille deux cents euros. Dix mois, soit mille euros, concernent l'année suivante."
+},
+{
+"id": "p7-2",
+"plan": 7,
+"texte": "Ils quittent les produits et rejoignent le Passif. Ce sont des produits constatés d'avance : l'entreprise doit encore ces dix mois de livraisons."
+},
+{
+"id": "p8-1",
+"plan": 8,
+"texte": "Au Compte de Résultat, les Autres charges externes baissent de neuf cents euros, et les Ventes de mille. Au Bilan, une ligne apparaît à l'Actif, une autre au Passif. La banque, elle, n'a pas bougé."
+},
+{
+"id": "p9-1",
+"plan": 9,
+"texte": "Une opération appartient à la période qu'elle concerne, pas à celle où l'argent bouge."
+},
+{
+"id": "p10-1",
+"plan": 10,
+"texte": "À retenir. Une charge ou un produit se rattache à l'année qu'il concerne. Une perte probable s'inscrit avant d'être certaine, un gain espéré jamais. Enfin, ce qui est payé d'avance va à l'Actif, ce qui est encaissé d'avance va au Passif."
+}
+]

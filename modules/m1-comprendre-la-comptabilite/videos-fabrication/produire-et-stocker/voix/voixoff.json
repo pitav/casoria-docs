@@ -1,0 +1,142 @@
+[
+ {
+  "id": "p1-1",
+  "plan": 1,
+  "texte": "Par exemple, une entreprise a produit pour quatre mille euros de marchandises, pas encore vendues. Elles ont déjà coûté de l'argent, et n'en ont encore rien rapporté. Où se rangent-elles dans les comptes, et que font-elles au résultat ?",
+  "fichier": "p1-1.mp3",
+  "duree": 14.74,
+  "fidelite": 0.94,
+  "essais": 1,
+  "transcription": "Par exemple, une entreprise a produit pour 4 000 € de marchandises, pas encore vendues. Elles ont déjà coûté de l'argent et n'en ont encore rien rapporté. Où se rangent-elles dans les comptes et que font-elles au résultat ?"
+ },
+ {
+  "id": "p2-1",
+  "plan": 2,
+  "texte": "C'est un stock : des marchandises détenues et pas encore vendues. Il a sa ligne à l'Actif du Bilan, ce que l'entreprise détient.",
+  "fichier": "p2-1.mp3",
+  "duree": 9.86,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "C'est un stock, des marchandises détenues et pas encore vendues. Il a sa ligne à l'actif du bilan, ce que l'entreprise détient."
+ },
+ {
+  "id": "p2-2",
+  "plan": 2,
+  "texte": "Jusqu'ici, l'Actif ne portait que de l'argent, ou une promesse d'argent. Le stock n'est ni l'un ni l'autre. Une étagère répond à la question « où est l'argent ? », au même titre qu'un compte en banque.",
+  "fichier": "p2-2.mp3",
+  "duree": 14.42,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Jusqu'ici, l'actif ne portait que de l'argent ou une promesse d'argent. Le stock n'est ni l'un ni l'autre. Une étagère répond à la question « Où est l'argent ? » au même titre qu'un compte en banque."
+ },
+ {
+  "id": "p3-1",
+  "plan": 3,
+  "texte": "Au Compte de Résultat, toujours dans notre exemple : dix mille euros d'achats du côté des charges, douze mille euros de ventes du côté des produits.",
+  "fichier": "p3-1.mp3",
+  "duree": 9.17,
+  "fidelite": 0.8,
+  "essais": 3,
+  "transcription": "Au compte de résultat, toujours dans notre exemple, 10 000 € d'achats du côté des charges, 12 000 € de ventes du côté des produits."
+ },
+ {
+  "id": "p3-2",
+  "plan": 3,
+  "texte": "Les achats comptent tout ce qui a été acheté pour produire. Les ventes, seulement ce qui est parti. Tant que rien ne le corrige, le résultat porte le coût de marchandises que l'entreprise a toujours.",
+  "fichier": "p3-2.mp3",
+  "duree": 14.42,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Les achats comptent tout ce qui a été acheté pour produire, les ventes, seulement ce qui est parti. Tant que rien ne le corrige, le résultat porte le coût de marchandises que l'entreprise a toujours."
+ },
+ {
+  "id": "p4-1",
+  "plan": 4,
+  "texte": "C'est ce que rétablit la variation de stock : l'écart entre le stock du début et celui de la fin. Ici, le stock passe de zéro à quatre mille euros. Sa variation vaut quatre mille euros.",
+  "fichier": "p4-1.mp3",
+  "duree": 13.9,
+  "fidelite": 0.833,
+  "essais": 3,
+  "transcription": "C'est ce que rétablit la variation de stock. L'écart entre le stock du début et celui de la fin. Ici, le stock passe de 0 à 4 000 €. Sa variation vaut 4 000 €."
+ },
+ {
+  "id": "p4-2",
+  "plan": 4,
+  "texte": "Elle se range du côté des produits, et c'est ce qui surprend. Mais le coût de ces marchandises est déjà compté dans les charges, depuis l'achat. La variation enregistre la valeur produite, et pas encore vendue.",
+  "fichier": "p4-2.mp3",
+  "duree": 13.54,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Elle se range du côté des produits et c'est ce qui surprend. Mais le coût de ces marchandises est déjà compté dans les charges, depuis l'achat. La variation enregistre la valeur produite et pas encore vendue."
+ },
+ {
+  "id": "p5-1",
+  "plan": 5,
+  "texte": "Au grand journal, deux lignes. Au débit, où va la valeur : les Stocks, à l'Actif. Au crédit, d'où elle vient : la Variation des stocks, ce que l'activité a produit.",
+  "fichier": "p5-1.mp3",
+  "duree": 13.25,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Au grand journal, deux lignes : au débit, où va la valeur, les stocks à l'actif, au crédit, d'où elle vient, la variation des stocks, ce que l'activité a produit."
+ },
+ {
+  "id": "p6-1",
+  "plan": 6,
+  "texte": "Au Compte de Résultat, le total des charges ne bouge pas. Celui des produits passe de douze mille à seize mille euros, et ces quatre mille euros ne viennent d'aucune vente.",
+  "fichier": "p6-1.mp3",
+  "duree": 10.54,
+  "fidelite": 0.774,
+  "essais": 3,
+  "transcription": "Au compte de résultat, le total des charges ne bouge pas. Celui des produits passe de 12 000 à 16 000 €. Et ces 4 000 € ne viennent d'aucune vente."
+ },
+ {
+  "id": "p6-2",
+  "plan": 6,
+  "texte": "Le résultat monte de quatre mille euros, sans que l'entreprise se soit enrichie : la variation annule seulement la charge de marchandises qu'elle a encore.",
+  "fichier": "p6-2.mp3",
+  "duree": 8.69,
+  "fidelite": 0.863,
+  "essais": 3,
+  "transcription": "Le résultat monte de 4 000 € sans que l'entreprise se soit enrichie. La variation annule seulement la charge de marchandise qu'elle a encore."
+ },
+ {
+  "id": "p7-1",
+  "plan": 7,
+  "texte": "Pourtant, un stock ne règle aucune facture. L'argent qui l'a constitué est déjà sorti du compte. Il ne reviendra que le jour où les marchandises partiront.",
+  "fichier": "p7-1.mp3",
+  "duree": 9.98,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Pourtant, un stock ne règle aucune facture. L'argent qui l'a constitué est déjà sorti du compte. Il ne reviendra que le jour où les marchandises partiront."
+ },
+ {
+  "id": "p7-2",
+  "plan": 7,
+  "texte": "Trop peu de stock, et l'entreprise refuse une commande. Trop, et une part de son argent dort sur les étagères.",
+  "fichier": "p7-2.mp3",
+  "duree": 7.85,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Trop peu de stock et l'entreprise refuse une commande. Trop et une part de son argent dort sur les étagères."
+ },
+ {
+  "id": "p8-1",
+  "plan": 8,
+  "texte": "C'est en vendant, pas en produisant, que l'entreprise gagne quelque chose.",
+  "fichier": "p8-1.mp3",
+  "duree": 5.21,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "C'est en vendant, pas en produisant, que l'entreprise gagne quelque chose."
+ },
+ {
+  "id": "p9-1",
+  "plan": 9,
+  "texte": "À retenir. Un stock est fait de marchandises détenues et pas encore vendues : il se range à l'Actif du Bilan. La variation de stock se lit au Compte de Résultat, du côté des produits : elle remet en face la valeur pas encore vendue. Enfin, un stock n'est pas de l'argent disponible : c'est de la valeur qui attend un acheteur.",
+  "fichier": "p9-1.mp3",
+  "duree": 22.25,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "À retenir : un stock est fait de marchandises détenues et pas encore vendues. Il se range à l'actif du bilan. La variation de stock se lit au compte de résultat, du côté des produits. Elle remet en face la valeur pas encore vendue. Enfin, un stock n'est pas de l'argent disponible. C'est de la valeur qui attend un acheteur."
+ }
+]

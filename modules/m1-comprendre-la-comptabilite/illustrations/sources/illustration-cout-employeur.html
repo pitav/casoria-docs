@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<style>
+:root{
+  --g50:#f8fafc; --g100:#f1f5f9; --g200:#e2e8f0; --g300:#cbd5e1; --g400:#94a3b8;
+  --g500:#64748b; --g600:#475569; --g700:#334155; --g800:#1e293b; --g900:#0f172a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,"Segoe UI",sans-serif;background:#fff;color:var(--g900)}
+.img{width:100%;max-width:720px;padding:24px 24px 22px;background:#fff}
+
+.titre{font-size:.63rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--g500);margin-bottom:14px}
+
+/* Une seule barre, à l'échelle : 1 716 + 484 + 924 = 3 124.
+   Les colonnes portent les montants eux-mêmes, la proportion est donc exacte. */
+.schema{display:grid;grid-template-columns:1716fr 484fr 924fr}
+
+/* ── les accolades ─────────────────────────────────────────────── */
+.acc{display:flex;flex-direction:column}
+.acc .txt{text-align:center;font-size:.8rem;line-height:1.35;color:var(--g600)}
+.acc .txt b{font-size:1.02rem;font-weight:800;color:var(--g900);font-variant-numeric:tabular-nums;white-space:nowrap;margin-right:4px}
+.acc .txt em{display:block;font-style:normal;font-weight:700;color:var(--g800);margin-top:2px}
+.acc .trait{border:0 solid var(--g300)}
+.acc-haut .trait{height:9px;margin-top:5px;border-top-width:2px;border-left-width:2px;border-right-width:2px;border-radius:3px 3px 0 0}
+.acc-bas  .trait{height:9px;margin-bottom:6px;border-bottom-width:2px;border-left-width:2px;border-right-width:2px;border-radius:0 0 3px 3px}
+
+.acc-total  {grid-column:1/4;grid-row:1}
+.acc-total .txt b{font-size:1.5rem}
+.acc-contrat{grid-column:1/3;grid-row:2;margin-top:10px}
+.acc-org    {grid-column:2/4;grid-row:4;margin-top:46px}
+
+/* ── la barre ─────────────────────────────────────────────────── */
+.seg{grid-row:3;position:relative;height:58px;margin-top:6px;display:flex;flex-direction:column;justify-content:center;
+  padding:0 10px;text-align:center}
+.seg .m{font-size:1.05rem;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.seg-net{grid-column:1;background:var(--g800);color:#fff;border-radius:8px 0 0 8px}
+.seg-sal{grid-column:2;background:var(--g500);color:#fff;border-left:2px solid #fff}
+.seg-pat{grid-column:3;background:var(--g200);color:var(--g900);border-left:2px solid #fff;border-radius:0 8px 8px 0}
+
+/* sous la barre, le nom de chaque part */
+.seg .lab{position:absolute;left:0;right:0;top:calc(100% + 7px);padding:0 4px;
+  font-size:.72rem;line-height:1.3;color:var(--g500)}
+.seg .lab strong{font-weight:700;color:var(--g800)}
+
+/* ── En étroit : la barre se dresse ───────────────────────────────
+   Même grille, axes échangés. Les rangées portent les montants, les deux
+   accolades du dessus passent à gauche, celle du dessous à droite. */
+@media (max-width: 640px){
+  .img{padding:20px 16px 18px}
+  .schema{grid-template-columns:86px 80px 1fr 88px;grid-template-rows:1716fr 484fr 924fr;
+    height:400px;column-gap:5px}
+
+  .acc{flex-direction:row;align-items:stretch}
+  .acc .txt{display:flex;flex-direction:column;justify-content:center;font-size:.68rem;line-height:1.3}
+  .acc .txt b{display:block;margin:0 0 2px;font-size:.9rem}
+  .acc-total .txt b{font-size:1.1rem}
+  .acc .trait{flex:none;width:8px;height:auto;margin:0}
+  .acc-haut .txt{text-align:right;padding-right:5px}
+  .acc-haut .trait{border-width:2px 0 2px 2px;border-radius:3px 0 0 3px}
+  .acc-bas{flex-direction:row}
+  .acc-bas .txt{text-align:left;padding-left:5px}
+  .acc-bas .trait{border-width:2px 2px 2px 0;border-radius:0 3px 3px 0}
+
+  .acc-total  {grid-column:1;grid-row:1/4}
+  .acc-contrat{grid-column:2;grid-row:1/3;margin-top:0}
+  .acc-org    {grid-column:4;grid-row:2/4;margin-top:0}
+
+  .seg{grid-column:3;height:auto;margin:0;padding:4px 6px;min-height:0}
+  .seg-net{grid-row:1;border-radius:8px 8px 0 0}
+  .seg-sal{grid-row:2;border-left:0;border-top:2px solid #fff}
+  .seg-pat{grid-row:3;border-left:0;border-top:2px solid #fff;border-radius:0 0 8px 8px}
+  .seg .m{font-size:.92rem}
+  .seg .lab{position:static;margin-top:2px;padding:0;font-size:.62rem;line-height:1.2;color:inherit;opacity:.85}
+  .seg .lab strong{color:inherit}
+}
+</style></head><body>
+
+<div class="img" id="img">
+  <p class="titre">Le salaire de Léa, pour un mois</p>
+
+  <div class="schema">
+
+    <div class="acc acc-haut acc-total">
+      <p class="txt"><b>3 124 €</b> <span>le coût total employeur, ce que Latitude Café paie</span></p>
+      <div class="trait"></div>
+    </div>
+
+    <div class="acc acc-haut acc-contrat">
+      <p class="txt"><b>2 200 €</b> <span>le salaire brut, écrit au contrat</span></p>
+      <div class="trait"></div>
+    </div>
+
+    <div class="seg seg-net">
+      <p class="m">1 716 €</p>
+      <p class="lab"><strong>salaire net</strong><br>ce que Léa reçoit</p>
+    </div>
+    <div class="seg seg-sal">
+      <p class="m">484 €</p>
+      <p class="lab"><strong>charges salariales</strong></p>
+    </div>
+    <div class="seg seg-pat">
+      <p class="m">924 €</p>
+      <p class="lab"><strong>charges patronales</strong></p>
+    </div>
+
+    <div class="acc acc-bas acc-org">
+      <div class="trait"></div>
+      <p class="txt"><b>1 408 €</b> <span>partent aux organismes sociaux</span><em>L’entreprise n’en garde rien.</em></p>
+    </div>
+
+  </div>
+</div>
+
+</body></html>

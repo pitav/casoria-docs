@@ -1,0 +1,152 @@
+[
+ {
+  "id": "p1-1",
+  "plan": 1,
+  "texte": "Le trente et un décembre, l'année d'une entreprise s'achève. Trois faits restent à ranger : un client réclame, une assurance a été payée d'avance, un contrat a été encaissé d'avance. À quelle année appartiennent-ils ?",
+  "fichier": "p1-1.mp3",
+  "duree": 16.3,
+  "fidelite": 0.947,
+  "essais": 1,
+  "transcription": "Le 31 décembre, l'année d'une entreprise s'achève. Trois faits restent à ranger. Un client réclame, une assurance a été payée d'avance, un contrat a été encaissé d'avance. À quelle année appartiennent-ils ?"
+ },
+ {
+  "id": "p2-1",
+  "plan": 2,
+  "texte": "Une charge ou un produit se rattache à la période qu'il concerne, et non à celle où l'argent a bougé. C'est le rattachement à la période.",
+  "fichier": "p2-1.mp3",
+  "duree": 10.01,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Une charge ou un produit se rattache à la période qu'il concerne, et non à celle où l'argent a bougé. C'est le rattachement à la période."
+ },
+ {
+  "id": "p2-2",
+  "plan": 2,
+  "texte": "Avant de figer ses comptes, l'entreprise passe donc des écritures qui ne constatent aucun échange. Elles ajustent ce que les comptes disent de l'année : c'est la clôture.",
+  "fichier": "p2-2.mp3",
+  "duree": 10.78,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Avant de figer ses comptes, l'entreprise passe donc des écritures qui ne constatent aucun échange. Elles ajustent ce que les comptes disent de l'année. C'est la clôture."
+ },
+ {
+  "id": "p3-1",
+  "plan": 3,
+  "texte": "Par exemple, un client conteste une livraison. Rien n'est tranché, rien n'a été versé, et l'entreprise estime à trois mille euros ce que l'affaire lui coûtera.",
+  "fichier": "p3-1.mp3",
+  "duree": 10.46,
+  "fidelite": 0.915,
+  "essais": 3,
+  "transcription": "Par exemple, un client conteste une livraison. Rien n'est tranché, rien n'a été versé. Et l'entreprise estime à 3 000 € ce que l'affaire lui coûtera."
+ },
+ {
+  "id": "p3-2",
+  "plan": 3,
+  "texte": "La comptabilité n'attend pas la certitude. Dès qu'une perte est probable et peut être estimée, elle s'inscrit en charge sur l'année où le risque est né. C'est une provision.",
+  "fichier": "p3-2.mp3",
+  "duree": 11.06,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "La comptabilité n'attend pas la certitude. Dès qu'une perte est probable et peut être estimée, elle s'inscrit en charge sur l'année où le risque est né. C'est une provision."
+ },
+ {
+  "id": "p4-1",
+  "plan": 4,
+  "texte": "Une entreprise anticipe une perte probable, jamais un gain espéré. C'est le principe de prudence.",
+  "fichier": "p4-1.mp3",
+  "duree": 6.58,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Une entreprise anticipe une perte probable, jamais un gain espéré. C'est le principe de prudence."
+ },
+ {
+  "id": "p5-1",
+  "plan": 5,
+  "texte": "Au Compte de Résultat, une ligne apparaît, Dotation aux provisions, pour trois mille euros. Les charges montent d'autant, et le résultat de l'année baisse.",
+  "fichier": "p5-1.mp3",
+  "duree": 10.54,
+  "fidelite": 0.92,
+  "essais": 3,
+  "transcription": "Au compte de résultat, une ligne apparaît : dotation aux provisions pour 3000 €. Les charges montent d'autant et le résultat de l'année baisse."
+ },
+ {
+  "id": "p5-2",
+  "plan": 5,
+  "texte": "Au Bilan, le compte en banque ne bouge pas. Au Passif, une ligne apparaît, Provisions pour risques. L'argent partira peut-être l'an prochain, peut-être jamais.",
+  "fichier": "p5-2.mp3",
+  "duree": 11.98,
+  "fidelite": 0.964,
+  "essais": 1,
+  "transcription": "Au bilan, le compte en banque ne bouge pas. Au passif, une ligne apparaît : provision pour risques. L'argent partira peut-être l'an prochain, peut-être jamais."
+ },
+ {
+  "id": "p6-1",
+  "plan": 6,
+  "texte": "Autre exemple. Le premier octobre, l'entreprise paie mille deux cents euros pour douze mois d'assurance. Trois mois concernent l'année qui s'achève, les neuf autres l'année suivante.",
+  "fichier": "p6-1.mp3",
+  "duree": 11.86,
+  "fidelite": 0.767,
+  "essais": 3,
+  "transcription": "Autre exemple. Le 1er octobre, l'entreprise paie 1 200 € pour 12 mois d'assurance. 3 mois concernent l'année qui s'achève, les 9 autres, l'année suivante."
+ },
+ {
+  "id": "p6-2",
+  "plan": 6,
+  "texte": "Ces neuf cents euros quittent les charges et rejoignent l'Actif du Bilan. Ce sont des charges constatées d'avance : l'entreprise détient encore neuf mois de couverture.",
+  "fichier": "p6-2.mp3",
+  "duree": 11.21,
+  "fidelite": 0.889,
+  "essais": 3,
+  "transcription": "Ces 900 € quittent les charges et rejoignent l'actif du bilan. Ce sont des charges constatées d'avance. L'entreprise détient encore 9 mois de couverture."
+ },
+ {
+  "id": "p7-1",
+  "plan": 7,
+  "texte": "Le premier novembre, un client paie d'avance douze mois de livraisons, mille deux cents euros. Dix mois, soit mille euros, concernent l'année suivante.",
+  "fichier": "p7-1.mp3",
+  "duree": 11.21,
+  "fidelite": 0.667,
+  "essais": 3,
+  "transcription": "Le premier novembre, un client paie d'avance 12 mois de livraison : 1 200 €. 10 mois, soit 1 000 €, concernent l'année suivante."
+ },
+ {
+  "id": "p7-2",
+  "plan": 7,
+  "texte": "Ils quittent les produits et rejoignent le Passif. Ce sont des produits constatés d'avance : l'entreprise doit encore ces dix mois de livraisons.",
+  "fichier": "p7-2.mp3",
+  "duree": 9.41,
+  "fidelite": 0.917,
+  "essais": 3,
+  "transcription": "Ils quittent les produits et rejoignent le passif. Ce sont des produits constatés d'avance. L'entreprise doit encore ces 10 mois de livraison."
+ },
+ {
+  "id": "p8-1",
+  "plan": 8,
+  "texte": "Au Compte de Résultat, les Autres charges externes baissent de neuf cents euros, et les Ventes de mille. Au Bilan, une ligne apparaît à l'Actif, une autre au Passif. La banque, elle, n'a pas bougé.",
+  "fichier": "p8-1.mp3",
+  "duree": 14.06,
+  "fidelite": 0.904,
+  "essais": 3,
+  "transcription": "Au compte de résultat, les autres charges externes baissent de 900 €, et les ventes de 1 000. Au bilan, une ligne apparaît à l'actif, une autre au passif. La banque, elle, n'a pas bougé."
+ },
+ {
+  "id": "p9-1",
+  "plan": 9,
+  "texte": "Une opération appartient à la période qu'elle concerne, pas à celle où l'argent bouge.",
+  "fichier": "p9-1.mp3",
+  "duree": 5.33,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "Une opération appartient à la période qu'elle concerne, pas à celle où l'argent bouge."
+ },
+ {
+  "id": "p10-1",
+  "plan": 10,
+  "texte": "À retenir. Une charge ou un produit se rattache à l'année qu'il concerne. Une perte probable s'inscrit avant d'être certaine, un gain espéré jamais. Enfin, ce qui est payé d'avance va à l'Actif, ce qui est encaissé d'avance va au Passif.",
+  "fichier": "p10-1.mp3",
+  "duree": 18.34,
+  "fidelite": 1.0,
+  "essais": 1,
+  "transcription": "À retenir. Une charge ou un produit se rattache à l'année qu'il concerne. Une perte probable s'inscrit avant d'être certaine, un gain espéré, jamais. Enfin, ce qui est payé d'avance va à l'actif, ce qui est encaissé d'avance va au passif."
+ }
+]

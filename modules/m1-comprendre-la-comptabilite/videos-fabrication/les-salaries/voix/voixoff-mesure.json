@@ -1,0 +1,333 @@
+{
+ "voix": "voice_dur676prxpls",
+ "modele": "gemini-3.8-flash-tts",
+ "duree_totale": 175.98,
+ "segments": [
+  {
+   "id": "p1-1",
+   "plan": 1,
+   "texte": "Par exemple, une entreprise embauche une salariée. Son contrat porte deux mille euros brut par mois. Ce montant n'est ni celui que la salariée recevra, ni celui que l'entreprise paiera. Combien coûte vraiment ce salaire ?",
+   "fichier": "p1-1.mp3",
+   "duree": 14.66,
+   "fidelite": 0.932,
+   "essais": 1,
+   "transcription": "Par exemple, une entreprise embauche une salariée. Son contrat porte 2 000 € brut par mois. Ce montant n'est ni celui que la salariée recevra, ni celui que l'entreprise paiera. Combien coûte vraiment ce salaire ?",
+   "debut": 6.0,
+   "fin": 20.66,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.355
+    },
+    {
+     "i": 51,
+     "t": 3.902
+    },
+    {
+     "i": 101,
+     "t": 7.289
+    },
+    {
+     "i": 186,
+     "t": 12.63
+    }
+   ]
+  },
+  {
+   "id": "p2-1",
+   "plan": 2,
+   "texte": "Le salaire brut est la rémunération convenue, celle qui figure au contrat, avant toute retenue.",
+   "fichier": "p2-1.mp3",
+   "duree": 6.58,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Le salaire brut est la rémunération convenue, celle qui figure au contrat, avant toute retenue.",
+   "debut": 22.06,
+   "fin": 28.64,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.332
+    }
+   ]
+  },
+  {
+   "id": "p2-2",
+   "plan": 2,
+   "texte": "Une partie en est retenue et versée aux organismes qui financent la retraite, la maladie et le chômage. Ce sont les charges salariales, ici vingt-deux pour cent : quatre cent quarante euros.",
+   "fichier": "p2-2.mp3",
+   "duree": 12.94,
+   "fidelite": 0.828,
+   "essais": 3,
+   "transcription": "Une partie en est retenue et versée aux organismes qui financent la retraite, la maladie et le chômage. Ce sont les charges salariales, ici 22 %, 440 €.",
+   "debut": 29.44,
+   "fin": 42.38,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.331
+    },
+    {
+     "i": 104,
+     "t": 7.472
+    },
+    {
+     "i": 163,
+     "t": 11.729
+    }
+   ]
+  },
+  {
+   "id": "p2-3",
+   "plan": 2,
+   "texte": "Ce qui reste est le salaire net, mille cinq cent soixante euros. C'est le seul montant que la salariée voit arriver sur son compte en banque.",
+   "fichier": "p2-3.mp3",
+   "duree": 8.69,
+   "fidelite": 0.863,
+   "essais": 3,
+   "transcription": "Ce qui reste est le salaire net : 1 560 €. C'est le seul montant que la salariée voit arriver sur son compte en banque.",
+   "debut": 43.18,
+   "fin": 51.87,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.314
+    },
+    {
+     "i": 65,
+     "t": 4.494
+    }
+   ]
+  },
+  {
+   "id": "p3-1",
+   "plan": 3,
+   "texte": "En plus du brut, l'entreprise verse ses propres cotisations, qui s'y ajoutent. Ce sont les charges patronales, ici quarante-deux pour cent : huit cent quarante euros.",
+   "fichier": "p3-1.mp3",
+   "duree": 11.14,
+   "fidelite": 0.8,
+   "essais": 3,
+   "transcription": "En plus du brut, l'entreprise verse ses propres cotisations qui s'y ajoutent. Ce sont les charges patronales, ici 42 %, 840 €.",
+   "debut": 53.27,
+   "fin": 64.41,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.259
+    },
+    {
+     "i": 79,
+     "t": 5.845
+    },
+    {
+     "i": 141,
+     "t": 9.777
+    }
+   ]
+  },
+  {
+   "id": "p3-2",
+   "plan": 3,
+   "texte": "Le brut et ces cotisations forment le coût total employeur, deux mille huit cent quarante euros. L'entreprise ne garde rien de l'écart : il part aux organismes sociaux.",
+   "fichier": "p3-2.mp3",
+   "duree": 11.45,
+   "fidelite": 0.815,
+   "essais": 3,
+   "transcription": "Le brut et ses cotisations forment le coût total employeur : 2 840 €. L'entreprise ne garde rien de l'écart. Il part aux organismes sociaux.",
+   "debut": 65.21,
+   "fin": 76.66,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.284
+    },
+    {
+     "i": 97,
+     "t": 7.441
+    },
+    {
+     "i": 137,
+     "t": 9.726
+    }
+   ]
+  },
+  {
+   "id": "p4-1",
+   "plan": 4,
+   "texte": "Tout cet argent ne part pas en même temps. Le net part le mois même. Les cotisations se versent aux organismes à date fixe, le plus souvent le mois suivant.",
+   "fichier": "p4-1.mp3",
+   "duree": 11.42,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Tout cet argent ne part pas en même temps. Le net part le mois même. Les cotisations se versent aux organismes à date fixe, le plus souvent le mois suivant.",
+   "debut": 78.06,
+   "fin": 89.48,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.293
+    },
+    {
+     "i": 43,
+     "t": 3.131
+    },
+    {
+     "i": 69,
+     "t": 5.835
+    }
+   ]
+  },
+  {
+   "id": "p5-1",
+   "plan": 5,
+   "texte": "Au Bilan, le compte en banque ne baisse que du net, de dix mille à huit mille quatre cent quarante euros. Au Passif, une ligne apparaît, Dettes sociales, pour mille deux cent quatre-vingts euros : les cotisations dues, pas encore versées.",
+   "fichier": "p5-1.mp3",
+   "duree": 15.1,
+   "fidelite": 0.73,
+   "essais": 3,
+   "transcription": "Au bilan, le compte en banque ne baisse que du net, de 10 000 à 8 440 €. Au passif, une ligne apparaît : dettes sociales pour 1 280 €, les cotisations dues, pas encore versées.",
+   "debut": 90.88,
+   "fin": 105.98,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.275
+    },
+    {
+     "i": 106,
+     "t": 6.963
+    },
+    {
+     "i": 197,
+     "t": 12.49
+    }
+   ]
+  },
+  {
+   "id": "p5-2",
+   "plan": 5,
+   "texte": "Le Compte de Résultat, lui, n'attend pas. Il enregistre le salaire brut et les charges patronales dès le mois du travail.",
+   "fichier": "p5-2.mp3",
+   "duree": 7.7,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Le compte de résultat, lui, n'attend pas. Il enregistre le salaire brut et les charges patronales dès le mois du travail.",
+   "debut": 106.78,
+   "fin": 114.48,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.272
+    },
+    {
+     "i": 42,
+     "t": 2.924
+    }
+   ]
+  },
+  {
+   "id": "p6-1",
+   "plan": 6,
+   "texte": "Un associé qui dirige sa société, comme le président d'une SAS, reçoit le même bulletin de paie. On l'appelle un assimilé salarié. Une différence : il ne cotise pas à l'assurance chômage, et n'y a donc aucun droit.",
+   "fichier": "p6-1.mp3",
+   "duree": 15.14,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Un associé qui dirige sa société, comme le président d'une SAS, reçoit le même bulletin de paie. On l'appelle un assimilé salarié. Une différence : il ne cotise pas à l'assurance chômage et n'y a donc aucun droit.",
+   "debut": 115.88,
+   "fin": 131.02,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.344
+    },
+    {
+     "i": 97,
+     "t": 7.345
+    },
+    {
+     "i": 131,
+     "t": 10.091
+    },
+    {
+     "i": 148,
+     "t": 11.327
+    }
+   ]
+  },
+  {
+   "id": "p6-2",
+   "plan": 6,
+   "texte": "Sa rémunération paie un travail. Le dividende, lui, rémunère un capital.",
+   "fichier": "p6-2.mp3",
+   "duree": 6.29,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Sa rémunération paie un travail. Le dividende, lui, rémunère un capital.",
+   "debut": 131.82,
+   "fin": 138.11,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.0
+    },
+    {
+     "i": 33,
+     "t": 3.206
+    }
+   ]
+  },
+  {
+   "id": "p7-1",
+   "plan": 7,
+   "texte": "Le coût d'un salarié est toujours plus élevé que la rémunération qu'il perçoit.",
+   "fichier": "p7-1.mp3",
+   "duree": 5.62,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "Le coût d'un salarié est toujours plus élevé que la rémunération qu'il perçoit.",
+   "debut": 139.51,
+   "fin": 145.13,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.279
+    }
+   ]
+  },
+  {
+   "id": "p8-1",
+   "plan": 8,
+   "texte": "À retenir. Le montant du contrat n'est celui de personne : une part est retenue au salarié, une autre s'ajoute pour l'employeur. L'entreprise reverse cet écart aux organismes sociaux, et ce qu'elle doit encore figure au Passif du Bilan. Enfin, un associé dirigeant reçoit un bulletin comme les autres, sans droit au chômage.",
+   "fichier": "p8-1.mp3",
+   "duree": 23.45,
+   "fidelite": 1.0,
+   "essais": 1,
+   "transcription": "À retenir. Le montant du contrat n'est celui de personne. Une part est retenue au salarié, une autre s'ajoute pour l'employeur. L'entreprise reverse cet écart aux organismes sociaux et ce qu'elle doit encore figure au passif du bilan. Enfin, un associé dirigeant reçoit un bulletin comme les autres, sans droit au chômage.",
+   "debut": 146.53,
+   "fin": 169.98,
+   "phrases": [
+    {
+     "i": 0,
+     "t": 0.226
+    },
+    {
+     "i": 11,
+     "t": 1.404
+    },
+    {
+     "i": 59,
+     "t": 5.049
+    },
+    {
+     "i": 129,
+     "t": 9.798
+    },
+    {
+     "i": 237,
+     "t": 17.486
+    }
+   ]
+  }
+ ]
+}

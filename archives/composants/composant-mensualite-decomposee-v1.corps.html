@@ -1,0 +1,358 @@
+<p class="kicker">Comprendre la comptabilité sans être comptable — composant du Chapitre 7</p>
+<h1>&lt;MensualiteDecomposee /&gt;</h1>
+<p class="chapo">Fiche v1, 15 septembre 2026. Sources&nbsp;: déroulé de module v27, sections 2, 3, 5 et 7,
+fiche du Chapitre 7 et son bloc d'arbitrages, le Chapitre 7 livré, et les quatre composants déjà écrits.
+Cette fiche dit ce que le composant doit obtenir et comment il se comporte&nbsp;; elle ne dit pas comment il
+s'écrit. <strong>La consigne, la ligne de régime et les quatre libellés de l'échéancier sont du texte
+affiché à l'apprenant</strong>&nbsp;: ils relèvent de la charte et se relisent comme du corps de chapitre.
+<strong>Un point demande un arbitrage avant l'intégration</strong>, section 5&nbsp;: la soixantième
+échéance ne fait pas 628,90&nbsp;€. Ce qui reste à trancher est rassemblé à la dernière section.</p>
+<p class="pied">Casoria — &lt;MensualiteDecomposee /&gt;, fiche v1</p>
+
+<h2 class="nu">1 — Ce que le composant doit obtenir</h2>
+<p>Le déroulé donne la fonction en une ligne, deux fois dans les mêmes mots&nbsp;: «&nbsp;décomposition de
+mensualité, au curseur&nbsp;», et «&nbsp;curseur sur l'échéancier, ventilation intérêts / capital&nbsp;».
+La fiche du chapitre dit ce que le partage doit emporter&nbsp;: <em>ce bloc porte tout le chapitre&nbsp;;
+une seule sortie de 628,90&nbsp;€, deux destinations. C'est ce partage, et lui seul, que l'apprenant doit
+emporter.</em></p>
+<ul>
+<li><strong>Une seule sortie contient deux choses de nature différente.</strong> Le chapitre vient de le
+dire en deux paragraphes&nbsp;; le composant le montre sur un nombre, et c'est la première fois que
+l'apprenant voit les deux parts séparées.</li>
+<li><strong>La mensualité ne bouge pas, son contenu si.</strong> C'est ce que le curseur enseigne et que
+rien d'autre ne peut enseigner&nbsp;: un tableau le dirait, un curseur le fait sentir.</li>
+<li><strong>La part qui pèse vraiment est mince, et elle s'amincit.</strong> Sur 628,90&nbsp;€,
+87,50&nbsp;€ à la première échéance, 1,57&nbsp;€ à la dernière.</li>
+</ul>
+<p class="declaration">Le composant produit le partage. Le paragraphe suivant le chiffre, et le bloc
+l'inscrit.</p>
+<p>C'est le partage du <code>&lt;CalculetteTva /&gt;</code> à sa troisième application, et il est ici plus
+serré qu'ailleurs&nbsp;: <strong>les 87,50&nbsp;€ et les 541,40&nbsp;€ n'ont jamais été écrits au-dessus du
+composant.</strong> Le paragraphe qui le suit les donne, en une phrase, et le bloc les passe. L'apprenant
+les aura donc vus naître sous sa main avant de les lire.</p>
+
+<h2>2 — Sa place dans le chapitre</h2>
+<p>Dans le deuxième sous-titre, «&nbsp;Une mensualité contient deux choses de nature différente&nbsp;»,
+<strong>juste après la déclaration</strong> «&nbsp;Rembourser une dette n'appauvrit pas une entreprise&nbsp;»
+et avant le paragraphe «&nbsp;Le 30 juin, la première échéance part du compte&nbsp;». C'est l'emplacement
+que porte le chapitre livré, et il n'y en a pas d'autre&nbsp;: un paragraphe plus haut, les deux natures ne
+sont pas encore nommées et le composant n'aurait que des nombres à montrer&nbsp;; un paragraphe plus bas, le
+partage est chiffré et le curseur n'aurait plus rien à produire.</p>
+<div class="note"><span class="t">Le composant arrive après les deux natures et avant les deux nombres</span>
+<p>Les deux paragraphes qui le précèdent définissent le remboursement du capital — «&nbsp;une
+restitution&nbsp;», qui ne passe pas au Compte de Résultat — et les intérêts — «&nbsp;le prix du
+prêt&nbsp;», qui y passent. <strong>Le composant reprend ces deux mots-là et rien d'autre</strong>&nbsp;: sa
+part gauche dit «&nbsp;le prix du prêt&nbsp;», sa part droite «&nbsp;une restitution&nbsp;». Il ne redit ni
+le Bilan, ni le Compte de Résultat, ni la charge&nbsp;: le texte vient de le faire, mieux qu'un libellé de
+quatre mots ne le ferait.</p></div>
+
+<h2>3 — L'écran dont le composant dispose</h2>
+<p>La largeur utile est de l'ordre de 700&nbsp;px, et la maquette de la section suivante est faite à
+720&nbsp;px. <strong>Ce composant est le premier des cinq à ne rien devoir à la règle 3</strong>&nbsp;: il
+n'a ni zone de dépôt, ni colonne, ni document à reproduire. Un curseur et une barre tiennent à toutes les
+largeurs.</p>
+<p class="declaration">Une mensualité est un seul nombre. Elle se dessine donc comme un seul objet, qu'on
+ouvre.</p>
+<ul>
+<li><strong>Une barre, et non deux.</strong> Deux barres côte à côte compareraient deux montants&nbsp;; une
+barre partagée montre qu'il n'y a qu'une sortie. C'est la thèse du chapitre, et elle est dans la forme avant
+d'être dans les mots.</li>
+<li><strong>Le trait de partage se voit avant les teintes.</strong> Un filet slate 500 de deux pixels
+sépare les deux parts&nbsp;; les deux remplissages, plein et en réserve, ne font que le doubler.</li>
+<li><strong>Aucune classe nouvelle dans <code>activite.css</code>.</strong> Le curseur est un
+<code>input[type=range]</code> natif en <code>accent-amber-600</code>, la barre deux <code>div</code> en
+utilitaires. C'est le premier composant du module qui n'ajoute rien à la feuille.</li>
+</ul>
+
+<h2>4 — Anatomie de l'écran</h2>
+<p>De haut en bas, trois bandes. La consigne, le panneau d'activité en amber qui porte le curseur, et
+l'échéancier en slate lu à la date choisie.</p>
+<table>
+<thead><tr><th style="width:26%">Élément d'écran</th><th>Contenu et rôle</th></tr></thead>
+<tbody>
+<tr><td class="cle">Consigne</td><td>Une phrase. Proposition&nbsp;: «&nbsp;Déplacez le curseur le long de
+l'échéancier, et regardez ce que la mensualité contient.&nbsp;»</td></tr>
+<tr><td class="cle">Ligne de régime</td><td>«&nbsp;Rien n'est noté. Les soixante échéances sont là, de la
+première à la dernière.&nbsp;»</td></tr>
+<tr><td class="cle">Le panneau d'activité</td><td>Le fond amber, titré «&nbsp;L'échéancier&nbsp;», avec
+<strong>les conditions du prêt à droite du titre</strong> — «&nbsp;35&nbsp;000&nbsp;€ sur 60 mois, à
+3&nbsp;%&nbsp;». Elles sont là pour une raison de fond, section 5.</td></tr>
+<tr><td class="cle">Le rang et la date</td><td>«&nbsp;Échéance n<sup>o</sup>&nbsp;1 — juin 2026&nbsp;»,
+au-dessus du curseur. C'est la seule ligne du composant qui change de longueur.</td></tr>
+<tr><td class="cle">Le curseur</td><td>De 1 à 60, pas de 1. Ses deux bornes sont datées sous lui, juin 2026
+et mai 2031.</td></tr>
+<tr><td class="cle">L'échéancier</td><td>Une zone de résultat en slate, titrée «&nbsp;La mensualité&nbsp;»,
+avec «&nbsp;ce qui part du compte en <em>mois année</em>&nbsp;» dessous.</td></tr>
+<tr><td class="cle">Le montant</td><td>«&nbsp;Une seule sortie&nbsp;» et le montant en grand. <strong>Il ne
+bouge pas quand le curseur bouge</strong>, et c'est la moitié de la leçon.</td></tr>
+<tr><td class="cle">La barre</td><td>Pleine largeur, hauteur d'une ligne et demie. À gauche les intérêts,
+en slate 800 plein&nbsp;; à droite le capital, en slate 100 derrière un filet slate 500.</td></tr>
+<tr><td class="cle">Les deux parts</td><td>Sous la barre, côte à côte, chacune avec sa pastille, son nom,
+son montant et sa nature en trois mots — «&nbsp;le prix du prêt&nbsp;», «&nbsp;une
+restitution&nbsp;».</td></tr>
+<tr><td class="cle">La dernière échéance</td><td>Une ligne en petit, à la soixantième seulement&nbsp;:
+«&nbsp;La dernière échéance solde ce qui reste, à quelques centimes près&nbsp;: c'est ainsi que se ferme un
+échéancier.&nbsp;» Voir la section 5.</td></tr>
+<tr><td class="cle">Revenir à la première échéance</td><td>Le bouton neutre des quatre composants
+précédents, au pied, sous ce libellé plutôt que sous «&nbsp;Tout reprendre&nbsp;»&nbsp;: il n'y a rien à
+reprendre, seulement un curseur à ramener.</td></tr>
+</tbody>
+</table>
+<p><img src="mensualite-a.png" alt="Maquette du composant à la première échéance" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">À 720&nbsp;px, la première échéance. Les conditions du prêt sont dans l'en-tête du panneau
+d'activité, le curseur est au premier de ses soixante crans, et la barre montre une part d'intérêts de
+13,9&nbsp;%. Aucun cumul nulle part.</p>
+<p><img src="mensualite-b.png" alt="Trois échéances comparées" style="width:100%;border:1px solid #d8dce4"></p>
+<p class="legende">Trois échéances mises l'une sous l'autre, ce que l'écran ne montre jamais et que la fiche
+montre pour juger&nbsp;: la barre ne se renverse pas, elle s'amincit. <strong>C'est le point de conception
+de cette fiche</strong> — section 5.</p>
+
+<h2>5 — La matière, et la règle qui la choisit</h2>
+<p class="declaration">Une activité n'emploie que des notions du chapitre présent et du chapitre précédent.
+Et de son chapitre, seulement ce qu'il a déjà dit au point où elle se place.</p>
+<p>Le Chapitre 6 ne lui donne rien — un stock et sa variation n'ont rien à faire dans un échéancier. Toute
+la matière vient donc du Chapitre 7, au-dessus du composant, et elle suffit.</p>
+<h3>Les quatre nombres, et tout ce qui en découle</h3>
+<table>
+<thead><tr><th style="width:38%">Ce qui est écrit dans le composant</th><th>Valeur</th></tr></thead>
+<tbody>
+<tr><td class="cle">Le capital prêté</td><td>35&nbsp;000&nbsp;€</td></tr>
+<tr><td class="cle">Le taux annuel</td><td>3,00&nbsp;%</td></tr>
+<tr><td class="cle">Le nombre d'échéances</td><td>60</td></tr>
+<tr><td class="cle">La mensualité</td><td>628,90&nbsp;€</td></tr>
+</tbody>
+</table>
+<p>Les quatre sont verrouillés par la section 3 du déroulé et écrits une seule fois dans le composant.
+<strong>Tout l'échéancier s'en déduit</strong>, et le contrôle est agréable à faire&nbsp;: la première
+échéance calculée tombe sur 87,50&nbsp;€ d'intérêts et 541,40&nbsp;€ de capital, <strong>qui sont au
+centime les deux nombres du paragraphe suivant et du bloc</strong>. Le composant n'a donc aucun montant en
+dur à part les quatre.</p>
+<table>
+<thead><tr><th style="width:30%">Échéance</th><th class="num" style="width:18%;padding-right:16px">Intérêts</th><th class="num" style="width:20%;padding-right:16px">Capital</th><th>Part des intérêts</th></tr></thead>
+<tbody>
+<tr><td>N<sup>o</sup>&nbsp;1 — juin 2026</td><td class="num" style="padding-right:16px">87,50</td><td class="num" style="padding-right:16px">541,40</td><td>13,9&nbsp;%</td></tr>
+<tr><td>N<sup>o</sup>&nbsp;30 — novembre 2028</td><td class="num" style="padding-right:16px">46,84</td><td class="num" style="padding-right:16px">582,06</td><td>7,4&nbsp;%</td></tr>
+<tr class="total"><td>N<sup>o</sup>&nbsp;60 — mai 2031</td><td class="num" style="padding-right:16px">1,57</td><td class="num" style="padding-right:16px">627,61</td><td>0,2&nbsp;%</td></tr>
+</tbody>
+</table>
+<div class="note"><span class="t">Les deux parts ne s'échangent pas, et il ne faut pas le promettre</span>
+<p>L'image reçue d'un échéancier est celle d'un prêt immobilier long&nbsp;: au début on ne paierait
+«&nbsp;que des intérêts&nbsp;», et la bascule se ferait à mi-parcours. <strong>Ce n'est pas vrai de ce
+prêt-ci</strong>, et c'est arithmétique&nbsp;: à 3&nbsp;% sur cinq ans, les intérêts ne font jamais que
+13,9&nbsp;% de la première mensualité, et le capital domine du premier jour au dernier. La barre ne se
+renverse pas&nbsp;: elle s'amincit.</p>
+<p><strong>Ce que le composant enseigne est donc autre chose, et c'est exactement la thèse du
+chapitre</strong>&nbsp;: sur une sortie de 628,90&nbsp;€, la part qui pèse sur le résultat est petite, et
+elle décroît. Le troisième sous-titre l'écrit trois paragraphes plus bas — «&nbsp;sur cette sortie de
+628,90&nbsp;€, 87,50&nbsp;€ seulement pèsent sur le résultat de l'exercice&nbsp;». Le composant prépare
+cette phrase&nbsp;; il ne prépare pas une bascule qui n'aura pas lieu.</p>
+<p><strong>La protection tient en une ligne d'écran</strong>&nbsp;: les conditions du prêt —
+35&nbsp;000&nbsp;€, 60 mois, 3&nbsp;% — sont affichées dans l'en-tête du panneau, en permanence. Ce qui est
+montré est un cas, et ses paramètres sont sous les yeux&nbsp;; ce n'est pas une règle sur les emprunts.
+C'est la seule raison pour laquelle cette ligne existe.</p></div>
+<h3>Ce que la règle écarte, et pourquoi</h3>
+<table>
+<thead><tr><th style="width:34%">Écarté</th><th>Motif</th></tr></thead>
+<tbody>
+<tr><td class="cle"><strong>Tout cumul, et le capital restant dû</strong></td><td>Deux motifs, et chacun
+suffirait. <strong>Le premier est le bloc</strong>&nbsp;: c'est sa légende qui fait descendre la dette de
+35&nbsp;000&nbsp;€ à 34&nbsp;458,60&nbsp;€, et une activité ne prend pas au chapitre ce qu'il se réserve.
+<strong>Le second est l'arrondi de la section 3</strong>, ci-dessous.</td></tr>
+<tr><td class="cle">Les comptes 661, 164 et 512, le débit et le crédit</td><td>C'est le bloc, juste après.
+Le composant ne montre aucune écriture, aucun sens, aucune colonne de journal — même frontière qu'aux
+quatre composants précédents.</td></tr>
+<tr><td class="cle">Le Bilan et le Compte de Résultat</td><td>Les deux paragraphes au-dessus viennent de
+dire où va chaque part. Les redire dans un libellé de quatre mots les affaiblirait&nbsp;; les montrer
+prendrait au bloc son «&nbsp;regardez les deux documents avant, puis après&nbsp;».</td></tr>
+<tr><td class="cle">«&nbsp;Le compte en banque et le résultat ne bougent pas ensemble&nbsp;»</td><td>Le
+troisième sous-titre en entier, avec le miroir du Chapitre 4 et le remboursement du compte courant. Hors
+matière au point où le composant se place.</td></tr>
+<tr><td class="cle">Le coût total du crédit</td><td>2&nbsp;734,28&nbsp;€ d'intérêts sur les soixante
+échéances. <strong>C'est un cumul, et il ne figure nulle part dans le module.</strong> Tentant parce que la
+vidéo d'ouverture demande «&nbsp;qu'est-ce qui coûte vraiment&nbsp;?&nbsp;» — mais elle répond elle-même
+que la réponse tient dans un partage, pas dans un total.</td></tr>
+<tr><td class="cle">Le mot «&nbsp;tableau d'amortissement&nbsp;»</td><td>Proscrit par le déroulé,
+section 14&nbsp;: le terme appartient au Chapitre 8 avec un tout autre sens. Le composant écrit
+«&nbsp;échéancier&nbsp;», comme le corps.</td></tr>
+<tr><td class="cle">L'assurance emprunteur et les frais de dossier</td><td>Le UAlert, en fin de chapitre.
+Le composant ne les mentionne pas et ne prétend pas non plus être un échéancier complet.</td></tr>
+<tr><td class="cle">Le taux variable</td><td>Acquis par la précision ancrée sur «&nbsp;le plus
+souvent&nbsp;», deux paragraphes plus haut, donc licite. Sans emploi&nbsp;: <strong>le curseur déplace une
+date, jamais un paramètre.</strong> Un curseur sur le taux ferait de ce composant un simulateur, et le
+module en a déjà un au Chapitre 12.</td></tr>
+</tbody>
+</table>
+<div class="note"><span class="t">La soixantième échéance ne fait pas 628,90&nbsp;€ — à arbitrer</span>
+<p><strong>Le fait.</strong> Une mensualité ronde ne ferme jamais un échéancier au centime près. À la
+cinquante-neuvième échéance il reste 627,61&nbsp;€ de capital, et 1,57&nbsp;€ d'intérêts s'y
+ajoutent&nbsp;: <strong>la dernière échéance fait 629,18&nbsp;€.</strong> C'est vrai de n'importe quel
+échéancier bancaire, qui ajuste sa dernière ligne, et c'est la seule échéance des soixante dans ce cas.</p>
+<p><strong>Le problème.</strong> Le corps écrit que la mensualité est constante «&nbsp;du premier au dernier
+mois&nbsp;». Un apprenant qui pousse le curseur au bout voit le contraire. <strong>Aucun autre composant du
+module n'a jamais contredit une phrase du corps</strong>, et celui-ci le ferait sur son dernier cran.</p>
+<p><strong>Les trois réparations, de la moins chère à la plus chère.</strong> <em>Une</em>&nbsp;: le
+composant porte la ligne qu'il porte aujourd'hui — «&nbsp;la dernière échéance solde ce qui reste, à
+quelques centimes près&nbsp;» — et le corps passe de «&nbsp;du premier au dernier mois&nbsp;» à
+«&nbsp;d'un bout à l'autre&nbsp;», deux mots. <em>Deux</em>&nbsp;: la précision ancrée sur «&nbsp;le plus
+souvent&nbsp;» gagne une phrase sur la dernière échéance, ce qui met le fait où il est ignorable.
+<em>Trois</em>&nbsp;: le curseur s'arrête à la cinquante-neuvième — écartée, une borne arbitraire est plus
+coûteuse à expliquer que le fait lui-même.</p></div>
+<div class="note"><span class="t">Pourquoi aucun cumul ne s'affiche&nbsp;: les trente centimes</span>
+<p>La section 3 du déroulé arrondit à l'euro les deux cumuls de l'exercice, <strong>584&nbsp;€ d'intérêts
+et 3&nbsp;818&nbsp;€ de capital remboursé</strong>, et c'est de là que sortent le solde d'emprunt de
+31&nbsp;182&nbsp;€ et la trésorerie de 17&nbsp;310&nbsp;€ — les nombres qui font tomber le Bilan sur
+130&nbsp;410&nbsp;€. L'échéancier réel donne 583,97&nbsp;€ et 3&nbsp;818,33&nbsp;€. <strong>Le déroulé v27
+porte cet écart en attente et a tranché de ne rien changer aux nombres.</strong></p>
+<p><strong>Conséquence directe pour ce composant, et c'est une règle de conception, pas une
+précaution</strong>&nbsp;: il n'affiche qu'une échéance à la fois, jamais une somme de plusieurs, jamais un
+capital restant dû. Aucun nombre affiché ne contredit donc le Bilan. Un apprenant qui relèverait six
+échéances et les additionnerait à la main trouverait 3&nbsp;773,40&nbsp;€ là où le panneau du Chapitre 10
+en sort 3&nbsp;773,10&nbsp;€&nbsp;; c'est le même effort qu'avant ce composant, et la réparation reste
+celle que le déroulé recommande — écrire l'arrondi à la ligne «&nbsp;Emprunt&nbsp;» de la section 3.</p></div>
+
+<h2>6 — Ce qui se passe, geste par geste</h2>
+<table>
+<thead><tr><th style="width:26%">Situation</th><th>Réponse du composant</th></tr></thead>
+<tbody>
+<tr><td class="cle">Le geste</td><td>Un curseur qu'on déplace, à la souris, au doigt ou aux flèches du
+clavier. <strong>Aucun autre geste dans tout le composant.</strong></td></tr>
+<tr><td class="cle">À chaque cran</td><td>Le rang et la date changent&nbsp;; les deux montants changent&nbsp;;
+la barre se redessine. <strong>Le montant de la mensualité, lui, ne bouge pas</strong>, et c'est ce qu'il
+faut voir.</td></tr>
+<tr><td class="cle">La barre</td><td>Deux cents millisecondes de transition sur sa largeur, pas
+davantage&nbsp;: assez pour que l'œil suive le mouvement quand on saute d'un cran à l'autre au clavier, trop
+peu pour traîner quand on fait glisser.</td></tr>
+<tr><td class="cle">Au premier cran</td><td>L'état d'arrivée, et l'état par défaut. Le composant s'ouvre sur
+la première échéance, celle que le bloc va passer.</td></tr>
+<tr><td class="cle">Au dernier cran</td><td>La ligne sur l'échéance qui solde s'affiche, et elle seule.
+Section 5.</td></tr>
+<tr><td class="cle">Quitter et revenir</td><td>L'état est conservé&nbsp;: l'apprenant retrouve le curseur là
+où il l'a laissé.</td></tr>
+<tr><td class="cle">Mouvement réduit</td><td>Sous <code>prefers-reduced-motion</code>, la transition de la
+barre tombe à zéro. Rien n'est perdu&nbsp;: les deux montants sont écrits.</td></tr>
+</tbody>
+</table>
+
+<h2>7 — Pas de verdict, et c'est la règle qui le dit</h2>
+<p class="declaration">Il n'y a pas de question, donc pas de bonne réponse à annoncer.</p>
+<p>Le panneau de verdict posé le 15 septembre 2026 est réservé aux composants qui posent une question à
+réponse unique — le <code>&lt;AvantApresStock /&gt;</code> et, pour sa seule réponse fausse, le
+<code>&lt;FriseEncaissement /&gt;</code>. <strong>Celui-ci n'en pose aucune</strong>&nbsp;: on ne peut pas
+se tromper en déplaçant un curseur, il n'y a rien à valider et rien à corriger. Il n'a donc ni
+<code>.panneau-final</code>, ni <code>text-error-500</code>, ni phrase de retour.</p>
+<p>Il n'a pas non plus de phrase de clôture, et c'est le premier des cinq dans ce cas&nbsp;: <strong>une
+activité sans fin n'a rien à clore.</strong> Ce que le composant aurait mis dans une clôture, le paragraphe
+qui le suit le dit mieux, avec les deux nombres.</p>
+
+<h2>8 — Ce que le composant ne fait pas</h2>
+<ul>
+<li><strong>Aucun score, aucun verdict, aucune erreur possible.</strong> Section 7.</li>
+<li><strong>Aucun cumul, aucun capital restant dû, aucun coût total du crédit.</strong> Une échéance à la
+fois — section 5.</li>
+<li><strong>Aucune écriture, aucun compte, aucun débit ni crédit.</strong> C'est la frontière avec le bloc,
+et elle ne se franchit pas.</li>
+<li><strong>Aucun Bilan, aucun Compte de Résultat.</strong> Les deux paragraphes au-dessus ont dit où va
+chaque part&nbsp;; le bloc, deux paragraphes plus bas, le fera voir.</li>
+<li><strong>Aucun curseur sur un paramètre.</strong> Ni le capital, ni le taux, ni la durée. Le curseur
+déplace une date, et rien d'autre&nbsp;: <strong>ce composant n'est pas un simulateur</strong>, le module en
+a un au Chapitre 12.</li>
+<li><strong>Aucun tableau.</strong> Soixante lignes ne tiennent pas dans 700&nbsp;px, et un tableau
+rendrait immédiatement lisible le cumul que la section 5 écarte.</li>
+<li><strong>Aucune classe nouvelle dans <code>activite.css</code>.</strong></li>
+</ul>
+
+<h2>9 — Palette, empilement, téléphone, clavier</h2>
+<p class="declaration">L'amber porte le curseur, le slate porte l'échéancier. Ni lime ni error&nbsp;: rien
+ici n'est acquis ni faux.</p>
+<table>
+<thead><tr><th style="width:40%">Rôle</th><th>Classe, et ce qu'elle porte</th></tr></thead>
+<tbody>
+<tr><td class="cle">Consigne et ligne de régime</td><td>les deux créneaux de
+<code>M1ActiviteSection</code></td></tr>
+<tr><td class="cle">Le panneau du curseur</td><td><code>.bg-activite</code>, son titre en
+<code>.titre-panneau .color-activite</code>, les conditions du prêt en <code>.places</code></td></tr>
+<tr><td class="cle">Le rang et la date</td><td>amber 900, une taille au-dessus du corps du composant</td></tr>
+<tr><td class="cle">Le curseur</td><td><code>input[type=range]</code> natif,
+<code>accent-amber-600</code>. <strong>Pas de classe</strong>&nbsp;: un range natif se pilote au clavier et
+au doigt mieux qu'un curseur redessiné</td></tr>
+<tr><td class="cle">L'échéancier</td><td><code>.zone-resultat .zone-resultat-nue</code>. <strong>Il ne passe
+jamais en <code>-remplie</code></strong>&nbsp;: rien n'y est déposé, et le filet appuyé voudrait dire
+qu'il vient de bouger</td></tr>
+<tr><td class="cle">La part des intérêts</td><td>slate 800 plein, et une pastille pleine de la même
+teinte</td></tr>
+<tr><td class="cle">La part du capital</td><td>slate 100 derrière un filet slate 500 de deux pixels, et une
+pastille cerclée de la même façon</td></tr>
+<tr><td class="cle">Les deux montants</td><td>slate 900, tabulaires&nbsp;; leurs noms en slate 700, leurs
+natures en slate 500</td></tr>
+<tr><td class="cle">Revenir à la première échéance</td><td><code>UButton size="sm" color="neutral"</code>,
+comme aux quatre autres composants</td></tr>
+</tbody>
+</table>
+<p class="legende">La distinction entre les deux parts tient <strong>au remplissage</strong> — plein contre
+réserve — et au filet qui les sépare, pas à deux teintes voisines. Une pastille reprend ce remplissage
+devant chaque nom, de sorte que la légende se lise sans revenir à la barre.</p>
+<p><strong>L'empilement ne coûte rien à ce composant, et c'est le second des cinq dans ce cas</strong>, après
+la <code>&lt;CalculetteTva /&gt;</code>. Sous 480&nbsp;px, les deux parts passent l'une sous l'autre et la
+barre garde toute la largeur&nbsp;: elle est même plus lisible en étroit, une barre longue et fine
+supportant mal les grandes largeurs. Le curseur, lui, est fait pour le doigt.</p>
+<p>Au clavier, le curseur se prend à la tabulation et se déplace aux flèches, un cran à la fois, la page
+entière en page-up et page-down. <strong>La valeur annoncée n'est pas le rang mais la phrase
+entière</strong> — le rang, la date et les deux montants —, parce que c'est le partage qui change et non le
+numéro. C'est le seul composant du module dont l'annonce se relit à chaque cran&nbsp;: elle doit donc être
+courte.</p>
+
+<h2>10 — Ce que l'intégration attend</h2>
+<table>
+<thead><tr><th style="width:22%">Point</th><th>Décision</th></tr></thead>
+<tbody>
+<tr><td class="cle">Contenu</td><td>L'échéancier, la consigne et les quatre libellés vivent dans le
+composant. Le <code>.corps.html</code> livré ne porte que
+<code>&lt;MensualiteDecomposee /&gt;</code>, sans attribut.</td></tr>
+<tr><td class="cle">Les montants</td><td><strong>Quatre nombres écrits une seule fois</strong> —
+35&nbsp;000, 3,00&nbsp;%, 60 et 628,90. Les soixante échéances se calculent, arrondies au centime à chaque
+ligne. Aucun montant en dur ailleurs.</td></tr>
+<tr><td class="cle">Le contrôle</td><td><strong>Un test, et il est court&nbsp;:</strong> la première
+échéance calculée doit donner 87,50&nbsp;€ et 541,40&nbsp;€, qui sont les deux nombres du corps et du bloc.
+S'il tombe, c'est un montant du scénario qui a bougé.</td></tr>
+<tr><td class="cle">Largeur</td><td>Autour de 700&nbsp;px, sans défilement interne. Tient plus bas sans
+rien perdre.</td></tr>
+<tr><td class="cle">État</td><td>Conservé sous la même clé que la progression. <strong>Le rang de l'échéance
+suffit</strong>&nbsp;: tout s'en déduit.</td></tr>
+<tr><td class="cle">Événements</td><td>Un événement quand le curseur s'arrête, avec le rang atteint —
+jamais un par cran. <strong>Le chiffre à regarder est le rang le plus élevé atteint</strong>&nbsp;: il dit
+si l'apprenant est allé voir la fin, c'est-à-dire s'il a vu la part d'intérêts s'amincir.</td></tr>
+<tr><td class="cle">Parenté</td><td><strong>Premier composant à curseur du module</strong>, et le patron du
+<code>&lt;SimulateurBfr /&gt;</code> du Chapitre 12 — avec une différence qu'il faudra tenir&nbsp;: là-bas
+les curseurs déplacent des <em>paramètres</em>, ici un seul curseur déplace une <em>date</em>.</td></tr>
+</tbody>
+</table>
+
+<h2>11 — Ce qui reste à trancher</h2>
+<ol>
+<li><strong>La soixantième échéance à 629,18&nbsp;€.</strong> C'est le seul point qui demande une décision
+avant l'intégration, et il touche au corps du chapitre. Les trois réparations sont à la section 5&nbsp;; la
+fiche retient la première.</li>
+<li><strong>La consigne, la ligne de régime et les quatre libellés</strong> — «&nbsp;Une seule
+sortie&nbsp;», «&nbsp;Intérêts&nbsp;», «&nbsp;Remboursement du capital&nbsp;», «&nbsp;le prix du
+prêt&nbsp;», «&nbsp;une restitution&nbsp;». C'est du texte affiché&nbsp;: il se relit comme du corps.</li>
+<li><strong>Les conditions du prêt dans l'en-tête.</strong> La fiche les retient pour empêcher de prendre un
+cas pour une règle, section 5. Elles coûtent une ligne et redisent ce que le paragraphe du déblocage a déjà
+écrit.</li>
+<li><strong>Un repère de trend, ou rien.</strong> Sans curseur déplacé, l'apprenant ne voit qu'une
+échéance&nbsp;; une courbe des soixante montrerait la décroissance d'un coup d'œil. <strong>Écartée
+ici</strong>&nbsp;: c'est un troisième objet, et surtout elle rendrait le cumul lisible. À rouvrir si les
+tests montrent que peu d'apprenants déplacent le curseur.</li>
+<li><strong>Le libellé du bouton.</strong> «&nbsp;Revenir à la première échéance&nbsp;» plutôt que
+«&nbsp;Tout reprendre&nbsp;», qui ne veut rien dire ici. Il s'en écarte donc, et c'est la première
+exception.</li>
+<li><strong>Le nom du composant.</strong> <code>&lt;MensualiteDecomposee /&gt;</code> nomme exactement ce
+qu'on obtient, pour la première fois des cinq. <strong>Rien à proposer.</strong></li>
+</ol>
+
+<p class="fin">Fiche v1, 15 septembre 2026. Cinquième composant du module, et le premier
+<strong>sans dépôt, sans question, sans verdict et sans classe nouvelle</strong>. Il applique pour la
+troisième fois le partage de la <code>&lt;CalculetteTva /&gt;</code>, dans sa forme la plus stricte&nbsp;:
+les deux nombres qu'il produit ne figurent nulle part au-dessus de lui. Il ajoute une règle&nbsp;:
+<strong>un composant n'affiche jamais un cumul quand le module en arrondit un</strong> — ce qui, ici,
+tombait bien, le cumul n'étant pas la leçon. Et il laisse un point ouvert au corps du chapitre, ce
+qu'aucune fiche de composant n'avait encore fait.</p>

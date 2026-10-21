@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><style>
+:root{
+  --g50:#f8fafc; --g100:#f1f5f9; --g200:#e2e8f0; --g300:#cbd5e1; --g400:#94a3b8;
+  --g500:#64748b; --g600:#475569; --g700:#334155; --g800:#1e293b; --g900:#0f172a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,"Segoe UI",sans-serif;background:#fff;color:var(--g900)}
+.img{width:100%;max-width:720px;padding:22px 24px 22px;background:#fff}
+.mt{font-variant-numeric:tabular-nums;white-space:nowrap}
+.pan + .pan{margin-top:16px}
+.pan{border:1.5px solid var(--g300);border-radius:10px;padding:12px 14px 14px}
+.pan-t{font-size:.63rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--g700)}
+.actif{margin-top:3px;font-size:.56rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--g400)}
+.fant{display:block;height:4px;border-radius:2px;background:var(--g200)}
+
+/* ── en haut : deux lignes, la soustraction à faire ───────────────── */
+.deux{margin-top:8px;display:grid;grid-template-columns:1fr 150px 30px 150px;align-items:stretch}
+.l{display:flex;justify-content:space-between;align-items:baseline;padding:8px 10px;
+  border:1.5px solid var(--g700);border-radius:5px;background:#fff}
+.l + .l{margin-top:6px}
+.l .lib{font-size:.82rem;color:var(--g700)}
+.l .val{font-size:1rem;font-weight:800}
+.lignes{grid-column:1/3}
+/* l'accolade qui réunit les deux lignes */
+.acc{grid-column:3;position:relative}
+.acc::before{content:"";position:absolute;left:6px;width:9px;top:4px;bottom:4px;border:2px solid var(--g400);border-left:0;border-radius:0 4px 4px 0}
+.acc::after{content:"";position:absolute;left:15px;top:50%;width:13px;height:2px;background:var(--g400)}
+.calc{grid-column:4;align-self:center;border:1.5px dashed var(--g700);border-radius:5px;padding:7px 10px;text-align:center}
+.calc .val{font-size:1.15rem;font-weight:800}
+.calc .n{font-size:.62rem;color:var(--g600)}
+
+/* ── en bas : une ligne, trois colonnes ──────────────────────────── */
+.trois{margin-top:8px;display:grid;grid-template-columns:1fr repeat(3,150px)}
+.th{padding:0 10px 6px;text-align:right;font-size:.56rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--g600);border-bottom:1.5px solid var(--g300)}
+.th.net{color:var(--g900)}
+.th-actif{text-align:left}
+.trois{align-items:center}
+.td{padding:10px 10px;text-align:right;font-size:1rem;font-weight:700;color:var(--g700)}
+.td.lib{text-align:left;font-size:.82rem;font-weight:400;color:var(--g700)}
+.td.net{font-size:1.15rem;font-weight:800;color:var(--g900);border:1.5px solid var(--g700);border-radius:5px;background:#fff}
+.suite{grid-column:1/5;display:grid;grid-template-columns:1fr repeat(3,150px);padding-top:4px;border-top:1px solid var(--g200)}
+.suite .fant{margin:8px 10px 0}
+.suite .fant.d{justify-self:end;width:60px}
+
+@media (max-width:640px){
+  .img{padding:18px 14px 16px}
+  .pan{padding:11px 11px 12px}
+  .deux{grid-template-columns:1fr}
+  .lignes{grid-column:1}
+  .acc{display:none}
+  .calc{grid-column:1;margin-top:10px;justify-self:end;position:relative}
+  .calc::before{content:"=";position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%);font-size:1.2rem;font-weight:800;color:var(--g400)}
+  .l .lib{font-size:.74rem}
+  .l .val{font-size:.9rem}
+  .trois,.suite{grid-template-columns:repeat(3,1fr)}
+  .th-actif{display:none}
+  .td.lib{grid-column:1/4;grid-row:1;padding:0 0 6px}
+  .th{grid-row:2;padding:0 6px 5px;font-size:.5rem;letter-spacing:.04em}
+  .td{grid-row:3;padding:9px 6px;font-size:.86rem}
+  .td.net{font-size:.95rem}
+  .suite{grid-column:1/4}
+  .suite .fant:first-child{display:none}
+}
+</style></head><body>
+<div class="img" id="img">
+
+  <div class="pan">
+    <p class="pan-t">Dans cette formation</p>
+    <p class="actif">Actif</p>
+    <div class="deux">
+      <div class="lignes">
+        <div class="l"><span class="lib">Torréfacteur</span><span class="val mt">36&nbsp;000&nbsp;€</span></div>
+        <div class="l"><span class="lib">Amortissements du torréfacteur</span><span class="val mt">−&nbsp;3&nbsp;600&nbsp;€</span></div>
+      </div>
+      <span class="acc"></span>
+      <div class="calc"><p class="val mt">32&nbsp;400&nbsp;€</p><p class="n">à calculer</p></div>
+    </div>
+  </div>
+
+  <div class="pan">
+    <p class="pan-t">Dans un vrai bilan</p>
+    <div class="trois">
+      <p class="th th-actif">Actif</p>
+      <p class="th">Brut</p>
+      <p class="th">Amortissements</p>
+      <p class="th net">Net</p>
+      <p class="td lib">Torréfacteur</p>
+      <p class="td mt">36&nbsp;000&nbsp;€</p>
+      <p class="td mt">3&nbsp;600&nbsp;€</p>
+      <p class="td net mt">32&nbsp;400&nbsp;€</p>
+      <div class="suite"><span class="fant" style="width:50%"></span><span class="fant d"></span><span class="fant d"></span><span class="fant d"></span></div>
+    </div>
+  </div>
+
+</div>
+</body></html>

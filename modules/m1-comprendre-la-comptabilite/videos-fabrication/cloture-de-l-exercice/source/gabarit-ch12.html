@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<title>Clôture de l'exercice — vidéo d'ouverture</title>
+<style>
+/*__FONTS__*/
+:root{
+  --s50:#f8fafc;--s100:#f1f5f9;--s200:#e2e8f0;--s300:#cbd5e1;--s400:#94a3b8;
+  --s500:#64748b;--s600:#475569;--s700:#334155;--s800:#1e293b;--s900:#0f172a;
+  --p50:#f1f7fe;--p100:#e2edfc;--p200:#bfdbf8;--p600:#1063b9;--p700:#0e4f97;--p900:#133a67;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#459ceb}
+body{font-family:Poppins,sans-serif;color:var(--s900);-webkit-font-smoothing:antialiased}
+#stage{position:relative;width:1920px;height:1080px;background:linear-gradient(to right,#459ceb,#c084fc);overflow:hidden}
+#scene{left:0;top:90px;width:1920px;height:990px}
+#entete{left:0;top:0;width:1920px;height:90px;background:transparent;border-bottom:1px solid #ffffff95;display:flex;align-items:center;gap:30px;padding:0 60px}
+#entete .lg{width:190px;flex:none}#entete .lg svg{width:100%;height:auto;display:block}
+#entete .sep{width:2px;height:44px;background:var(--s200)}
+#entete .mod{font-size:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+#entete .chap{font-size:28px;font-weight:600;color:var(--s800);line-height:1.15}
+.abs{position:absolute}
+.mt{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+#logo{left:50%;top:430px;width:620px;transform:translateX(-50%)}
+#logo svg{width:100%;height:auto;display:block}
+#titre{left:0;right:0;top:640px;text-align:center;font-size:58px;font-weight:600;color:var(--s800)}
+#titre small{display:block;margin-bottom:14px;font-size:22px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+#flash{left:0;top:0;width:1920px;height:1080px;background:#fff;opacity:0;pointer-events:none;z-index:5}
+
+/* repère */
+#quand{left:0;right:0;top:34px;text-align:center;font-size:26px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--p900)}
+
+/* frise d'un exercice */
+#frise{left:300px;top:968px;width:1320px;height:60px}
+#frise .rail{position:absolute;left:0;right:0;top:14px;height:3px;background:var(--p700);border-radius:2px}
+#frise .bout{position:absolute;white-space:nowrap;top:30px;font-size:20px;font-weight:600;color:var(--p900);transform:translateX(-50%)}
+#repere{position:absolute;left:0;top:3px;width:25px;height:25px;margin-left:-12.5px;border-radius:50%;background:var(--p600);box-shadow:0 0 0 5px #fff}
+
+/* plan 1 */
+.acteur{width:300px;text-align:center}
+.acteur .tuile{width:260px;height:190px;margin:0 auto;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.acteur .tuile svg{width:76px;height:76px;color:var(--p600)}
+.acteur p{margin-top:12px;font-size:26px;font-weight:600;color:var(--s700)}
+.carte-doc{width:380px;height:280px;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.carte-doc i{display:block;width:220px;height:10px;border-radius:5px;background:var(--s200)}
+.carte-doc i+i{width:160px}
+.carte-doc .ic{width:110px;height:110px;color:var(--p600)}
+.carte-doc .ic svg{width:100%;height:100%}
+.carte-doc p{font-size:26px;font-weight:600;color:var(--s700);text-align:center;line-height:1.3;padding:0 20px}
+
+/* documents */
+.doc{width:840px;height:660px;border-radius:24px;background:#fff;padding:26px 26px 26px;display:flex;flex-direction:column}
+.doc-t{font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--s500)}
+.cols{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1}
+.col{position:relative;border-radius:14px;background:var(--s50);padding:14px 14px;display:flex;flex-direction:column}
+.col-t{font-size:20px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s400)}
+.col .q{position:absolute;right:14px;top:10px;font-family:Poppins,sans-serif;font-size:22px;font-weight:500;color:var(--p600)}
+.ligne{position:relative;margin-top:10px;border-radius:12px;padding:8px 14px;background:#fff}
+.ligne .lib{font-size:20px;line-height:1.25;color:var(--s700)}
+.ligne .val{margin-top:2px;font-size:32px;font-weight:800;color:var(--s900)}
+.tot-col{margin-top:auto;padding-top:12px;border-top:2px solid var(--s200);display:flex;justify-content:space-between;align-items:baseline}
+.tot-col span{font-size:20px;font-weight:600;color:var(--s500)}
+.tot-col b{font-size:30px;font-weight:800;color:var(--s900)}
+.res{margin-top:14px;border-radius:14px;background:var(--s50);padding:12px 18px;display:flex;justify-content:space-between;align-items:baseline}
+.res span{font-size:24px;font-weight:700;color:var(--s700)}
+.res b{font-size:34px;font-weight:800;color:var(--s900)}
+#egal{width:60px;height:60px;border-radius:50%;background:var(--p600);color:#fff;font-size:38px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px #fff}
+.coin{position:absolute;width:56px;height:56px;border:0 solid #fff}
+.coin.a{left:-26px;top:-26px;border-left-width:7px;border-top-width:7px;border-top-left-radius:12px}
+.coin.b{right:-26px;top:-26px;border-right-width:7px;border-top-width:7px;border-top-right-radius:12px}
+.coin.c{left:-26px;bottom:-26px;border-left-width:7px;border-bottom-width:7px;border-bottom-left-radius:12px}
+.coin.d{right:-26px;bottom:-26px;border-right-width:7px;border-bottom-width:7px;border-bottom-right-radius:12px}
+.point-q{width:84px;height:84px;border-radius:50%;background:#fff;color:var(--p600);display:flex;align-items:center;justify-content:center}
+.point-q svg{width:60px;height:60px}
+
+/* textes sur le fond */
+.phrase{left:120px;right:120px;text-align:center;font-family:Poppins,sans-serif;color:#fff;font-weight:500}
+.titre-passage{top:22px;font-size:44px}
+#refrain{top:360px;font-size:66px;line-height:1.3;text-wrap:balance}
+#refrain span{display:block}
+#refrain span+span{margin-top:24px}
+
+/* à retenir */
+#retenir-t{left:0;right:0;top:110px;text-align:center;font-size:26px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--p900)}
+.carte{left:260px;width:1400px;background:#fff;border-radius:22px;padding:28px 40px 28px 120px;font-size:34px;line-height:1.35;color:var(--s700)}
+.carte b{font-weight:700;color:var(--s900)}
+.carte .n{position:absolute;left:36px;top:30px;width:56px;height:56px;border-radius:50%;background:var(--p600);color:#fff;font-size:28px;font-weight:700;display:flex;align-items:center;justify-content:center}
+/* ── Du document à l'écriture ── */
+.pill{position:absolute;white-space:nowrap;background:#fff;color:var(--s800);font-size:24px;font-weight:600;padding:8px 20px;border-radius:999px}
+.pill.p{background:var(--p600);color:#fff}
+:root{--y100:#fef9c3;--y400:#facc15;--y500:#eab308;--y50:#fefce8;--pu600:#9333ea}
+.facture{width:330px;background:var(--y100);padding:30px 24px 30px;color:var(--s700);clip-path:polygon(0 8px,10% 0,20% 8px,30% 0,40% 8px,50% 0,60% 8px,70% 0,80% 8px,90% 0,100% 8px,100% calc(100% - 8px),90% 100%,80% calc(100% - 8px),70% 100%,60% calc(100% - 8px),50% 100%,40% calc(100% - 8px),30% 100%,20% calc(100% - 8px),10% 100%,0 calc(100% - 8px))}
+.facture .haut{display:flex;justify-content:space-between;align-items:baseline}
+.facture .emet{font-size:24px;font-weight:700;color:var(--s800)}
+.facture .type{font-size:16px;font-weight:800;letter-spacing:.12em;color:var(--s500)}
+.facture .dest,.facture .obj,.facture .date{margin-top:8px;font-size:20px;color:var(--s600)}
+.facture .fant{display:block;height:8px;border-radius:4px;background:var(--y400);margin-top:12px}
+.facture .tot{margin-top:18px;padding-top:12px;border-top:2px solid var(--y400);text-align:right;font-size:34px;font-weight:800;color:var(--s900)}
+.facture .ech{margin-top:4px;text-align:right;font-size:20px;color:var(--s600)}
+.facture .ht{display:block;text-align:right;font-size:18px;font-weight:700;color:var(--p600);margin-top:2px}
+.facture.ticket{width:250px}
+.lst{width:420px}
+.lst .pill{position:relative;display:block;width:max-content;margin-bottom:18px}
+#question{top:720px;font-size:46px;line-height:1.35}
+.qbox{width:560px;text-align:center}
+.qbox .pill{position:relative;display:inline-block}
+.qbox .pill b{color:var(--pu600);font-weight:700}
+.qbox .rep{margin-top:22px;font-family:Poppins,sans-serif;font-size:40px;font-weight:500;color:#fff}
+/* cahier */
+#cahier{left:330px;top:160px;width:820px;border-radius:24px;background:#fff;padding:26px 30px 30px}
+.cr3{display:grid;grid-template-columns:1fr 180px 180px;align-items:baseline;padding:12px 16px;border-top:2px solid var(--s100)}
+.cr3.tete{border-top:0;padding-bottom:16px}
+.cr3.tete span{font-size:20px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s400);text-align:right}
+.cr3.tete span:first-child{text-align:left}
+.cr3 .c{font-size:26px;color:var(--s700)}
+.cr3 .m{text-align:right;font-size:30px;font-weight:800;color:var(--s900)}
+#ps{left:740px;top:110px;transform:translateX(-50%)}
+#banque{width:330px;border-radius:18px;background:#fff;padding:18px 22px;display:flex;align-items:center;gap:18px}
+#banque svg{width:52px;height:52px;color:var(--p600);flex:none}
+#banque .lib{font-size:20px;color:var(--s500)}
+#banque .val{font-size:36px;font-weight:800;color:var(--s900)}
+/* grand journal */
+#journal{left:330px;top:80px;width:1260px;border-radius:24px;background:#fff;padding:22px 30px 24px}
+.jr{display:grid;grid-template-columns:1fr 240px 240px;align-items:baseline;padding:8px 16px;border-top:2px solid var(--s100);border-radius:10px}
+.jr.tete{border-top:0;padding-top:12px;padding-bottom:40px}
+.jr.tete span{font-size:20px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--s400);text-align:right}
+.jr.tete span:first-child{text-align:left}
+.jr .c{font-size:26px;color:var(--s700)}
+.jr .m{text-align:right;font-size:30px;font-weight:800;color:var(--s900)}
+.jr.ecr{border-top:2px solid var(--s200);padding:12px 16px 2px}
+.jr.ecr span{font-size:20px;font-style:italic;color:var(--s500)}
+.jr.tt{border-top:3px solid var(--s300);margin-top:6px;padding-top:12px}
+.jr.tt .c{font-weight:700;color:var(--s600)}
+.col-h{position:relative}
+.col-h em{position:absolute;right:0;top:30px;font-style:normal;font-family:Poppins,sans-serif;font-size:22px;font-weight:600;color:var(--pu600);letter-spacing:0;text-transform:none}
+#pd{left:630px;top:-62px;transform:translateX(-50%)}
+/* documents compacts */
+.doc.cpt{width:500px;height:500px;padding:22px 20px}
+.doc.cpt .cols{gap:12px}
+.doc.cpt .ligne .val{font-size:30px}
+.halo{position:absolute;inset:0;border-radius:12px;border:3px solid var(--y500);background:var(--y50);z-index:-1;opacity:0}
+.ligne{z-index:0}
+#manque{left:850px;right:40px;top:660px;font-size:40px;line-height:1.35;text-align:center}
+/* ── La TVA ── */
+.tuile-a{width:240px;text-align:center}
+.tuile-a .tuile{width:220px;height:170px;margin:0 auto;border-radius:24px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.tuile-a .tuile svg{width:70px;height:70px;color:var(--p600)}
+.tuile-a.cli .tuile svg{color:var(--pu600)}
+.tuile-a .tuile p{margin-top:10px;font-size:26px;font-weight:600;color:var(--s700)}
+.facture .lg{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;font-size:22px;color:var(--s700)}
+.facture .lg b{font-size:26px;font-weight:800;color:var(--s900)}
+.facture .lg.tva b,.facture .lg.tva span{color:var(--y700)}
+.facture .lg.ttc{margin-top:14px;padding-top:12px;border-top:2px solid var(--y400)}
+.facture .lg.ttc b{font-size:34px}
+:root{--y700:#a16207}
+.lst .pill b{color:var(--p600);font-weight:700}
+.carte-t{width:380px;border-radius:22px;background:#fff;padding:22px 26px;text-align:center}
+.carte-t .lib{font-size:22px;font-weight:600;color:var(--s500)}
+.carte-t .val{margin-top:6px;font-size:52px;font-weight:800;color:var(--s900)}
+.carte-t.dec{box-shadow:0 0 0 4px var(--y500)}
+.op{font-size:64px;font-weight:700;color:#fff}
+#question span{display:block}
+
+/* ── Produire et stocker ── */
+.etag{width:460px;border-radius:24px;background:#fff;padding:30px 30px 24px;text-align:center}
+.etag .rayon{display:flex;gap:30px;justify-content:center;padding-bottom:8px;border-bottom:6px solid var(--s300);margin-bottom:18px}
+.etag .rayon svg{width:84px;height:84px;color:var(--p600)}
+.etag .lib{font-size:22px;font-weight:600;color:var(--s500)}
+.etag .val{margin-top:4px;font-size:44px;font-weight:800;color:var(--s900)}
+#actif{width:560px;border-radius:24px;background:#fff;padding:26px 26px 26px}
+#actif .col{margin-top:14px}
+#actif .ligne{padding:14px 16px}
+#actif .ligne .lib{font-size:24px}
+#actif .ligne .tag{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:20px;font-weight:600;color:var(--pu600)}
+#rang{left:460px;top:130px;width:1000px;border-radius:24px;background:#fff;padding:22px 30px;display:flex;justify-content:space-between}
+#rang span{position:relative;display:block;width:68px;height:68px;color:var(--p600)}
+#rang span svg{width:100%;height:100%}
+#rang .rh{position:absolute;inset:-8px;border-radius:12px;border:3px solid var(--y500);background:var(--y50);z-index:-1;opacity:0}
+#rang{z-index:0}
+#cr{width:620px;height:480px}
+#tvar{top:70px;font-size:48px}
+#cr .ligne .val{font-size:32px}
+#journal .jr.tt .m{color:var(--s900)}
+#banque{width:400px}
+#banque .val{font-size:28px;white-space:nowrap}
+.croix{width:72px;height:72px;border-radius:50%;background:#fff;color:var(--pu600);display:flex;align-items:center;justify-content:center}
+.croix svg{width:58px;height:58px}
+.flecheb{font-size:56px;font-weight:700;color:#fff}
+
+/* ── Se financer ── */
+#equip{width:380px}
+#equip svg{width:64px;height:64px;color:var(--p600);display:block;margin:0 auto 6px}
+.pc{transform:translateX(-50%)}
+#mens{left:360px;top:150px;width:1200px;border-radius:24px;background:#fff;padding:26px 30px 30px}
+#mens .barre{display:flex;gap:8px;margin-top:18px;height:130px}
+#mens .barre div{border-radius:14px;background:var(--s200);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--s700);font-size:24px;font-weight:600;text-align:center;line-height:1.25}
+#mens .barre b{font-size:32px;font-weight:800}
+#b-cap{flex:5}#b-int{flex:1}
+#bilan,#cr{width:520px;height:520px}
+/* ── Les salariés ── */
+#contrat{width:400px}
+#contrat svg{width:64px;height:64px;color:var(--p600);display:block;margin:0 auto 6px}
+#contrat small{font-size:26px;font-weight:600;color:var(--s500)}
+#bul{left:210px;top:120px;width:1500px;height:430px;border-radius:24px;background:#fff;padding:26px 30px}
+#bul .seg{position:absolute;top:170px;height:130px;border-radius:14px;background:var(--s200);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--s700);font-size:22px;font-weight:600;line-height:1.25}
+#bul .seg b{font-size:30px;font-weight:800}
+#bul .seg.org{background:var(--y400);color:var(--s900)}
+#bul .brace{position:absolute;height:22px;border:3px solid var(--s400);text-align:center}
+#bul .brace.haut{top:120px;border-bottom:0;border-radius:8px 8px 0 0}
+#bul .brace.bas{top:320px;border-top:0;border-radius:0 0 8px 8px}
+#bul .brace span{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:24px;font-weight:700;color:var(--s700)}
+#bul .brace.haut span{top:-40px}
+#bul .brace.bas span{top:28px}
+.carte-m{width:580px;border-radius:24px;background:#fff;padding:28px 34px;text-align:center}
+.carte-m .mo{display:flex;align-items:center;justify-content:center;gap:12px;font-size:26px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--p700)}
+.carte-m .mo svg{width:40px;height:40px;color:var(--p600)}
+.carte-m .lib{margin-top:20px;font-size:24px;font-weight:600;color:var(--s500)}
+.carte-m .val{margin-top:4px;font-size:56px;font-weight:800;color:var(--s900)}
+.carte-m .dst{margin-top:6px;font-size:24px;color:var(--s600)}
+#bilan{width:620px;height:500px}
+#cr{width:600px;height:500px}
+#bilan .ligne .lib,#cr .ligne .lib{font-size:19px}
+.carte-t.txt .val{font-size:44px}
+#t-ass{width:280px}#t-ass .tuile{width:260px}
+
+/* ── Fin de l'exercice ── */
+#jour{width:460px}
+#jour svg{width:64px;height:64px;color:var(--p600);display:block;margin:0 auto 6px}
+#faits{left:900px;top:120px;width:640px}
+#faits .pill{font-size:28px;padding:12px 26px;margin-bottom:24px}
+#faits .pill svg{width:30px;height:30px;vertical-align:-6px;margin-right:10px;color:var(--p600)}
+#faits .pill.cl svg{color:var(--pu600)}
+/* plan 2 : la frise de deux années */
+#annees{left:260px;top:100px;width:1400px;height:340px;border-radius:24px;background:#fff;padding:26px 30px}
+#annees .rail{position:absolute;left:60px;right:60px;top:170px;height:6px;border-radius:3px;background:var(--s300)}
+#annees .an{position:absolute;top:110px;font-size:28px;font-weight:700;color:var(--s700);transform:translateX(-50%);white-space:nowrap}
+#annees .cesure{position:absolute;left:700px;top:84px;width:4px;height:176px;margin-left:-2px;background:var(--p600);border-radius:2px}
+#annees .cesure span{position:absolute;left:50%;top:186px;transform:translateX(-50%);white-space:nowrap;font-size:22px;font-weight:700;color:var(--p700)}
+#regle{left:560px;top:475px;width:800px}
+#regle .val{font-size:46px}
+#k-ech{left:700px;top:780px}
+#k-clo{left:1220px;top:780px}
+/* plan 3-4 : le litige */
+#t-cli{left:440px;top:120px}
+#recl{left:820px;top:130px;width:420px}
+#recl svg{width:56px;height:56px;color:var(--pu600);display:block;margin:0 auto 4px}
+#r1{left:650px;top:450px}
+#r2{left:1040px;top:450px}
+#k-prov{left:845px;top:630px}
+#k-pp{left:560px;top:280px;width:440px}
+#k-ge{left:1080px;top:280px;width:440px}
+#k-pp .val,#k-ge .val{font-size:46px}
+#k-ge .val{color:#dc2626}
+#prud{left:1040px;top:500px}
+/* Bilan et Compte de Résultat */
+#bilan{width:620px;height:480px}
+#cr{width:600px;height:480px}
+#bilan .ligne .val,#cr .ligne .val{font-size:28px}
+#bilan .ligne,#cr .ligne{padding:6px 14px;margin-top:8px}
+/* plans 6-7 : à cheval sur deux années */
+#deux{left:210px;top:100px;width:1500px;height:620px;border-radius:24px;background:#fff;padding:26px 30px}
+#deux .an{position:absolute;top:84px;font-size:24px;font-weight:700;color:var(--s500);transform:translateX(-50%);white-space:nowrap}
+#deux .cesure{position:absolute;left:373px;top:76px;width:4px;height:520px;margin-left:-2px;background:var(--p600);border-radius:2px}
+#deux .cesure span{position:absolute;left:12px;top:-2px;white-space:nowrap;font-size:20px;font-weight:700;color:var(--p700)}
+#deux .rt{position:absolute;left:50px;font-size:24px;font-weight:600;color:var(--s700)}
+#deux .rt b{font-weight:800;color:var(--s900)}
+#deux .seg{position:absolute;height:110px;border-radius:14px;background:var(--s200);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--s700);font-size:22px;font-weight:600;line-height:1.25}
+#deux .seg b{font-size:30px;font-weight:800}
+#deux .seg.av{background:var(--y400);color:var(--s900)}
+#deux .tag{position:absolute;transform:translateX(-50%);white-space:nowrap;font-size:24px;font-weight:700;color:var(--pu600)}
+
+/* ── Clôture de l'exercice ── */
+#bilan{width:620px;height:600px}
+#cr{width:600px;height:600px}
+#bilan .ligne,#cr .ligne{padding:5px 14px;margin-top:8px}
+#bilan .ligne .val,#cr .ligne .val{font-size:27px}
+#cr .res{margin-top:12px;padding:10px 16px}
+#cr .res span{font-size:22px}
+#cr .res b{font-size:30px}
+#cr .res{position:relative;z-index:0}
+#l-res{display:none}
+#ecart{left:610px;top:815px}
+.egal-p{background:var(--p600);color:#fff}
+/* plan 2 : le calcul */
+.carte-t.dec .val{color:var(--s900)}
+#c-av{left:180px;top:300px}
+#c-tx{left:770px;top:300px}
+#c-is{left:1360px;top:300px}
+#x1{left:600px;top:325px}
+#x2{left:1195px;top:325px}
+#seuil{left:960px;top:560px}
+/* plan 3 : la barre du résultat */
+#parts{left:210px;top:130px;width:1500px;height:420px;border-radius:24px;background:#fff;padding:26px 30px}
+#parts .seg{position:absolute;top:170px;height:130px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:22px;font-weight:600;line-height:1.25}
+#parts .seg b{font-size:30px;font-weight:800}
+#s-tout{left:50px;width:1400px;background:var(--s200);color:var(--s700)}
+#s-is{left:50px;width:206px;background:var(--y400);color:var(--s900)}
+#s-net{left:264px;width:1186px;background:var(--p600);color:#fff}
+#parts .brace{position:absolute;top:118px;left:50px;width:1400px;height:22px;border:3px solid var(--s400);border-bottom:0;border-radius:8px 8px 0 0}
+#parts .brace span{position:absolute;left:50%;top:-40px;transform:translateX(-50%);white-space:nowrap;font-size:24px;font-weight:700;color:var(--s700)}
+#t-etat{left:153px;top:330px}
+#t-net{left:857px;top:330px}
+#perte{left:960px;top:640px}
+/* plan 5 : détenir, posséder */
+#k-net{left:770px;top:110px}
+#t-ent{left:470px;top:380px}
+#t-asso{left:1210px;top:380px}
+#t-asso .tuile{width:240px}
+#d1{left:590px;top:640px}
+#d2{left:1330px;top:640px}
+#fl5{left:900px;top:430px}
+/* plan 6 : le Passif en deux parts */
+#pas{left:310px;top:100px;width:1300px;border-radius:24px;background:#fff;padding:26px 30px 30px}
+#pas .gr{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px}
+#pas .bloc{border-radius:14px;background:var(--s50);padding:16px 18px 20px}
+#pas .bloc-t{font-size:22px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--s500)}
+#pas .bloc.cp .bloc-t{color:var(--p700)}
+#pas .ligne .lib{font-size:22px}
+#pas .ligne.vide{background:transparent;border:3px dashed var(--s300);height:84px;display:flex;align-items:center;justify-content:center}
+#pas .ligne.vide p{font-size:40px;font-weight:800;color:var(--s400)}
+#pas .tag2{margin-top:10px;font-size:20px;font-weight:600;color:var(--s500)}
+#n1{left:540px;top:620px}
+#n2{left:850px;top:620px}
+#n3{left:1160px;top:620px}
+#gagne{left:1470px;top:620px}
+#n1,#n2,#n3,#gagne{font-size:30px;padding:10px 26px}
+#gagne{background:#16a34a;color:#fff}
+.barre-p{text-decoration:line-through;text-decoration-thickness:3px;color:var(--s500)!important}
+/* plan 8 : l'affectation */
+#k-net2{left:770px;top:90px}
+.t3{width:300px}
+.t3 .tuile{width:280px}
+#af1{left:310px;top:390px}
+#af2{left:810px;top:390px}
+#af3{left:1310px;top:390px}
+#ap1{left:460px;top:650px}
+#ap2{left:960px;top:650px}
+#ap3{left:1460px;top:650px}
+</style></head>
+<body><div id="stage">
+  <div id="logo" class="abs">/*__LOGO__*/</div>
+  <p id="titre" class="abs"><small>Comprendre la comptabilité</small>Clôture de l'exercice</p>
+  <div id="entete" class="abs"><div class="lg">/*__LOGO__*/</div><span class="sep"></span>
+    <div><p class="mod">Comprendre la comptabilité</p><p class="chap">Clôture de l'exercice</p></div></div>
+  <div id="frise" class="abs"></div>
+
+  <div id="scene" class="abs">
+  <!-- plans 1, 4, 7 -->
+  <div id="bilan" class="abs doc cpt" style="left:300px;top:110px">
+    <p class="doc-t">Bilan</p>
+    <div class="cols">
+      <div class="col"><p class="col-t">Actif</p>
+        <div id="l-bq" class="ligne"><span class="halo"></span><p class="lib">Banque</p><p class="val mt">35&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">Créances clients</p><p class="val mt">15&nbsp;000</p></div>
+        <div id="tc-ac" class="tot-col"><span>Total</span><b id="tt-ac" class="mt">50&nbsp;000</b></div></div>
+      <div class="col"><p class="col-t">Passif</p>
+        <div class="ligne"><p class="lib">Capital social</p><p class="val mt">20&nbsp;000</p></div>
+        <div id="l-res" class="ligne"><span class="halo"></span><p class="lib">Résultat de l'exercice</p><p class="val mt">17&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">Emprunt bancaire</p><p class="val mt">10&nbsp;000</p></div>
+        <div id="l-is" class="ligne"><span class="halo"></span><p class="lib">État — IS à payer</p><p class="val mt">3&nbsp;000</p></div>
+        <div id="tc-pa" class="tot-col"><span>Total</span><b id="tt-pa" class="mt">30&nbsp;000</b></div></div>
+    </div>
+  </div>
+  <div id="cr" class="abs doc cpt" style="left:1020px;top:110px">
+    <p class="doc-t">Compte de Résultat</p>
+    <div class="cols">
+      <div class="col"><p class="col-t">Charges</p>
+        <div class="ligne"><p class="lib">Achats</p><p class="val mt">50&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">Autres charges externes</p><p class="val mt">30&nbsp;000</p></div>
+        <div id="l-ims" class="ligne"><span class="halo"></span><p class="lib">Impôt sur les sociétés</p><p class="val mt">3&nbsp;000</p></div>
+        <div class="tot-col"><span>Total</span><b id="tt-ch" class="mt">80&nbsp;000</b></div></div>
+      <div class="col"><p class="col-t">Produits</p>
+        <div class="ligne"><p class="lib">Ventes</p><p class="val mt">100&nbsp;000</p></div>
+        <div class="tot-col"><span>Total</span><b class="mt">100&nbsp;000</b></div></div>
+    </div>
+    <div id="r-cr" class="res"><span class="halo"></span><span>Résultat</span><b id="v-res" class="mt">20&nbsp;000</b></div>
+  </div>
+  <span id="ecart" class="abs pill pc">écart&nbsp;: <b id="v-ecart" class="mt">20&nbsp;000</b></span>
+  <span id="egal2" class="abs pill pc egal-p" style="left:610px;top:735px">Actif = Passif</span>
+  <span id="p-bq" class="abs pill pc" style="left:610px;top:735px">la banque ne bouge pas</span>
+  <span id="p-film" class="abs pill p pc" style="left:1320px;top:735px">du film à la photo</span>
+  <p id="question" class="abs phrase" style="top:730px;left:1020px;right:300px"><span id="qa">Pourquoi&nbsp;?</span></p>
+
+  <!-- plan 2 -->
+  <div id="c-av" class="abs carte-t"><p class="lib">Résultat avant impôt</p><p class="val mt">20&nbsp;000&nbsp;€</p></div>
+  <p id="x1" class="abs op">×</p>
+  <div id="c-tx" class="abs carte-t"><p class="lib">Taux</p><p class="val mt">15&nbsp;%</p></div>
+  <p id="x2" class="abs op">=</p>
+  <div id="c-is" class="abs carte-t dec"><p class="lib">Impôt sur les sociétés</p><p class="val mt">3&nbsp;000&nbsp;€</p></div>
+  <span id="k-is" class="abs pill p pc" style="left:960px;top:200px">l'impôt sur les sociétés</span>
+  <span id="seuil" class="abs pill pc">15&nbsp;% jusqu'à 42&nbsp;500&nbsp;€ de bénéfice</span>
+
+  <!-- plan 3 -->
+  <div id="parts" class="abs">
+    <p class="doc-t">Le bénéfice de l'année</p>
+    <div class="brace"><span>Résultat avant impôt · 20&nbsp;000&nbsp;€</span></div>
+    <div id="s-tout" class="seg"><span>Bénéfice</span><b class="mt">20&nbsp;000&nbsp;€</b></div>
+    <div id="s-is" class="seg"><span>Impôt</span><b class="mt">3&nbsp;000&nbsp;€</b></div>
+    <div id="s-net" class="seg"><span>Résultat net</span><b class="mt">17&nbsp;000&nbsp;€</b></div>
+    <span id="t-etat" class="abs pill pc" style="background:#f1f5f9">pour l'État</span>
+    <span id="t-net" class="abs pill p pc">ce qui reste</span>
+  </div>
+  <span id="perte" class="abs pill pc">sur une perte, pas d'impôt</span>
+
+  <!-- plan 5 -->
+  <div id="k-net" class="abs carte-t"><p class="lib">Résultat net</p><p class="val mt">17&nbsp;000&nbsp;€</p></div>
+  <div id="t-ent" class="abs tuile-a"><div class="tuile">/*__I:domain__*/<p>Entreprise</p></div></div>
+  <div id="t-asso" class="abs tuile-a"><div class="tuile">/*__I:account-group__*/<p>Associés</p></div></div>
+  <span id="d1" class="abs pill pc">les détient</span>
+  <span id="d2" class="abs pill p pc">les possèdent</span>
+
+  <!-- plan 6 -->
+  <div id="pas" class="abs">
+    <p class="doc-t">Passif · d'où vient ce que l'entreprise détient</p>
+    <div class="gr">
+      <div class="bloc"><p class="bloc-t">À rembourser</p>
+        <div class="ligne"><p class="lib">Emprunt bancaire</p><p class="val mt">10&nbsp;000</p></div>
+        <div class="ligne"><p class="lib">État — IS à payer</p><p class="val mt">3&nbsp;000</p></div></div>
+      <div id="b-cp" class="bloc cp"><p class="bloc-t">Capitaux propres</p>
+        <div class="ligne"><p class="lib">Capital social</p><p class="val mt">20&nbsp;000</p></div>
+        <div id="vide" class="ligne vide"><p>?</p></div></div>
+    </div>
+  </div>
+  <span id="n1" class="abs pill pc">ni apportée</span>
+  <span id="n2" class="abs pill pc">ni prêtée</span>
+  <span id="n3" class="abs pill pc">ni facturée</span>
+  <span id="gagne" class="abs pill p pc">gagnée</span>
+
+  <!-- plan 8 -->
+  <div id="k-net2" class="abs carte-t"><p class="lib">Résultat net</p><p class="val mt">17&nbsp;000&nbsp;€</p></div>
+  <div id="af1" class="abs tuile-a t3"><div class="tuile">/*__I:lock__*/<p>Réserve légale</p></div></div>
+  <div id="af2" class="abs tuile-a t3"><div class="tuile">/*__I:account-cash__*/<p>Dividende</p></div></div>
+  <div id="af3" class="abs tuile-a t3"><div class="tuile">/*__I:calendar-arrow-right__*/<p>Report à nouveau</p></div></div>
+  <span id="ap1" class="abs pill pc">reste dans l'entreprise</span>
+  <span id="ap2" class="abs pill pc">versé aux associés</span>
+  <span id="ap3" class="abs pill pc">attend l'année suivante</span>
+  <span id="k-aff" class="abs pill p pc" style="left:960px;top:300px">l'affectation du résultat</span>
+
+  <p id="refrain" class="abs phrase">Le résultat figure au Passif parce qu'il appartient à quelqu'un d'autre que l'entreprise qui l'a gagné.</p>
+  <p id="retenir-t" class="abs">À retenir</p>
+  <div id="c1" class="abs carte" style="top:170px"><span class="n">1</span>L'État prend sa part <b>avant les associés</b>&nbsp;: l'impôt sur les sociétés se calcule sur le <b>résultat avant impôt</b>.</div>
+  <div id="c2" class="abs carte" style="top:400px"><span class="n">2</span>Le <b>résultat net</b> s'inscrit au <b>Passif</b>, parmi les <b>capitaux propres</b>, parce qu'il revient aux associés.</div>
+  <div id="c3" class="abs carte" style="top:630px"><span class="n">3</span>Une fois le résultat reporté, les deux totaux du Bilan tombent sur <b>le même nombre</b>.</div>
+  </div>
+</div>
+</div>
+<script>/*__GSAP__*/</script>
+<script>
+const VOIX = /*__VOIX__*/;
+const S = Object.fromEntries(VOIX.segments.map(s => [s.id, s]));
+function at(id, mot, apres = 0) {
+  const s = S[id], i = s.texte.indexOf(mot) + (apres ? mot.length : 0);
+  if (i < (apres ? mot.length : 0)) throw new Error('introuvable : ' + mot + ' dans ' + id);
+  const P = s.phrases; let k = 0;
+  while (k + 1 < P.length && P[k + 1].i <= i) k++;
+  const i1 = k + 1 < P.length ? P[k + 1].i : s.texte.length;
+  const t1 = k + 1 < P.length ? P[k + 1].t : s.duree;
+  return s.debut + P[k].t + (t1 - P[k].t) * (i - P[k].i) / (i1 - P[k].i);
+}
+/* pas de « € » dans le Bilan ni dans le Compte de Résultat */
+const nombre = n => Math.round(n).toLocaleString('fr-FR').replace(/ |\s/g, ' ');
+function compte(tl, el, de, a, t, d = .3) {
+  const o = { v: de };
+  tl.fromTo(o, { v: de }, { v: a, duration: d, ease: 'power1.inOut', immediateRender: false,
+    onUpdate: () => { el.textContent = nombre(o.v); } }, t);
+}
+const $ = s => document.querySelector(s);
+const E = 'power2.out', D = 0.5;
+const tl = gsap.timeline({ paused: true });
+window.tl = tl; window.DUREE = VOIX.duree_totale;
+
+gsap.set(['#scene > *', '#logo', '#titre', '#entete', '#frise'], { autoAlpha: 0 });
+
+/* ── Plan 0 · ouverture ─────────────────────────────── */
+const sym = '#logo .lg-sym', mot = '#logo .lg-mot';
+tl.set('#logo', { autoAlpha: 1 }, 0)
+  .fromTo(sym, { opacity: 0, scale: .6, rotation: -90, transformOrigin: '50% 50%' }, { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: 'power3.out' }, .3)
+  .fromTo(mot, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: .9, ease: E }, .9)
+  .to('#logo', { top: 330, duration: .8, ease: 'power2.inOut' }, 2.2)
+  .fromTo('#titre', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .8, ease: E }, 2.6)
+  .to(['#logo', '#titre'], { autoAlpha: 0, duration: .6 }, 5.0)
+  .fromTo('#entete', { autoAlpha: 0, y: -20 }, { autoAlpha: 1, y: 0, duration: .6, ease: E }, 5.3);
+
+
+gsap.set(['#qa','#l-ims','#l-is','#l-res','#s-is','#s-net','#t-etat','#t-net','#x1','#c-tx','#x2','#c-is'], { autoAlpha: 0 });
+const pin = (el, t) => tl.fromTo(el, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .5, ease: E, immediateRender: false }, t);
+const ent = (el, t, y = 30) => tl.fromTo(el, { autoAlpha: 0, y }, { autoAlpha: 1, y: 0, duration: .6, ease: E, immediateRender: false }, t);
+const out = (els, t) => tl.to(els, { autoAlpha: 0, duration: .5 }, t);
+const halo = (el, t, v = 1) => tl.to(el + ' .halo', { opacity: v, duration: .4 }, t);
+const ligne = (el, t) => { tl.fromTo(el, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .35, ease: E, immediateRender: false }, t); halo(el, t + .3); };
+const BLEU = '#1063b9', NOIR = '#0f172a';
+const nombreEcart = (t, de, a) => compte(tl, $('#v-ecart'), de, a, t);
+
+/* ── Plan 1 · un Bilan qui ne tombe pas juste ───────── */
+const p11 = 'p1-1', p12 = 'p1-2';
+ent('#bilan', 6.2); ent('#cr', 6.4);
+halo('#r-cr', at(p11, 'vingt mille'));
+tl.to('#tt-ac', { color: BLEU, duration: .3 }, at(p12, 'cinquante mille'))
+  .to('#tt-pa', { color: BLEU, duration: .3 }, at(p12, 'trente mille'));
+tl.set('#ecart', { top: 735 }, 0);
+pin('#ecart', at(p12, "L'écart"));
+tl.set('#question', { autoAlpha: 1 }, at(p12, 'Pourquoi') - .1)
+  .fromTo('#qa', { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .6, ease: E }, at(p12, 'Pourquoi'));
+
+/* ── Plan 2 · le calcul de l'impôt ──────────────────── */
+const p21 = 'p2-1', p22 = 'p2-2', t2 = S[p21].debut;
+out(['#bilan', '#cr', '#ecart', '#question'], t2 - .8);
+tl.set(['#tt-ac', '#tt-pa'], { color: NOIR }, t2 - .2);
+halo('#r-cr', t2 - .2, 0);
+ent('#c-av', t2 - .4, 20);
+pin('#k-is', at(p21, "l'impôt sur les sociétés"));
+ent('#x1', at(p22, 'le taux') - .2, 0); ent('#c-tx', at(p22, 'le taux'), 20);
+pin('#seuil', at(p22, 'Jusqu'));
+const tf = at(p22, 'font trois mille');
+ent('#x2', tf - .2, 0); ent('#c-is', tf, 20);
+
+/* ── Plan 3 · le résultat net ───────────────────────── */
+const p3 = 'p3-1', t3 = S[p3].debut;
+out(['#c-av', '#x1', '#c-tx', '#x2', '#c-is', '#k-is', '#seuil'], t3 - .8);
+ent('#parts', t3 - .4);
+const tsp = at(p3, 'il fait baisser');
+tl.to('#s-tout', { autoAlpha: 0, duration: .3 }, tsp)
+  .to(['#s-is', '#s-net'], { autoAlpha: 1, duration: .3 }, tsp);
+pin('#t-etat', tsp + .3);
+pin('#t-net', at(p3, 'le résultat net'));
+pin('#perte', at(p3, 'Sur une perte'));
+
+/* ── Plan 4 · l'impôt dans les deux documents ───────── */
+const p4 = 'p4-1', t4 = S[p4].debut;
+out(['#parts', '#perte'], t4 - .8);
+ent('#bilan', t4 - .4); ent('#cr', t4 - .2);
+const tims = at(p4, 'une ligne Impôt');
+ligne('#l-ims', tims); compte(tl, $('#tt-ch'), 80000, 83000, tims);
+compte(tl, $('#v-res'), 20000, 17000, tims + .3); halo('#r-cr', tims + .3);
+const tis = at(p4, 'État, IS');
+ligne('#l-is', tis); compte(tl, $('#tt-pa'), 30000, 33000, tis);
+tl.set('#ecart', { top: 815 }, tis);
+pin('#ecart', tis + .3); nombreEcart(tis + .3, 20000, 17000);
+const tbq = at(p4, 'Le compte en banque');
+halo('#l-bq', tbq); pin('#p-bq', tbq + .2);
+
+/* ── Plan 5 · détenir n'est pas posséder ────────────── */
+const p5 = 'p5-1', t5 = S[p5].debut;
+out(['#bilan', '#cr', '#ecart', '#p-bq'], t5 - .8);
+['#l-ims', '#l-is', '#l-bq', '#r-cr'].forEach(el => halo(el, t5 - .3, 0));
+ent('#k-net', t5 - .4, 20);
+ent('#t-ent', at(p5, "que l'entreprise garde"), 20);
+ent('#t-asso', at(p5, 'aux associés'), 20);
+pin('#d1', at(p5, 'les détient'));
+pin('#d2', at(p5, 'elle ne les possède'));
+
+/* ── Plan 6 · le Passif en deux parts ───────────────── */
+const p61 = 'p6-1', p62 = 'p6-2', t6 = S[p61].debut;
+out(['#k-net', '#t-ent', '#t-asso', '#d1', '#d2'], t6 - .8);
+ent('#pas', t6 - .4);
+tl.to('#b-cp', { boxShadow: '0 0 0 4px #eab308', backgroundColor: '#fefce8', duration: .4 }, at(p61, 'les capitaux propres'));
+const barre = (el, t) => { pin(el, t); tl.set(el, { textDecorationLine: 'line-through', textDecorationColor: '#dc2626', textDecorationThickness: '2px' }, t + .5); };
+barre('#n1', at(p62, 'ni apportée'));
+barre('#n2', at(p62, 'ni prêtée'));
+barre('#n3', at(p62, 'ni facturée'));
+pin('#gagne', at(p62, 'gagnée'));
+
+/* ── Plan 7 · le résultat rejoint le Bilan ──────────── */
+const p71 = 'p7-1', p72 = 'p7-2', t7 = S[p71].debut;
+out(['#pas', '#n1', '#n2', '#n3', '#gagne'], t7 - .8);
+ent('#bilan', t7 - .4); ent('#cr', t7 - .2);
+tl.set('#ecart', { top: 735 }, t7);
+pin('#ecart', t7 + .2);
+halo('#r-cr', at(p71, 'se reporte'));
+const tres = at(p71, 'parmi les capitaux');
+tl.set('#l-res', { display: 'block' }, tres - .05);
+ligne('#l-res', tres); compte(tl, $('#tt-pa'), 33000, 50000, tres); nombreEcart(tres, 17000, 0);
+out('#ecart', tres + .8);
+pin('#p-film', at(p71, 'le film'));
+const tegal = at(p72, 'tombent alors');
+tl.to(['#tt-ac', '#tt-pa'], { color: BLEU, duration: .3 }, tegal);
+pin('#egal2', tegal);
+
+/* ── Plan 8 · l'affectation ─────────────────────────── */
+const p8 = 'p8-1', t8 = S[p8].debut;
+out(['#bilan', '#cr', '#egal2', '#p-film'], t8 - .8);
+ent('#k-net2', t8 - .4, 20);
+pin('#k-aff', at(p8, "C'est l'affectation"));
+ent('#af1', at(p8, 'Une part reste'), 20); pin('#ap1', at(p8, 'la réserve légale'));
+ent('#af2', at(p8, 'Une part peut'), 20); pin('#ap2', at(p8, 'le dividende'));
+ent('#af3', at(p8, 'Le reste'), 20); pin('#ap3', at(p8, 'le report'));
+
+/* ── Plan 9 · le refrain ────────────────────────────── */
+const p9 = 'p9-1';
+out(['#k-net2', '#k-aff', '#af1', '#af2', '#af3', '#ap1', '#ap2', '#ap3'], S[p9].debut - .9);
+tl.fromTo('#refrain', { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: .8, ease: E }, S[p9].debut - .3);
+
+/* ── Plan 10 · à retenir ────────────────────────────── */
+const p10 = 'p10-1';
+tl.to('#refrain', { autoAlpha: 0, duration: .5 }, S[p10].debut - .6)
+  .fromTo('#retenir-t', { autoAlpha: 0 }, { autoAlpha: 1, duration: D }, S[p10].debut - .1)
+  .fromTo('#c1', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p10, "L'État"))
+  .fromTo('#c2', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p10, 'Le résultat net'))
+  .fromTo('#c3', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: D, ease: E }, at(p10, 'Enfin'));
+
+/* ── fin ────────────────────────────────────────────── */
+const t9 = VOIX.jingle_fin;
+tl.to(['#retenir-t', '#c1', '#c2', '#c3', '#entete'], { autoAlpha: 0, duration: .6 }, t9 - .6)
+  .set('#logo', { top: 430 }, t9 - .1)
+  .to('#logo', { autoAlpha: 1, duration: .6 }, t9)
+  .to(sym, { opacity: 1, rotation: 0, scale: 1, duration: .01 }, t9)
+  .to(mot, { opacity: 1, x: 0, duration: .01 }, t9)
+  .to('#logo', { autoAlpha: 1, duration: .1 }, VOIX.duree_totale - .1);
+
+window.seek = t => tl.seek(t, false);
+document.fonts.ready.then(() => { window.PRET = true; });
+</script>
+<!--__APERCU__-->
+</body></html>

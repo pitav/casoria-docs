@@ -1,0 +1,41 @@
+  /* ═════════════════════════════════════════════════════════════════════════
+     AJOUT DU 16 SEPTEMBRE 2026 — <TrouveErreurBilan />
+     À coller à la fin du bloc `.activite { … }`. Additif : rien d'existant
+     n'est modifié.
+     ═════════════════════════════════════════════════════════════════════════ */
+
+  /* ── Une ligne de document sur laquelle on clique ────────────────────────
+     Le document reste en slate ; seul le survol et le focus prennent l'amber
+     de l'activité. Le bouton déborde de 8 px de chaque côté pour que le texte
+     reste aligné sur le titre du document. */
+  .ligne-choix {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
+    width: calc(100% + 16px); margin: 0 -8px; padding: 6px 8px;
+    border: 0; border-bottom: 1px solid var(--color-slate-100);
+    background: transparent; font: inherit; text-align: left; color: var(--color-slate-800);
+    cursor: pointer;
+    transition-property: color, background-color, box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 0.15s;
+    &:hover { border-radius: var(--radius-md); background: var(--color-amber-50); box-shadow: inset 0 0 0 1px var(--color-amber-300); }
+    &:focus-visible { outline: 2px solid var(--color-amber-500); outline-offset: 1px; }
+    &[aria-disabled="true"] { cursor: default; }
+    &[aria-disabled="true"]:hover { background: transparent; box-shadow: none; }
+  }
+  .ligne-choix-libelle { font-size: 0.72rem; line-height: 1.3; }
+  .ligne-choix-libelle b { color: var(--color-slate-700); }
+  .ligne-choix-montant { display: inline-flex; align-items: baseline; gap: 6px; font-size: 0.72rem; }
+
+  /* une ligne vérifiée juste : elle s'éteint et porte sa coche lime */
+  .ligne-juste, .ligne-juste .ligne-choix-libelle b { color: var(--color-slate-400); }
+  .coche { font-weight: 700; color: var(--color-lime-600); }
+
+  /* la ligne trouvée : acquise (filet lime), barrée, et elle dit où elle va.
+     La destination est hors du `.barre` : un trait ne se retire pas d'un enfant. */
+  .ligne-trouvee {
+    border-radius: var(--radius-md); background: var(--color-lime-50); box-shadow: inset 3px 0 0 var(--color-lime-500);
+    &[aria-disabled="true"]:hover { background: var(--color-lime-50); box-shadow: inset 3px 0 0 var(--color-lime-500); }
+    .barre { text-decoration: line-through; text-decoration-thickness: 1.5px; color: var(--color-slate-500); }
+  }
+  .ligne-destination {
+    display: block; margin-top: 2px; font-size: 0.63rem; font-weight: 600; color: var(--color-lime-700);
+  }

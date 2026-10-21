@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<style>
+/* Variables nommées comme celles de Tailwind : le portage en .vue reprendra
+   ces règles telles quelles sous .illustration. */
+:root{
+  --color-white:#fff;
+  --color-slate-50:#f8fafc; --color-slate-100:#f1f5f9; --color-slate-200:#e2e8f0;
+  --color-slate-300:#cbd5e1; --color-slate-400:#94a3b8; --color-slate-500:#64748b;
+  --color-slate-600:#475569; --color-slate-700:#334155; --color-slate-800:#1e293b;
+  --color-slate-900:#0f172a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,"Segoe UI",sans-serif;background:#fff;color:var(--color-slate-900)}
+
+/* Accessibilité : aucun texte sous 0,6rem ni plus clair que slate-500 ;
+   tout trait qui porte un sens au moins en slate-500. */
+.img{width:100%;max-width:720px;background:var(--color-white);container-type:inline-size}
+.cadre{padding:22px 24px 20px}
+
+.quand{font-size:.63rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--color-slate-500)}
+
+/* ── le graphe ─────────────────────────────────────────────────────────
+   Trois colonnes : intitulé, piste, montant. Une seule échelle pour toutes
+   les barres : la plus longue, 63 000 €, prend la piste entière. Chaque
+   barre porte son montant en variable (--m), la proportion est donc exacte.
+   Les montants ont leur colonne à droite pour que le trait de la
+   trésorerie ne passe sur aucun chiffre. */
+.graphe{
+  --libelles:150px;   /* colonne des intitulés */
+  --montant:96px;     /* colonne des montants */
+  --max:63000;
+  position:relative;margin-top:16px;
+  display:grid;grid-template-columns:var(--libelles) 1fr var(--montant);align-items:center;row-gap:8px
+}
+.groupe{grid-column:1/-1;margin-top:10px;font-size:.6rem;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--color-slate-500)}
+.groupe:first-of-type{margin-top:0}
+.groupe.projet{margin-top:18px;padding-top:12px;border-top:1px solid var(--color-slate-200)}
+
+.lib{font-size:.72rem;line-height:1.2;color:var(--color-slate-700);padding-right:10px}
+.piste{min-width:0}
+.barre{display:block;height:22px;border-radius:4px;width:calc(100% * var(--m) / var(--max))}
+.val{padding-left:12px;text-align:right;font-size:.86rem;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* Actif : barre pleine. Passif : même encre, en trait plein — il joue en
+   sens inverse. Projet : trait pointillé — pas encore (règle du Chapitre 4). */
+.actif  .barre{background:var(--color-slate-800)}
+.passif .barre{background:var(--color-white);border:1.5px solid var(--color-slate-700)}
+.projet .barre{background:var(--color-white);border:1.5px dashed var(--color-slate-700)}
+
+/* Le niveau de la trésorerie, prolongé sur tout le graphe : c'est l'extrémité
+   de sa barre, pas un second élément. Il ne porte donc pas de nombre. */
+.niveau{position:absolute;top:-4px;bottom:0;width:0;
+  left:calc(var(--libelles) + (100% - var(--libelles) - var(--montant)) * 17310 / var(--max));
+  border-left:1.5px dashed var(--color-slate-500)}
+.niveau span{position:absolute;bottom:100%;left:0;transform:translateX(-50%);margin-bottom:3px;
+  font-size:.6rem;font-weight:600;white-space:nowrap;color:var(--color-slate-500)}
+
+/* ── En étroit : l'intitulé passe au-dessus de sa barre ────────────────
+   Même échelle ; seule la colonne des intitulés disparaît. L'intitulé
+   passe devant le trait (fond blanc sous le texte seul). Seuil en em pour
+   qu'il se déclenche aussi quand le texte seul est agrandi. */
+@container (max-width: 32em){
+  .cadre{padding:18px 14px 16px}
+  .graphe{--libelles:0px;--montant:78px;grid-template-columns:1fr var(--montant);row-gap:2px;margin-top:24px}
+  .lib{grid-column:1/-1;padding:0;margin-top:6px;position:relative;z-index:1}
+  .lib span{background:var(--color-white);padding-right:4px}
+  .groupe{margin-top:8px}
+  .groupe.projet{margin-top:14px}
+  .barre{height:18px}
+  .val{font-size:.8rem}
+}
+</style></head><body>
+
+<div class="img" id="img" role="img" aria-label="Au 31 décembre, quatre lignes du Bilan de Latitude Café à la même échelle. À l'Actif : Stock, 15 000 € ; Créances clients, 63 000 € ; Trésorerie, 17 310 €. Au Passif : Dettes fournisseurs, 9 000 €. Un trait pointillé prolonge la trésorerie sur toute la hauteur : seules les créances clients le dépassent, le stock s'arrête un peu avant. En dessous, à la même échelle et en pointillé, la machine à torréfier, 43 200 €, bien au-delà du trait.">
+<div class="cadre" aria-hidden="true">
+  <div class="quand">Au 31&nbsp;décembre</div>
+
+  <div class="graphe">
+    <span class="niveau"><span>la trésorerie</span></span>
+
+    <div class="groupe">Actif</div>
+
+    <div class="lib"><span>Stock</span></div>
+    <div class="piste actif"><span class="barre" style="--m:15000"></span></div><div class="val">15&nbsp;000&nbsp;€</div>
+
+    <div class="lib"><span>Créances clients</span></div>
+    <div class="piste actif"><span class="barre" style="--m:63000"></span></div><div class="val">63&nbsp;000&nbsp;€</div>
+
+    <div class="lib"><span>Trésorerie</span></div>
+    <div class="piste actif"><span class="barre" style="--m:17310"></span></div><div class="val">17&nbsp;310&nbsp;€</div>
+
+    <div class="groupe">Passif</div>
+
+    <div class="lib"><span>Dettes fournisseurs</span></div>
+    <div class="piste passif"><span class="barre" style="--m:9000"></span></div><div class="val">9&nbsp;000&nbsp;€</div>
+
+    <div class="groupe projet">À côté</div>
+
+    <div class="lib"><span>Machine à torréfier</span></div>
+    <div class="piste projet"><span class="barre" style="--m:43200"></span></div><div class="val">43&nbsp;200&nbsp;€</div>
+  </div>
+</div>
+</div>
+
+</body></html>
